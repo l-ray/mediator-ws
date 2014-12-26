@@ -25,17 +25,20 @@
   xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd">
  
   <!--  bean name="javax.sql.DataSource/myBlockDatabase" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
-    <property name="driverClassName" value="com.mysql.jdbc.Driver"/>
-    <property name="url" value="jdbc:mysql://127.0.0.1:8890/mediator-ws"/>
-    <property name="username" value="root"/>
+    <property name="driverClassName" value="org.postgresql.Driver"/>
+    <property name="url" value="jdbc:postgres://ec2-54-225-136-187.compute-1.amazonaws.com:5432/dffrn6btgo02f"/>
+    <property name="username" value="rneehhzghadajo"/>
+    <property name="password" value="uxzS96h2tBh7TDvBtBXcFXQ2CM"/>
   </bean -->
   
   <bean name="org.apache.avalon.excalibur.datasource.DataSourceComponent/myBlockDatabase" class="org.apache.cocoon.databases.bridge.spring.avalon.SpringToAvalonDataSourceWrapper"> 
         <property name="wrappedBean"> 
             <bean class="org.springframework.jdbc.datasource.DriverManagerDataSource" > 
-              <property name="driverClassName" value="com.mysql.jdbc.Driver"/> 
-              <property name="url" value="jdbc:mysql://127.0.0.1:3306/mediator_ws"/> 
-              <property name="username" value="root"/> 
+              <property name="driverClassName" value="org.postgresql.Driver"/>
+              <property name="url" value="jdbc:postgresql://ec2-54-225-136-187.compute-1.amazonaws.com:5432/dffrn6btgo02f?ssl=true&amp;sslfactory=org.postgresql.ssl.NonValidatingFactory"/>
+              <property name="username" value="rneehhzghadajo"/>
+              <property name="password" value="uxzS96h2tBh7TDvBtBXcFXQ2CM"/>
+
             </bean> 
         </property> 
     </bean>

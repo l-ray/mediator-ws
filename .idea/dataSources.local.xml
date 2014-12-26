@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="dataSourceStorageLocal">
+    <data-source name="PostgreSQL - dffrn6btgo02f?ssl=true&amp;sslfactory=org.postgresql.ssl.NonValidatingFactory@ec2-54-225-136-187.compute-1.amazonaws.com" uuid="901316f0-4b0f-432f-8164-f2b40d7ddb4f">
+      <secret-storage>master_key</secret-storage>
+      <user-name>rneehhzghadajo</user-name>
+      <schema-pattern>dffrn6btgo02f.pg_catalog dffrn6btgo02f.public</schema-pattern>
+      <default-schemas>dffrn6btgo02f.pg_catalog dffrn6btgo02f.public</default-schemas>
+    </data-source>
+    <data-source name="MySQL - mediator_ws@localhost" uuid="dca8d6b3-003d-4251-9e3c-b56c6d65fde6">
+      <secret-storage>master_key</secret-storage>
+      <user-name>root</user-name>
+      <schema-pattern>mediator_ws.*</schema-pattern>
+      <default-schemas>mediator_ws.*</default-schemas>
+    </data-source>
+  </component>
+</project>

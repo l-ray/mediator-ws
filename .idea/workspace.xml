@@ -1,0 +1,592 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="6bc9501b-9fe0-4f08-a2ef-db71be166b7c" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.gitignore" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/META-INF/MANIFEST.MF" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/myBlock1-1.0.1-SNAPSHOT.jar" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/org/apache/commons/httpclient/contrib/ssl/AuthSSLInitializationError.class" afterPath="$PROJECT_DIR$/target/classes/org/apache/commons/httpclient/contrib/ssl/AuthSSLInitializationError.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/org/apache/commons/httpclient/contrib/ssl/AuthSSLProtocolSocketFactory.class" afterPath="$PROJECT_DIR$/target/classes/org/apache/commons/httpclient/contrib/ssl/AuthSSLProtocolSocketFactory.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/org/apache/commons/httpclient/contrib/ssl/AuthSSLX509TrustManager.class" afterPath="$PROJECT_DIR$/target/classes/org/apache/commons/httpclient/contrib/ssl/AuthSSLX509TrustManager.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/org/webharvest/definition/BaseElementDef.class" afterPath="$PROJECT_DIR$/target/classes/org/webharvest/definition/BaseElementDef.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/org/webharvest/exception/BaseException.class" afterPath="$PROJECT_DIR$/target/classes/org/webharvest/exception/BaseException.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/org/webharvest/runtime/processors/BaseProcessor.class" afterPath="$PROJECT_DIR$/target/classes/org/webharvest/runtime/processors/BaseProcessor.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/org/webharvest/runtime/templaters/BaseTemplater.class" afterPath="$PROJECT_DIR$/target/classes/org/webharvest/runtime/templaters/BaseTemplater.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/org/webharvest/runtime/scripting/BeanShellScriptEngine.class" afterPath="$PROJECT_DIR$/target/classes/org/webharvest/runtime/scripting/BeanShellScriptEngine.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/org/webharvest/runtime/processors/BodyProcessor.class" afterPath="$PROJECT_DIR$/target/classes/org/webharvest/runtime/processors/BodyProcessor.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/org/webharvest/definition/CallDef.class" afterPath="$PROJECT_DIR$/target/classes/org/webharvest/definition/CallDef.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/org/webharvest/definition/CallParamDef.class" afterPath="$PROJECT_DIR$/target/classes/org/webharvest/definition/CallParamDef.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/org/webharvest/runtime/processors/CallParamProcessor.class" afterPath="$PROJECT_DIR$/target/classes/org/webharvest/runtime/processors/CallParamProcessor.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/org/webharvest/runtime/processors/CallProcessor.class" afterPath="$PROJECT_DIR$/target/classes/org/webharvest/runtime/processors/CallProcessor.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/org/webharvest/definition/CaseDef.class" afterPath="$PROJECT_DIR$/target/classes/org/webharvest/definition/CaseDef.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/org/webharvest/runtime/processors/CaseProcessor.class" afterPath="$PROJECT_DIR$/target/classes/org/webharvest/runtime/processors/CaseProcessor.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/org/webharvest/utils/Catalog.class" afterPath="$PROJECT_DIR$/target/classes/org/webharvest/utils/Catalog.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/org/webharvest/utils/CommonUtil$IntPair.class" afterPath="$PROJECT_DIR$/target/classes/org/webharvest/utils/CommonUtil$IntPair.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/org/webharvest/utils/CommonUtil.class" afterPath="$PROJECT_DIR$/target/classes/org/webharvest/utils/CommonUtil.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/org/webharvest/exception/ConfigurationException.class" afterPath="$PROJECT_DIR$/target/classes/org/webharvest/exception/ConfigurationException.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/org/webharvest/definition/ConstantDef.class" afterPath="$PROJECT_DIR$/target/classes/org/webharvest/definition/ConstantDef.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/org/webharvest/runtime/processors/ConstantProcessor.class" afterPath="$PROJECT_DIR$/target/classes/org/webharvest/runtime/processors/ConstantProcessor.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/org/webharvest/utils/Constants.class" afterPath="$PROJECT_DIR$/target/classes/org/webharvest/utils/Constants.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/mycompany/myBlock1/database/DataBaseConnectionSingleton.class" afterPath="$PROJECT_DIR$/target/classes/com/mycompany/myBlock1/database/DataBaseConnectionSingleton.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/org/webharvest/definition/DefinitionResolver.class" afterPath="$PROJECT_DIR$/target/classes/org/webharvest/definition/DefinitionResolver.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/org/apache/commons/httpclient/contrib/ssl/EasySSLProtocolSocketFactory.class" afterPath="$PROJECT_DIR$/target/classes/org/apache/commons/httpclient/contrib/ssl/EasySSLProtocolSocketFactory.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/org/apache/commons/httpclient/contrib/ssl/EasyX509TrustManager.class" afterPath="$PROJECT_DIR$/target/classes/org/apache/commons/httpclient/contrib/ssl/EasyX509TrustManager.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/org/webharvest/definition/ElementInfo.class" afterPath="$PROJECT_DIR$/target/classes/org/webharvest/definition/ElementInfo.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/org/webharvest/definition/EmptyDef.class" afterPath="$PROJECT_DIR$/target/classes/org/webharvest/definition/EmptyDef.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/org/webharvest/runtime/processors/EmptyProcessor.class" afterPath="$PROJECT_DIR$/target/classes/org/webharvest/runtime/processors/EmptyProcessor.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/org/webharvest/runtime/variables/EmptyVariable.class" afterPath="$PROJECT_DIR$/target/classes/org/webharvest/runtime/variables/EmptyVariable.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/org/webharvest/exception/ErrMsg.class" afterPath="$PROJECT_DIR$/target/classes/org/webharvest/exception/ErrMsg.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/org/webharvest/definition/ExitDef.class" afterPath="$PROJECT_DIR$/target/classes/org/webharvest/definition/ExitDef.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/org/webharvest/runtime/processors/ExitProcessor.class" afterPath="$PROJECT_DIR$/target/classes/org/webharvest/runtime/processors/ExitProcessor.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/org/webharvest/definition/FileDef.class" afterPath="$PROJECT_DIR$/target/classes/org/webharvest/definition/FileDef.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/org/webharvest/exception/FileException.class" afterPath="$PROJECT_DIR$/target/classes/org/webharvest/exception/FileException.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/org/webharvest/runtime/processors/FileProcessor.class" afterPath="$PROJECT_DIR$/target/classes/org/webharvest/runtime/processors/FileProcessor.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/org/webharvest/definition/FunctionDef.class" afterPath="$PROJECT_DIR$/target/classes/org/webharvest/definition/FunctionDef.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/org/webharvest/exception/FunctionException.class" afterPath="$PROJECT_DIR$/target/classes/org/webharvest/exception/FunctionException.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/org/webharvest/runtime/processors/FunctionProcessor.class" afterPath="$PROJECT_DIR$/target/classes/org/webharvest/runtime/processors/FunctionProcessor.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/org/webharvest/runtime/scripting/GroovyScriptEngine.class" afterPath="$PROJECT_DIR$/target/classes/org/webharvest/runtime/scripting/GroovyScriptEngine.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/mycompany/myBlock1/generation/HelloWorldGenerator.class" afterPath="$PROJECT_DIR$/target/classes/com/mycompany/myBlock1/generation/HelloWorldGenerator.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/org/webharvest/definition/HtmlToXmlDef.class" afterPath="$PROJECT_DIR$/target/classes/org/webharvest/definition/HtmlToXmlDef.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/org/webharvest/runtime/web/HttpClientManager.class" afterPath="$PROJECT_DIR$/target/classes/org/webharvest/runtime/web/HttpClientManager.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/org/webharvest/definition/HttpDef.class" afterPath="$PROJECT_DIR$/target/classes/org/webharvest/definition/HttpDef.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/org/webharvest/exception/HttpException.class" afterPath="$PROJECT_DIR$/target/classes/org/webharvest/exception/HttpException.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/org/webharvest/definition/HttpHeaderDef.class" afterPath="$PROJECT_DIR$/target/classes/org/webharvest/definition/HttpHeaderDef.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/org/webharvest/runtime/processors/HttpHeaderProcessor.class" afterPath="$PROJECT_DIR$/target/classes/org/webharvest/runtime/processors/HttpHeaderProcessor.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/org/webharvest/runtime/web/HttpInfo.class" afterPath="$PROJECT_DIR$/target/classes/org/webharvest/runtime/web/HttpInfo.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/org/webharvest/definition/HttpParamDef.class" afterPath="$PROJECT_DIR$/target/classes/org/webharvest/definition/HttpParamDef.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/org/webharvest/runtime/processors/HttpParamProcessor.class" afterPath="$PROJECT_DIR$/target/classes/org/webharvest/runtime/processors/HttpParamProcessor.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/org/webharvest/runtime/processors/HttpProcessor.class" afterPath="$PROJECT_DIR$/target/classes/org/webharvest/runtime/processors/HttpProcessor.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/org/webharvest/runtime/web/HttpResponseWrapper.class" afterPath="$PROJECT_DIR$/target/classes/org/webharvest/runtime/web/HttpResponseWrapper.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/org/webharvest/definition/IElementDef.class" afterPath="$PROJECT_DIR$/target/classes/org/webharvest/definition/IElementDef.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/org/webharvest/runtime/web/IHttpManager.class" afterPath="$PROJECT_DIR$/target/classes/org/webharvest/runtime/web/IHttpManager.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/org/webharvest/definition/IfDef.class" afterPath="$PROJECT_DIR$/target/classes/org/webharvest/definition/IfDef.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/org/webharvest/definition/IncludeDef.class" afterPath="$PROJECT_DIR$/target/classes/org/webharvest/definition/IncludeDef.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/org/webharvest/runtime/processors/IncludeProcessor.class" afterPath="$PROJECT_DIR$/target/classes/org/webharvest/runtime/processors/IncludeProcessor.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/org/webharvest/runtime/scripting/JavascriptScriptEngine.class" afterPath="$PROJECT_DIR$/target/classes/org/webharvest/runtime/scripting/JavascriptScriptEngine.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/org/webharvest/utils/KeyValuePair.class" afterPath="$PROJECT_DIR$/target/classes/org/webharvest/utils/KeyValuePair.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/org/webharvest/runtime/variables/ListVariable.class" afterPath="$PROJECT_DIR$/target/classes/org/webharvest/runtime/variables/ListVariable.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/org/webharvest/definition/LoopDef.class" afterPath="$PROJECT_DIR$/target/classes/org/webharvest/definition/LoopDef.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/org/webharvest/runtime/processors/LoopProcessor$Filter.class" afterPath="$PROJECT_DIR$/target/classes/org/webharvest/runtime/processors/LoopProcessor$Filter.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/org/webharvest/runtime/processors/LoopProcessor$IntRange.class" afterPath="$PROJECT_DIR$/target/classes/org/webharvest/runtime/processors/LoopProcessor$IntRange.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/org/webharvest/runtime/processors/LoopProcessor$IntSublist.class" afterPath="$PROJECT_DIR$/target/classes/org/webharvest/runtime/processors/LoopProcessor$IntSublist.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/org/webharvest/runtime/processors/LoopProcessor.class" afterPath="$PROJECT_DIR$/target/classes/org/webharvest/runtime/processors/LoopProcessor.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/mycompany/myBlock1/MyBean.class" afterPath="$PROJECT_DIR$/target/classes/com/mycompany/myBlock1/MyBean.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/org/webharvest/runtime/variables/NodeVariable.class" afterPath="$PROJECT_DIR$/target/classes/org/webharvest/runtime/variables/NodeVariable.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/org/webharvest/exception/ParserException.class" afterPath="$PROJECT_DIR$/target/classes/org/webharvest/exception/ParserException.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/mycompany/myBlock1/generation/PatternCodeGenerator.class" afterPath="$PROJECT_DIR$/target/classes/com/mycompany/myBlock1/generation/PatternCodeGenerator.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/org/webharvest/runtime/processors/ProcessorResolver.class" afterPath="$PROJECT_DIR$/target/classes/org/webharvest/runtime/processors/ProcessorResolver.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/org/webharvest/definition/RegexpDef.class" afterPath="$PROJECT_DIR$/target/classes/org/webharvest/definition/RegexpDef.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/org/webharvest/runtime/processors/RegexpProcessor.class" afterPath="$PROJECT_DIR$/target/classes/org/webharvest/runtime/processors/RegexpProcessor.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/mycompany/myBlock1/generation/RequestExampleGenerator.class" afterPath="$PROJECT_DIR$/target/classes/com/mycompany/myBlock1/generation/RequestExampleGenerator.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/org/webharvest/definition/ReturnDef.class" afterPath="$PROJECT_DIR$/target/classes/org/webharvest/definition/ReturnDef.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/org/webharvest/runtime/processors/ReturnProcessor.class" afterPath="$PROJECT_DIR$/target/classes/org/webharvest/runtime/processors/ReturnProcessor.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/org/webharvest/runtime/RuntimeConfig.class" afterPath="$PROJECT_DIR$/target/classes/org/webharvest/runtime/RuntimeConfig.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/org/webharvest/runtime/Scraper.class" afterPath="$PROJECT_DIR$/target/classes/org/webharvest/runtime/Scraper.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/org/webharvest/definition/ScraperConfiguration.class" afterPath="$PROJECT_DIR$/target/classes/org/webharvest/definition/ScraperConfiguration.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/org/webharvest/runtime/ScraperContext.class" afterPath="$PROJECT_DIR$/target/classes/org/webharvest/runtime/ScraperContext.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/org/webharvest/runtime/ScraperRuntimeListener.class" afterPath="$PROJECT_DIR$/target/classes/org/webharvest/runtime/ScraperRuntimeListener.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/org/webharvest/exception/ScraperXPathException.class" afterPath="$PROJECT_DIR$/target/classes/org/webharvest/exception/ScraperXPathException.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/org/webharvest/exception/ScraperXQueryException.class" afterPath="$PROJECT_DIR$/target/classes/org/webharvest/exception/ScraperXQueryException.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/org/webharvest/definition/ScriptDef.class" afterPath="$PROJECT_DIR$/target/classes/org/webharvest/definition/ScriptDef.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/org/webharvest/runtime/scripting/ScriptEngine.class" afterPath="$PROJECT_DIR$/target/classes/org/webharvest/runtime/scripting/ScriptEngine.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/org/webharvest/exception/ScriptException.class" afterPath="$PROJECT_DIR$/target/classes/org/webharvest/exception/ScriptException.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/org/webharvest/runtime/processors/ScriptProcessor.class" afterPath="$PROJECT_DIR$/target/classes/org/webharvest/runtime/processors/ScriptProcessor.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/org/bounce/text/ScrollableEditorPanel.class" afterPath="$PROJECT_DIR$/target/classes/org/bounce/text/ScrollableEditorPanel.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/org/webharvest/runtime/scripting/SetContextVar.class" afterPath="$PROJECT_DIR$/target/classes/org/webharvest/runtime/scripting/SetContextVar.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/de/clubspot/mediator/SourceAdapter.class" afterPath="$PROJECT_DIR$/target/classes/de/clubspot/mediator/SourceAdapter.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/de/clubspot/mediator/templates/SourceTemplate.class" afterPath="$PROJECT_DIR$/target/classes/de/clubspot/mediator/templates/SourceTemplate.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/org/webharvest/utils/Stack.class" afterPath="$PROJECT_DIR$/target/classes/org/webharvest/utils/Stack.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/org/apache/commons/httpclient/contrib/ssl/StrictSSLProtocolSocketFactory.class" afterPath="$PROJECT_DIR$/target/classes/org/apache/commons/httpclient/contrib/ssl/StrictSSLProtocolSocketFactory.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/org/webharvest/utils/SystemUtilities.class" afterPath="$PROJECT_DIR$/target/classes/org/webharvest/utils/SystemUtilities.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/org/webharvest/definition/TemplateDef.class" afterPath="$PROJECT_DIR$/target/classes/org/webharvest/definition/TemplateDef.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/org/webharvest/exception/TemplateException.class" afterPath="$PROJECT_DIR$/target/classes/org/webharvest/exception/TemplateException.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/org/webharvest/runtime/processors/TemplateProcessor.class" afterPath="$PROJECT_DIR$/target/classes/org/webharvest/runtime/processors/TemplateProcessor.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/org/webharvest/exception/TemplaterException.class" afterPath="$PROJECT_DIR$/target/classes/org/webharvest/exception/TemplaterException.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/mycompany/myBlock1/transformation/TermWeightTransformer.class" afterPath="$PROJECT_DIR$/target/classes/com/mycompany/myBlock1/transformation/TermWeightTransformer.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/org/webharvest/definition/TextDef.class" afterPath="$PROJECT_DIR$/target/classes/org/webharvest/definition/TextDef.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/org/webharvest/runtime/processors/TextProcessor.class" afterPath="$PROJECT_DIR$/target/classes/org/webharvest/runtime/processors/TextProcessor.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/org/webharvest/definition/TryDef.class" afterPath="$PROJECT_DIR$/target/classes/org/webharvest/definition/TryDef.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/org/webharvest/runtime/processors/TryProcessor.class" afterPath="$PROJECT_DIR$/target/classes/org/webharvest/runtime/processors/TryProcessor.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/org/webharvest/runtime/variables/Types.class" afterPath="$PROJECT_DIR$/target/classes/org/webharvest/runtime/variables/Types.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/de/clubspot/mediator/criteria/UrlDateWrapper.class" afterPath="$PROJECT_DIR$/target/classes/de/clubspot/mediator/criteria/UrlDateWrapper.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/org/webharvest/definition/VarDef.class" afterPath="$PROJECT_DIR$/target/classes/org/webharvest/definition/VarDef.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/org/webharvest/definition/VarDefDef.class" afterPath="$PROJECT_DIR$/target/classes/org/webharvest/definition/VarDefDef.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/org/webharvest/runtime/processors/VarDefProcessor.class" afterPath="$PROJECT_DIR$/target/classes/org/webharvest/runtime/processors/VarDefProcessor.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/org/webharvest/runtime/processors/VarProcessor.class" afterPath="$PROJECT_DIR$/target/classes/org/webharvest/runtime/processors/VarProcessor.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/org/webharvest/runtime/variables/Variable.class" afterPath="$PROJECT_DIR$/target/classes/org/webharvest/runtime/variables/Variable.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/org/webharvest/exception/VariableException.class" afterPath="$PROJECT_DIR$/target/classes/org/webharvest/exception/VariableException.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/de/clubspot/mediator/WebHarvestAdapter.class" afterPath="$PROJECT_DIR$/target/classes/de/clubspot/mediator/WebHarvestAdapter.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/de/clubspot/mediator/templates/WebHarvestTemplate.class" afterPath="$PROJECT_DIR$/target/classes/de/clubspot/mediator/templates/WebHarvestTemplate.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/de/clubspot/mediator/templates/WebHarvestTemplateCollection.class" afterPath="$PROJECT_DIR$/target/classes/de/clubspot/mediator/templates/WebHarvestTemplateCollection.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/mycompany/myBlock1/transformation/WebHarvestTransformer.class" afterPath="$PROJECT_DIR$/target/classes/com/mycompany/myBlock1/transformation/WebHarvestTransformer.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/org/webharvest/definition/WhileDef.class" afterPath="$PROJECT_DIR$/target/classes/org/webharvest/definition/WhileDef.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/org/webharvest/runtime/processors/WhileProcessor.class" afterPath="$PROJECT_DIR$/target/classes/org/webharvest/runtime/processors/WhileProcessor.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/org/bounce/text/xml/WrappedXMLView.class" afterPath="$PROJECT_DIR$/target/classes/org/bounce/text/xml/WrappedXMLView.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/org/bounce/text/xml/XMLContext.class" afterPath="$PROJECT_DIR$/target/classes/org/bounce/text/xml/XMLContext.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/org/bounce/text/xml/XMLDocument.class" afterPath="$PROJECT_DIR$/target/classes/org/bounce/text/xml/XMLDocument.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/org/bounce/text/xml/XMLEditorKit$XMLViewFactory.class" afterPath="$PROJECT_DIR$/target/classes/org/bounce/text/xml/XMLEditorKit$XMLViewFactory.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/org/bounce/text/xml/XMLEditorKit.class" afterPath="$PROJECT_DIR$/target/classes/org/bounce/text/xml/XMLEditorKit.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/org/bounce/text/xml/XMLInputReader.class" afterPath="$PROJECT_DIR$/target/classes/org/bounce/text/xml/XMLInputReader.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/org/bounce/text/xml/XMLInputStream.class" afterPath="$PROJECT_DIR$/target/classes/org/bounce/text/xml/XMLInputStream.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/org/bounce/text/xml/XMLScanner$AttributeScanner.class" afterPath="$PROJECT_DIR$/target/classes/org/bounce/text/xml/XMLScanner$AttributeScanner.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/org/bounce/text/xml/XMLScanner$CDataScanner.class" afterPath="$PROJECT_DIR$/target/classes/org/bounce/text/xml/XMLScanner$CDataScanner.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/org/bounce/text/xml/XMLScanner$CommentScanner.class" afterPath="$PROJECT_DIR$/target/classes/org/bounce/text/xml/XMLScanner$CommentScanner.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/org/bounce/text/xml/XMLScanner$ElementEndTagScanner.class" afterPath="$PROJECT_DIR$/target/classes/org/bounce/text/xml/XMLScanner$ElementEndTagScanner.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/org/bounce/text/xml/XMLScanner$ElementNameScanner.class" afterPath="$PROJECT_DIR$/target/classes/org/bounce/text/xml/XMLScanner$ElementNameScanner.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/org/bounce/text/xml/XMLScanner$ElementStartTagScanner.class" afterPath="$PROJECT_DIR$/target/classes/org/bounce/text/xml/XMLScanner$ElementStartTagScanner.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/org/bounce/text/xml/XMLScanner$EntityTagScanner.class" afterPath="$PROJECT_DIR$/target/classes/org/bounce/text/xml/XMLScanner$EntityTagScanner.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/org/bounce/text/xml/XMLScanner$Scanner.class" afterPath="$PROJECT_DIR$/target/classes/org/bounce/text/xml/XMLScanner$Scanner.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/org/bounce/text/xml/XMLScanner$TagScanner.class" afterPath="$PROJECT_DIR$/target/classes/org/bounce/text/xml/XMLScanner$TagScanner.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/org/bounce/text/xml/XMLScanner.class" afterPath="$PROJECT_DIR$/target/classes/org/bounce/text/xml/XMLScanner.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/org/bounce/text/xml/XMLStyleConstants.class" afterPath="$PROJECT_DIR$/target/classes/org/bounce/text/xml/XMLStyleConstants.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/org/bounce/text/xml/XMLView.class" afterPath="$PROJECT_DIR$/target/classes/org/bounce/text/xml/XMLView.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/org/bounce/text/xml/XMLViewUtilities.class" afterPath="$PROJECT_DIR$/target/classes/org/bounce/text/xml/XMLViewUtilities.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/org/webharvest/definition/XPathDef.class" afterPath="$PROJECT_DIR$/target/classes/org/webharvest/definition/XPathDef.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/org/webharvest/runtime/processors/XPathProcessor.class" afterPath="$PROJECT_DIR$/target/classes/org/webharvest/runtime/processors/XPathProcessor.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/org/webharvest/definition/XQueryDef.class" afterPath="$PROJECT_DIR$/target/classes/org/webharvest/definition/XQueryDef.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/org/webharvest/runtime/processors/XQueryExpressionPool.class" afterPath="$PROJECT_DIR$/target/classes/org/webharvest/runtime/processors/XQueryExpressionPool.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/org/webharvest/definition/XQueryExternalParamDef.class" afterPath="$PROJECT_DIR$/target/classes/org/webharvest/definition/XQueryExternalParamDef.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/org/webharvest/runtime/processors/XQueryProcessor.class" afterPath="$PROJECT_DIR$/target/classes/org/webharvest/runtime/processors/XQueryProcessor.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/org/webharvest/definition/XmlNode.class" afterPath="$PROJECT_DIR$/target/classes/org/webharvest/definition/XmlNode.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/org/webharvest/utils/XmlNodeWrapper.class" afterPath="$PROJECT_DIR$/target/classes/org/webharvest/utils/XmlNodeWrapper.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/org/webharvest/definition/XmlParser.class" afterPath="$PROJECT_DIR$/target/classes/org/webharvest/definition/XmlParser.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/org/bounce/text/xml/XmlParserUtils.class" afterPath="$PROJECT_DIR$/target/classes/org/bounce/text/xml/XmlParserUtils.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/org/webharvest/utils/XmlUtil.class" afterPath="$PROJECT_DIR$/target/classes/org/webharvest/utils/XmlUtil.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/org/webharvest/utils/XmlValidator.class" afterPath="$PROJECT_DIR$/target/classes/org/webharvest/utils/XmlValidator.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/org/webharvest/definition/XsltDef.class" afterPath="$PROJECT_DIR$/target/classes/org/webharvest/definition/XsltDef.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/org/webharvest/exception/XsltException.class" afterPath="$PROJECT_DIR$/target/classes/org/webharvest/exception/XsltException.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/org/webharvest/runtime/processors/XsltProcessor.class" afterPath="$PROJECT_DIR$/target/classes/org/webharvest/runtime/processors/XsltProcessor.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/mycompany/myBlock1/database/DataBaseConnectionSingleton.java" afterPath="$PROJECT_DIR$/src/main/java/com/mycompany/myBlock1/database/DataBaseConnectionSingleton.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/META-INF/cocoon/spring/database-connection.xml" afterPath="$PROJECT_DIR$/src/main/resources/META-INF/cocoon/spring/database-connection.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/META-INF/cocoon/spring/database-connection.xml" afterPath="$PROJECT_DIR$/target/classes/META-INF/cocoon/spring/database-connection.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pom.xml" afterPath="$PROJECT_DIR$/pom.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/rcl/webapp/WEB-INF/cocoon/properties/rcl.properties" afterPath="$PROJECT_DIR$/target/rcl/webapp/WEB-INF/cocoon/properties/rcl.properties" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/rcl/webapp/WEB-INF/cocoon/spring/rcl.properties" afterPath="$PROJECT_DIR$/target/rcl/webapp/WEB-INF/cocoon/spring/rcl.properties" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/rcl/webapp/WEB-INF/cocoon/rclwrapper.properties" afterPath="$PROJECT_DIR$/target/rcl/webapp/WEB-INF/cocoon/rclwrapper.properties" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/rcl/webapp/WEB-INF/cocoon/rclwrapper.rcl.conf" afterPath="$PROJECT_DIR$/target/rcl/webapp/WEB-INF/cocoon/rclwrapper.rcl.conf" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/rcl/webapp/WEB-INF/cocoon/rclwrapper.urlcl.conf" afterPath="$PROJECT_DIR$/target/rcl/webapp/WEB-INF/cocoon/rclwrapper.urlcl.conf" />
+    </list>
+    <ignored path="myBlock1.iws" />
+    <ignored path=".idea/workspace.xml" />
+    <ignored path="$PROJECT_DIR$/out/" />
+    <ignored path=".idea/dataSources.local.xml" />
+    <ignored path="$PROJECT_DIR$/target/" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="TRACKING_ENABLED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ChangesViewManager" flattened_view="true" show_ignored="false" />
+  <component name="CreatePatchCommitExecutor">
+    <option name="PATCH_PATH" value="" />
+  </component>
+  <component name="DaemonCodeAnalyzer">
+    <disable_hints />
+  </component>
+  <component name="DatabaseView">
+    <option name="FLATTEN" value="false" />
+    <option name="GROUP_BY_TYPE" value="true" />
+    <option name="SORT_CHILDREN" value="false" />
+    <option name="SHOW_TABLE_CONSTRAINTS" value="true" />
+    <PATH>
+      <PATH_ELEMENT>
+        <option name="myItemId" />
+        <option name="myItemType" value="com.intellij.database.view.DbRootNodeDescriptor" />
+      </PATH_ELEMENT>
+      <PATH_ELEMENT>
+        <option name="myItemId" value="PostgreSQL - dffrn6btgo02f?ssl=true&amp;sslfactory=org.postgresql.ssl.NonValidatingFactory@ec2-54-225-136-187.compute-1.amazonaws.com" />
+        <option name="myItemType" value="com.intellij.database.view.DbNodeDescriptor" />
+      </PATH_ELEMENT>
+    </PATH>
+    <PATH>
+      <PATH_ELEMENT>
+        <option name="myItemId" />
+        <option name="myItemType" value="com.intellij.database.view.DbRootNodeDescriptor" />
+      </PATH_ELEMENT>
+      <PATH_ELEMENT>
+        <option name="myItemId" value="MySQL - mediator_ws@localhost" />
+        <option name="myItemType" value="com.intellij.database.view.DbNodeDescriptor" />
+      </PATH_ELEMENT>
+      <PATH_ELEMENT>
+        <option name="myItemId" value="mediator_ws" />
+        <option name="myItemType" value="com.intellij.database.view.DbNodeDescriptor" />
+      </PATH_ELEMENT>
+    </PATH>
+  </component>
+  <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
+  <component name="FavoritesManager">
+    <favorites_list name="myBlock1" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf>
+      <file leaf-file-name="MySQL - mediator_ws@localhost" pinned="false" current-in-tab="false">
+        <entry file="dbDummy://db-console:/d81a4d73/dca8d6b3-003d-4251-9e3c-b56c6d65fde6/">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="108">
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="DataBaseConnectionSingleton.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/mycompany/myBlock1/database/DataBaseConnectionSingleton.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="510" max-vertical-offset="1422">
+              <caret line="48" column="49" selection-start-line="48" selection-start-column="49" selection-end-line="48" selection-end-column="49" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name=".gitignore" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/.gitignore">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.028257458" vertical-offset="0" max-vertical-offset="637">
+              <caret line="1" column="6" selection-start-line="1" selection-start-column="6" selection-end-line="1" selection-end-column="6" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="pom.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/pom.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="414" max-vertical-offset="3510">
+              <caret line="24" column="21" selection-start-line="24" selection-start-column="21" selection-end-line="24" selection-end-column="21" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="PostgreSQL - dffrn6btgo02f?ssl=true&amp;sslfactory=org.postgresql.ssl.NonValidatingFactory@ec2-54-225-136-187.compute-1.amazonaws.com" pinned="false" current-in-tab="false">
+        <entry file="dbDummy://db-console:/d81a4d73/901316f0-4b0f-432f-8164-f2b40d7ddb4f/">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="108">
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/src/main/java/com/mycompany/myBlock1/database/DataBaseConnectionSingleton.java" />
+        <option value="$PROJECT_DIR$/pom.xml" />
+        <option value="$PROJECT_DIR$/src/main/resources/META-INF/cocoon/spring/database-connection.xml" />
+        <option value="$PROJECT_DIR$/.gitignore" />
+      </list>
+    </option>
+  </component>
+  <component name="JsGulpfileManager">
+    <detection-done>true</detection-done>
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="importingSettings">
+      <MavenImportingSettings>
+        <option name="importAutomatically" value="true" />
+      </MavenImportingSettings>
+    </option>
+  </component>
+  <component name="ProjectFrameBounds">
+    <option name="x" value="-1" />
+    <option name="y" value="-12" />
+    <option name="width" value="1282" />
+    <option name="height" value="813" />
+  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <OptionsSetting value="true" id="Add" />
+    <OptionsSetting value="true" id="Remove" />
+    <OptionsSetting value="true" id="Checkout" />
+    <OptionsSetting value="true" id="Update" />
+    <OptionsSetting value="true" id="Status" />
+    <OptionsSetting value="true" id="Edit" />
+    <ConfirmationsSetting value="0" id="Add" />
+    <ConfirmationsSetting value="0" id="Remove" />
+  </component>
+  <component name="ProjectView">
+    <navigator currentView="ProjectPane" proportions="" version="1">
+      <flattenPackages />
+      <showMembers />
+      <showModules />
+      <showLibraryContents />
+      <hideEmptyPackages />
+      <abbreviatePackageNames />
+      <autoscrollToSource />
+      <autoscrollFromSource />
+      <sortByType />
+    </navigator>
+    <panes>
+      <pane id="PackagesPane" />
+      <pane id="Scope" />
+      <pane id="ProjectPane">
+        <subPane>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="myBlock1" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="GoToClass.includeLibraries" value="false" />
+    <property name="GoToClass.toSaveIncludeLibraries" value="false" />
+    <property name="GoToFile.includeJavaFiles" value="false" />
+    <property name="MemberChooser.sorted" value="false" />
+    <property name="MemberChooser.showClasses" value="true" />
+    <property name="MemberChooser.copyJavadoc" value="false" />
+    <property name="options.lastSelected" value="Errors" />
+    <property name="options.splitter.main.proportions" value="0.3" />
+    <property name="options.splitter.details.proportions" value="0.2" />
+    <property name="options.searchVisible" value="true" />
+    <property name="project.structure.last.edited" value="Problems" />
+    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.2" />
+    <property name="HbShouldOpenHtmlAsHb" value="" />
+    <property name="dynamic.classpath" value="false" />
+  </component>
+  <component name="RunManager">
+    <configuration default="true" type="Remote" factoryName="Remote">
+      <option name="USE_SOCKET_TRANSPORT" value="true" />
+      <option name="SERVER_MODE" value="false" />
+      <option name="SHMEM_ADDRESS" value="javadebug" />
+      <option name="HOST" value="localhost" />
+      <option name="PORT" value="5005" />
+      <method />
+    </configuration>
+    <configuration default="true" type="JUnit" factoryName="JUnit">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <module name="" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="METHOD_NAME" />
+      <option name="TEST_OBJECT" value="class" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="moduleWithDependencies" />
+      </option>
+      <envs />
+      <patterns />
+      <method />
+    </configuration>
+    <configuration default="true" type="JavascriptDebugType" factoryName="JavaScript Debug">
+      <method />
+    </configuration>
+    <configuration default="true" type="Applet" factoryName="Applet">
+      <module name="" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="HTML_FILE_NAME" />
+      <option name="HTML_USED" value="false" />
+      <option name="WIDTH" value="400" />
+      <option name="HEIGHT" value="300" />
+      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
+      <option name="VM_PARAMETERS" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <method />
+    </configuration>
+    <configuration default="true" type="JarApplication" factoryName="JAR Application">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="TestNG" factoryName="TestNG">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <module name="" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="SUITE_NAME" />
+      <option name="PACKAGE_NAME" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="METHOD_NAME" />
+      <option name="GROUP_NAME" />
+      <option name="TEST_OBJECT" value="CLASS" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="OUTPUT_DIRECTORY" />
+      <option name="ANNOTATION_TYPE" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="moduleWithDependencies" />
+      </option>
+      <option name="USE_DEFAULT_REPORTERS" value="false" />
+      <option name="PROPERTIES_FILE" />
+      <envs />
+      <properties />
+      <listeners />
+      <method />
+    </configuration>
+    <configuration default="true" type="Application" factoryName="Application">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="" />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="com.intellij.database.run.ConsoleRunConfigurationType" factoryName="Query Language Console">
+      <option name="VM_PARAMETERS" value="" />
+      <option name="USER_CFG_CLASS" />
+      <option name="CONTEXT_PROVIDER" />
+      <method />
+    </configuration>
+    <configuration default="true" type="js.build_tools.gulp" factoryName="Gulp.js">
+      <method />
+    </configuration>
+    <list size="0" />
+    <configuration name="&lt;template&gt;" type="#org.jetbrains.idea.devkit.run.PluginConfigurationType" default="true" selected="false">
+      <option name="VM_PARAMETERS" value="-Xmx512m -Xms256m -XX:MaxPermSize=250m -ea" />
+    </configuration>
+    <configuration name="&lt;template&gt;" type="WebApp" default="true" selected="false">
+      <Host>localhost</Host>
+      <Port>5050</Port>
+    </configuration>
+  </component>
+  <component name="ShelveChangesManager" show_recycled="false" />
+  <component name="ToolWindowManager">
+    <frame x="-1" y="-12" width="1282" height="813" extended-state="6" />
+    <editor active="true" />
+    <layout>
+      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
+      <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2495935" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3292683" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32985073" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+    </layout>
+  </component>
+  <component name="Vcs.Log.UiProperties">
+    <option name="RECENTLY_FILTERED_USER_GROUPS">
+      <collection />
+    </option>
+    <option name="RECENTLY_FILTERED_BRANCH_GROUPS">
+      <collection />
+    </option>
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="myTodoPanelSettings">
+      <TodoPanelSettings />
+    </option>
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager />
+    <watches-manager />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/mycompany/myBlock1/database/DataBaseConnectionSingleton.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="510" max-vertical-offset="1422">
+          <caret line="48" column="49" selection-start-line="48" selection-start-column="49" selection-end-line="48" selection-end-column="49" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="414" max-vertical-offset="3510">
+          <caret line="24" column="21" selection-start-line="24" selection-start-column="21" selection-end-line="24" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="dbDummy://db-console:/d81a4d73/901316f0-4b0f-432f-8164-f2b40d7ddb4f/">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="416">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="uml://DATABASE/dca8d6b3-003d-4251-9e3c-b56c6d65fde6.schema:mediator_ws">
+      <provider selected="true" editor-type-id="UmlEditorProvider">
+        <state>
+          <ID>DATABASE</ID>
+          <OriginalElement>dca8d6b3-003d-4251-9e3c-b56c6d65fde6.schema:mediator_ws</OriginalElement>
+          <nodes>
+            <node x="" y="">dca8d6b3-003d-4251-9e3c-b56c6d65fde6.table:mediator_ws.tx_lrmediator_user_rules</node>
+            <node x="" y="">dca8d6b3-003d-4251-9e3c-b56c6d65fde6.table:mediator_ws.tx_lrmediator_term_weight</node>
+            <node x="" y="">dca8d6b3-003d-4251-9e3c-b56c6d65fde6.table:mediator_ws.tx_lrmediator_user_pattern_mm</node>
+            <node x="" y="">dca8d6b3-003d-4251-9e3c-b56c6d65fde6.table:mediator_ws.tx_lrmediator_categories</node>
+            <node x="" y="">dca8d6b3-003d-4251-9e3c-b56c6d65fde6.table:mediator_ws.tx_lrmediator_pattern</node>
+            <node x="" y="">dca8d6b3-003d-4251-9e3c-b56c6d65fde6.table:mediator_ws.tx_lrmediator_pattern_mm</node>
+          </nodes>
+          <notes />
+          <edges />
+          <settings layout="Hierarchic Group" zoom="0.32042833607907745" x="527.5" y="597.0" />
+          <SelectedNodes />
+          <Categories>
+            <Category>Key columns</Category>
+            <Category>Columns</Category>
+          </Categories>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/META-INF/cocoon/spring/database-connection.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.91067" vertical-offset="353" max-vertical-offset="918">
+          <caret line="40" column="0" selection-start-line="40" selection-start-column="0" selection-end-line="40" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="dbDummy://db-console:/d81a4d73/dca8d6b3-003d-4251-9e3c-b56c6d65fde6/">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="416">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.028257458" vertical-offset="0" max-vertical-offset="637">
+          <caret line="1" column="6" selection-start-line="1" selection-start-column="6" selection-end-line="1" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+  </component>
+</project>

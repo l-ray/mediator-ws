@@ -43,11 +43,11 @@
 			<artifactId>cocoon-core</artifactId>
 			<version>2.2.0</version>
 		</dependency>
-		<dependency>
-			<groupId>mysql</groupId>
-			<artifactId>mysql-connector-java</artifactId>
-			<version>5.1.6</version>
-		</dependency>
+        <dependency>
+            <groupId>postgresql</groupId>
+            <artifactId>postgresql</artifactId>
+            <version>9.1-901.jdbc4</version>
+        </dependency>
 		<dependency>
 			<groupId>org.apache.cocoon</groupId>
 			<artifactId>cocoon-servlet-service-components</artifactId>
@@ -133,7 +133,6 @@
 					</execution>
 				</executions>
 				<configuration>
-					<jdkComplianceLevel>5.0</jdkComplianceLevel>
 				</configuration>
 			</plugin>
 			<plugin>
@@ -158,7 +157,6 @@
 							<value>dev</value>
 						</systemProperty>
 					</systemProperties>
-					<jdkComplianceLevel>5.0</jdkComplianceLevel>
 				</configuration>
 			</plugin>
 			<plugin>
@@ -172,15 +170,11 @@
 							</Cocoon-Block-Name>
 						</manifestEntries>
 					</archive>
-					<jdkComplianceLevel>5.0</jdkComplianceLevel>
 				</configuration>
 			</plugin>
 			<plugin>
 				<artifactId>maven-eclipse-plugin</artifactId>
 				<version>2.5.1</version>
-				<configuration>
-					<jdkComplianceLevel>5.0</jdkComplianceLevel>
-				</configuration>
 			</plugin>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>

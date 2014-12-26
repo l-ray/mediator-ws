@@ -26,7 +26,7 @@ public final class DataBaseConnectionSingleton {
 
 			try 
 		    { 
-		      Class.forName( "com.mysql.jdbc.Driver" ); 
+		      Class.forName( "org.postgresql.Driver" );
 		    } 
 		    catch ( ClassNotFoundException e ) 
 		    { 
@@ -37,16 +37,16 @@ public final class DataBaseConnectionSingleton {
 		    String sDatabase= getProperties().getProperty("db_database");
 		    String sLogin	= getProperties().getProperty("db_login");
 		    String sPasswd	= getProperties().getProperty("db_passwd","");
-		    String sPort 	= getProperties().getProperty("db_port","3306");
+		    String sPort 	= getProperties().getProperty("db_port","5432");
 		    
 		    try 
 		    { 
-		      instance = DriverManager.getConnection( "jdbc:mysql://"+sHost+":"+sPort+"/"+sDatabase+"", sLogin, sPasswd ); 
+		      instance = DriverManager.getConnection( "jdbc:postgres://"+sHost+":"+sPort+"/"+sDatabase+"", sLogin, sPasswd );
 		      
 		    } 
 		    catch ( SQLException e ) 
 		    { 
-		        System.err.println("jdbc:mysql://"+sHost+":"+sPort+"/"+sDatabase+" with Login:"+sLogin+" and PW:"+sPasswd);
+		        System.err.println("jdbc:postgres://"+sHost+":"+sPort+"/"+sDatabase+" with Login:"+sLogin+" and PW:"+sPasswd);
 		    	e.printStackTrace(); 
 		    } 
 		    
