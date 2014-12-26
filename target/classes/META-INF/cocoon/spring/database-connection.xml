@@ -26,18 +26,16 @@
  
   <!--  bean name="javax.sql.DataSource/myBlockDatabase" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
     <property name="driverClassName" value="com.mysql.jdbc.Driver"/>
-    <property name="url" value="jdbc:mysql://127.0.0.1:8890/typo3"/>
+    <property name="url" value="jdbc:mysql://127.0.0.1:8890/mediator-ws"/>
     <property name="username" value="root"/>
-    <property name="password" value="root"/>
   </bean -->
   
   <bean name="org.apache.avalon.excalibur.datasource.DataSourceComponent/myBlockDatabase" class="org.apache.cocoon.databases.bridge.spring.avalon.SpringToAvalonDataSourceWrapper"> 
         <property name="wrappedBean"> 
             <bean class="org.springframework.jdbc.datasource.DriverManagerDataSource" > 
               <property name="driverClassName" value="com.mysql.jdbc.Driver"/> 
-              <property name="url" value="jdbc:mysql://127.0.0.1:3306/diploma"/> 
-              <property name="username" value="typo3"/> 
-              <property name="password" value="l3e0n1n1a8r0t"/> 
+              <property name="url" value="jdbc:mysql://127.0.0.1:3306/mediator_ws"/> 
+              <property name="username" value="root"/> 
             </bean> 
         </property> 
     </bean>
