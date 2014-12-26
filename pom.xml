@@ -30,11 +30,11 @@
 	<artifactId>myBlock1</artifactId>
 	<version>1.0.1-SNAPSHOT</version>
 
-	<parent>
+	<!-- parent>
 		<groupId>com.mycompany</groupId>
 		<artifactId>getting-started-app</artifactId>
 		<version>1.0</version>
-	</parent>
+	</parent -->
 	
 	
 	<dependencies>
