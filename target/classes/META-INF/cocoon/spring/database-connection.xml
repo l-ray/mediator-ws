@@ -38,7 +38,7 @@
               <property name="url" value="jdbc:postgresql://ec2-54-225-136-187.compute-1.amazonaws.com:5432/dffrn6btgo02f?ssl=true&amp;sslfactory=org.postgresql.ssl.NonValidatingFactory"/>
               <property name="username" value="rneehhzghadajo"/>
               <property name="password" value="uxzS96h2tBh7TDvBtBXcFXQ2CM"/>
-              
+
             </bean> 
         </property> 
     </bean>
