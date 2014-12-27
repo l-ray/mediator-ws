@@ -695,6 +695,8 @@
       <column name="oprcode" sqlType="regproc" precision="2147483647" scale="0" nullable="false" jdbcType="1111"/>
       <column name="oprrest" sqlType="regproc" precision="2147483647" scale="0" nullable="false" jdbcType="1111"/>
       <column name="oprjoin" sqlType="regproc" precision="2147483647" scale="0" nullable="false" jdbcType="1111"/>
+      <index name="pg_operator_oid_index" unique="true" columns="oid"/>
+      <index name="pg_operator_oprname_l_r_n_index" unique="true" columns="oprname,oprleft,oprright,oprnamespace"/>
     </table>
     <table name="pg_operator_oid_index" schema="pg_catalog" catalog="dffrn6btgo02f" type="SYSTEM INDEX">
       <column name="oid" sqlType="oid" precision="10" scale="0" nullable="true" jdbcType="-5"/>
@@ -710,6 +712,8 @@
       <column name="opfname" sqlType="name" precision="2147483647" scale="0" nullable="false" jdbcType="12"/>
       <column name="opfnamespace" sqlType="oid" precision="10" scale="0" nullable="false" jdbcType="-5"/>
       <column name="opfowner" sqlType="oid" precision="10" scale="0" nullable="false" jdbcType="-5"/>
+      <index name="pg_opfamily_am_name_nsp_index" unique="true" columns="opfmethod,opfname,opfnamespace"/>
+      <index name="pg_opfamily_oid_index" unique="true" columns="oid"/>
     </table>
     <table name="pg_opfamily_am_name_nsp_index" schema="pg_catalog" catalog="dffrn6btgo02f" type="SYSTEM INDEX">
       <column name="opfmethod" sqlType="oid" precision="10" scale="0" nullable="true" jdbcType="-5"/>
@@ -728,6 +732,7 @@
       <column name="tmplvalidator" sqlType="text" precision="2147483647" scale="0" nullable="true" jdbcType="12"/>
       <column name="tmpllibrary" sqlType="text" precision="2147483647" scale="0" nullable="true" jdbcType="12"/>
       <column name="tmplacl" sqlType="_aclitem" precision="2147483647" scale="0" nullable="true" jdbcType="2003"/>
+      <index name="pg_pltemplate_name_index" unique="true" columns="tmplname"/>
     </table>
     <table name="pg_pltemplate_name_index" schema="pg_catalog" catalog="dffrn6btgo02f" type="SYSTEM INDEX">
       <column name="tmplname" sqlType="cstring" precision="2147483647" scale="0" nullable="true" jdbcType="1111"/>
@@ -774,6 +779,8 @@
       <column name="probin" sqlType="text" precision="2147483647" scale="0" nullable="true" jdbcType="12"/>
       <column name="proconfig" sqlType="_text" precision="2147483647" scale="0" nullable="true" jdbcType="2003"/>
       <column name="proacl" sqlType="_aclitem" precision="2147483647" scale="0" nullable="true" jdbcType="2003"/>
+      <index name="pg_proc_oid_index" unique="true" columns="oid"/>
+      <index name="pg_proc_proname_args_nsp_index" unique="true" columns="proname,proargtypes,pronamespace"/>
     </table>
     <table name="pg_proc_oid_index" schema="pg_catalog" catalog="dffrn6btgo02f" type="SYSTEM INDEX">
       <column name="oid" sqlType="oid" precision="10" scale="0" nullable="true" jdbcType="-5"/>
@@ -790,6 +797,7 @@
       <column name="rngsubopc" sqlType="oid" precision="10" scale="0" nullable="false" jdbcType="-5"/>
       <column name="rngcanonical" sqlType="regproc" precision="2147483647" scale="0" nullable="false" jdbcType="1111"/>
       <column name="rngsubdiff" sqlType="regproc" precision="2147483647" scale="0" nullable="false" jdbcType="1111"/>
+      <index name="pg_range_rngtypid_index" unique="true" columns="rngtypid"/>
     </table>
     <table name="pg_range_rngtypid_index" schema="pg_catalog" catalog="dffrn6btgo02f" type="SYSTEM INDEX">
       <column name="rngtypid" sqlType="oid" precision="10" scale="0" nullable="true" jdbcType="-5"/>
@@ -803,6 +811,8 @@
       <column name="is_instead" sqlType="bool" precision="1" scale="0" nullable="false" jdbcType="-7"/>
       <column name="ev_qual" sqlType="pg_node_tree" precision="2147483647" scale="0" nullable="true" jdbcType="1111"/>
       <column name="ev_action" sqlType="pg_node_tree" precision="2147483647" scale="0" nullable="true" jdbcType="1111"/>
+      <index name="pg_rewrite_oid_index" unique="true" columns="oid"/>
+      <index name="pg_rewrite_rel_rulename_index" unique="true" columns="ev_class,rulename"/>
     </table>
     <table name="pg_rewrite_oid_index" schema="pg_catalog" catalog="dffrn6btgo02f" type="SYSTEM INDEX">
       <column name="oid" sqlType="oid" precision="10" scale="0" nullable="true" jdbcType="-5"/>
@@ -838,6 +848,7 @@
       <column name="objsubid" sqlType="int4" precision="10" scale="0" nullable="false" jdbcType="4"/>
       <column name="provider" sqlType="text" precision="2147483647" scale="0" nullable="true" jdbcType="12"/>
       <column name="label" sqlType="text" precision="2147483647" scale="0" nullable="true" jdbcType="12"/>
+      <index name="pg_seclabel_object_index" unique="true" columns="objoid,classoid,objsubid,provider"/>
     </table>
     <table name="pg_seclabel_object_index" schema="pg_catalog" catalog="dffrn6btgo02f" type="SYSTEM INDEX">
       <column name="objoid" sqlType="oid" precision="10" scale="0" nullable="true" jdbcType="-5"/>
@@ -892,6 +903,8 @@
       <column name="refclassid" sqlType="oid" precision="10" scale="0" nullable="false" jdbcType="-5"/>
       <column name="refobjid" sqlType="oid" precision="10" scale="0" nullable="false" jdbcType="-5"/>
       <column name="deptype" sqlType="char" precision="1" scale="0" nullable="false" jdbcType="1"/>
+      <index name="pg_shdepend_depender_index" unique="false" columns="dbid,classid,objid,objsubid"/>
+      <index name="pg_shdepend_reference_index" unique="false" columns="refclassid,refobjid"/>
     </table>
     <table name="pg_shdepend_depender_index" schema="pg_catalog" catalog="dffrn6btgo02f" type="SYSTEM INDEX">
       <column name="dbid" sqlType="oid" precision="10" scale="0" nullable="true" jdbcType="-5"/>
@@ -907,6 +920,7 @@
       <column name="objoid" sqlType="oid" precision="10" scale="0" nullable="false" jdbcType="-5"/>
       <column name="classoid" sqlType="oid" precision="10" scale="0" nullable="false" jdbcType="-5"/>
       <column name="description" sqlType="text" precision="2147483647" scale="0" nullable="true" jdbcType="12"/>
+      <index name="pg_shdescription_o_c_index" unique="true" columns="objoid,classoid"/>
     </table>
     <table name="pg_shdescription_o_c_index" schema="pg_catalog" catalog="dffrn6btgo02f" type="SYSTEM INDEX">
       <column name="objoid" sqlType="oid" precision="10" scale="0" nullable="true" jdbcType="-5"/>
@@ -917,6 +931,7 @@
       <column name="classoid" sqlType="oid" precision="10" scale="0" nullable="false" jdbcType="-5"/>
       <column name="provider" sqlType="text" precision="2147483647" scale="0" nullable="true" jdbcType="12"/>
       <column name="label" sqlType="text" precision="2147483647" scale="0" nullable="true" jdbcType="12"/>
+      <index name="pg_shseclabel_object_index" unique="true" columns="objoid,classoid,provider"/>
     </table>
     <table name="pg_shseclabel_object_index" schema="pg_catalog" catalog="dffrn6btgo02f" type="SYSTEM INDEX">
       <column name="objoid" sqlType="oid" precision="10" scale="0" nullable="true" jdbcType="-5"/>
@@ -1269,6 +1284,7 @@
       <column name="stavalues3" sqlType="anyarray" precision="2147483647" scale="0" nullable="true" jdbcType="1111"/>
       <column name="stavalues4" sqlType="anyarray" precision="2147483647" scale="0" nullable="true" jdbcType="1111"/>
       <column name="stavalues5" sqlType="anyarray" precision="2147483647" scale="0" nullable="true" jdbcType="1111"/>
+      <index name="pg_statistic_relid_att_inh_index" unique="true" columns="starelid,staattnum,stainherit"/>
     </table>
     <table name="pg_statistic_relid_att_inh_index" schema="pg_catalog" catalog="dffrn6btgo02f" type="SYSTEM INDEX">
       <column name="starelid" sqlType="oid" precision="10" scale="0" nullable="true" jdbcType="-5"/>
@@ -1305,6 +1321,8 @@
       <column name="spcowner" sqlType="oid" precision="10" scale="0" nullable="false" jdbcType="-5"/>
       <column name="spcacl" sqlType="_aclitem" precision="2147483647" scale="0" nullable="true" jdbcType="2003"/>
       <column name="spcoptions" sqlType="_text" precision="2147483647" scale="0" nullable="true" jdbcType="2003"/>
+      <index name="pg_tablespace_oid_index" unique="true" columns="oid"/>
+      <index name="pg_tablespace_spcname_index" unique="true" columns="spcname"/>
     </table>
     <table name="pg_tablespace_oid_index" schema="pg_catalog" catalog="dffrn6btgo02f" type="SYSTEM INDEX">
       <column name="oid" sqlType="oid" precision="10" scale="0" nullable="true" jdbcType="-5"/>
@@ -1339,6 +1357,9 @@
       <column name="tgattr" sqlType="int2vector" precision="2147483647" scale="0" nullable="false" jdbcType="1111"/>
       <column name="tgargs" sqlType="bytea" precision="2147483647" scale="0" nullable="true" jdbcType="-2"/>
       <column name="tgqual" sqlType="pg_node_tree" precision="2147483647" scale="0" nullable="true" jdbcType="1111"/>
+      <index name="pg_trigger_oid_index" unique="true" columns="oid"/>
+      <index name="pg_trigger_tgrelid_tgname_index" unique="true" columns="tgrelid,tgname"/>
+      <index name="pg_trigger_tgconstraint_index" unique="false" columns="tgconstraint"/>
     </table>
     <table name="pg_trigger_oid_index" schema="pg_catalog" catalog="dffrn6btgo02f" type="SYSTEM INDEX">
       <column name="oid" sqlType="oid" precision="10" scale="0" nullable="true" jdbcType="-5"/>
@@ -1355,6 +1376,8 @@
       <column name="cfgnamespace" sqlType="oid" precision="10" scale="0" nullable="false" jdbcType="-5"/>
       <column name="cfgowner" sqlType="oid" precision="10" scale="0" nullable="false" jdbcType="-5"/>
       <column name="cfgparser" sqlType="oid" precision="10" scale="0" nullable="false" jdbcType="-5"/>
+      <index name="pg_ts_config_cfgname_index" unique="true" columns="cfgname,cfgnamespace"/>
+      <index name="pg_ts_config_oid_index" unique="true" columns="oid"/>
     </table>
     <table name="pg_ts_config_cfgname_index" schema="pg_catalog" catalog="dffrn6btgo02f" type="SYSTEM INDEX">
       <column name="cfgname" sqlType="cstring" precision="2147483647" scale="0" nullable="true" jdbcType="1111"/>
@@ -1365,6 +1388,7 @@
       <column name="maptokentype" sqlType="int4" precision="10" scale="0" nullable="false" jdbcType="4"/>
       <column name="mapseqno" sqlType="int4" precision="10" scale="0" nullable="false" jdbcType="4"/>
       <column name="mapdict" sqlType="oid" precision="10" scale="0" nullable="false" jdbcType="-5"/>
+      <index name="pg_ts_config_map_index" unique="true" columns="mapcfg,maptokentype,mapseqno"/>
     </table>
     <table name="pg_ts_config_map_index" schema="pg_catalog" catalog="dffrn6btgo02f" type="SYSTEM INDEX">
       <column name="mapcfg" sqlType="oid" precision="10" scale="0" nullable="true" jdbcType="-5"/>
@@ -1380,6 +1404,8 @@
       <column name="dictowner" sqlType="oid" precision="10" scale="0" nullable="false" jdbcType="-5"/>
       <column name="dicttemplate" sqlType="oid" precision="10" scale="0" nullable="false" jdbcType="-5"/>
       <column name="dictinitoption" sqlType="text" precision="2147483647" scale="0" nullable="true" jdbcType="12"/>
+      <index name="pg_ts_dict_dictname_index" unique="true" columns="dictname,dictnamespace"/>
+      <index name="pg_ts_dict_oid_index" unique="true" columns="oid"/>
     </table>
     <table name="pg_ts_dict_dictname_index" schema="pg_catalog" catalog="dffrn6btgo02f" type="SYSTEM INDEX">
       <column name="dictname" sqlType="cstring" precision="2147483647" scale="0" nullable="true" jdbcType="1111"/>
@@ -1396,6 +1422,8 @@
       <column name="prsend" sqlType="regproc" precision="2147483647" scale="0" nullable="false" jdbcType="1111"/>
       <column name="prsheadline" sqlType="regproc" precision="2147483647" scale="0" nullable="false" jdbcType="1111"/>
       <column name="prslextype" sqlType="regproc" precision="2147483647" scale="0" nullable="false" jdbcType="1111"/>
+      <index name="pg_ts_parser_oid_index" unique="true" columns="oid"/>
+      <index name="pg_ts_parser_prsname_index" unique="true" columns="prsname,prsnamespace"/>
     </table>
     <table name="pg_ts_parser_oid_index" schema="pg_catalog" catalog="dffrn6btgo02f" type="SYSTEM INDEX">
       <column name="oid" sqlType="oid" precision="10" scale="0" nullable="true" jdbcType="-5"/>
@@ -1409,6 +1437,8 @@
       <column name="tmplnamespace" sqlType="oid" precision="10" scale="0" nullable="false" jdbcType="-5"/>
       <column name="tmplinit" sqlType="regproc" precision="2147483647" scale="0" nullable="false" jdbcType="1111"/>
       <column name="tmpllexize" sqlType="regproc" precision="2147483647" scale="0" nullable="false" jdbcType="1111"/>
+      <index name="pg_ts_template_oid_index" unique="true" columns="oid"/>
+      <index name="pg_ts_template_tmplname_index" unique="true" columns="tmplname,tmplnamespace"/>
     </table>
     <table name="pg_ts_template_oid_index" schema="pg_catalog" catalog="dffrn6btgo02f" type="SYSTEM INDEX">
       <column name="oid" sqlType="oid" precision="10" scale="0" nullable="true" jdbcType="-5"/>
@@ -1448,6 +1478,8 @@
       <column name="typdefaultbin" sqlType="pg_node_tree" precision="2147483647" scale="0" nullable="true" jdbcType="1111"/>
       <column name="typdefault" sqlType="text" precision="2147483647" scale="0" nullable="true" jdbcType="12"/>
       <column name="typacl" sqlType="_aclitem" precision="2147483647" scale="0" nullable="true" jdbcType="2003"/>
+      <index name="pg_type_oid_index" unique="true" columns="oid"/>
+      <index name="pg_type_typname_nsp_index" unique="true" columns="typname,typnamespace"/>
     </table>
     <table name="pg_type_oid_index" schema="pg_catalog" catalog="dffrn6btgo02f" type="SYSTEM INDEX">
       <column name="oid" sqlType="oid" precision="10" scale="0" nullable="true" jdbcType="-5"/>
@@ -1471,6 +1503,8 @@
       <column name="umuser" sqlType="oid" precision="10" scale="0" nullable="false" jdbcType="-5"/>
       <column name="umserver" sqlType="oid" precision="10" scale="0" nullable="false" jdbcType="-5"/>
       <column name="umoptions" sqlType="_text" precision="2147483647" scale="0" nullable="true" jdbcType="2003"/>
+      <index name="pg_user_mapping_oid_index" unique="true" columns="oid"/>
+      <index name="pg_user_mapping_user_server_index" unique="true" columns="umuser,umserver"/>
     </table>
     <table name="pg_user_mapping_oid_index" schema="pg_catalog" catalog="dffrn6btgo02f" type="SYSTEM INDEX">
       <column name="oid" sqlType="oid" precision="10" scale="0" nullable="true" jdbcType="-5"/>
@@ -1503,6 +1537,7 @@
       <column name="term" sqlType="varchar" precision="2147483647" scale="0" nullable="true" jdbcType="12"/>
       <column name="category" sqlType="varchar" precision="2147483647" scale="0" nullable="true" jdbcType="12"/>
       <column name="hidden" sqlType="int4" precision="10" scale="0" nullable="false" jdbcType="4" def="MA=="/>
+      <primary-key name="tx_lrmediator_categories_pkey" columns="uid"/>
     </table>
     <table name="tx_lrmediator_categories_uid_seq" schema="public" catalog="dffrn6btgo02f" type="SEQUENCE">
       <column name="sequence_name" sqlType="name" precision="2147483647" scale="0" nullable="false" jdbcType="12"/>
@@ -1535,6 +1570,7 @@
       <column name="countrycode" sqlType="varchar" precision="2147483647" scale="0" nullable="false" jdbcType="12" def="J0RFX2RlJw=="/>
       <column name="subpattern" sqlType="int4" precision="10" scale="0" nullable="false" jdbcType="4" def="MA=="/>
       <column name="fe_group" sqlType="int4" precision="10" scale="0" nullable="false" jdbcType="4" def="MA=="/>
+      <primary-key name="tx_lrmediator_pattern_pkey" columns="uid"/>
     </table>
     <table name="tx_lrmediator_pattern_uid_seq" schema="public" catalog="dffrn6btgo02f" type="SEQUENCE">
       <column name="sequence_name" sqlType="name" precision="2147483647" scale="0" nullable="false" jdbcType="12"/>

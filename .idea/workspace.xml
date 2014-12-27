@@ -2,14 +2,500 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6bc9501b-9fe0-4f08-a2ef-db71be166b7c" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/data.sql" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.classpath" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__aopalliance_aopalliance_1_0.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__batik_batik_awt_util_1_6_1.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__batik_batik_bridge_1_6_1.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__batik_batik_css_1_6_1.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__batik_batik_dom_1_6_1.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__batik_batik_ext_1_6_1.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__batik_batik_extension_1_6_1.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__batik_batik_gui_util_1_6_1.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__batik_batik_gvt_1_6_1.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__batik_batik_parser_1_6_1.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__batik_batik_rasterizer_1_6_1.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__batik_batik_rasterizer_ext_1_6_1.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__batik_batik_script_1_6_1.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__batik_batik_slideshow_1_6_1.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__batik_batik_squiggle_1_6_1.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__batik_batik_svg_dom_1_6_1.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__batik_batik_svggen_1_6_1.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__batik_batik_svgpp_1_6_1.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__batik_batik_swing_1_6_1.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__batik_batik_transcoder_1_6_1.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__batik_batik_ttf2svg_1_6_1.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__batik_batik_util_1_6_1.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__batik_batik_xml_1_6_1.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__bsh_bsh_1_3_0.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__commons_collections_commons_collections_3_2.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__commons_io_commons_io_1_3_1.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__commons_jexl_commons_jexl_1_0.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__commons_jxpath_commons_jxpath_1_2.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__commons_lang_commons_lang_2_3.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__commons_logging_commons_logging_1_1.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__concurrent_concurrent_1_3_4.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__fop_fop_0_20_5.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__groovy_groovy_all_1_0.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__jakarta_regexp_jakarta_regexp_1_4.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__junit_junit_3_8.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__log4j_log4j_1_2_14.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__net_sf_ehcache_ehcache_1_2_4.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_avalon_framework_avalon_framework_api_4_3_1.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_avalon_framework_avalon_framework_impl_4_3_1.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_cocoon_cocoon_batik_impl_1_0_0.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_cocoon_cocoon_configuration_api_1_0_2.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_cocoon_cocoon_core_2_2_0.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_cocoon_cocoon_databases_bridge_1_0_0.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_cocoon_cocoon_databases_impl_1_0_0.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_cocoon_cocoon_expression_language_api_1_0_0.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_cocoon_cocoon_expression_language_impl_1_0_0.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_cocoon_cocoon_flowscript_impl_1_0_0.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_cocoon_cocoon_fop_impl_1_0_0.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_cocoon_cocoon_linkrewriter_impl_1_0_0.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_cocoon_cocoon_pipeline_api_1_0_0.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_cocoon_cocoon_pipeline_components_1_0_0.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_cocoon_cocoon_pipeline_impl_1_0_0.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_cocoon_cocoon_servlet_service_components_1_0_0.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_cocoon_cocoon_servlet_service_impl_1_0_0.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_cocoon_cocoon_sitemap_api_1_0_0.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_cocoon_cocoon_sitemap_components_1_0_0.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_cocoon_cocoon_sitemap_impl_1_0_0.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_cocoon_cocoon_spring_configurator_1_0_2.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_cocoon_cocoon_store_impl_1_0_0.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_cocoon_cocoon_template_impl_1_1_0.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_cocoon_cocoon_thread_api_1_0_0.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_cocoon_cocoon_thread_impl_1_0_0.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_cocoon_cocoon_util_1_0_0.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_cocoon_cocoon_xml_api_1_0_0.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_cocoon_cocoon_xml_impl_1_0_0.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_cocoon_cocoon_xml_resolver_1_0_0.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_cocoon_cocoon_xml_util_1_0_0.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_excalibur_components_excalibur_datasource_2_2_2.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_excalibur_components_excalibur_pool_api_2_2_1.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_excalibur_components_excalibur_pool_impl_2_2_1.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_excalibur_components_excalibur_pool_instrumented_2_2_1.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_excalibur_components_excalibur_sourceresolve_2_2_3.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_excalibur_components_excalibur_store_2_2_1.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_excalibur_components_excalibur_xmlutil_2_2_1.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_excalibur_containerkit_excalibur_instrument_api_2_2_1.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_excalibur_containerkit_excalibur_logger_2_2_1.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_aop_2_5_1.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_beans_2_5_1.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_context_2_5_1.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_core_2_5_1.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_dao_2_0_6.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_jdbc_2_0_6.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_web_2_5_1.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__postgresql_postgresql_9_1_901_jdbc4.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__rhino_js_1_6R7.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__xalan_xalan_2_7_0.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__xerces_xercesImpl_2_8_1.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__xml_apis_xmlParserAPIs_2_0_2.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__xml_apis_xml_apis_1_3_02.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__xml_resolver_xml_resolver_1_2.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.project" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.settings/org.eclipse.jdt.core.prefs" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.settings/org.eclipse.jdt.ui.prefs" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.settings/org.eclipse.wst.common.component" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.settings/org.eclipse.wst.common.project.facet.core.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.settings/org.maven.ide.eclipse.prefs" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/COB-INF/citation.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/COB-INF/demo/spring-bean.jx.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/COB-INF/demo/welcome.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/COB-INF/demo/welcome.xslt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/COB-INF/flow/spring-bean.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/COB-INF/myXml2PdfFile.xslt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/COB-INF/myXmlFile.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/COB-INF/myXsltFile.xslt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/COB-INF/resource/external/README.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/COB-INF/resource/internal/README.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/COB-INF/sitemap.xmap" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/META-INF/cocoon/spring/block-servlet-service.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/META-INF/cocoon/spring/database-connection.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/META-INF/cocoon/spring/demo-application-context.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/mycompany/myBlock1/MyBean.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/mycompany/myBlock1/database/DataBaseConnectionSingleton.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/mycompany/myBlock1/generation/HelloWorldGenerator.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/mycompany/myBlock1/generation/PatternCodeGenerator.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/mycompany/myBlock1/generation/RequestExampleGenerator.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/mycompany/myBlock1/transformation/TermWeightTransformer.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/mycompany/myBlock1/transformation/WebHarvestTransformer.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/de/clubspot/mediator/SourceAdapter.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/de/clubspot/mediator/WebHarvestAdapter.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/de/clubspot/mediator/criteria/UrlDateWrapper.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/de/clubspot/mediator/templates/SourceTemplate.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/de/clubspot/mediator/templates/WebHarvestTemplate.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/de/clubspot/mediator/templates/WebHarvestTemplateCollection.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/org/apache/commons/httpclient/contrib/ssl/AuthSSLInitializationError.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/org/apache/commons/httpclient/contrib/ssl/AuthSSLProtocolSocketFactory.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/org/apache/commons/httpclient/contrib/ssl/AuthSSLX509TrustManager.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/org/apache/commons/httpclient/contrib/ssl/EasySSLProtocolSocketFactory.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/org/apache/commons/httpclient/contrib/ssl/EasyX509TrustManager.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/org/apache/commons/httpclient/contrib/ssl/StrictSSLProtocolSocketFactory.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/org/bounce/text/ScrollableEditorPanel.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/org/bounce/text/xml/WrappedXMLView.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/org/bounce/text/xml/XMLContext.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/org/bounce/text/xml/XMLDocument.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/org/bounce/text/xml/XMLEditorKit$XMLViewFactory.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/org/bounce/text/xml/XMLEditorKit.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/org/bounce/text/xml/XMLInputReader.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/org/bounce/text/xml/XMLInputStream.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/org/bounce/text/xml/XMLScanner$AttributeScanner.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/org/bounce/text/xml/XMLScanner$CDataScanner.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/org/bounce/text/xml/XMLScanner$CommentScanner.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/org/bounce/text/xml/XMLScanner$ElementEndTagScanner.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/org/bounce/text/xml/XMLScanner$ElementNameScanner.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/org/bounce/text/xml/XMLScanner$ElementStartTagScanner.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/org/bounce/text/xml/XMLScanner$EntityTagScanner.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/org/bounce/text/xml/XMLScanner$Scanner.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/org/bounce/text/xml/XMLScanner$TagScanner.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/org/bounce/text/xml/XMLScanner.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/org/bounce/text/xml/XMLStyleConstants.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/org/bounce/text/xml/XMLView.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/org/bounce/text/xml/XMLViewUtilities.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/org/bounce/text/xml/XmlParserUtils.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/org/webharvest/definition/BaseElementDef.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/org/webharvest/definition/CallDef.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/org/webharvest/definition/CallParamDef.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/org/webharvest/definition/CaseDef.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/org/webharvest/definition/ConstantDef.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/org/webharvest/definition/DefinitionResolver.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/org/webharvest/definition/ElementInfo.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/org/webharvest/definition/EmptyDef.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/org/webharvest/definition/ExitDef.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/org/webharvest/definition/FileDef.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/org/webharvest/definition/FunctionDef.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/org/webharvest/definition/HtmlToXmlDef.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/org/webharvest/definition/HttpDef.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/org/webharvest/definition/HttpHeaderDef.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/org/webharvest/definition/HttpParamDef.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/org/webharvest/definition/IElementDef.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/org/webharvest/definition/IfDef.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/org/webharvest/definition/IncludeDef.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/org/webharvest/definition/LoopDef.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/org/webharvest/definition/RegexpDef.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/org/webharvest/definition/ReturnDef.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/org/webharvest/definition/ScraperConfiguration.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/org/webharvest/definition/ScriptDef.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/org/webharvest/definition/TemplateDef.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/org/webharvest/definition/TextDef.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/org/webharvest/definition/TryDef.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/org/webharvest/definition/VarDef.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/org/webharvest/definition/VarDefDef.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/org/webharvest/definition/WhileDef.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/org/webharvest/definition/XPathDef.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/org/webharvest/definition/XQueryDef.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/org/webharvest/definition/XQueryExternalParamDef.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/org/webharvest/definition/XmlNode.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/org/webharvest/definition/XmlParser.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/org/webharvest/definition/XsltDef.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/org/webharvest/exception/BaseException.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/org/webharvest/exception/ConfigurationException.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/org/webharvest/exception/ErrMsg.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/org/webharvest/exception/FileException.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/org/webharvest/exception/FunctionException.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/org/webharvest/exception/HttpException.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/org/webharvest/exception/ParserException.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/org/webharvest/exception/ScraperXPathException.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/org/webharvest/exception/ScraperXQueryException.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/org/webharvest/exception/ScriptException.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/org/webharvest/exception/TemplateException.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/org/webharvest/exception/TemplaterException.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/org/webharvest/exception/VariableException.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/org/webharvest/exception/XsltException.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/org/webharvest/runtime/RuntimeConfig.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/org/webharvest/runtime/Scraper.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/org/webharvest/runtime/ScraperContext.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/org/webharvest/runtime/ScraperRuntimeListener.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/org/webharvest/runtime/processors/BaseProcessor.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/org/webharvest/runtime/processors/BodyProcessor.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/org/webharvest/runtime/processors/CallParamProcessor.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/org/webharvest/runtime/processors/CallProcessor.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/org/webharvest/runtime/processors/CaseProcessor.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/org/webharvest/runtime/processors/ConstantProcessor.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/org/webharvest/runtime/processors/EmptyProcessor.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/org/webharvest/runtime/processors/ExitProcessor.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/org/webharvest/runtime/processors/FileProcessor.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/org/webharvest/runtime/processors/FunctionProcessor.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/org/webharvest/runtime/processors/HtmlToXmlProcessor.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/org/webharvest/runtime/processors/HttpHeaderProcessor.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/org/webharvest/runtime/processors/HttpParamProcessor.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/org/webharvest/runtime/processors/HttpProcessor.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/org/webharvest/runtime/processors/IncludeProcessor.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/org/webharvest/runtime/processors/LoopProcessor$Filter.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/org/webharvest/runtime/processors/LoopProcessor$IntRange.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/org/webharvest/runtime/processors/LoopProcessor$IntSublist.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/org/webharvest/runtime/processors/LoopProcessor.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/org/webharvest/runtime/processors/ProcessorResolver.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/org/webharvest/runtime/processors/RegexpProcessor.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/org/webharvest/runtime/processors/ReturnProcessor.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/org/webharvest/runtime/processors/ScriptProcessor.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/org/webharvest/runtime/processors/TemplateProcessor.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/org/webharvest/runtime/processors/TextProcessor.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/org/webharvest/runtime/processors/TryProcessor.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/org/webharvest/runtime/processors/VarDefProcessor.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/org/webharvest/runtime/processors/VarProcessor.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/org/webharvest/runtime/processors/WhileProcessor.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/org/webharvest/runtime/processors/XPathProcessor.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/org/webharvest/runtime/processors/XQueryExpressionPool.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/org/webharvest/runtime/processors/XQueryProcessor.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/org/webharvest/runtime/processors/XsltProcessor.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/org/webharvest/runtime/scripting/BeanShellScriptEngine.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/org/webharvest/runtime/scripting/GroovyScriptEngine.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/org/webharvest/runtime/scripting/JavascriptScriptEngine.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/org/webharvest/runtime/scripting/ScriptEngine.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/org/webharvest/runtime/scripting/SetContextVar.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/org/webharvest/runtime/templaters/BaseTemplater.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/org/webharvest/runtime/variables/EmptyVariable.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/org/webharvest/runtime/variables/ListVariable.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/org/webharvest/runtime/variables/NodeVariable.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/org/webharvest/runtime/variables/Types.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/org/webharvest/runtime/variables/Variable.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/org/webharvest/runtime/web/HttpClientManager.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/org/webharvest/runtime/web/HttpInfo.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/org/webharvest/runtime/web/HttpResponseWrapper.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/org/webharvest/runtime/web/IHttpManager.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/org/webharvest/utils/Catalog.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/org/webharvest/utils/CommonUtil$IntPair.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/org/webharvest/utils/CommonUtil.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/org/webharvest/utils/Constants.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/org/webharvest/utils/KeyValuePair.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/org/webharvest/utils/Stack.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/org/webharvest/utils/SystemUtilities.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/org/webharvest/utils/XmlNodeWrapper.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/org/webharvest/utils/XmlUtil.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/org/webharvest/utils/XmlValidator.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/myBlock1-1.0.1-SNAPSHOT.jar" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/rcl/webapp/WEB-INF/applicationContext.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/rcl/webapp/WEB-INF/cocoon/properties/rcl.properties" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/rcl/webapp/WEB-INF/cocoon/rclwrapper.properties" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/rcl/webapp/WEB-INF/cocoon/rclwrapper.rcl.conf" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/rcl/webapp/WEB-INF/cocoon/rclwrapper.urlcl.conf" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/rcl/webapp/WEB-INF/cocoon/spring/rcl.properties" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/rcl/webapp/WEB-INF/lib/cocoon-rcl-webapp-wrapper-1.0.0-M2.jar" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/rcl/webapp/WEB-INF/lib/commons-io-1.3.1.jar" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/rcl/webapp/WEB-INF/lib/commons-jci-core-1.0.jar" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/rcl/webapp/WEB-INF/lib/commons-jci-fam-1.0.jar" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/rcl/webapp/WEB-INF/lib/commons-logging-1.1.jar" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/rcl/webapp/WEB-INF/lib/commons-logging-api-1.1.jar" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/rcl/webapp/WEB-INF/lib/log4j-1.2.14.jar" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/rcl/webapp/WEB-INF/lib/servlet-api-2.3.jar" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/rcl/webapp/WEB-INF/log4j.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/rcl/webapp/WEB-INF/web.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/work/cache-dir/cocoon-ehcache.data" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/work/cache-dir/cocoon-ehcache.index" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/work/cocoon_xml_resolver_entities/ISOdia.pen" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/work/cocoon_xml_resolver_entities/ISOgrk1.pen" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/work/cocoon_xml_resolver_entities/ISOlat1.pen" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/work/cocoon_xml_resolver_entities/ISOnum.pen" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/work/cocoon_xml_resolver_entities/ISOpub.pen" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/work/cocoon_xml_resolver_entities/ISOtech.pen" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/work/cocoon_xml_resolver_entities/README.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/work/cocoon_xml_resolver_entities/XMLSchema.dtd" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/work/cocoon_xml_resolver_entities/any.rng" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/work/cocoon_xml_resolver_entities/book-cocoon-v10.dtd" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/work/cocoon_xml_resolver_entities/book-v01.rng" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/work/cocoon_xml_resolver_entities/catalog" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/work/cocoon_xml_resolver_entities/catalog-demo/catalog-demo-v10.dtd" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/work/cocoon_xml_resolver_entities/catalog-demo/override.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/work/cocoon_xml_resolver_entities/catalog-demo/testpub.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/work/cocoon_xml_resolver_entities/catalog-demo/testsys.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/work/cocoon_xml_resolver_entities/catalog.xcat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/work/cocoon_xml_resolver_entities/changes-v10.dtd" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/work/cocoon_xml_resolver_entities/characters.ent" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/work/cocoon_xml_resolver_entities/common-charents-v10.mod" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/work/cocoon_xml_resolver_entities/datatypes.dtd" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/work/cocoon_xml_resolver_entities/document-v10.dtd" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/work/cocoon_xml_resolver_entities/document-v11.dtd" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/work/cocoon_xml_resolver_entities/document-v11.mod" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/work/cocoon_xml_resolver_entities/document-v12.dtd" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/work/cocoon_xml_resolver_entities/document-v12.mod" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/work/cocoon_xml_resolver_entities/faq-v10.dtd" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/work/cocoon_xml_resolver_entities/javadoc-v04draft.dtd" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/work/cocoon_xml_resolver_entities/open-office/dummy.dtd" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/work/cocoon_xml_resolver_entities/roles-v01.rng" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/work/cocoon_xml_resolver_entities/sitemap-v06.rng" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/work/cocoon_xml_resolver_entities/specification-v10.dtd" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/work/cocoon_xml_resolver_entities/todo-v10.dtd" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/work/cocoon_xml_resolver_entities/w3c/catalog" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/work/cocoon_xml_resolver_entities/w3c/svg-20000303-exchange.dtd" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/work/cocoon_xml_resolver_entities/w3c/svg-20000303-shared.dtd" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/work/cocoon_xml_resolver_entities/w3c/svg-20000303-stylable.dtd" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/work/cocoon_xml_resolver_entities/w3c/svg10.dtd" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/work/cocoon_xml_resolver_entities/w3c/xhtml-lat1.ent" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/work/cocoon_xml_resolver_entities/w3c/xhtml-special.ent" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/work/cocoon_xml_resolver_entities/w3c/xhtml-symbol.ent" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/work/cocoon_xml_resolver_entities/w3c/xhtml1-frameset.dtd" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/work/cocoon_xml_resolver_entities/w3c/xhtml1-strict.dtd" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/work/cocoon_xml_resolver_entities/w3c/xhtml1-transitional.dtd" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/work/cocoon_xml_resolver_entities/w3c/xhtml1.dcl" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/work/cocoon_xml_resolver_entities/w3c/xhtml11-flat.dtd" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/work/cocoon_xml_resolver_entities/web-app_2_3.dtd" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/work/cocoon_xml_resolver_entities/xslt-20020523.rng" afterPath="" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/data.sql" afterPath="$PROJECT_DIR$/myBlock1/data.sql" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/myBlock1.iml" afterPath="$PROJECT_DIR$/myBlock1/myBlock1.iml" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/pom.xml" afterPath="$PROJECT_DIR$/myBlock1/pom.xml" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/rcl.properties" afterPath="$PROJECT_DIR$/myBlock1/rcl.properties" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/META-INF/MANIFEST.MF" afterPath="$PROJECT_DIR$/myBlock1/src/main/java/META-INF/MANIFEST.MF" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/com/mycompany/myBlock1/MyBean.java" afterPath="$PROJECT_DIR$/myBlock1/src/main/java/com/mycompany/myBlock1/MyBean.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/com/mycompany/myBlock1/database/DataBaseConnectionSingleton.java" afterPath="$PROJECT_DIR$/myBlock1/src/main/java/com/mycompany/myBlock1/database/DataBaseConnectionSingleton.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/com/mycompany/myBlock1/generation/HelloWorldGenerator.java" afterPath="$PROJECT_DIR$/myBlock1/src/main/java/com/mycompany/myBlock1/generation/HelloWorldGenerator.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/com/mycompany/myBlock1/generation/PatternCodeGenerator.java" afterPath="$PROJECT_DIR$/myBlock1/src/main/java/com/mycompany/myBlock1/generation/PatternCodeGenerator.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/com/mycompany/myBlock1/generation/RequestExampleGenerator.java" afterPath="$PROJECT_DIR$/myBlock1/src/main/java/com/mycompany/myBlock1/generation/RequestExampleGenerator.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/com/mycompany/myBlock1/transformation/TermWeightTransformer.java" afterPath="$PROJECT_DIR$/myBlock1/src/main/java/com/mycompany/myBlock1/transformation/TermWeightTransformer.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/com/mycompany/myBlock1/transformation/WebHarvestTransformer.java" afterPath="$PROJECT_DIR$/myBlock1/src/main/java/com/mycompany/myBlock1/transformation/WebHarvestTransformer.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/de/clubspot/mediator/SourceAdapter.java" afterPath="$PROJECT_DIR$/myBlock1/src/main/java/de/clubspot/mediator/SourceAdapter.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/de/clubspot/mediator/WebHarvestAdapter.java" afterPath="$PROJECT_DIR$/myBlock1/src/main/java/de/clubspot/mediator/WebHarvestAdapter.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/de/clubspot/mediator/criteria/UrlDateWrapper.java" afterPath="$PROJECT_DIR$/myBlock1/src/main/java/de/clubspot/mediator/criteria/UrlDateWrapper.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/de/clubspot/mediator/templates/SourceTemplate.java" afterPath="$PROJECT_DIR$/myBlock1/src/main/java/de/clubspot/mediator/templates/SourceTemplate.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/de/clubspot/mediator/templates/WebHarvestTemplate.java" afterPath="$PROJECT_DIR$/myBlock1/src/main/java/de/clubspot/mediator/templates/WebHarvestTemplate.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/de/clubspot/mediator/templates/WebHarvestTemplateCollection.java" afterPath="$PROJECT_DIR$/myBlock1/src/main/java/de/clubspot/mediator/templates/WebHarvestTemplateCollection.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/org/apache/commons/httpclient/contrib/ssl/AuthSSLInitializationError.java" afterPath="$PROJECT_DIR$/myBlock1/src/main/java/org/apache/commons/httpclient/contrib/ssl/AuthSSLInitializationError.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/org/apache/commons/httpclient/contrib/ssl/AuthSSLProtocolSocketFactory.java" afterPath="$PROJECT_DIR$/myBlock1/src/main/java/org/apache/commons/httpclient/contrib/ssl/AuthSSLProtocolSocketFactory.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/org/apache/commons/httpclient/contrib/ssl/AuthSSLX509TrustManager.java" afterPath="$PROJECT_DIR$/myBlock1/src/main/java/org/apache/commons/httpclient/contrib/ssl/AuthSSLX509TrustManager.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/org/apache/commons/httpclient/contrib/ssl/EasySSLProtocolSocketFactory.java" afterPath="$PROJECT_DIR$/myBlock1/src/main/java/org/apache/commons/httpclient/contrib/ssl/EasySSLProtocolSocketFactory.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/org/apache/commons/httpclient/contrib/ssl/EasyX509TrustManager.java" afterPath="$PROJECT_DIR$/myBlock1/src/main/java/org/apache/commons/httpclient/contrib/ssl/EasyX509TrustManager.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/org/apache/commons/httpclient/contrib/ssl/StrictSSLProtocolSocketFactory.java" afterPath="$PROJECT_DIR$/myBlock1/src/main/java/org/apache/commons/httpclient/contrib/ssl/StrictSSLProtocolSocketFactory.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/org/bounce/text/ScrollableEditorPanel.java" afterPath="$PROJECT_DIR$/myBlock1/src/main/java/org/bounce/text/ScrollableEditorPanel.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/org/bounce/text/xml/WrappedXMLView.java" afterPath="$PROJECT_DIR$/myBlock1/src/main/java/org/bounce/text/xml/WrappedXMLView.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/org/bounce/text/xml/XMLContext.java" afterPath="$PROJECT_DIR$/myBlock1/src/main/java/org/bounce/text/xml/XMLContext.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/org/bounce/text/xml/XMLDocument.java" afterPath="$PROJECT_DIR$/myBlock1/src/main/java/org/bounce/text/xml/XMLDocument.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/org/bounce/text/xml/XMLEditorKit.java" afterPath="$PROJECT_DIR$/myBlock1/src/main/java/org/bounce/text/xml/XMLEditorKit.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/org/bounce/text/xml/XMLInputReader.java" afterPath="$PROJECT_DIR$/myBlock1/src/main/java/org/bounce/text/xml/XMLInputReader.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/org/bounce/text/xml/XMLInputStream.java" afterPath="$PROJECT_DIR$/myBlock1/src/main/java/org/bounce/text/xml/XMLInputStream.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/org/bounce/text/xml/XMLScanner.java" afterPath="$PROJECT_DIR$/myBlock1/src/main/java/org/bounce/text/xml/XMLScanner.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/org/bounce/text/xml/XMLStyleConstants.java" afterPath="$PROJECT_DIR$/myBlock1/src/main/java/org/bounce/text/xml/XMLStyleConstants.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/org/bounce/text/xml/XMLView.java" afterPath="$PROJECT_DIR$/myBlock1/src/main/java/org/bounce/text/xml/XMLView.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/org/bounce/text/xml/XMLViewUtilities.java" afterPath="$PROJECT_DIR$/myBlock1/src/main/java/org/bounce/text/xml/XMLViewUtilities.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/org/bounce/text/xml/XmlParserUtils.java" afterPath="$PROJECT_DIR$/myBlock1/src/main/java/org/bounce/text/xml/XmlParserUtils.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/org/webharvest/definition/BaseElementDef.java" afterPath="$PROJECT_DIR$/myBlock1/src/main/java/org/webharvest/definition/BaseElementDef.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/org/webharvest/definition/CallDef.java" afterPath="$PROJECT_DIR$/myBlock1/src/main/java/org/webharvest/definition/CallDef.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/org/webharvest/definition/CallParamDef.java" afterPath="$PROJECT_DIR$/myBlock1/src/main/java/org/webharvest/definition/CallParamDef.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/org/webharvest/definition/CaseDef.java" afterPath="$PROJECT_DIR$/myBlock1/src/main/java/org/webharvest/definition/CaseDef.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/org/webharvest/definition/ConstantDef.java" afterPath="$PROJECT_DIR$/myBlock1/src/main/java/org/webharvest/definition/ConstantDef.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/org/webharvest/definition/DefinitionResolver.java" afterPath="$PROJECT_DIR$/myBlock1/src/main/java/org/webharvest/definition/DefinitionResolver.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/org/webharvest/definition/ElementInfo.java" afterPath="$PROJECT_DIR$/myBlock1/src/main/java/org/webharvest/definition/ElementInfo.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/org/webharvest/definition/EmptyDef.java" afterPath="$PROJECT_DIR$/myBlock1/src/main/java/org/webharvest/definition/EmptyDef.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/org/webharvest/definition/ExitDef.java" afterPath="$PROJECT_DIR$/myBlock1/src/main/java/org/webharvest/definition/ExitDef.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/org/webharvest/definition/FileDef.java" afterPath="$PROJECT_DIR$/myBlock1/src/main/java/org/webharvest/definition/FileDef.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/org/webharvest/definition/FunctionDef.java" afterPath="$PROJECT_DIR$/myBlock1/src/main/java/org/webharvest/definition/FunctionDef.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/org/webharvest/definition/HtmlToXmlDef.java" afterPath="$PROJECT_DIR$/myBlock1/src/main/java/org/webharvest/definition/HtmlToXmlDef.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/org/webharvest/definition/HttpDef.java" afterPath="$PROJECT_DIR$/myBlock1/src/main/java/org/webharvest/definition/HttpDef.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/org/webharvest/definition/HttpHeaderDef.java" afterPath="$PROJECT_DIR$/myBlock1/src/main/java/org/webharvest/definition/HttpHeaderDef.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/org/webharvest/definition/HttpParamDef.java" afterPath="$PROJECT_DIR$/myBlock1/src/main/java/org/webharvest/definition/HttpParamDef.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/org/webharvest/definition/IElementDef.java" afterPath="$PROJECT_DIR$/myBlock1/src/main/java/org/webharvest/definition/IElementDef.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/org/webharvest/definition/IfDef.java" afterPath="$PROJECT_DIR$/myBlock1/src/main/java/org/webharvest/definition/IfDef.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/org/webharvest/definition/IncludeDef.java" afterPath="$PROJECT_DIR$/myBlock1/src/main/java/org/webharvest/definition/IncludeDef.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/org/webharvest/definition/LoopDef.java" afterPath="$PROJECT_DIR$/myBlock1/src/main/java/org/webharvest/definition/LoopDef.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/org/webharvest/definition/RegexpDef.java" afterPath="$PROJECT_DIR$/myBlock1/src/main/java/org/webharvest/definition/RegexpDef.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/org/webharvest/definition/ReturnDef.java" afterPath="$PROJECT_DIR$/myBlock1/src/main/java/org/webharvest/definition/ReturnDef.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/org/webharvest/definition/ScraperConfiguration.java" afterPath="$PROJECT_DIR$/myBlock1/src/main/java/org/webharvest/definition/ScraperConfiguration.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/org/webharvest/definition/ScriptDef.java" afterPath="$PROJECT_DIR$/myBlock1/src/main/java/org/webharvest/definition/ScriptDef.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/org/webharvest/definition/TemplateDef.java" afterPath="$PROJECT_DIR$/myBlock1/src/main/java/org/webharvest/definition/TemplateDef.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/org/webharvest/definition/TextDef.java" afterPath="$PROJECT_DIR$/myBlock1/src/main/java/org/webharvest/definition/TextDef.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/org/webharvest/definition/TryDef.java" afterPath="$PROJECT_DIR$/myBlock1/src/main/java/org/webharvest/definition/TryDef.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/org/webharvest/definition/VarDef.java" afterPath="$PROJECT_DIR$/myBlock1/src/main/java/org/webharvest/definition/VarDef.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/org/webharvest/definition/VarDefDef.java" afterPath="$PROJECT_DIR$/myBlock1/src/main/java/org/webharvest/definition/VarDefDef.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/org/webharvest/definition/WhileDef.java" afterPath="$PROJECT_DIR$/myBlock1/src/main/java/org/webharvest/definition/WhileDef.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/org/webharvest/definition/XPathDef.java" afterPath="$PROJECT_DIR$/myBlock1/src/main/java/org/webharvest/definition/XPathDef.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/org/webharvest/definition/XQueryDef.java" afterPath="$PROJECT_DIR$/myBlock1/src/main/java/org/webharvest/definition/XQueryDef.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/org/webharvest/definition/XQueryExternalParamDef.java" afterPath="$PROJECT_DIR$/myBlock1/src/main/java/org/webharvest/definition/XQueryExternalParamDef.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/org/webharvest/definition/XmlNode.java" afterPath="$PROJECT_DIR$/myBlock1/src/main/java/org/webharvest/definition/XmlNode.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/org/webharvest/definition/XmlParser.java" afterPath="$PROJECT_DIR$/myBlock1/src/main/java/org/webharvest/definition/XmlParser.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/org/webharvest/definition/XsltDef.java" afterPath="$PROJECT_DIR$/myBlock1/src/main/java/org/webharvest/definition/XsltDef.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/org/webharvest/exception/BaseException.java" afterPath="$PROJECT_DIR$/myBlock1/src/main/java/org/webharvest/exception/BaseException.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/org/webharvest/exception/ConfigurationException.java" afterPath="$PROJECT_DIR$/myBlock1/src/main/java/org/webharvest/exception/ConfigurationException.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/org/webharvest/exception/ErrMsg.java" afterPath="$PROJECT_DIR$/myBlock1/src/main/java/org/webharvest/exception/ErrMsg.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/org/webharvest/exception/FileException.java" afterPath="$PROJECT_DIR$/myBlock1/src/main/java/org/webharvest/exception/FileException.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/org/webharvest/exception/FunctionException.java" afterPath="$PROJECT_DIR$/myBlock1/src/main/java/org/webharvest/exception/FunctionException.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/org/webharvest/exception/HttpException.java" afterPath="$PROJECT_DIR$/myBlock1/src/main/java/org/webharvest/exception/HttpException.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/org/webharvest/exception/ParserException.java" afterPath="$PROJECT_DIR$/myBlock1/src/main/java/org/webharvest/exception/ParserException.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/org/webharvest/exception/ScraperXPathException.java" afterPath="$PROJECT_DIR$/myBlock1/src/main/java/org/webharvest/exception/ScraperXPathException.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/org/webharvest/exception/ScraperXQueryException.java" afterPath="$PROJECT_DIR$/myBlock1/src/main/java/org/webharvest/exception/ScraperXQueryException.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/org/webharvest/exception/ScriptException.java" afterPath="$PROJECT_DIR$/myBlock1/src/main/java/org/webharvest/exception/ScriptException.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/org/webharvest/exception/TemplateException.java" afterPath="$PROJECT_DIR$/myBlock1/src/main/java/org/webharvest/exception/TemplateException.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/org/webharvest/exception/TemplaterException.java" afterPath="$PROJECT_DIR$/myBlock1/src/main/java/org/webharvest/exception/TemplaterException.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/org/webharvest/exception/VariableException.java" afterPath="$PROJECT_DIR$/myBlock1/src/main/java/org/webharvest/exception/VariableException.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/org/webharvest/exception/XsltException.java" afterPath="$PROJECT_DIR$/myBlock1/src/main/java/org/webharvest/exception/XsltException.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/org/webharvest/runtime/RuntimeConfig.java" afterPath="$PROJECT_DIR$/myBlock1/src/main/java/org/webharvest/runtime/RuntimeConfig.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/org/webharvest/runtime/Scraper.java" afterPath="$PROJECT_DIR$/myBlock1/src/main/java/org/webharvest/runtime/Scraper.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/org/webharvest/runtime/ScraperContext.java" afterPath="$PROJECT_DIR$/myBlock1/src/main/java/org/webharvest/runtime/ScraperContext.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/org/webharvest/runtime/ScraperRuntimeListener.java" afterPath="$PROJECT_DIR$/myBlock1/src/main/java/org/webharvest/runtime/ScraperRuntimeListener.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/org/webharvest/runtime/processors/BaseProcessor.java" afterPath="$PROJECT_DIR$/myBlock1/src/main/java/org/webharvest/runtime/processors/BaseProcessor.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/org/webharvest/runtime/processors/BodyProcessor.java" afterPath="$PROJECT_DIR$/myBlock1/src/main/java/org/webharvest/runtime/processors/BodyProcessor.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/org/webharvest/runtime/processors/CallParamProcessor.java" afterPath="$PROJECT_DIR$/myBlock1/src/main/java/org/webharvest/runtime/processors/CallParamProcessor.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/org/webharvest/runtime/processors/CallProcessor.java" afterPath="$PROJECT_DIR$/myBlock1/src/main/java/org/webharvest/runtime/processors/CallProcessor.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/org/webharvest/runtime/processors/CaseProcessor.java" afterPath="$PROJECT_DIR$/myBlock1/src/main/java/org/webharvest/runtime/processors/CaseProcessor.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/org/webharvest/runtime/processors/ConstantProcessor.java" afterPath="$PROJECT_DIR$/myBlock1/src/main/java/org/webharvest/runtime/processors/ConstantProcessor.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/org/webharvest/runtime/processors/EmptyProcessor.java" afterPath="$PROJECT_DIR$/myBlock1/src/main/java/org/webharvest/runtime/processors/EmptyProcessor.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/org/webharvest/runtime/processors/ExitProcessor.java" afterPath="$PROJECT_DIR$/myBlock1/src/main/java/org/webharvest/runtime/processors/ExitProcessor.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/org/webharvest/runtime/processors/FileProcessor.java" afterPath="$PROJECT_DIR$/myBlock1/src/main/java/org/webharvest/runtime/processors/FileProcessor.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/org/webharvest/runtime/processors/FunctionProcessor.java" afterPath="$PROJECT_DIR$/myBlock1/src/main/java/org/webharvest/runtime/processors/FunctionProcessor.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/org/webharvest/runtime/processors/HtmlToXmlProcessor.java" afterPath="$PROJECT_DIR$/myBlock1/src/main/java/org/webharvest/runtime/processors/HtmlToXmlProcessor.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/org/webharvest/runtime/processors/HttpHeaderProcessor.java" afterPath="$PROJECT_DIR$/myBlock1/src/main/java/org/webharvest/runtime/processors/HttpHeaderProcessor.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/org/webharvest/runtime/processors/HttpParamProcessor.java" afterPath="$PROJECT_DIR$/myBlock1/src/main/java/org/webharvest/runtime/processors/HttpParamProcessor.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/org/webharvest/runtime/processors/HttpProcessor.java" afterPath="$PROJECT_DIR$/myBlock1/src/main/java/org/webharvest/runtime/processors/HttpProcessor.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/org/webharvest/runtime/processors/IncludeProcessor.java" afterPath="$PROJECT_DIR$/myBlock1/src/main/java/org/webharvest/runtime/processors/IncludeProcessor.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/org/webharvest/runtime/processors/LoopProcessor.java" afterPath="$PROJECT_DIR$/myBlock1/src/main/java/org/webharvest/runtime/processors/LoopProcessor.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/org/webharvest/runtime/processors/ProcessorResolver.java" afterPath="$PROJECT_DIR$/myBlock1/src/main/java/org/webharvest/runtime/processors/ProcessorResolver.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/org/webharvest/runtime/processors/RegexpProcessor.java" afterPath="$PROJECT_DIR$/myBlock1/src/main/java/org/webharvest/runtime/processors/RegexpProcessor.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/org/webharvest/runtime/processors/ReturnProcessor.java" afterPath="$PROJECT_DIR$/myBlock1/src/main/java/org/webharvest/runtime/processors/ReturnProcessor.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/org/webharvest/runtime/processors/ScriptProcessor.java" afterPath="$PROJECT_DIR$/myBlock1/src/main/java/org/webharvest/runtime/processors/ScriptProcessor.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/org/webharvest/runtime/processors/TemplateProcessor.java" afterPath="$PROJECT_DIR$/myBlock1/src/main/java/org/webharvest/runtime/processors/TemplateProcessor.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/org/webharvest/runtime/processors/TextProcessor.java" afterPath="$PROJECT_DIR$/myBlock1/src/main/java/org/webharvest/runtime/processors/TextProcessor.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/org/webharvest/runtime/processors/TryProcessor.java" afterPath="$PROJECT_DIR$/myBlock1/src/main/java/org/webharvest/runtime/processors/TryProcessor.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/org/webharvest/runtime/processors/VarDefProcessor.java" afterPath="$PROJECT_DIR$/myBlock1/src/main/java/org/webharvest/runtime/processors/VarDefProcessor.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/org/webharvest/runtime/processors/VarProcessor.java" afterPath="$PROJECT_DIR$/myBlock1/src/main/java/org/webharvest/runtime/processors/VarProcessor.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/org/webharvest/runtime/processors/WhileProcessor.java" afterPath="$PROJECT_DIR$/myBlock1/src/main/java/org/webharvest/runtime/processors/WhileProcessor.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/org/webharvest/runtime/processors/XPathProcessor.java" afterPath="$PROJECT_DIR$/myBlock1/src/main/java/org/webharvest/runtime/processors/XPathProcessor.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/org/webharvest/runtime/processors/XQueryExpressionPool.java" afterPath="$PROJECT_DIR$/myBlock1/src/main/java/org/webharvest/runtime/processors/XQueryExpressionPool.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/org/webharvest/runtime/processors/XQueryProcessor.java" afterPath="$PROJECT_DIR$/myBlock1/src/main/java/org/webharvest/runtime/processors/XQueryProcessor.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/org/webharvest/runtime/processors/XsltProcessor.java" afterPath="$PROJECT_DIR$/myBlock1/src/main/java/org/webharvest/runtime/processors/XsltProcessor.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/org/webharvest/runtime/scripting/BeanShellScriptEngine.java" afterPath="$PROJECT_DIR$/myBlock1/src/main/java/org/webharvest/runtime/scripting/BeanShellScriptEngine.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/org/webharvest/runtime/scripting/GroovyScriptEngine.java" afterPath="$PROJECT_DIR$/myBlock1/src/main/java/org/webharvest/runtime/scripting/GroovyScriptEngine.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/org/webharvest/runtime/scripting/JavascriptScriptEngine.java" afterPath="$PROJECT_DIR$/myBlock1/src/main/java/org/webharvest/runtime/scripting/JavascriptScriptEngine.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/org/webharvest/runtime/scripting/ScriptEngine.java" afterPath="$PROJECT_DIR$/myBlock1/src/main/java/org/webharvest/runtime/scripting/ScriptEngine.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/org/webharvest/runtime/scripting/SetContextVar.java" afterPath="$PROJECT_DIR$/myBlock1/src/main/java/org/webharvest/runtime/scripting/SetContextVar.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/org/webharvest/runtime/templaters/BaseTemplater.java" afterPath="$PROJECT_DIR$/myBlock1/src/main/java/org/webharvest/runtime/templaters/BaseTemplater.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/org/webharvest/runtime/variables/EmptyVariable.java" afterPath="$PROJECT_DIR$/myBlock1/src/main/java/org/webharvest/runtime/variables/EmptyVariable.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/org/webharvest/runtime/variables/ListVariable.java" afterPath="$PROJECT_DIR$/myBlock1/src/main/java/org/webharvest/runtime/variables/ListVariable.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/org/webharvest/runtime/variables/NodeVariable.java" afterPath="$PROJECT_DIR$/myBlock1/src/main/java/org/webharvest/runtime/variables/NodeVariable.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/org/webharvest/runtime/variables/Types.java" afterPath="$PROJECT_DIR$/myBlock1/src/main/java/org/webharvest/runtime/variables/Types.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/org/webharvest/runtime/variables/Variable.java" afterPath="$PROJECT_DIR$/myBlock1/src/main/java/org/webharvest/runtime/variables/Variable.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/org/webharvest/runtime/web/HttpClientManager.java" afterPath="$PROJECT_DIR$/myBlock1/src/main/java/org/webharvest/runtime/web/HttpClientManager.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/org/webharvest/runtime/web/HttpInfo.java" afterPath="$PROJECT_DIR$/myBlock1/src/main/java/org/webharvest/runtime/web/HttpInfo.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/org/webharvest/runtime/web/HttpResponseWrapper.java" afterPath="$PROJECT_DIR$/myBlock1/src/main/java/org/webharvest/runtime/web/HttpResponseWrapper.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/org/webharvest/runtime/web/IHttpManager.java" afterPath="$PROJECT_DIR$/myBlock1/src/main/java/org/webharvest/runtime/web/IHttpManager.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/org/webharvest/utils/Catalog.java" afterPath="$PROJECT_DIR$/myBlock1/src/main/java/org/webharvest/utils/Catalog.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/org/webharvest/utils/CommonUtil.java" afterPath="$PROJECT_DIR$/myBlock1/src/main/java/org/webharvest/utils/CommonUtil.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/org/webharvest/utils/Constants.java" afterPath="$PROJECT_DIR$/myBlock1/src/main/java/org/webharvest/utils/Constants.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/org/webharvest/utils/KeyValuePair.java" afterPath="$PROJECT_DIR$/myBlock1/src/main/java/org/webharvest/utils/KeyValuePair.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/org/webharvest/utils/Stack.java" afterPath="$PROJECT_DIR$/myBlock1/src/main/java/org/webharvest/utils/Stack.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/org/webharvest/utils/SystemUtilities.java" afterPath="$PROJECT_DIR$/myBlock1/src/main/java/org/webharvest/utils/SystemUtilities.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/org/webharvest/utils/XmlNodeWrapper.java" afterPath="$PROJECT_DIR$/myBlock1/src/main/java/org/webharvest/utils/XmlNodeWrapper.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/org/webharvest/utils/XmlUtil.java" afterPath="$PROJECT_DIR$/myBlock1/src/main/java/org/webharvest/utils/XmlUtil.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/org/webharvest/utils/XmlValidator.java" afterPath="$PROJECT_DIR$/myBlock1/src/main/java/org/webharvest/utils/XmlValidator.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/main.iml" afterPath="$PROJECT_DIR$/myBlock1/src/main/main.iml" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/resources/COB-INF/citation.xml" afterPath="$PROJECT_DIR$/myBlock1/src/main/resources/COB-INF/citation.xml" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/resources/COB-INF/demo/spring-bean.jx.xml" afterPath="$PROJECT_DIR$/myBlock1/src/main/resources/COB-INF/demo/spring-bean.jx.xml" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/resources/COB-INF/demo/welcome.xml" afterPath="$PROJECT_DIR$/myBlock1/src/main/resources/COB-INF/demo/welcome.xml" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/resources/COB-INF/demo/welcome.xslt" afterPath="$PROJECT_DIR$/myBlock1/src/main/resources/COB-INF/demo/welcome.xslt" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/resources/COB-INF/flow/spring-bean.js" afterPath="$PROJECT_DIR$/myBlock1/src/main/resources/COB-INF/flow/spring-bean.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/resources/COB-INF/myXml2PdfFile.xslt" afterPath="$PROJECT_DIR$/myBlock1/src/main/resources/COB-INF/myXml2PdfFile.xslt" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/resources/COB-INF/myXmlFile.xml" afterPath="$PROJECT_DIR$/myBlock1/src/main/resources/COB-INF/myXmlFile.xml" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/resources/COB-INF/myXsltFile.xslt" afterPath="$PROJECT_DIR$/myBlock1/src/main/resources/COB-INF/myXsltFile.xslt" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/resources/COB-INF/resource/external/README.txt" afterPath="$PROJECT_DIR$/myBlock1/src/main/resources/COB-INF/resource/internal/README.txt" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/resources/COB-INF/resource/internal/README.txt" afterPath="$PROJECT_DIR$/myBlock1/src/main/resources/COB-INF/resource/external/README.txt" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/resources/COB-INF/sitemap.xmap" afterPath="$PROJECT_DIR$/myBlock1/src/main/resources/COB-INF/sitemap.xmap" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/resources/META-INF/cocoon/spring/block-servlet-service.xml" afterPath="$PROJECT_DIR$/myBlock1/src/main/resources/META-INF/cocoon/spring/block-servlet-service.xml" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/resources/META-INF/cocoon/spring/database-connection.xml" afterPath="$PROJECT_DIR$/myBlock1/src/main/resources/META-INF/cocoon/spring/database-connection.xml" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/resources/META-INF/cocoon/spring/demo-application-context.xml" afterPath="$PROJECT_DIR$/myBlock1/src/main/resources/META-INF/cocoon/spring/demo-application-context.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/dataSources.ids" afterPath="$PROJECT_DIR$/.idea/dataSources.ids" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/myBlock1-1.0.1-SNAPSHOT.jar" afterPath="$PROJECT_DIR$/target/myBlock1-1.0.1-SNAPSHOT.jar" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/compiler.xml" afterPath="$PROJECT_DIR$/.idea/compiler.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/dataSources.xml" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/META-INF/cocoon/spring/database-connection.xml" afterPath="$PROJECT_DIR$/target/classes/META-INF/cocoon/spring/database-connection.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/rcl/webapp/WEB-INF/cocoon/properties/rcl.properties" afterPath="$PROJECT_DIR$/target/rcl/webapp/WEB-INF/cocoon/properties/rcl.properties" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/rcl/webapp/WEB-INF/cocoon/spring/rcl.properties" afterPath="$PROJECT_DIR$/target/rcl/webapp/WEB-INF/cocoon/spring/rcl.properties" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/rcl/webapp/WEB-INF/cocoon/rclwrapper.properties" afterPath="$PROJECT_DIR$/target/rcl/webapp/WEB-INF/cocoon/rclwrapper.properties" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/modules.xml" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="myBlock1.iws" />
@@ -17,6 +503,8 @@
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path=".idea/dataSources.local.xml" />
     <ignored path="$PROJECT_DIR$/target/" />
+    <ignored path="$PROJECT_DIR$/myCocoonWebApp/target/" />
+    <ignored path="$PROJECT_DIR$/myBlock1/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -81,23 +569,41 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="DataBaseConnectionSingleton.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/mycompany/myBlock1/database/DataBaseConnectionSingleton.java">
+      <file leaf-file-name="pom.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/myBlock1/pom.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="510" max-vertical-offset="1422">
-              <caret line="48" column="49" selection-start-line="48" selection-start-column="49" selection-end-line="48" selection-end-column="49" />
-              <folding>
-                <element signature="imports" expanded="false" />
-              </folding>
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="3510">
+              <caret line="122" column="34" selection-start-line="122" selection-start-column="34" selection-end-line="122" selection-end-column="34" />
+              <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name=".gitignore" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/.gitignore">
+      <file leaf-file-name="pom.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/myCocoonWebApp/pom.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="18" max-vertical-offset="126">
-              <caret line="1" column="6" selection-start-line="1" selection-start-column="6" selection-end-line="1" selection-end-column="6" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="114" max-vertical-offset="882">
+              <caret line="19" column="35" selection-start-line="19" selection-start-column="35" selection-end-line="19" selection-end-column="35" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="mediator-ws.iml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/mediator-ws.iml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="306">
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="myBlock1.iml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/myBlock1/myBlock1.iml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2106">
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -106,33 +612,30 @@
       <file leaf-file-name="pom.xml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/pom.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="2188" max-vertical-offset="3510">
-              <caret line="24" column="21" selection-start-line="24" selection-start-column="21" selection-end-line="24" selection-end-column="21" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="414">
+              <caret line="14" column="17" selection-start-line="14" selection-start-column="17" selection-end-line="14" selection-end-column="17" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="PostgreSQL - dffrn6btgo02f?ssl=true&amp;sslfactory=org.postgresql.ssl.NonValidatingFactory@ec2-54-225-136-187.compute-1.amazonaws.com" pinned="false" current-in-tab="false">
-        <entry file="dbDummy://db-console:/d81a4d73/901316f0-4b0f-432f-8164-f2b40d7ddb4f/">
+      <file leaf-file-name="applicationContext.xml" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/myBlock1/target/rcl/webapp/WEB-INF/applicationContext.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="108">
-              <caret line="0" column="36" selection-start-line="0" selection-start-column="36" selection-end-line="0" selection-end-column="36" />
+            <state vertical-scroll-proportion="-0.30088496" vertical-offset="204" max-vertical-offset="882">
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="data.sql" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/data.sql">
+      <file leaf-file-name="rcl.properties" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/myBlock1/rcl.properties">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.31707317" vertical-offset="3249" max-vertical-offset="3618">
-              <caret line="187" column="59" selection-start-line="187" selection-start-column="59" selection-end-line="187" selection-end-column="59" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="396">
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding />
             </state>
-          </provider>
-          <provider editor-type-id="com.intellij.database.editor.CsvTableFileEditorProvider">
-            <state />
           </provider>
         </entry>
       </file>
@@ -145,11 +648,12 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/src/main/java/com/mycompany/myBlock1/database/DataBaseConnectionSingleton.java" />
-        <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/src/main/resources/META-INF/cocoon/spring/database-connection.xml" />
-        <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/data.sql" />
         <option value="db-console:/d81a4d73/901316f0-4b0f-432f-8164-f2b40d7ddb4f/" />
+        <option value="$PROJECT_DIR$/pom.xml" />
+        <option value="$PROJECT_DIR$/myCocoonWebApp/pom.xml" />
+        <option value="$PROJECT_DIR$/.gitignore" />
       </list>
     </option>
   </component>
@@ -165,9 +669,9 @@
   </component>
   <component name="ProjectFrameBounds">
     <option name="x" value="-1" />
-    <option name="y" value="-12" />
+    <option name="y" value="-39" />
     <option name="width" value="1282" />
-    <option name="height" value="813" />
+    <option name="height" value="840" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <OptionsSetting value="true" id="Add" />
@@ -207,7 +711,345 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="mediator-ws" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
               <option name="myItemId" value="myBlock1" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="mediator-ws" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="myCocoonWebApp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="myBlock1" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="mediator-ws" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="myBlock1" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="myBlock1" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="mediator-ws" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="myBlock1" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="target" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="myBlock1" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="mediator-ws" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="myBlock1" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="target" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="rcl" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="webapp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="WEB-INF" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="myBlock1" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="mediator-ws" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="myBlock1" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="target" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="classes" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="myBlock1" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="mediator-ws" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="myBlock1" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="myBlock1" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="mediator-ws" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="myBlock1" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="myBlock1" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="mediator-ws" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="myBlock1" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="resources" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="myBlock1" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="mediator-ws" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="myBlock1" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="resources" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="COB-INF" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="myBlock1" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="mediator-ws" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="myBlock1" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="resources" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="COB-INF" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="resource" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="internal" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="myBlock1" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="mediator-ws" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="myBlock1" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="resources" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="COB-INF" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="resource" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="external" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="myBlock1" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="mediator-ws" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="myBlock1" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="resources" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="COB-INF" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="flow" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="myBlock1" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="mediator-ws" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="myBlock1" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="resources" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="COB-INF" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="demo" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -233,6 +1075,12 @@
     <property name="HbShouldOpenHtmlAsHb" value="" />
     <property name="dynamic.classpath" value="false" />
     <property name="FullScreen" value="false" />
+    <property name="LayoutCode.rearrangeEntriesXML" value="false" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/myBlock1" />
+    </key>
   </component>
   <component name="RunManager">
     <configuration default="true" type="Remote" factoryName="Remote">
@@ -282,6 +1130,7 @@
     </configuration>
     <configuration default="true" type="JarApplication" factoryName="JAR Application">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <option name="JAR_PATH" value="$PROJECT_DIR$/target/myBlock1-1.0.1-SNAPSHOT.jar" />
       <envs />
       <method />
     </configuration>
@@ -356,22 +1205,24 @@
     <configuration />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-1" y="-12" width="1282" height="813" extended-state="6" />
+    <frame x="-1" y="-39" width="1282" height="840" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Database Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3283582" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2495935" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3292683" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32985073" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -379,8 +1230,8 @@
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Database Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3283582" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32985073" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
     </layout>
@@ -406,25 +1257,15 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/mycompany/myBlock1/database/DataBaseConnectionSingleton.java">
+    <entry file="file://$PROJECT_DIR$/myBlock1/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="510" max-vertical-offset="1422">
-          <caret line="48" column="49" selection-start-line="48" selection-start-column="49" selection-end-line="48" selection-end-column="49" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.gitignore">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="18" max-vertical-offset="126">
-          <caret line="1" column="6" selection-start-line="1" selection-start-column="6" selection-end-line="1" selection-end-column="6" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1800">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/pom.xml">
+    <entry file="file://$PROJECT_DIR$/myBlock1/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="2188" max-vertical-offset="3510">
           <caret line="24" column="21" selection-start-line="24" selection-start-column="21" selection-end-line="24" selection-end-column="21" />
@@ -432,15 +1273,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="dbDummy://db-console:/d81a4d73/901316f0-4b0f-432f-8164-f2b40d7ddb4f/">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="108">
-          <caret line="0" column="255" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/data.sql">
+    <entry file="file://$PROJECT_DIR$/myBlock1/data.sql">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="100">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -476,55 +1309,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/META-INF/cocoon/spring/database-connection.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.91067" vertical-offset="353" max-vertical-offset="918">
-          <caret line="40" column="0" selection-start-line="40" selection-start-column="0" selection-end-line="40" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.gitignore">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="126">
-          <caret line="1" column="6" selection-start-line="1" selection-start-column="6" selection-end-line="1" selection-end-column="6" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="2188" max-vertical-offset="3510">
-          <caret line="24" column="21" selection-start-line="24" selection-start-column="21" selection-end-line="24" selection-end-column="21" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/mycompany/myBlock1/database/DataBaseConnectionSingleton.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="510" max-vertical-offset="1422">
-          <caret line="48" column="49" selection-start-line="48" selection-start-column="49" selection-end-line="48" selection-end-column="49" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="dbDummy://db-console:/d81a4d73/dca8d6b3-003d-4251-9e3c-b56c6d65fde6/">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="416">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="dbDummy://db-console:/d81a4d73/901316f0-4b0f-432f-8164-f2b40d7ddb4f/">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="108">
-          <caret line="0" column="36" selection-start-line="0" selection-start-column="36" selection-end-line="0" selection-end-column="36" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/data.sql">
+    <entry file="file://$PROJECT_DIR$/myBlock1/data.sql">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.31707317" vertical-offset="3249" max-vertical-offset="3618">
           <caret line="187" column="59" selection-start-line="187" selection-start-column="59" selection-end-line="187" selection-end-column="59" />
@@ -533,6 +1318,70 @@
       </provider>
       <provider editor-type-id="com.intellij.database.editor.CsvTableFileEditorProvider">
         <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/myBlock1/rcl.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="691">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/myBlock1/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="2196" max-vertical-offset="3510">
+          <caret line="122" column="34" selection-start-line="122" selection-start-column="34" selection-end-line="122" selection-end-column="34" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.05209841" vertical-offset="0" max-vertical-offset="691">
+          <caret line="2" column="5" selection-start-line="2" selection-start-column="5" selection-end-line="2" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/myCocoonWebApp/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="114" max-vertical-offset="882">
+          <caret line="19" column="35" selection-start-line="19" selection-start-column="35" selection-end-line="19" selection-end-column="35" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mediator-ws.iml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="678">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/myBlock1/myBlock1.iml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2106">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="414">
+          <caret line="14" column="17" selection-start-line="14" selection-start-column="17" selection-end-line="14" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/myBlock1/target/rcl/webapp/WEB-INF/applicationContext.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.30088496" vertical-offset="204" max-vertical-offset="882">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
       </provider>
     </entry>
   </component>
