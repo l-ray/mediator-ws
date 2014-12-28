@@ -85,10 +85,13 @@ public class TermWeightTransformer extends AbstractSAXTransformer {
 
 		if (localName.equals("results")) {
 			this.setInsideArticleTag(false);
-			//super.startElement(namespaceURI, "weight", "weight", null);
-			//addTokenizedContent(namespaceURI, locationContent);
-			//super.endElement(namespaceURI, "weight", "weight");
-
+			try {
+                super.startElement(namespaceURI, "weight", "weight", null);
+                addTokenizedContent(namespaceURI, locationContent);
+                super.endElement(namespaceURI, "weight", "weight");
+            } catch (NullPointerException e) {
+                System.out.println("NPE when adding tokenized Content");
+            }
 			locationContent = "";
 		}
 		

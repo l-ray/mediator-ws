@@ -197,7 +197,7 @@ public class WebHarvestTemplate implements SourceTemplate,
 							+ " AND o.uid != p.uid "
 							+ " AND o.lft BETWEEN p.lft AND p.rgt"
 							+ " AND o.lft BETWEEN n.lft AND n.rgt"
-							+ " GROUP BY o.lft ORDER BY o.lft;");
+							+ " GROUP BY o.lft, o.name, o.uid, o.url, o.starturl, o.pattern, o.icon, o.dateformat, o.countrycode ORDER BY o.lft;");
 
 			while (rs.next()) {
 				System.out

@@ -26,15 +26,15 @@
 	<packaging>jar</packaging>
 
 	<name>myBlock1</name>
-	<groupId>com.mycompany</groupId>
+	<!-- groupId>com.mycompany</groupId -->
 	<artifactId>myBlock1</artifactId>
 	<version>1.0.1-SNAPSHOT</version>
 
-	<!-- parent>
+	<parent>
 		<groupId>com.mycompany</groupId>
-		<artifactId>getting-started-app</artifactId>
-		<version>1.0</version>
-	</parent -->
+        <artifactId>mediator-ws</artifactId>
+        <version>1-SNAPSHOT</version>
+	</parent>
 	
 	
 	<dependencies>
@@ -179,10 +179,10 @@
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-compiler-plugin</artifactId>
-				<configuration>
+				<!-- configuration>
 					<source>1.5</source>
 					<target>1.5</target>
-				</configuration>
+				</configuration -->
 			</plugin>
 		</plugins>
 	</build>

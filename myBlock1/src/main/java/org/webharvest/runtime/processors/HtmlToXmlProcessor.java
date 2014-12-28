@@ -64,6 +64,7 @@ public class HtmlToXmlProcessor extends BaseProcessor {
 
         HtmlCleaner cleaner = new HtmlCleaner( );
         CleanerProperties cleanerProperties = cleaner.getProperties();
+        cleanerProperties.setOmitDoctypeDeclaration(true);
 
         final ScriptEngine scriptEngine = scraper.getScriptEngine();
 

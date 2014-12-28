@@ -124,7 +124,8 @@ try {
 	      .append(template.getCompiledPattern())
 	      .append("\n</config>");
 	      
-	      System.out.println(message.toString());
+	      System.out.println("!!!!!!!!!!!!!!!!!!! Generated template !!!!!!!!!!!!!!!!!!");
+          System.out.println(message.toString());
   	      
   	      XMLReader xmlreader = XMLReaderFactory.createXMLReader();
 	      xmlreader.setContentHandler(super.xmlConsumer);

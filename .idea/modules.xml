@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/myBlock1/src/main/main.iml" filepath="$PROJECT_DIR$/myBlock1/src/main/main.iml" />
       <module fileurl="file://$PROJECT_DIR$/mediator-ws.iml" filepath="$PROJECT_DIR$/mediator-ws.iml" />
       <module fileurl="file://$PROJECT_DIR$/myBlock1/myBlock1.iml" filepath="$PROJECT_DIR$/myBlock1/myBlock1.iml" />
       <module fileurl="file://$PROJECT_DIR$/myCocoonWebApp/myCocoonWebApp.iml" filepath="$PROJECT_DIR$/myCocoonWebApp/myCocoonWebApp.iml" />

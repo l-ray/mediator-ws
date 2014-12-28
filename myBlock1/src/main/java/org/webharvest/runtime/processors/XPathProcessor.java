@@ -67,7 +67,7 @@ public class XPathProcessor extends BaseProcessor {
             RuntimeConfig runtimeConfig = scraper.getRuntimeConfig();
             return XmlUtil.evaluateXPath(expression, xml.toString(), runtimeConfig);
         } catch (XPathException e) {
-            throw new ScraperXPathException("Error parsing XPath expression (XPath = [" + expression + "])!", e);
+            throw new ScraperXPathException("Error parsing XPath expression (XPath = [" + expression + "])! on XML ["+xml.toString()+"]", e);
         }
     }
 
