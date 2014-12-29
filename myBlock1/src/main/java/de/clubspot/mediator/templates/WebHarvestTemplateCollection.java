@@ -24,22 +24,21 @@ public class WebHarvestTemplateCollection {
 		try {
 			stmt = connection.createStatement();
 	 
-		    ResultSet rs = stmt.executeQuery( "SELECT uid, name, url, starturl, pattern, icon, dateformat, rgt, lft FROM tx_lrmediator_pattern" ); 
+		    ResultSet rs = stmt.executeQuery( "SELECT id, name, url, starturl, pattern, subpattern, icon, dateformat FROM pattern" );
 		 
 	    	while ( rs.next() ) { 
 		        System.out.printf( "%s, %s %n", rs.getString(1), rs.getString(2) ); 
 
 		        WebHarvestTemplate tmpTemplate = new WebHarvestTemplate(this.connection);
-		        tmpTemplate.setId(rs.getString("uid"));
+		        tmpTemplate.setId(rs.getString("id"));
 		        tmpTemplate.setName(rs.getString("name"));
 		        tmpTemplate.setUrl(rs.getString("url"));
 		        tmpTemplate.setStartUrl(rs.getString("starturl"));
 		        tmpTemplate.setPattern(rs.getString("pattern"));
-		        tmpTemplate.setIcon(rs.getString("icon"));
+                tmpTemplate.setSubPattern(rs.getString("subpattern"));
+                tmpTemplate.setIcon(rs.getString("icon"));
 		        tmpTemplate.setDateFormat(rs.getString("dateformat"));
-		        tmpTemplate.setRgt(rs.getInt("rgt"));
-		        tmpTemplate.setLft(rs.getInt("lft"));
-		        
+
 		        templates.add(tmpTemplate);
 	    	}
 	    	
