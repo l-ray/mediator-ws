@@ -10,8 +10,7 @@ import java.util.List;
 
 import org.apache.cocoon.ProcessingException;
 
-public class WebHarvestTemplate implements SourceTemplate,
-		Iterable<SourceTemplate> {
+public class WebHarvestTemplate implements SourceTemplate {
 	String sUrl;
 	String sStartUrl;
 	String sName;
@@ -20,10 +19,9 @@ public class WebHarvestTemplate implements SourceTemplate,
 	String sIcon;
 	String sDateFormat;
 	String sCountryCode;
-	int lft, rgt, level;
-	private Connection connection;
+    String sSubPattern;
 
-	List<SourceTemplate> lChildren;
+	private Connection connection;
 
 	public WebHarvestTemplate(Connection connection) {
 		super();
@@ -97,29 +95,6 @@ public class WebHarvestTemplate implements SourceTemplate,
 		sDateFormat = dateFormat;
 	}
 
-	public Iterator<SourceTemplate> iterator() {
-		if (this.getChildren() == null) {
-			this.loadChildrenFromDatabase();
-		}
-		return this.lChildren.iterator();
-	}
-
-	public int getLft() {
-		return lft;
-	}
-
-	public void setLft(int lft) {
-		this.lft = lft;
-	}
-
-	public int getRgt() {
-		return rgt;
-	}
-
-	public void setRgt(int rft) {
-		this.rgt = rft;
-	}
-
 	public String getCountryCode() {
 		return sCountryCode;
 	}
@@ -127,8 +102,16 @@ public class WebHarvestTemplate implements SourceTemplate,
 	public void setCountryCode(String countryCode) {
 		this.sCountryCode = countryCode;
 	}
-	
-	public void loadFromDatabase() throws ProcessingException {
+
+    public String getSubPattern() {
+        return sSubPattern;
+    }
+
+    public void setSubPattern(String subPattern) {
+        this.sSubPattern = subPattern;
+    }
+
+    public void loadFromDatabase() throws ProcessingException {
 
 		Connection instance = this.connection;
 
@@ -140,9 +123,9 @@ public class WebHarvestTemplate implements SourceTemplate,
 
 			stmt = instance.createStatement();
 
-			sQuery = "SELECT n.name, n.uid, n.url, n.starturl, n.pattern, n.icon, n.dateformat, n.countrycode, n.lft, n.rgt"
-					+ " FROM tx_lrmediator_pattern AS n"
-					+ " WHERE n.uid="
+			sQuery = "SELECT name, id, url, starturl, pattern, subpattern, icon, dateformat, countrycode"
+					+ " FROM pattern AS n"
+					+ " WHERE n.id="
 					+ this.getId();
 
 			//System.out.println(sQuery);
@@ -159,11 +142,8 @@ public class WebHarvestTemplate implements SourceTemplate,
 			this.setPattern(rs.getString("pattern"));
 			this.setIcon(rs.getString("icon"));
 			this.setDateFormat(rs.getString("dateformat"));
-			this.setRgt(rs.getInt("rgt"));
-			this.setLft(rs.getInt("lft"));
-			this.setLevel(0);
+            this.setSubPattern(rs.getString("subpattern"));
 			this.setCountryCode(rs.getString("countryCode"));
-
 
 			rs.close();
 			stmt.close();
@@ -175,117 +155,21 @@ public class WebHarvestTemplate implements SourceTemplate,
 
 	}
 
-	public void loadChildrenFromDatabase() {
-
-		Connection instance = this.connection;
-
-		Statement stmt;
-
-		this.lChildren = new ArrayList<SourceTemplate>();
-
-		try {
-
-			stmt = instance.createStatement();
-
-			ResultSet rs = stmt
-					.executeQuery("SELECT o.name, o.uid, o.url, o.starturl, o.pattern, o.icon, o.dateformat, o.countrycode, o.lft, o.rgt,"
-							+ " COUNT(p.uid) AS level"
-							+ " FROM tx_lrmediator_pattern AS n, tx_lrmediator_pattern AS p, tx_lrmediator_pattern AS o"
-							+ " WHERE n.uid="
-							+ this.getId()
-							+ " AND o.uid != n.uid "
-							+ " AND o.uid != p.uid "
-							+ " AND o.lft BETWEEN p.lft AND p.rgt"
-							+ " AND o.lft BETWEEN n.lft AND n.rgt"
-							+ " GROUP BY o.lft, o.name, o.uid, o.url, o.starturl, o.pattern, o.icon, o.dateformat, o.countrycode ORDER BY o.lft;");
-
-			while (rs.next()) {
-				System.out
-						.printf("%s, %s %n", rs.getString(1), rs.getString(2));
-
-				WebHarvestTemplate tmpTemplate = new WebHarvestTemplate(this.connection);
-				tmpTemplate.setId(rs.getString("uid"));
-				tmpTemplate.setName(rs.getString("name"));
-				tmpTemplate.setUrl(rs.getString("url"));
-				tmpTemplate.setStartUrl(rs.getString("starturl"));
-				tmpTemplate.setPattern(rs.getString("pattern"));
-				tmpTemplate.setIcon(rs.getString("icon"));
-				tmpTemplate.setDateFormat(rs.getString("dateformat"));
-				tmpTemplate.setRgt(rs.getInt("rgt"));
-				tmpTemplate.setLft(rs.getInt("lft"));
-				tmpTemplate.setLevel(rs.getInt("level"));
-				tmpTemplate.setCountryCode(rs.getString("countrycode"));
-
-				this.lChildren.add(tmpTemplate);
-			}
-
-			rs.close();
-			stmt.close();
-
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
-	}
-
 	public String getCompiledPattern() {
 		System.out.println(this.getNameWithoutWhitestripes());
 		
-		Iterator<SourceTemplate> iter = this.iterator();
-		
-		StringBuffer subPattern = new StringBuffer();
-		
-		while (iter.hasNext()) {
-			SourceTemplate subTemplate = iter.next();
-			this.setPattern(
-					this.getPattern().
-						replaceAll("%uid:"+subTemplate.getId()+"%", subTemplate.getNameWithoutWhitestripes())
-					);
-
-			subPattern.append(subTemplate.getCompiledPattern());
-
-		}
-
-		System.out.println("actual Level:"+this.getLevel());
-		
-		StringBuffer message = new StringBuffer();
-		
-		if (this.getLevel() > 0) {
-			message.append("\n<function name=\""+this.getNameWithoutWhitestripes()+"\">\n")
-			.append("\t<return>\n")
-			.append(this.getPattern())
-			.append("\n\t</return>\n</function>");
-		} else { }
-		
-		message.append(subPattern);
-		
-		if (this.getLevel() == 0) {
-			message.append("\n<var-def name=\"result\">\n")
+		StringBuilder message = new StringBuilder()
+            .append(this.getSubPattern() == null ? "":"\n"+this.getSubPattern())
+            .append("\n<var-def name=\"result\">\n")
 			.append("\n<![CDATA[<source>")
-			.append("<link>"+this.getUrl()+"</link>")
-			.append("<name>"+this.getName()+"</name>")
-			.append("<icon>"+this.getIcon()+"</icon>")
-			.append("</source>]]>")
+			.append("\n<link>"+this.getUrl()+"</link>")
+			.append("\n<name>"+this.getName()+"</name>")
+			.append("\n<icon>"+this.getIcon()+"</icon>")
+			.append("\n</source>]]>\n")
 			.append(this.getPattern())
 			.append("\n</var-def>\n");
-		}
-		
+
 		return message.toString();
-	}
-	
-	public int getLevel() {
-		return level;
-	}
-
-	public void setLevel(int level) {
-		this.level = level;
-	}
-
-	public List<SourceTemplate> getChildren() {
-		return lChildren;
-	}
-
-	public void setChildren(List<SourceTemplate> children) {
-		lChildren = children;
 	}
 
 }

@@ -1,0 +1,10 @@
+INSERT INTO public.tx_lrmediator_term_weight (uid, pid, term, weight, tstamp, crdate, cruser_id, deleted) VALUES (1, 132, 'club', 0.1, 0, 0, 0, 0);
+INSERT INTO public.tx_lrmediator_term_weight (uid, pid, term, weight, tstamp, crdate, cruser_id, deleted) VALUES (2, 132, 'bar', 0.1, 0, 0, 0, 0);
+INSERT INTO public.tx_lrmediator_term_weight (uid, pid, term, weight, tstamp, crdate, cruser_id, deleted) VALUES (3, 132, 'lounge', 0.1, 0, 0, 0, 0);
+INSERT INTO public.tx_lrmediator_term_weight (uid, pid, term, weight, tstamp, crdate, cruser_id, deleted) VALUES (4, 132, 'e.v.', 0.1, 0, 0, 0, 0);
+INSERT INTO public.tx_lrmediator_term_weight (uid, pid, term, weight, tstamp, crdate, cruser_id, deleted) VALUES (5, 132, 'Gelände', 0.2, 0, 0, 0, 0);
+INSERT INTO public.tx_lrmediator_term_weight (uid, pid, term, weight, tstamp, crdate, cruser_id, deleted) VALUES (6, 132, 'alter', 0.1, 0, 0, 0, 0);
+INSERT INTO public.tx_lrmediator_term_weight (uid, pid, term, weight, tstamp, crdate, cruser_id, deleted) VALUES (7, 132, 'alte', 0.1, 0, 0, 0, 0);
+INSERT INTO public.tx_lrmediator_term_weight (uid, pid, term, weight, tstamp, crdate, cruser_id, deleted) VALUES (8, 132, 'altes', 0.1, 0, 0, 0, 0);
+INSERT INTO public.tx_lrmediator_term_weight (uid, pid, term, weight, tstamp, crdate, cruser_id, deleted) VALUES (9, 132, 'dresden', 0.05, 1250769753, 1250769753, 1, 0);
+INSERT INTO public.tx_lrmediator_term_weight (uid, pid, term, weight, tstamp, crdate, cruser_id, deleted) VALUES (10, 132, 'live', 0.01, 1250769804, 1250769783, 1, 0);

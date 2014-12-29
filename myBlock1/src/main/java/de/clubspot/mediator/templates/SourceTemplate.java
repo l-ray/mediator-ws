@@ -10,5 +10,4 @@ public interface SourceTemplate {
 	public String getIcon();
 	public String getId();
 	public String getDateFormat();
-	public int getLevel();
 }

@@ -173,10 +173,6 @@
 				</configuration>
 			</plugin>
 			<plugin>
-				<artifactId>maven-eclipse-plugin</artifactId>
-				<version>2.5.1</version>
-			</plugin>
-			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-compiler-plugin</artifactId>
 				<!-- configuration>
@@ -184,6 +180,24 @@
 					<target>1.5</target>
 				</configuration -->
 			</plugin>
+            <plugin>
+                <groupId>org.flywaydb</groupId>
+                <artifactId>flyway-maven-plugin</artifactId>
+                <version>3.1</version>
+                <configuration>
+                    <url>jdbc:postgresql://ec2-54-225-136-187.compute-1.amazonaws.com:5432/dffrn6btgo02f?ssl=true&amp;sslfactory=org.postgresql.ssl.NonValidatingFactory</url>
+                    <user>rneehhzghadajo</user>
+                    <password>uxzS96h2tBh7TDvBtBXcFXQ2CM</password>
+                    <placeholderPrefix>#{</placeholderPrefix>
+                </configuration>
+                <dependencies>
+                    <dependency>
+                        <groupId>postgresql</groupId>
+                        <artifactId>postgresql</artifactId>
+                        <version>9.1-901.jdbc4</version>
+                    </dependency>
+                </dependencies>
+            </plugin>
 		</plugins>
 	</build>
 </project>
