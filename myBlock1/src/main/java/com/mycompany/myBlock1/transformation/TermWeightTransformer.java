@@ -85,13 +85,15 @@ public class TermWeightTransformer extends AbstractSAXTransformer {
 
 		if (localName.equals("results")) {
 			this.setInsideArticleTag(false);
-			try {
-                super.startElement(namespaceURI, "weight", "weight", null);
+            /*
+            super.startElement(namespaceURI, "weight", "weight", null);
+            try {
                 addTokenizedContent(namespaceURI, locationContent);
-                super.endElement(namespaceURI, "weight", "weight");
             } catch (NullPointerException e) {
                 System.out.println("NPE when adding tokenized Content");
             }
+            super.endElement(namespaceURI, "weight", "weight");
+            */
 			locationContent = "";
 		}
 		
@@ -165,7 +167,7 @@ public class TermWeightTransformer extends AbstractSAXTransformer {
 				whereInList.append(",'"+nextTerm+"'");
 			}
 			
-			String sQuery = "SELECT * FROM tx_lrmediator_term_weight WHERE term IN ("+whereInList+");";
+			String sQuery = "SELECT * FROM term_weight WHERE term IN ("+whereInList+");";
 			
 			System.out.println(sQuery);
 			
@@ -178,7 +180,7 @@ public class TermWeightTransformer extends AbstractSAXTransformer {
 				while (rs.next()) { 
 						System.out.println("Got |"+rs.getString("weight")+"| for |"+rs.getString("term")+"|");
 						termWithWeight.put(rs.getString("term"),rs.getString("weight"));
-				};
+				}
 				
 			} catch (SQLException e) {
 				System.out.println("error getting statement:"+e.getMessage());
