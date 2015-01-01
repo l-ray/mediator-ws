@@ -17,7 +17,6 @@ CREATE TABLE pattern (
 );
 
 DROP TABLE IF EXISTS term_weight;
-
 CREATE TABLE term_weight (
   term varchar DEFAULT NULL,
   weight float NOT NULL DEFAULT '0',
@@ -32,5 +31,14 @@ CREATE TABLE categories (
   category varchar DEFAULT NULL,
   hidden int NOT NULL DEFAULT '0',
   deleted int DEFAULT '0',
+  PRIMARY KEY (id)
+);
+
+DROP TABLE IF EXISTS user_rules;
+CREATE TABLE user_rules (
+  id SERIAL,
+  rule_type int DEFAULT NULL,
+  rule_input varchar DEFAULT NULL,
+  priority_change int DEFAULT '0',
   PRIMARY KEY (id)
 );
