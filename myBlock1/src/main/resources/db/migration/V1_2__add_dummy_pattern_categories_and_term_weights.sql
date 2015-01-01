@@ -22,14 +22,14 @@ INSERT INTO pattern (id, type, name, url, starturl, icon, pattern, subpattern, d
   ( 4, 'webharvest', 'banq',             'http://www.banq.de/',               'termine.php?date={startTimestamp}', 'http://www.banq.de/ico/favicon.ico', e'<loop item="item" filter="unique"><list><xpath expression=\'//div[attribute::id="mwtext"]//tr/td[attribute::id="cptable1"]/div[attribute::id="cptable2"]/span/text()\'><html-to-xml>					<http url="${baseUrl}${startUrl}" />				</html-to-xml>		</xpath>		</list>		<body>			<var-def name="newItem">			<call name="Banq_-_Details"><call-param name="title"><var name="item" /></call-param><call-param name="sourcelink"><template>${sys.escapeXml(baseUrl.toString()+startUrl.toString())}</template></call-param>	        	<call-param name="document">		        	<html-to-xml>		<http url="${baseUrl}${startUrl}" />					</html-to-xml>       	</call-param>	</call></var-def>				</body>	</loop>', '<function name="Banq_-_Details"><return><xquery><xq-param name="doc"><var name="document" />       </xq-param>            <xq-param name="title" type="string"><var name="title" />            </xq-param>            <xq-param name="sourcelink" type="string"><var name="sourcelink" />            </xq-param>            <xq-expression><![CDATA[			                declare variable $doc as node() external;declare variable $title as xs:string external;declare variable $sourcelink as xs:string external;			                				                for $b in $doc//div[attribute::id="mwtext"],				                	$t in $b//tr/td[attribute::id="cptable1"]/div[attribute::id="cptable2"]/span/child::text(),                					                	$c in $t//ancestor::tr/preceding-sibling::tr/td[attribute::id="cptable"]/table//h3/child::text()where $t=$title return 									<article><title>{$t}</title><sourcelink>{$sourcelink}</sourcelink><date>{data($t//ancestor::tr/preceding-sibling::tr/td[attribute::id="cptable"]/table//h3)}</date>			                            <location>{data($t//ancestor::tr/following-sibling::tr/td[attribute::id="cptable"]/a)}</location>			                            <category>{data($c/ancestor::td/following-sibling::td/span[attribute::class="kategorie"])}</category>			                            <link>{data($c/ancestor::td/following-sibling::td/span/a/@href)}</link>		                            </article>			            ]]></xq-expression>        </xquery>    </return></function><function name="Banq-PictureLinks"><return>    <xpath expression="//div/img">        <html-to-xml allowhtmlinsideattributes="true">            <http url="${pictureLink}" />        </html-to-xml>    </xpath></return></function><function name="Banq-PictureLinks"><return>    <xpath expression="//div/img">        <html-to-xml allowhtmlinsideattributes="true">            <http url="${pictureLink}" />        </html-to-xml>    </xpath></return></function>','dd.MM.yy', 'DE_de', 0, 0);
 
 INSERT INTO user_rules (id, rule_type, rule_input, priority_change) VALUES
-  (1, 0, '/Berlin/i',          0);
-  (2, 0, '/Leipzig/i',         0);
-  (3, 0, '/Mei.en/i',          0);
-  (4, 1, 'theater',            0);
-  (5, 1, 'radiosendung',       0);
-  (6, 1, 'film',               -1000);
-  (8, 0, '/G.rlitz/i',         0);
-  (15, 2, '/zebra disco/',  0);
-  (14, 2, '/D.beln/',       0);
-  (16, 2, '/zebra/',        0);
+  (1, 0, '/Berlin/i',          0),
+  (2, 0, '/Leipzig/i',         0),
+  (3, 0, '/Mei.en/i',          0),
+  (4, 1, 'theater',            0),
+  (5, 1, 'radiosendung',       0),
+  (6, 1, 'film',               -1000),
+  (8, 0, '/G.rlitz/i',         0),
+  (15, 2, '/zebra disco/',  0),
+  (14, 2, '/D.beln/',       0),
+  (16, 2, '/zebra/',        0),
   (19, 2, '/afterwork.purobeach/', 0);

@@ -137,6 +137,8 @@
     <orderEntry type="library" name="Maven: org.reflections:reflections:0.9.8" level="project" />
     <orderEntry type="library" name="Maven: javassist:javassist:3.12.1.GA" level="project" />
     <orderEntry type="library" name="Maven: dom4j:dom4j:1.6.1" level="project" />
+    <orderEntry type="library" name="Maven: net.sourceforge.saxon:saxon:9.1.0.8" level="project" />
+    <orderEntry type="library" name="Maven: net.sourceforge.saxon:saxon:dom:9.1.0.8" level="project" />
     <orderEntry type="library" name="Maven: org.beanshell:bsh:2.0b5" level="project" />
     <orderEntry type="library" name="Maven: org.codehaus.groovy:groovy-all:2.0.4" level="project" />
     <orderEntry type="library" name="Maven: com.google.guava:guava:13.0.1" level="project" />
@@ -144,7 +146,6 @@
     <orderEntry type="library" name="Maven: javax.inject:javax.inject:1" level="project" />
     <orderEntry type="library" name="Maven: aopalliance:aopalliance:1.0" level="project" />
     <orderEntry type="library" name="Maven: com.google.inject.extensions:guice-assistedinject:3.0" level="project" />
-    <orderEntry type="library" name="Maven: net.sourceforge.saxon:saxon:9.1.0.8" level="project" />
     <orderEntry type="library" name="Maven: org.apache.cocoon:cocoon-databases-impl:1.0.0" level="project" />
     <orderEntry type="library" name="Maven: org.apache.cocoon:cocoon-databases-bridge:1.0.0" level="project" />
     <orderEntry type="library" name="Maven: org.springframework:spring-jdbc:2.0.6" level="project" />
@@ -153,6 +154,5 @@
     <orderEntry type="library" name="Maven: org.apache.excalibur.components:excalibur-pool-impl:2.2.1" level="project" />
     <orderEntry type="library" name="Maven: org.springframework:spring-dao:2.0.6" level="project" />
     <orderEntry type="library" name="Maven: org.apache.excalibur.components:excalibur-sourceresolve:2.2.3" level="project" />
-    <orderEntry type="library" name="Maven: net.sf.saxon:saxon9-dom:9.1.0.8" level="project" />
   </component>
 </module>

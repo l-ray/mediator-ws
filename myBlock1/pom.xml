@@ -176,6 +176,16 @@
                 <groupId>org.flywaydb</groupId>
                 <artifactId>flyway-maven-plugin</artifactId>
                 <version>3.1</version>
+                <executions>
+                    <execution>
+                        <id>process-resources</id>
+                        <goals>
+                            <goal>clean</goal>
+                            <goal>migrate</goal>
+                        </goals>
+                        <phase>install</phase>
+                    </execution>
+                </executions>
                 <configuration>
                     <url>jdbc:postgresql://ec2-54-225-136-187.compute-1.amazonaws.com:5432/dffrn6btgo02f?ssl=true&amp;sslfactory=org.postgresql.ssl.NonValidatingFactory</url>
                     <user>rneehhzghadajo</user>
