@@ -116,7 +116,7 @@ try {
 			SimpleDateFormat df = new SimpleDateFormat( template.getDateFormat(), new java.util.Locale("de","DE") );
 
 	      
-	      StringBuffer message = new StringBuffer("<config charset=\"UTF-8\">")
+	      StringBuffer message = new StringBuffer("<config xmlns=\"http://web-harvest.sourceforge.net/schema/1.0/config\" charset=\"UTF-8\">")
 	      .append("\n<var-def name=\"baseUrl\"><![CDATA["+urlWrapper.getUrl(template.getUrl())+"]]></var-def>")
 	      .append("\n<var-def name=\"startUrl\"><![CDATA["+urlWrapper.getUrl(template.getStartUrl())+"]]></var-def>")
 	      .append("\n<var-def name=\"startDate\">"+df.format(this.startDate)+"</var-def>")

@@ -1,30 +1,36 @@
 package com.mycompany.myBlock1.transformation;
 
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.StringBufferInputStream;
-import java.io.StringReader;
-import java.io.StringWriter;
+import com.google.inject.Guice;
+import com.google.inject.Injector;
+import com.google.inject.Provider;
+import org.apache.cocoon.transformation.AbstractDOMTransformer;
+import org.w3c.dom.Document;
+import org.webharvest.Harvest;
+import org.webharvest.HarvestLoadCallback;
+import org.webharvest.Harvester;
+import org.webharvest.definition.*;
+import org.webharvest.events.*;
+import org.webharvest.ioc.ContextFactory;
+import org.webharvest.ioc.HarvesterFactory;
+import org.webharvest.ioc.HttpModule;
+import org.webharvest.ioc.ScraperModule;
+import org.webharvest.runtime.*;
+import org.webharvest.runtime.processors.Processor;
+import org.webharvest.runtime.processors.ProcessorResolver;
+import org.webharvest.runtime.web.HttpClientManager;
+import org.xml.sax.InputSource;
+import org.xml.sax.SAXException;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
-import javax.xml.transform.OutputKeys;
-import javax.xml.transform.Result;
-import javax.xml.transform.Source;
-import javax.xml.transform.Transformer;
-import javax.xml.transform.TransformerConfigurationException;
-import javax.xml.transform.TransformerException;
-import javax.xml.transform.TransformerFactory;
+import javax.xml.transform.*;
 import javax.xml.transform.dom.DOMSource;
 import javax.xml.transform.stream.StreamResult;
-
-import org.apache.cocoon.transformation.AbstractDOMTransformer;
-import org.w3c.dom.Document;
-import org.webharvest.definition.ScraperConfiguration;
-import org.webharvest.runtime.Scraper;
-import org.xml.sax.InputSource;
-import org.xml.sax.SAXException;
+import java.io.IOException;
+import java.io.StringReader;
+import java.io.StringWriter;
+import java.util.List;
 
 /**
  * Generates source-answer to the given template. It uses the webharvester for doing so.
@@ -49,32 +55,43 @@ public class WebHarvestTransformer extends AbstractDOMTransformer {
 			transformer.setOutputProperty(OutputKeys.ENCODING, "UTF-8");
 			transformer.transform(source, result);
 
-			// ScraperConfiguration config = new
-			// ScraperConfiguration("c:/temp/scrapertest/configs/test2.xml");
-			// ScraperConfiguration config = new
-			// ScraperConfiguration("location-examples/banqxquery.xml");
-			ScraperConfiguration config = new ScraperConfiguration(
-					new InputSource(new StringReader(stringWriter.getBuffer()
-							.toString())));
-			// ScraperConfiguration config = new
-			// ScraperConfiguration(this.getSource());
-			// ScraperConfiguration config = new ScraperConfiguration( new
-			// URL("http://localhost/scripts/test/sample8.xml") );
-			Scraper scraper = new Scraper(config, "results");
-			scraper.setDebug(true);
+            final Injector injector = Guice.createInjector(
+                    new ScraperModule("."),
+                    new HttpModule(HttpClientManager.ProxySettings.NO_PROXY_SET)
+            );
+
+            final Harvest harvest = injector.getInstance(Harvest.class);
+
+            ConfigSource configSource = new BufferConfigSource(stringWriter.getBuffer()
+							.toString());
+
+            Harvester harvester = harvest.getHarvester(configSource,
+                    new HarvestLoadCallback() {
+                        @Override
+                        public void onSuccess(List<IElementDef> elements) {
+                            // TODO: Auto-generated method stub :-/
+                        }
+                    });
+            //ScrapingHarvester scraper = new ScrapingHarvester(configSource, "results");
+			//scraper.setDebug(true);
 			/*
 			 * if (_PROXY_HOST != "")
 			 * scraper.getHttpClientManager().setHttpProxy(_PROXY_HOST,
 			 * _PROXY_PORT);
 			 */
 			long startTime = System.currentTimeMillis();
-			scraper.execute();
+			DynamicScopeContext scraperContext = harvester.execute(new Harvester.ContextInitCallback() {
+                @Override
+                public void onSuccess(DynamicScopeContext context) {
+                    // TODO: add initial variables to the scrapers content, if any
+                }
+            });
 
 			System.out.println("time elapsed: "
 					+ (System.currentTimeMillis() - startTime));
 
 			String myXMLAnswer = "<results>"
-					+ (scraper.getContext().getVar("result")).toString()
+					+ (scraperContext.getVar("result")).toString()
 					+ "</results>";
 			
 			System.out.println(myXMLAnswer);
