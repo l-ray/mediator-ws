@@ -72,13 +72,7 @@ public class WebHarvestTransformer extends AbstractDOMTransformer {
                             // TODO: Auto-generated method stub :-/
                         }
                     });
-            //ScrapingHarvester scraper = new ScrapingHarvester(configSource, "results");
-			//scraper.setDebug(true);
-			/*
-			 * if (_PROXY_HOST != "")
-			 * scraper.getHttpClientManager().setHttpProxy(_PROXY_HOST,
-			 * _PROXY_PORT);
-			 */
+
 			long startTime = System.currentTimeMillis();
 			DynamicScopeContext scraperContext = harvester.execute(new Harvester.ContextInitCallback() {
                 @Override
@@ -99,15 +93,11 @@ public class WebHarvestTransformer extends AbstractDOMTransformer {
 			final DocumentBuilderFactory factory2 = DocumentBuilderFactory
 					.newInstance();
 			factory2.setValidating(false);
-			//factory2.setAttribute(OutputKeys.ENCODING, "UTF-8");
-			/*factory2.setIgnoringElementContentWhitespace(true);*/
-			//factory2.set
+
 			final DocumentBuilder builder = factory2.newDocumentBuilder();
 			
 			StringReader sr = new StringReader(myXMLAnswer);
 			InputSource myIS = new InputSource(sr);
-			
-			//InputSource myIS = new InputSource(new InputStreamReader(new StringBufferInputStream(myXMLAnswer),"UTF-8"));
 			
 			document = builder.parse(myIS);
 

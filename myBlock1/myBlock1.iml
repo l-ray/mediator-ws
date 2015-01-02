@@ -24,6 +24,22 @@
         </fileset>
       </configuration>
     </facet>
+    <facet type="web" name="Web2">
+      <configuration>
+        <descriptors>
+          <deploymentDescriptor name="web.xml" url="file://$MODULE_DIR$/src/main/resources/COB-INF/resource/internal/README.txt" />
+        </descriptors>
+        <webroots>
+          <root url="file://$MODULE_DIR$/src/main/resources/COB-INF/resource/internal" relative="/WEB-INF" />
+        </webroots>
+        <sourceRoots>
+          <root url="file://$MODULE_DIR$/myBlock1/src/main/java" />
+          <root url="file://$MODULE_DIR$/myBlock1/src/main/resources" />
+          <root url="file://$MODULE_DIR$/src/main/java" />
+          <root url="file://$MODULE_DIR$/src/main/resources" />
+        </sourceRoots>
+      </configuration>
+    </facet>
   </component>
   <component name="NewModuleRootManager" inherit-compiler-output="false">
     <output url="file://$MODULE_DIR$/target/classes" />
