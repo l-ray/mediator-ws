@@ -40,6 +40,9 @@
 	  		src="org.apache.cocoon.serialization.XMLSerializer">
 	  		<encoding>UTF-8</encoding>
 		  </map:serializer>
+		  <map:serializer name="json" mime-type="application/json" src="org.ametys.web.cocoon.JSONSerializer">
+		    <encoding>UTF-8</encoding>
+		  </map:serializer>
 	  </map:serializers>
   </map:components>
   
@@ -105,7 +108,7 @@
 		    	</map:generate>
 		    	<map:transform type="webharvestTransformer" />
 		    	<map:transform type="tagTransformer" />		    	
-		    	<map:serialize type="xml" />
+		    	<map:serialize type="json" />
 	    	</map:act>
 		</map:match>
 
