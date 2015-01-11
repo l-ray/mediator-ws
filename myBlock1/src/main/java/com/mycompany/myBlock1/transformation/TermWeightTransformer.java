@@ -74,16 +74,17 @@ public class TermWeightTransformer extends AbstractSAXTransformer implements SAX
 
 		if (localName.equals("results")) {
 			this.setInsideArticleTag(false);
-            try {
-                super.startElement(namespaceURI, "weight", "weight", null);
-                addTokenizedContent(namespaceURI, locationContent);
-            } catch (NullPointerException e) {
-                System.out.println("NPE when adding tokenized Content");
-            } finally {
+            if (!locationContent.isEmpty()) {
+                super.startElement(namespaceURI, "weight", "weight", new AttributesImpl());
+                try {
+                    addTokenizedContent(namespaceURI, locationContent);
+                } catch (NullPointerException e) {
+                    System.out.println("NPE when adding tokenized Content");
+                }
                 super.endElement(namespaceURI, "weight", "weight");
-            }
 
-			locationContent = "";
+                locationContent = "";
+            }
 		}
 		
 		super.endElement(namespaceURI, localName, qName);

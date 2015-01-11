@@ -111,7 +111,6 @@ public class PatternCodeGenerator extends StringTemplateGenerator {
             String harvestPattern = loadAndCompleteHarvestTemplate(myConnection);
 
             String myXMLAnswer = retrieveAndProcessSource(harvestPattern);
-
             XMLUtils.createXMLReader(this.getSAXConsumer()).parse(convertToInputSource(myXMLAnswer));
         } catch (Exception e) {
             throw new ProcessingException("Exception occured ", e);

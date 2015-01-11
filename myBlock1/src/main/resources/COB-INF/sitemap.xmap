@@ -33,28 +33,9 @@
 			    	<map:parameter name="endDate" value="2015-01-30" />
 		    	</map:generate>
 		    	<map:transform type="term-weight" />
-		    	<map:serialize type="xml" />
+		    	<map:serialize type="json" />
 		</map:match>
     </map:pipeline>
   </map:pipelines>
-
-    <!-- Global error handling -->
-    <map:handle-errors>
-      <map:select value="{jexl:cocoon.exception.class.name}">
-        <map:when contains="NoMatchingPipelineException">
-          <map:generate src="error-handling/404.xml" />
-          <map:serialize type="xhtml" status-code="404" />
-        </map:when>
-        <map:when ends-with="CustomException">
-          <map:generate src="error-handling/500.xml" />
-          <map:serialize type="xhtml" status-code="500" />
-        </map:when>
-        <map:otherwise>
-          <map:generate type="exception" />
-          <map:serialize type="xml" status-code="500" />
-        </map:otherwise>
-      </map:select>
-
-    </map:handle-errors>
 
 </map:sitemap>
