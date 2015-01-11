@@ -24,7 +24,7 @@
             <groupId>commons-dbcp</groupId>
             <artifactId>commons-dbcp</artifactId>
             <version>1.4</version>
-            <optional>true</optional>
+            <!-- optional>true</optional -->
         </dependency>
 
         <dependency>
