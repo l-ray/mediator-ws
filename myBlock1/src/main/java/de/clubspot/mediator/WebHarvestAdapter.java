@@ -1,7 +1,5 @@
 package de.clubspot.mediator;
 
-import org.apache.log4j.PropertyConfigurator;
-
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.text.ParseException;
@@ -25,13 +23,6 @@ public class WebHarvestAdapter implements SourceAdapter{
      */
     public WebHarvestAdapter() {
     	
-    	Properties props = new Properties();
-    	props.setProperty("log4j.rootLogger", "INFO, stdout");
-    	props.setProperty("log4j.appender.stdout", "org.apache.log4j.ConsoleAppender");
-    	props.setProperty("log4j.appender.stdout.layout", "org.apache.log4j.PatternLayout");
-    	props.setProperty("log4j.appender.stdout.layout.ConversionPattern", "%-5p (%20F:%-3L) - %m\n");
-        PropertyConfigurator.configure(props);
-        
         this.setStartDate(new Date());
         this.setEndDate(new Date());
     }

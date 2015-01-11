@@ -26,8 +26,5 @@
         <module name="myCocoonWebApp" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel>
-      <module name="myBlock1" target="1.5" />
-    </bytecodeTargetLevel>
   </component>
 </project>

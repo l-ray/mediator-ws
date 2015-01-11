@@ -10,16 +10,16 @@ import java.util.Map;
 import java.util.Set;
 import java.util.StringTokenizer;
 
-import org.apache.avalon.excalibur.datasource.DataSourceComponent;
-import org.apache.avalon.framework.service.ServiceException;
-import org.apache.avalon.framework.service.ServiceManager;
-import org.apache.cocoon.databases.bridge.spring.avalon.SpringToAvalonDataSourceBridge;
-import org.apache.cocoon.transformation.AbstractSAXTransformer;
+import org.apache.cocoon.sax.SAXConsumer;
+import org.apache.cocoon.sax.AbstractSAXTransformer;
+import org.apache.commons.dbcp.BasicDataSource;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.xml.sax.Attributes;
 import org.xml.sax.SAXException;
 import org.xml.sax.helpers.AttributesImpl;
 
-public class TermWeightTransformer extends AbstractSAXTransformer {
+public class TermWeightTransformer extends AbstractSAXTransformer implements SAXConsumer{
+
 	// contains the concatenated text
 	String locationContent = "";
 	
@@ -29,35 +29,23 @@ public class TermWeightTransformer extends AbstractSAXTransformer {
 	
 	boolean insideArticleTag = false;
 
-	private DataSourceComponent datasource;
-	
-	private ServiceManager manager;
-	
-   /**
-     * @see org.apache.cocoon.transformation.AbstractSAXTransformer#service(org.apache.avalon.framework.service.ServiceManager)
-     */
-    public void service(ServiceManager aManager) throws ServiceException {
-        super.service(aManager);
-    
-        this.manager = aManager;
-        SpringToAvalonDataSourceBridge selector = 
-        	(SpringToAvalonDataSourceBridge) manager
-        	.lookup(DataSourceComponent.ROLE + "Selector");
-
-        this.datasource = (DataSourceComponent) selector.select("myBlockDatabase");    
-    }
-
-    /**
-     * @see org.apache.cocoon.transformation.AbstractSAXTransformer#dispose()
-     */
-    public void dispose() {
-        super.dispose();
-    }
+    @Autowired
+    private BasicDataSource datasource;
 
 
-	public void startElement(String namespaceURI, String localName,
+     @Override
+     public void setup(Map<String, Object> parameter) {
+         System.out.println("IN TERM_WEIGHT Setup");
+         // this.datasource = (BasicDataSource) this.context
+         //        .getBean("ds:"+parameter.get(USE_CONNECTION));
+         System.out.println("Out TERM_WEIGHT Setup");
+     }
+
+	@Override
+    public void startElement(String namespaceURI, String localName,
 			String qName, Attributes attributes) throws SAXException {
 
+		System.out.println("IN startElement");
 		// start a root element paragraph
 		super.startElement(namespaceURI, localName, qName, attributes);
 		if (localName.equals("location")) {
@@ -69,12 +57,13 @@ public class TermWeightTransformer extends AbstractSAXTransformer {
 		if (localName.equals("results")) {
 			this.setInsideArticleTag(true);
 		}
-
+        System.out.println("OUT startElement");
 	}
 
-	public void endElement(String namespaceURI, String localName, String qName)
+    @Override
+    public void endElement(String namespaceURI, String localName, String qName)
 			throws SAXException {
-
+        System.out.println("IN endElement");
 		if (localName.equals("location")) {
 			this.setInsideLocationTag(false);
 		}
@@ -98,15 +87,16 @@ public class TermWeightTransformer extends AbstractSAXTransformer {
 		}
 		
 		super.endElement(namespaceURI, localName, qName);
-
+        System.out.println("OUT startElement");
 	}
 
+    @Override
 	public void characters(char[] buffer, int start, int length)
 			throws SAXException {
-
+        System.out.println("IN characters");
 		// concatenate the content
 
-		StringBuffer contentBuffer = new StringBuffer();
+		StringBuilder contentBuffer = new StringBuilder();
 		contentBuffer.append(buffer, start, length);
 
 		if (isInsideLocationTag() || isInsideTitleTag()) {
@@ -129,7 +119,7 @@ public class TermWeightTransformer extends AbstractSAXTransformer {
 		
 		while (tokenizeBySpace.hasMoreElements()) {
 			String element = tokenizeBySpace.nextToken();
-			// System.out.println("changing |"+element+"|("+element.length()+") to |"+cleanString(element.replaceAll("\\W+", " "))+"| ");
+			System.out.println("changing |"+element+"|("+element.length()+") to |"+cleanString(element.replaceAll("\\W+", " "))+"| ");
 			if (element.length() > 2) tokenSet.add(cleanString(element.replaceAll("\\W+", " ")));
 		}
 
@@ -152,7 +142,6 @@ public class TermWeightTransformer extends AbstractSAXTransformer {
 	 * 
 	 * @param terms - List of terms the weight is needed for
 	 * @return map where the found term is the key, the weight is the value
-	 * @author lray
 	 */
 	public Map<String,String> getWeightForToken(Set<String> terms) {
 		

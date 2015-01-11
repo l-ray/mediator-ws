@@ -1,14 +1,11 @@
 package de.clubspot.mediator.templates;
 
+import org.apache.cocoon.pipeline.ProcessingException;
+
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
-
-import org.apache.cocoon.ProcessingException;
 
 public class WebHarvestTemplate implements SourceTemplate {
 	String sUrl;
@@ -157,14 +154,14 @@ public class WebHarvestTemplate implements SourceTemplate {
 
 	public String getCompiledPattern() {
 		System.out.println(this.getNameWithoutWhitestripes());
-		
+
 		StringBuilder message = new StringBuilder()
             .append(this.getSubPattern() == null ? "":"\n"+this.getSubPattern())
             .append("\n<var-def name=\"result\">\n")
 			.append("\n<![CDATA[<source>")
-			.append("\n<link>"+this.getUrl()+"</link>")
-			.append("\n<name>"+this.getName()+"</name>")
-			.append("\n<icon>"+this.getIcon()+"</icon>")
+			.append("\n<link>").append(this.getUrl()).append("</link>")
+			.append("\n<name>").append(this.getName()).append("</name>")
+			.append("\n<icon>").append(this.getIcon()).append("</icon>")
 			.append("\n</source>]]>\n")
 			.append(this.getPattern())
 			.append("\n</var-def>\n");

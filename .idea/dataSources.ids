@@ -1527,19 +1527,15 @@
       <column name="viewowner" sqlType="name" precision="2147483647" scale="0" nullable="true" jdbcType="12"/>
       <column name="definition" sqlType="text" precision="2147483647" scale="0" nullable="true" jdbcType="12"/>
     </table>
-    <table name="tx_lrmediator_categories" schema="public" catalog="dffrn6btgo02f" type="TABLE">
-      <column name="uid" sqlType="serial" precision="10" scale="0" nullable="false" jdbcType="4" def="bmV4dHZhbCgndHhfbHJtZWRpYXRvcl9jYXRlZ29yaWVzX3VpZF9zZXEnOjpyZWdjbGFzcyk=" autoIncrement="true"/>
-      <column name="pid" sqlType="int4" precision="10" scale="0" nullable="true" jdbcType="4" def="MA=="/>
-      <column name="tstamp" sqlType="int4" precision="10" scale="0" nullable="true" jdbcType="4" def="MA=="/>
-      <column name="crdate" sqlType="int4" precision="10" scale="0" nullable="true" jdbcType="4" def="MA=="/>
-      <column name="cruser_id" sqlType="int4" precision="10" scale="0" nullable="true" jdbcType="4" def="MA=="/>
-      <column name="deleted" sqlType="int4" precision="10" scale="0" nullable="true" jdbcType="4" def="MA=="/>
+    <table name="categories" schema="public" catalog="dffrn6btgo02f" type="TABLE">
+      <column name="id" sqlType="serial" precision="10" scale="0" nullable="false" jdbcType="4" def="bmV4dHZhbCgnY2F0ZWdvcmllc19pZF9zZXEnOjpyZWdjbGFzcyk=" autoIncrement="true"/>
       <column name="term" sqlType="varchar" precision="2147483647" scale="0" nullable="true" jdbcType="12"/>
       <column name="category" sqlType="varchar" precision="2147483647" scale="0" nullable="true" jdbcType="12"/>
       <column name="hidden" sqlType="int4" precision="10" scale="0" nullable="false" jdbcType="4" def="MA=="/>
-      <primary-key name="tx_lrmediator_categories_pkey" columns="uid"/>
+      <column name="deleted" sqlType="int4" precision="10" scale="0" nullable="true" jdbcType="4" def="MA=="/>
+      <primary-key name="categories_pkey" columns="id"/>
     </table>
-    <table name="tx_lrmediator_categories_uid_seq" schema="public" catalog="dffrn6btgo02f" type="SEQUENCE">
+    <table name="categories_id_seq" schema="public" catalog="dffrn6btgo02f" type="SEQUENCE">
       <column name="sequence_name" sqlType="name" precision="2147483647" scale="0" nullable="false" jdbcType="12"/>
       <column name="last_value" sqlType="int8" precision="19" scale="0" nullable="false" jdbcType="-5"/>
       <column name="start_value" sqlType="int8" precision="19" scale="0" nullable="false" jdbcType="-5"/>
@@ -1551,28 +1547,22 @@
       <column name="is_cycled" sqlType="bool" precision="1" scale="0" nullable="false" jdbcType="-7"/>
       <column name="is_called" sqlType="bool" precision="1" scale="0" nullable="false" jdbcType="-7"/>
     </table>
-    <table name="tx_lrmediator_pattern" schema="public" catalog="dffrn6btgo02f" type="TABLE">
-      <column name="uid" sqlType="serial" precision="10" scale="0" nullable="false" jdbcType="4" def="bmV4dHZhbCgndHhfbHJtZWRpYXRvcl9wYXR0ZXJuX3VpZF9zZXEnOjpyZWdjbGFzcyk=" autoIncrement="true"/>
-      <column name="pid" sqlType="int4" precision="10" scale="0" nullable="false" jdbcType="4" def="MA=="/>
+    <table name="pattern" schema="public" catalog="dffrn6btgo02f" type="TABLE">
+      <column name="id" sqlType="serial" precision="10" scale="0" nullable="false" jdbcType="4" def="bmV4dHZhbCgncGF0dGVybl9pZF9zZXEnOjpyZWdjbGFzcyk=" autoIncrement="true"/>
+      <column name="type" sqlType="varchar" precision="2147483647" scale="0" nullable="true" jdbcType="12" def="J3dlYmhhcnZlc3Qn"/>
       <column name="name" sqlType="varchar" precision="2147483647" scale="0" nullable="true" jdbcType="12" def="Jyc="/>
       <column name="url" sqlType="varchar" precision="2147483647" scale="0" nullable="true" jdbcType="12" def="Jyc="/>
       <column name="starturl" sqlType="varchar" precision="2147483647" scale="0" nullable="true" jdbcType="12" def="Jyc="/>
       <column name="icon" sqlType="varchar" precision="2147483647" scale="0" nullable="true" jdbcType="12" def="Jyc="/>
       <column name="pattern" sqlType="text" precision="2147483647" scale="0" nullable="false" jdbcType="12"/>
+      <column name="subpattern" sqlType="text" precision="2147483647" scale="0" nullable="true" jdbcType="12"/>
       <column name="dateformat" sqlType="varchar" precision="2147483647" scale="0" nullable="true" jdbcType="12" def="J2RkLm1tLnl5Jw=="/>
-      <column name="tstamp" sqlType="int4" precision="10" scale="0" nullable="false" jdbcType="4" def="MA=="/>
-      <column name="crdate" sqlType="int4" precision="10" scale="0" nullable="false" jdbcType="4" def="MA=="/>
-      <column name="cruser_id" sqlType="int4" precision="10" scale="0" nullable="false" jdbcType="4" def="MA=="/>
-      <column name="lft" sqlType="int4" precision="10" scale="0" nullable="false" jdbcType="4" def="MA=="/>
-      <column name="rgt" sqlType="int4" precision="10" scale="0" nullable="false" jdbcType="4" def="MA=="/>
       <column name="deleted" sqlType="int4" precision="10" scale="0" nullable="false" jdbcType="4" def="MA=="/>
       <column name="hidden" sqlType="int4" precision="10" scale="0" nullable="false" jdbcType="4" def="MA=="/>
       <column name="countrycode" sqlType="varchar" precision="2147483647" scale="0" nullable="false" jdbcType="12" def="J0RFX2RlJw=="/>
-      <column name="subpattern" sqlType="int4" precision="10" scale="0" nullable="false" jdbcType="4" def="MA=="/>
-      <column name="fe_group" sqlType="int4" precision="10" scale="0" nullable="false" jdbcType="4" def="MA=="/>
-      <primary-key name="tx_lrmediator_pattern_pkey" columns="uid"/>
+      <primary-key name="pattern_pkey" columns="id"/>
     </table>
-    <table name="tx_lrmediator_pattern_uid_seq" schema="public" catalog="dffrn6btgo02f" type="SEQUENCE">
+    <table name="pattern_id_seq" schema="public" catalog="dffrn6btgo02f" type="SEQUENCE">
       <column name="sequence_name" sqlType="name" precision="2147483647" scale="0" nullable="false" jdbcType="12"/>
       <column name="last_value" sqlType="int8" precision="19" scale="0" nullable="false" jdbcType="-5"/>
       <column name="start_value" sqlType="int8" precision="19" scale="0" nullable="false" jdbcType="-5"/>
@@ -1584,42 +1574,37 @@
       <column name="is_cycled" sqlType="bool" precision="1" scale="0" nullable="false" jdbcType="-7"/>
       <column name="is_called" sqlType="bool" precision="1" scale="0" nullable="false" jdbcType="-7"/>
     </table>
-    <table name="tx_lrmediator_term_weight" schema="public" catalog="dffrn6btgo02f" type="TABLE">
-      <column name="uid" sqlType="serial" precision="10" scale="0" nullable="false" jdbcType="4" def="bmV4dHZhbCgndHhfbHJtZWRpYXRvcl90ZXJtX3dlaWdodF91aWRfc2VxJzo6cmVnY2xhc3Mp" autoIncrement="true"/>
-      <column name="pid" sqlType="int4" precision="10" scale="0" nullable="true" jdbcType="4" def="MA=="/>
-      <column name="term" sqlType="varchar" precision="2147483647" scale="0" nullable="true" jdbcType="12"/>
+    <table name="schema_version" schema="public" catalog="dffrn6btgo02f" type="TABLE">
+      <column name="version_rank" sqlType="int4" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="installed_rank" sqlType="int4" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="version" sqlType="varchar" precision="50" scale="0" nullable="false" jdbcType="12"/>
+      <column name="description" sqlType="varchar" precision="200" scale="0" nullable="false" jdbcType="12"/>
+      <column name="type" sqlType="varchar" precision="20" scale="0" nullable="false" jdbcType="12"/>
+      <column name="script" sqlType="varchar" precision="1000" scale="0" nullable="false" jdbcType="12"/>
+      <column name="checksum" sqlType="int4" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="installed_by" sqlType="varchar" precision="100" scale="0" nullable="false" jdbcType="12"/>
+      <column name="installed_on" sqlType="timestamp" precision="29" scale="6" nullable="false" jdbcType="93" def="bm93KCk="/>
+      <column name="execution_time" sqlType="int4" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="success" sqlType="bool" precision="1" scale="0" nullable="false" jdbcType="-7"/>
+      <primary-key name="schema_version_pk" columns="version"/>
+      <index name="schema_version_ir_idx" unique="false" columns="installed_rank"/>
+      <index name="schema_version_s_idx" unique="false" columns="success"/>
+      <index name="schema_version_vr_idx" unique="false" columns="version_rank"/>
+    </table>
+    <table name="term_weight" schema="public" catalog="dffrn6btgo02f" type="TABLE">
+      <column name="term" sqlType="varchar" precision="2147483647" scale="0" nullable="false" jdbcType="12"/>
       <column name="weight" sqlType="float8" precision="17" scale="17" nullable="false" jdbcType="8" def="MDo6ZG91YmxlIHByZWNpc2lvbg=="/>
-      <column name="tstamp" sqlType="int4" precision="10" scale="0" nullable="true" jdbcType="4" def="MA=="/>
-      <column name="crdate" sqlType="int4" precision="10" scale="0" nullable="true" jdbcType="4" def="MA=="/>
-      <column name="cruser_id" sqlType="int4" precision="10" scale="0" nullable="true" jdbcType="4" def="MA=="/>
       <column name="deleted" sqlType="int4" precision="10" scale="0" nullable="true" jdbcType="4" def="MA=="/>
+      <primary-key name="term_weight_pkey" columns="term"/>
     </table>
-    <table name="tx_lrmediator_term_weight_uid_seq" schema="public" catalog="dffrn6btgo02f" type="SEQUENCE">
-      <column name="sequence_name" sqlType="name" precision="2147483647" scale="0" nullable="false" jdbcType="12"/>
-      <column name="last_value" sqlType="int8" precision="19" scale="0" nullable="false" jdbcType="-5"/>
-      <column name="start_value" sqlType="int8" precision="19" scale="0" nullable="false" jdbcType="-5"/>
-      <column name="increment_by" sqlType="int8" precision="19" scale="0" nullable="false" jdbcType="-5"/>
-      <column name="max_value" sqlType="int8" precision="19" scale="0" nullable="false" jdbcType="-5"/>
-      <column name="min_value" sqlType="int8" precision="19" scale="0" nullable="false" jdbcType="-5"/>
-      <column name="cache_value" sqlType="int8" precision="19" scale="0" nullable="false" jdbcType="-5"/>
-      <column name="log_cnt" sqlType="int8" precision="19" scale="0" nullable="false" jdbcType="-5"/>
-      <column name="is_cycled" sqlType="bool" precision="1" scale="0" nullable="false" jdbcType="-7"/>
-      <column name="is_called" sqlType="bool" precision="1" scale="0" nullable="false" jdbcType="-7"/>
-    </table>
-    <table name="tx_lrmediator_user_rules" schema="public" catalog="dffrn6btgo02f" type="TABLE">
-      <column name="uid" sqlType="serial" precision="10" scale="0" nullable="false" jdbcType="4" def="bmV4dHZhbCgndHhfbHJtZWRpYXRvcl91c2VyX3J1bGVzX3VpZF9zZXEnOjpyZWdjbGFzcyk=" autoIncrement="true"/>
-      <column name="pid" sqlType="int4" precision="10" scale="0" nullable="true" jdbcType="4" def="MA=="/>
-      <column name="rule_type" sqlType="int2" precision="5" scale="0" nullable="true" jdbcType="5"/>
+    <table name="user_rules" schema="public" catalog="dffrn6btgo02f" type="TABLE">
+      <column name="id" sqlType="serial" precision="10" scale="0" nullable="false" jdbcType="4" def="bmV4dHZhbCgndXNlcl9ydWxlc19pZF9zZXEnOjpyZWdjbGFzcyk=" autoIncrement="true"/>
+      <column name="rule_type" sqlType="int4" precision="10" scale="0" nullable="true" jdbcType="4"/>
       <column name="rule_input" sqlType="varchar" precision="2147483647" scale="0" nullable="true" jdbcType="12"/>
-      <column name="priority_change" sqlType="int2" precision="5" scale="0" nullable="true" jdbcType="5" def="MDo6c21hbGxpbnQ="/>
-      <column name="tstamp" sqlType="int4" precision="10" scale="0" nullable="true" jdbcType="4" def="MA=="/>
-      <column name="crdate" sqlType="int4" precision="10" scale="0" nullable="true" jdbcType="4" def="MA=="/>
-      <column name="cruser_id" sqlType="int4" precision="10" scale="0" nullable="true" jdbcType="4" def="MA=="/>
-      <column name="deleted" sqlType="int4" precision="10" scale="0" nullable="true" jdbcType="4" def="MA=="/>
-      <column name="fe_user" sqlType="int4" precision="10" scale="0" nullable="false" jdbcType="4" def="MA=="/>
-      <column name="hidden" sqlType="int4" precision="10" scale="0" nullable="false" jdbcType="4" def="MA=="/>
+      <column name="priority_change" sqlType="int4" precision="10" scale="0" nullable="true" jdbcType="4" def="MA=="/>
+      <primary-key name="user_rules_pkey" columns="id"/>
     </table>
-    <table name="tx_lrmediator_user_rules_uid_seq" schema="public" catalog="dffrn6btgo02f" type="SEQUENCE">
+    <table name="user_rules_id_seq" schema="public" catalog="dffrn6btgo02f" type="SEQUENCE">
       <column name="sequence_name" sqlType="name" precision="2147483647" scale="0" nullable="false" jdbcType="12"/>
       <column name="last_value" sqlType="int8" precision="19" scale="0" nullable="false" jdbcType="-5"/>
       <column name="start_value" sqlType="int8" precision="19" scale="0" nullable="false" jdbcType="-5"/>

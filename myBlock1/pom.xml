@@ -19,60 +19,154 @@
 -->
 <!-- $Id: pom.xml 643595 2008-04-01 21:40:49Z reinhard $ -->
 <project xmlns="http://maven.apache.org/POM/4.0.0"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 
-	<modelVersion>4.0.0</modelVersion>
-	<packaging>jar</packaging>
+    <modelVersion>4.0.0</modelVersion>
+    <packaging>jar</packaging>
 
-	<name>myBlock1</name>
-	<!-- groupId>com.mycompany</groupId -->
-	<artifactId>myBlock1</artifactId>
-	<version>1.0.1-SNAPSHOT</version>
+    <!--parent>
+          <groupId>com.mycompany</groupId>
+      <artifactId>parent</artifactId>
+      <version>1-SNAPSHOT</version>
+      <relativePath>../parent</relativePath>
+    </parent-->
 
-	<parent>
-		<groupId>com.mycompany</groupId>
-        <artifactId>mediator-ws</artifactId>
-        <version>1-SNAPSHOT</version>
-	</parent>
+    <artifactId>myBlock1</artifactId>
+    <groupId>com.mycompany</groupId>
+    <version>1.0.1-SNAPSHOT</version>
+    <name>myBlock1</name>
+    <description>com.mycompany:myBlock1:1.0-SNAPSHOT</description>
 
-	<dependencies>
-		<dependency>
-			<groupId>org.apache.cocoon</groupId>
-			<artifactId>cocoon-core</artifactId>
-			<version>2.2.0</version>
-		</dependency>
+    <dependencies>
+        <dependency>
+            <groupId>org.apache.cocoon.servlet</groupId>
+            <artifactId>cocoon-servlet</artifactId>
+            <version>3.0.0-alpha-3</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.cocoon.rest</groupId>
+            <artifactId>cocoon-rest</artifactId>
+            <version>3.0.0-alpha-3</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.cocoon.sax</groupId>
+            <artifactId>cocoon-sax</artifactId>
+            <version>3.0.0-alpha-3</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.cocoon.stringtemplate</groupId>
+            <artifactId>cocoon-stringtemplate</artifactId>
+            <version>3.0.0-alpha-3</version>
+        </dependency>
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>servlet-api</artifactId>
+            <scope>provided</scope>
+            <version>2.4</version>
+        </dependency>
+        <dependency>
+            <groupId>log4j</groupId>
+            <artifactId>log4j</artifactId>
+            <scope>runtime</scope>
+            <version>1.2.14</version>
+        </dependency>
+
+        <!--  Logging dependencies -->
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-log4j12</artifactId>
+            <version>1.4.2</version>
+            <scope>runtime</scope>
+        </dependency>
+
+        <!-- Spring (+ AOP support)-->
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-beans</artifactId>
+            <version>3.0.5.RELEASE</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-core</artifactId>
+            <version>3.0.5.RELEASE</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-context</artifactId>
+            <version>3.0.5.RELEASE</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-context-support</artifactId>
+            <version>3.0.5.RELEASE</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-aop</artifactId>
+            <version>3.0.5.RELEASE</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-web</artifactId>
+            <version>3.0.5.RELEASE</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-jmx</artifactId>
+            <version>2.0.8</version>
+        </dependency>
+        <dependency>
+            <groupId>org.aspectj</groupId>
+            <artifactId>aspectjrt</artifactId>
+            <version>1.6.1</version>
+        </dependency>
+        <dependency>
+            <groupId>org.aspectj</groupId>
+            <artifactId>aspectjweaver</artifactId>
+            <version>1.6.1</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.cocoon.optional</groupId>
+            <artifactId>cocoon-optional</artifactId>
+            <version>3.0.0-alpha-3</version>
+        </dependency>
+        <dependency>
+            <groupId>com.thoughtworks.xstream</groupId>
+            <artifactId>xstream</artifactId>
+            <version>1.4.4</version>
+            <!-- optional>true</optional -->
+        </dependency>
+
+        <!--  Test dependencies -->
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <scope>test</scope>
+            <version>4.8.1</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-lang3</artifactId>
+            <version>3.1</version>
+        </dependency>
+
+        <dependency>
+            <groupId>commons-dbcp</groupId>
+            <artifactId>commons-dbcp</artifactId>
+            <version>1.4</version>
+            <optional>true</optional>
+        </dependency>
+
         <dependency>
             <groupId>postgresql</groupId>
             <artifactId>postgresql</artifactId>
             <version>9.1-901.jdbc4</version>
         </dependency>
-		<dependency>
-			<groupId>org.apache.cocoon</groupId>
-			<artifactId>cocoon-servlet-service-components</artifactId>
-			<version>1.0.0</version>
-		</dependency>
-		<dependency>
-			<groupId>org.apache.cocoon</groupId>
-			<artifactId>cocoon-template-impl</artifactId>
-			<version>1.1.0</version>
-		</dependency>
-		<dependency>
-			<groupId>org.apache.cocoon</groupId>
-			<artifactId>cocoon-flowscript-impl</artifactId>
-			<version>1.0.0</version>
-		</dependency>
-		<dependency>
-			<groupId>javax.servlet</groupId>
-			<artifactId>servlet-api</artifactId>
-			<version>2.4</version>
-			<scope>provided</scope>
-		</dependency>
-		<dependency>
-			<groupId>org.apache.cocoon</groupId>
-			<artifactId>cocoon-fop-impl</artifactId>
-			<version>1.0.0</version>
-		</dependency>
 
         <dependency>
             <groupId>net.sourceforge.web-harvest</groupId>
@@ -80,85 +174,124 @@
             <version>2.1.0-RC1</version>
         </dependency>
 
-		<dependency>
-			<groupId>org.apache.cocoon</groupId>
-			<artifactId>cocoon-databases-impl</artifactId>
-			<version>1.0.0</version>
-		</dependency>
-		<!-- This dependency is work-around for following bug: http://jira.codehaus.org/browse/MECLIPSE-457 -->
-		<dependency>
-			<groupId>org.apache.excalibur.components</groupId>
-			<artifactId>excalibur-sourceresolve</artifactId>
-			<version>2.2.3</version>
-		</dependency>
+    </dependencies>
 
-	</dependencies>
-
-	<build>
-		<plugins>
-			<!-- plugin>
-				<groupId>org.apache.cocoon</groupId>
-				<artifactId>cocoon-maven-plugin</artifactId>
-				<version>1.0.2</version>
-				<executions>
-					<execution>
-						<id>prepare</id>
-						<phase>compile</phase>
-						<goals>
-							<goal>prepare</goal>
-						</goals>
-					</execution>
-				</executions>
-				<configuration>
-				</configuration>
-			</plugin -->
-			<plugin>
-				<groupId>org.mortbay.jetty</groupId>
-				<artifactId>maven-jetty-plugin</artifactId>
-				<version>6.1.7</version>
-				<configuration>
-					<connectors>
-						<connector
-							implementation="org.mortbay.jetty.nio.SelectChannelConnector">
-							<port>8888</port>
-							<maxIdleTime>30000</maxIdleTime>
-						</connector>
-					</connectors>
-					<webAppSourceDirectory>
-						${project.build.directory}/rcl/webapp
-					</webAppSourceDirectory>
-					<contextPath>/</contextPath>
-					<systemProperties>
-						<systemProperty>
-							<name>org.apache.cocoon.mode</name>
-							<value>dev</value>
-						</systemProperty>
-					</systemProperties>
-				</configuration>
-			</plugin>
-			<plugin>
-				<artifactId>maven-jar-plugin</artifactId>
-				<version>2.1</version>
-				<configuration>
-					<archive>
-						<manifestEntries>
-							<Cocoon-Block-Name>
-								${project.artifactId}
-							</Cocoon-Block-Name>
-						</manifestEntries>
-					</archive>
-				</configuration>
-			</plugin>
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-compiler-plugin</artifactId>
-                <version>3.2</version>
-				<!-- configuration>
-					<source>1.5</source>
-					<target>1.5</target>
-				</configuration -->
-			</plugin>
+    <build>
+        <plugins>
+            <!-- plugin>
+                <groupId>org.apache.cocoon</groupId>
+                <artifactId>cocoon-maven-plugin</artifactId>
+                <version>1.0.0</version>
+                <configuration>
+                    <webappProfile>ssf</webappProfile>
+                    <customWebappDirectory>rcl-config</customWebappDirectory>
+                </configuration>
+                <executions>
+                    <execution>
+                        <phase>compile</phase>
+                        <goals>
+                            <goal>prepare</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin -->
             <plugin>
+                <groupId>org.mortbay.jetty</groupId>
+                <artifactId>maven-jetty-plugin</artifactId>
+                <version>6.1.7</version>
+                <configuration>
+                    <connectors>
+                        <connector implementation="org.mortbay.jetty.nio.SelectChannelConnector">
+                            <port>8888</port>
+                            <maxIdleTime>30000</maxIdleTime>
+                        </connector>
+                    </connectors>
+                    <webAppSourceDirectory>${project.build.directory}/rcl/webapp</webAppSourceDirectory>
+                    <contextPath>/</contextPath>
+                    <systemProperties>
+                        <systemProperty>
+                            <name>org.apache.cocoon.mode</name>
+                            <value>dev</value>
+                        </systemProperty>
+                    </systemProperties>
+                </configuration>
+            </plugin>
+            <plugin>
+                <artifactId>maven-jar-plugin</artifactId>
+                <version>2.1</version>
+                <configuration>
+                    <archive>
+                        <manifestEntries>
+                            <Cocoon-Block-Name>${project.artifactId}</Cocoon-Block-Name>
+                        </manifestEntries>
+                    </archive>
+                </configuration>
+            </plugin>
+            <!--plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.2</version>
+                <configuration>
+                    <source>1.5</source>
+                    <target>1.5</target>
+                </configuration>
+            </plugin -->
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>build-helper-maven-plugin</artifactId>
+                <version>1.7</version>
+                <executions>
+                    <execution>
+                        <id>regex-property1</id>
+                        <goals>
+                            <goal>regex-property</goal>
+                        </goals>
+                        <phase>pre-integration-test</phase>
+                        <configuration>
+                            <name>dbUrl</name>
+                            <value>${env.DATABASE_URL}</value>
+                            <regex>
+                                ^postgres://([0-9a-zA-Z]+):([0-9a-zA-Z]+)@([0-9a-zA-Z\-\.]+:[0-9]{2,6}/[0-9a-zA-Z]+)$
+                            </regex>
+                            <replacement>jdbc:postgresql://$3?ssl=true&amp;sslfactory=org.postgresql.ssl.NonValidatingFactory</replacement>
+                            <failIfNoMatch>true</failIfNoMatch>
+                        </configuration>
+                    </execution>
+                    <execution>
+                        <id>regex-property2</id>
+                        <goals>
+                            <goal>regex-property</goal>
+                        </goals>
+                        <phase>pre-integration-test</phase>
+                        <configuration>
+                            <name>dbUser</name>
+                            <value>${env.DATABASE_URL}</value>
+                            <regex>
+                                ^postgres://([0-9a-zA-Z]+):([0-9a-zA-Z]+)@([0-9a-zA-Z\-\.]+:[0-9]{2,6}/[0-9a-zA-Z]+)$
+                            </regex>
+                            <replacement>$1</replacement>
+                            <failIfNoMatch>true</failIfNoMatch>
+                        </configuration>
+                    </execution>
+                    <execution>
+                        <id>regex-property3</id>
+                        <goals>
+                            <goal>regex-property</goal>
+                        </goals>
+                        <phase>pre-integration-test</phase>
+                        <configuration>
+                            <name>dbPassword</name>
+                            <value>${env.DATABASE_URL}</value>
+                            <regex>
+                                ^postgres://([0-9a-zA-Z]+):([0-9a-zA-Z]+)@([0-9a-zA-Z\-\.]+:[0-9]{2,6}/[0-9a-zA-Z]+)$
+                            </regex>
+                            <replacement>$2</replacement>
+                            <failIfNoMatch>true</failIfNoMatch>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+            <!-- plugin>
                 <groupId>org.flywaydb</groupId>
                 <artifactId>flyway-maven-plugin</artifactId>
                 <version>3.1</version>
@@ -169,13 +302,13 @@
                             <goal>clean</goal>
                             <goal>migrate</goal>
                         </goals>
-                        <phase>deploy</phase>
+                        <phase>pre-integration-test</phase>
                     </execution>
                 </executions>
                 <configuration>
-                    <url>jdbc:postgresql://ec2-54-225-136-187.compute-1.amazonaws.com:5432/dffrn6btgo02f?ssl=true&amp;sslfactory=org.postgresql.ssl.NonValidatingFactory</url>
-                    <user>rneehhzghadajo</user>
-                    <password>uxzS96h2tBh7TDvBtBXcFXQ2CM</password>
+                    <url>${dbUrl}</url>
+                    <user>${dbUser}</user>
+                    <password>${dbPassword}</password>
                     <placeholderPrefix>#{</placeholderPrefix>
                 </configuration>
                 <dependencies>
@@ -185,7 +318,7 @@
                         <version>9.1-901.jdbc4</version>
                     </dependency>
                 </dependencies>
-            </plugin>
-		</plugins>
-	</build>
+            </plugin -->
+        </plugins>
+    </build>
 </project>
