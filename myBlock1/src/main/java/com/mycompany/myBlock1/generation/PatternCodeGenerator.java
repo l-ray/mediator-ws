@@ -64,7 +64,7 @@ public class PatternCodeGenerator extends StringTemplateGenerator {
     public void setConfiguration(final Map<String, ? extends Object> parameter) {
         super.setConfiguration(parameter);
         // this.url = (URL) parameters.get("source");
-        System.out.println("In SetConfiguration with "+parameter);
+        System.out.println("In SetConfiguration with: "+parameter);
         patternId = (String) parameter.get("patternId");
         System.out.println("got first param");
         startDate = parseStartDate((String)parameter.get("startDate"));
