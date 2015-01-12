@@ -1,4 +1,4 @@
-package com.mycompany.myBlock1.generation;
+package de.clubspot.mediator.processing.generation;
 
 import com.google.inject.Guice;
 import com.google.inject.Injector;

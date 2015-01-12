@@ -2,12 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6bc9501b-9fe0-4f08-a2ef-db71be166b7c" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/myBlock1/src/main/java/com/mycompany/myBlock1/generation/PatternCodeGenerator.java" afterPath="$PROJECT_DIR$/myBlock1/src/main/java/com/mycompany/myBlock1/generation/PatternCodeGenerator.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/myBlock1/src/main/java/com/mycompany/myBlock1/transformation/TermWeightTransformer.java" afterPath="$PROJECT_DIR$/myBlock1/src/main/java/com/mycompany/myBlock1/transformation/TermWeightTransformer.java" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/myBlock1/src/main/java/com/mycompany/App.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/myBlock1/src/main/java/com/mycompany/myBlock1/MyBean.java" afterPath="" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/myBlock1/src/main/java/com/mycompany/myBlock1/generation/PatternCodeGenerator.java" afterPath="$PROJECT_DIR$/myBlock1/src/main/java/de/clubspot/mediator/processing/generation/PatternCodeGenerator.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/myBlock1/src/main/java/com/mycompany/myBlock1/transformation/TermWeightTransformer.java" afterPath="$PROJECT_DIR$/myBlock1/src/main/java/de/clubspot/mediator/processing/transformation/TermWeightTransformer.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/myBlock1/src/main/resources/db/migration/V1_2__add_dummy_pattern_categories_and_term_weights.sql" afterPath="$PROJECT_DIR$/myBlock1/src/main/resources/db/migration/V1_2__add_dummy_pattern_categories_and_term_weights.sql" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/myBlock1/src/main/java/de/clubspot/mediator/templates/WebHarvestTemplate.java" afterPath="$PROJECT_DIR$/myBlock1/src/main/java/de/clubspot/mediator/templates/WebHarvestTemplate.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/myBlock1/src/main/resources/META-INF/cocoon/spring/block-servlet-service.xml" afterPath="$PROJECT_DIR$/myBlock1/src/main/resources/META-INF/cocoon/spring/block-servlet-service.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/myBlock1/src/main/resources/META-INF/cocoon/spring/cocoon-sample-sitemap-components.xml" afterPath="$PROJECT_DIR$/myBlock1/src/main/resources/META-INF/cocoon/spring/cocoon-sample-sitemap-components.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/myCocoonWebApp/myCocoonWebApp.iml" afterPath="$PROJECT_DIR$/myCocoonWebApp/myCocoonWebApp.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/myBlock1/myBlock1.iml" afterPath="$PROJECT_DIR$/myBlock1/myBlock1.iml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/myBlock1/pom.xml" afterPath="$PROJECT_DIR$/myBlock1/pom.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/myCocoonWebApp/pom.xml" afterPath="$PROJECT_DIR$/myCocoonWebApp/pom.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/myBlock1/rcl.properties" afterPath="$PROJECT_DIR$/myBlock1/rcl.properties" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/myBlock1/src/main/resources/COB-INF/sitemap.xmap" afterPath="$PROJECT_DIR$/myBlock1/src/main/resources/COB-INF/sitemap.xmap" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
@@ -92,36 +97,12 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="sitemap.xmap" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/myBlock1/src/main/resources/COB-INF/sitemap.xmap">
+      <file leaf-file-name="cocoon-sample-servlet-service.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/myBlock1/src/main/resources/META-INF/cocoon/spring/cocoon-sample-servlet-service.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-1.2647059" vertical-offset="497" max-vertical-offset="828">
-              <caret line="30" column="42" selection-start-line="30" selection-start-column="42" selection-end-line="30" selection-end-column="42" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="586" max-vertical-offset="954">
+              <caret line="36" column="17" selection-start-line="36" selection-start-column="17" selection-end-line="36" selection-end-column="17" />
               <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="PatternCodeGenerator.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/myBlock1/src/main/java/com/mycompany/myBlock1/generation/PatternCodeGenerator.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="1853" max-vertical-offset="3528">
-              <caret line="113" column="22" selection-start-line="113" selection-start-column="22" selection-end-line="113" selection-end-column="22" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="TermWeightTransformer.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/myBlock1/src/main/java/com/mycompany/myBlock1/transformation/TermWeightTransformer.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.34743202" vertical-offset="1289" max-vertical-offset="3780">
-              <caret line="78" column="21" selection-start-line="78" selection-start-column="21" selection-end-line="78" selection-end-column="21" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -129,40 +110,68 @@
       <file leaf-file-name="pom.xml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/myBlock1/pom.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-139.17647" vertical-offset="956" max-vertical-offset="5922">
-              <caret line="316" column="59" selection-start-line="316" selection-start-column="59" selection-end-line="316" selection-end-column="59" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="5587" max-vertical-offset="5922">
+              <caret line="312" column="8" selection-start-line="312" selection-start-column="8" selection-end-line="312" selection-end-column="8" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="JsonSerializer.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/myBlock1/src/main/java/org/apache/cocoon/optional/pipeline/components/sax/json/JsonSerializer.java">
+      <file leaf-file-name="sitemap.xmap" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/myBlock1/src/main/resources/COB-INF/sitemap.xmap">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1008">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding>
-                <element signature="e#0#2218#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="cocoon-sample-servlet-service.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/myBlock1/src/main/resources/META-INF/cocoon/spring/cocoon-sample-servlet-service.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="348" max-vertical-offset="954">
-              <caret line="35" column="55" selection-start-line="35" selection-start-column="55" selection-end-line="35" selection-end-column="55" />
+            <state vertical-scroll-proportion="0.74825174" vertical-offset="632" max-vertical-offset="1062">
+              <caret line="47" column="38" selection-start-line="47" selection-start-column="38" selection-end-line="47" selection-end-column="38" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="pom.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/myCocoonWebApp/pom.xml">
+      <file leaf-file-name="V1_2__add_dummy_pattern_categories_and_term_weights.sql" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/myBlock1/src/main/resources/db/migration/V1_2__add_dummy_pattern_categories_and_term_weights.sql">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="236" max-vertical-offset="1854">
-              <caret line="31" column="26" selection-start-line="31" selection-start-column="26" selection-end-line="31" selection-end-column="26" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="171" max-vertical-offset="756">
+              <caret line="18" column="855" selection-start-line="18" selection-start-column="855" selection-end-line="18" selection-end-column="855" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="PatternCodeGenerator.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/myBlock1/src/main/java/de/clubspot/mediator/processing/generation/PatternCodeGenerator.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="2175" max-vertical-offset="2898">
+              <caret line="170" column="42" selection-start-line="170" selection-start-column="42" selection-end-line="170" selection-end-column="42" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="WebHarvestTemplate.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/myBlock1/src/main/java/de/clubspot/mediator/templates/WebHarvestTemplate.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="1960" max-vertical-offset="2430">
+              <caret line="167" column="51" selection-start-line="167" selection-start-column="51" selection-end-line="167" selection-end-column="51" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="block-servlet-service.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/myBlock1/src/main/resources/META-INF/cocoon/spring/block-servlet-service.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="324" max-vertical-offset="666">
+              <caret line="26" column="14" selection-start-line="26" selection-start-column="14" selection-end-line="26" selection-end-column="34" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="rcl.properties" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/myBlock1/rcl.properties">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="252" max-vertical-offset="396">
+              <caret line="14" column="32" selection-start-line="14" selection-start-column="32" selection-end-line="14" selection-end-column="32" />
               <folding />
             </state>
           </provider>
@@ -171,8 +180,18 @@
       <file leaf-file-name="cocoon-sample-sitemap-components.xml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/myBlock1/src/main/resources/META-INF/cocoon/spring/cocoon-sample-sitemap-components.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="193" max-vertical-offset="666">
-              <caret line="29" column="110" selection-start-line="29" selection-start-column="110" selection-end-line="29" selection-end-column="110" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="234" max-vertical-offset="684">
+              <caret line="30" column="0" selection-start-line="30" selection-start-column="0" selection-end-line="30" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="cocoon-sample-block-deployment.xweb" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/myBlock1/src/main/resources/META-INF/cocoon/xpatch/cocoon-sample-block-deployment.xweb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="630">
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -186,7 +205,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/java/com/mycompany/myBlock1/database/DataBaseConnectionSingleton.java" />
         <option value="$PROJECT_DIR$/src/main/resources/META-INF/cocoon/spring/database-connection.xml" />
         <option value="$PROJECT_DIR$/data.sql" />
         <option value="db-console:/d81a4d73/901316f0-4b0f-432f-8164-f2b40d7ddb4f/" />
@@ -213,11 +231,9 @@
         <option value="$PROJECT_DIR$/myBlock1/src/main/resources/db/migration/test.txt" />
         <option value="$PROJECT_DIR$/myBlock1/src/main/resources/db/migration/demodata.html" />
         <option value="$PROJECT_DIR$/myBlock1/src/main/resources/db/migration/test.xml" />
-        <option value="$PROJECT_DIR$/myBlock1/src/main/resources/db/migration/V1_2__add_dummy_pattern_categories_and_term_weights.sql" />
         <option value="$PROJECT_DIR$/myBlock1/src/main/java/JSONSerializer.java" />
         <option value="$PROJECT_DIR$/myBlock1/src/main/java/org/ametys/web/cocoon/XML2JSONObject.java" />
         <option value="$PROJECT_DIR$/myBlock1/src/main/java/de/clubspot/mediator/WebHarvestAdapter.java" />
-        <option value="$PROJECT_DIR$/myBlock1/src/main/java/de/clubspot/mediator/templates/WebHarvestTemplate.java" />
         <option value="$PROJECT_DIR$/myBlock1/src/main/java/org/ametys/web/cocoon/JSONSerializer.java" />
         <option value="$PROJECT_DIR$/myBlock1/src/main/java/org/apache/cocoon/pipeline/components/JsonSerializer.java" />
         <option value="$PROJECT_DIR$/myCocoonWebApp/src/main/webapp/WEB-INF/applicationContext.xml" />
@@ -225,14 +241,21 @@
         <option value="$PROJECT_DIR$/myBlock1/rcl-config/WEB-INF/log4j.xml" />
         <option value="$PROJECT_DIR$/myCocoonWebApp/src/main/webapp/WEB-INF/log4j.xml" />
         <option value="$PROJECT_DIR$/myCocoonWebApp/src/main/webapp/WEB-INF/web.xml" />
-        <option value="$PROJECT_DIR$/myBlock1/src/main/resources/META-INF/cocoon/spring/block-servlet-service.xml" />
         <option value="$PROJECT_DIR$/myBlock1/src/main/resources/META-INF/cocoon/spring/cocoon-sample-servlet-service.xml" />
-        <option value="$PROJECT_DIR$/myBlock1/src/main/resources/COB-INF/sitemap.xmap" />
-        <option value="$PROJECT_DIR$/myBlock1/pom.xml" />
-        <option value="$PROJECT_DIR$/myBlock1/src/main/resources/META-INF/cocoon/spring/cocoon-sample-sitemap-components.xml" />
         <option value="$PROJECT_DIR$/myCocoonWebApp/pom.xml" />
         <option value="$PROJECT_DIR$/myBlock1/src/main/java/com/mycompany/myBlock1/generation/PatternCodeGenerator.java" />
         <option value="$PROJECT_DIR$/myBlock1/src/main/java/com/mycompany/myBlock1/transformation/TermWeightTransformer.java" />
+        <option value="$PROJECT_DIR$/myBlock1/src/test/resources/demodata.html" />
+        <option value="$PROJECT_DIR$/myBlock1/src/main/resources/META-INF/cocoon/spring/cocoon-sample-sitemap-components.xml" />
+        <option value="$PROJECT_DIR$/myBlock1/src/main/resources/META-INF/cocoon/spring/block-servlet-service.xml" />
+        <option value="$PROJECT_DIR$/myBlock1/rcl.properties" />
+        <option value="$PROJECT_DIR$/myBlock1/src/main/java/de/clubspot/mediator/processing/MyBean.java" />
+        <option value="$PROJECT_DIR$/myBlock1/pom.xml" />
+        <option value="$PROJECT_DIR$/myBlock1/src/main/java/de/clubspot/mediator/templates/WebHarvestTemplate.java" />
+        <option value="$PROJECT_DIR$/event.xhtml" />
+        <option value="$PROJECT_DIR$/event.xml" />
+        <option value="$PROJECT_DIR$/myBlock1/src/main/resources/db/migration/V1_2__add_dummy_pattern_categories_and_term_weights.sql" />
+        <option value="$PROJECT_DIR$/myBlock1/src/main/resources/COB-INF/sitemap.xmap" />
       </list>
     </option>
   </component>
@@ -424,6 +447,36 @@
               <option name="myItemId" value="src" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="test" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="resources" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="mediator-ws" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="mediator-ws" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="myBlock1" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="test" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
@@ -472,8 +525,34 @@
               <option name="myItemId" value="resources" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
+          </PATH>
+          <PATH>
             <PATH_ELEMENT>
-              <option name="myItemId" value="cocoon" />
+              <option name="myItemId" value="mediator-ws" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="mediator-ws" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="myBlock1" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="resources" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="migration" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -503,11 +582,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="cocoon" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="spring" />
+              <option name="myItemId" value="COB-INF" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -533,7 +608,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="resources" />
+              <option name="myItemId" value="java" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -563,7 +638,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="json" />
+              <option name="myItemId" value="mediator" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -590,6 +665,14 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="mediator" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="processing" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -609,7 +692,7 @@
     <property name="options.splitter.main.proportions" value="0.3" />
     <property name="options.splitter.details.proportions" value="0.2" />
     <property name="options.searchVisible" value="true" />
-    <property name="project.structure.last.edited" value="Project" />
+    <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2872928" />
     <property name="HbShouldOpenHtmlAsHb" value="" />
@@ -627,6 +710,7 @@
     <property name="last_directory_selection" value="$PROJECT_DIR$/myBlock1/src/main/java/org/apache/cocoon" />
     <property name="dir.diff.last.used.directory" value="$PROJECT_DIR$/../cocoon_3alpha/mysample" />
     <property name="extract.method.default.visibility" value="private" />
+    <property name="DefaultHtmlFileTemplate" value="Xhtml" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -960,24 +1044,25 @@
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3280507" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3292683" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.17462687" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.5044776" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2796748" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32520324" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24267101" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.38656718" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.36268657" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32520324" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Dynamic Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32537314" sideWeight="0.5" order="15" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Database Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.36190477" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
@@ -1030,7 +1115,7 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/myBlock1/src/main/java/com/mycompany/myBlock1/transformation/TermWeightTransformer.java</url>
+          <url>file://$PROJECT_DIR$/myBlock1/src/main/java/de/clubspot/mediator/processing/transformation/TermWeightTransformer.java</url>
           <line>2</line>
           <properties />
           <option name="timeStamp" value="3" />
@@ -1041,20 +1126,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="jar://$MAVEN_REPOSITORY$/net/sourceforge/web-harvest/webharvest-core/2.1.0-RC1/webharvest-core-2.1.0-RC1-sources.jar!/org/webharvest/definition/XMLConfig.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="2.8646617" vertical-offset="135" max-vertical-offset="1440">
-          <caret line="106" column="39" selection-start-line="106" selection-start-column="39" selection-end-line="106" selection-end-column="39" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/net/sourceforge/web-harvest/webharvest-core/2.1.0-RC1/webharvest-core-2.1.0-RC1-sources.jar!/org/webharvest/runtime/ScraperContext.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-2.5181348" vertical-offset="1458" max-vertical-offset="3402">
-          <caret line="88" column="12" selection-start-line="88" selection-start-column="12" selection-end-line="88" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$MAVEN_REPOSITORY$/net/sourceforge/web-harvest/webharvest-core/2.1.0-RC1/webharvest-core-2.1.0-RC1-sources.jar!/org/webharvest/runtime/ScrapingHarvester.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.33333334" vertical-offset="515" max-vertical-offset="1566">
@@ -1080,13 +1151,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="411" max-vertical-offset="882">
           <caret line="43" column="2" selection-start-line="43" selection-start-column="2" selection-end-line="43" selection-end-column="2" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/myBlock1/src/main/java/com/mycompany/myBlock1/MyBean.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="306">
-          <caret line="18" column="17" selection-start-line="18" selection-start-column="13" selection-end-line="18" selection-end-column="19" />
         </state>
       </provider>
     </entry>
@@ -1123,13 +1187,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/myBlock1/src/main/resources/db/migration/V1_2__add_dummy_pattern_categories_and_term_weights.sql">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.3314917" vertical-offset="204" max-vertical-offset="756">
-          <caret line="18" column="765" selection-start-line="18" selection-start-column="765" selection-end-line="18" selection-end-column="765" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$MAVEN_REPOSITORY$/org/apache/cocoon/cocoon-pipeline-api/1.0.0/cocoon-pipeline-api-1.0.0-sources.jar!/org/apache/cocoon/serialization/Serializer.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.7297297" vertical-offset="0" max-vertical-offset="450">
@@ -1141,7 +1198,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="432">
           <caret line="11" column="24" selection-start-line="11" selection-start-column="17" selection-end-line="11" selection-end-column="30" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1153,29 +1209,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/myBlock1/src/main/java/com/mycompany/App.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="306">
-          <caret line="23" column="13" selection-start-line="23" selection-start-column="13" selection-end-line="23" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$MAVEN_REPOSITORY$/org/apache/cocoon/pipeline/cocoon-pipeline/3.0.0-alpha-3/cocoon-pipeline-3.0.0-alpha-3.jar!/org/apache/cocoon/pipeline/component/AbstractPipelineComponent.class">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.64415586" vertical-offset="40" max-vertical-offset="450">
           <caret line="20" column="16" selection-start-line="20" selection-start-column="16" selection-end-line="20" selection-end-column="16" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/myBlock1/src/main/java/de/clubspot/mediator/templates/WebHarvestTemplate.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="1995" max-vertical-offset="2520">
-          <caret line="157" column="51" selection-start-line="157" selection-start-column="51" selection-end-line="157" selection-end-column="51" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1183,9 +1220,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="924" max-vertical-offset="1548">
           <caret line="83" column="32" selection-start-line="83" selection-start-column="32" selection-end-line="83" selection-end-column="32" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1193,22 +1227,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="168" max-vertical-offset="792">
           <caret line="19" column="51" selection-start-line="19" selection-start-column="51" selection-end-line="19" selection-end-column="51" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/myBlock1/src/main/resources/META-INF/cocoon/spring/cocoon-databases-context.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="155" max-vertical-offset="756">
-          <caret line="23" column="42" selection-start-line="23" selection-start-column="42" selection-end-line="23" selection-end-column="42" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/myBlock1/src/main/resources/META-INF/cocoon/spring/cocoon-database-context.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="2" max-vertical-offset="396">
-          <caret line="15" column="8" selection-start-line="15" selection-start-column="8" selection-end-line="15" selection-end-column="8" />
           <folding />
         </state>
       </provider>
@@ -1225,7 +1243,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-6.4" vertical-offset="938" max-vertical-offset="1566">
           <caret line="97" column="0" selection-start-line="94" selection-start-column="0" selection-end-line="97" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1249,7 +1266,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="3960">
           <caret line="16" column="21" selection-start-line="16" selection-start-column="21" selection-end-line="16" selection-end-column="21" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1267,7 +1283,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="453" max-vertical-offset="936">
           <caret line="29" column="0" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1275,7 +1290,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="432" max-vertical-offset="900">
           <caret line="41" column="30" selection-start-line="41" selection-start-column="30" selection-end-line="41" selection-end-column="30" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1283,7 +1297,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.23809524" vertical-offset="0" max-vertical-offset="378">
           <caret line="24" column="45" selection-start-line="24" selection-start-column="45" selection-end-line="24" selection-end-column="45" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1291,10 +1304,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.3809524" vertical-offset="252" max-vertical-offset="666">
           <caret line="41" column="20" selection-start-line="41" selection-start-column="20" selection-end-line="41" selection-end-column="20" />
-          <folding>
-            <element signature="e#1608#1609#0" expanded="false" />
-            <element signature="e#1647#1648#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1302,7 +1311,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.49008498" vertical-offset="385" max-vertical-offset="738">
           <caret line="42" column="11" selection-start-line="42" selection-start-column="11" selection-end-line="42" selection-end-column="11" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1310,7 +1318,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="1332" max-vertical-offset="1890">
           <caret line="122" column="23" selection-start-line="122" selection-start-column="23" selection-end-line="122" selection-end-column="23" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1318,7 +1325,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="1007" max-vertical-offset="1584">
           <caret line="64" column="23" selection-start-line="64" selection-start-column="23" selection-end-line="64" selection-end-column="73" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1326,15 +1332,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.70958906" vertical-offset="1847" max-vertical-offset="2862">
           <caret line="117" column="42" selection-start-line="116" selection-start-column="12" selection-end-line="117" selection-end-column="42" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/myBlock1/src/main/resources/META-INF/cocoon/spring/cocoon-sample-controller.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-6.92" vertical-offset="493" max-vertical-offset="846">
-          <caret line="37" column="2" selection-start-line="37" selection-start-column="2" selection-end-line="37" selection-end-column="2" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1342,23 +1339,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="1080" max-vertical-offset="7002">
           <caret line="110" column="45" selection-start-line="110" selection-start-column="45" selection-end-line="110" selection-end-column="45" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/myBlock1/src/main/resources/META-INF/cocoon/spring/block-servlet-service.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="301" max-vertical-offset="666">
-          <caret line="27" column="84" selection-start-line="27" selection-start-column="58" selection-end-line="27" selection-end-column="81" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/myBlock1/src/main/resources/META-INF/cocoon/spring/cocoon-sample-servlet-service.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="348" max-vertical-offset="954">
-          <caret line="35" column="55" selection-start-line="35" selection-start-column="55" selection-end-line="35" selection-end-column="55" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1366,25 +1346,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1008">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#2218#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/myBlock1/src/main/resources/META-INF/cocoon/spring/cocoon-sample-sitemap-components.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="193" max-vertical-offset="666">
-          <caret line="29" column="110" selection-start-line="29" selection-start-column="110" selection-end-line="29" selection-end-column="110" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/myBlock1/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-139.17647" vertical-offset="956" max-vertical-offset="5922">
-          <caret line="316" column="59" selection-start-line="316" selection-start-column="59" selection-end-line="316" selection-end-column="59" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1396,29 +1357,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/myBlock1/src/main/resources/COB-INF/sitemap.xmap">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-1.2647059" vertical-offset="497" max-vertical-offset="828">
-          <caret line="30" column="42" selection-start-line="30" selection-start-column="42" selection-end-line="30" selection-end-column="42" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/myBlock1/src/main/java/com/mycompany/myBlock1/generation/PatternCodeGenerator.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="1853" max-vertical-offset="3528">
-          <caret line="113" column="22" selection-start-line="113" selection-start-column="22" selection-end-line="113" selection-end-column="22" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="jar:///usr/lib/jvm/java-1.8.0-openjdk/jre/lib/rt.jar!/org/xml/sax/ContentHandler.class">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.37058824" vertical-offset="180" max-vertical-offset="630">
           <caret line="22" column="9" selection-start-line="22" selection-start-column="9" selection-end-line="22" selection-end-column="9" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1426,7 +1368,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.3808219" vertical-offset="1373" max-vertical-offset="3150">
           <caret line="110" column="38" selection-start-line="110" selection-start-column="38" selection-end-line="110" selection-end-column="38" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1434,7 +1375,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-4.32" vertical-offset="0" max-vertical-offset="7992">
           <caret line="29" column="13" selection-start-line="29" selection-start-column="13" selection-end-line="29" selection-end-column="13" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1442,17 +1382,128 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="1.7287672" vertical-offset="7865" max-vertical-offset="17010">
           <caret line="547" column="29" selection-start-line="547" selection-start-column="29" selection-end-line="547" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/myBlock1/src/main/java/de/clubspot/mediator/processing/transformation/TermWeightTransformer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="1289" max-vertical-offset="3780">
+          <caret line="78" column="21" selection-start-line="78" selection-start-column="21" selection-end-line="78" selection-end-column="21" />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/myBlock1/src/main/resources/META-INF/cocoon/spring/cocoon-database-context.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="2" max-vertical-offset="396">
+          <caret line="15" column="8" selection-start-line="15" selection-start-column="8" selection-end-line="15" selection-end-column="8" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/myBlock1/src/main/java/com/mycompany/myBlock1/transformation/TermWeightTransformer.java">
+    <entry file="file://$PROJECT_DIR$/myBlock1/src/main/resources/META-INF/cocoon/spring/cocoon-databases-context.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.34743202" vertical-offset="1289" max-vertical-offset="3780">
-          <caret line="78" column="21" selection-start-line="78" selection-start-column="21" selection-end-line="78" selection-end-column="21" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state vertical-scroll-proportion="0.0" vertical-offset="155" max-vertical-offset="756">
+          <caret line="23" column="42" selection-start-line="23" selection-start-column="42" selection-end-line="23" selection-end-column="42" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/myBlock1/src/main/resources/META-INF/cocoon/spring/cocoon-sample-controller.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="493" max-vertical-offset="846">
+          <caret line="37" column="2" selection-start-line="37" selection-start-column="2" selection-end-line="37" selection-end-column="2" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/myBlock1/src/main/resources/META-INF/cocoon/spring/cocoon-sample-sitemap-components.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="234" max-vertical-offset="684">
+          <caret line="30" column="0" selection-start-line="30" selection-start-column="0" selection-end-line="30" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/myBlock1/src/main/resources/META-INF/cocoon/xpatch/cocoon-sample-block-deployment.xweb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="630">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/myBlock1/src/main/resources/META-INF/cocoon/spring/block-servlet-service.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="324" max-vertical-offset="666">
+          <caret line="26" column="14" selection-start-line="26" selection-start-column="14" selection-end-line="26" selection-end-column="34" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/myBlock1/rcl.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="396">
+          <caret line="14" column="32" selection-start-line="14" selection-start-column="32" selection-end-line="14" selection-end-column="32" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/myBlock1/src/test/resources/demodata.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.10169491" vertical-offset="0" max-vertical-offset="558">
+          <caret line="2" column="4" selection-start-line="0" selection-start-column="0" selection-end-line="25" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/myBlock1/src/main/resources/META-INF/cocoon/spring/cocoon-sample-servlet-service.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="586" max-vertical-offset="954">
+          <caret line="36" column="17" selection-start-line="36" selection-start-column="17" selection-end-line="36" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/myBlock1/src/main/java/de/clubspot/mediator/processing/generation/PatternCodeGenerator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="2175" max-vertical-offset="2898">
+          <caret line="170" column="42" selection-start-line="170" selection-start-column="42" selection-end-line="170" selection-end-column="42" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/myBlock1/src/main/java/de/clubspot/mediator/templates/WebHarvestTemplate.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="1960" max-vertical-offset="2430">
+          <caret line="167" column="51" selection-start-line="167" selection-start-column="51" selection-end-line="167" selection-end-column="51" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/myBlock1/src/main/resources/db/migration/V1_2__add_dummy_pattern_categories_and_term_weights.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="171" max-vertical-offset="756">
+          <caret line="18" column="855" selection-start-line="18" selection-start-column="855" selection-end-line="18" selection-end-column="855" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/myBlock1/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="5587" max-vertical-offset="5922">
+          <caret line="312" column="8" selection-start-line="312" selection-start-column="8" selection-end-line="312" selection-end-column="8" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/myBlock1/src/main/resources/COB-INF/sitemap.xmap">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.74825174" vertical-offset="632" max-vertical-offset="1062">
+          <caret line="47" column="38" selection-start-line="47" selection-start-column="38" selection-end-line="47" selection-end-column="38" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1511,12 +1562,11 @@
       </state>
       <state key="ModuleStructureConfigurable.UI">
         <settings>
-          <last-edited>mediator-ws</last-edited>
+          <last-edited>Spring|myBlock1</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>
                 <option value="0.2872928" />
-                <option value="0.6" />
               </list>
             </option>
           </splitter-proportions>

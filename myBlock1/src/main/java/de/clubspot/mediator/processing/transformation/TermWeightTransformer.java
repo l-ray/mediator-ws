@@ -1,4 +1,4 @@
-package com.mycompany.myBlock1.transformation;
+package de.clubspot.mediator.processing.transformation;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;

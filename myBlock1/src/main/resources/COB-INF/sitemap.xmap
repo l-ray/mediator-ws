@@ -36,6 +36,19 @@
 		    	<map:serialize type="json" />
 		</map:match>
     </map:pipeline>
+
+      <map:pipeline>
+          <map:match pattern="resultsAsXml/{patternId}/{startDate}/">
+              <map:generate type="pattern-code">
+                  <map:parameter name="patternId" value="{map:patternId}" />
+                  <map:parameter name="startDate" value="{map:startDate}" />
+                  <map:parameter name="endDate" value="2015-01-30" />
+              </map:generate>
+              <map:transform type="term-weight" />
+              <map:serialize type="xml" />
+          </map:match>
+      </map:pipeline>
+
   </map:pipelines>
 
 </map:sitemap>

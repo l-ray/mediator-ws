@@ -21,11 +21,12 @@
 <beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
 
-  <!-- bean name="action:error-throwing" class="org.apache.cocoon.sample.action.ErrorThrowingAction" scope="prototype" / -->
+    <!-- bean name="action:error-throwing" class="org.apache.cocoon.sample.action.ErrorThrowingAction" scope="prototype" / -->
   
-  <bean name="generator:pattern-code" class="com.mycompany.myBlock1.generation.PatternCodeGenerator" scope="prototype" />
+    <bean name="generator:pattern-code" class="de.clubspot.mediator.processing.generation.PatternCodeGenerator" scope="prototype" />
   
-  <bean name="transformer:term-weight" class="com.mycompany.myBlock1.transformation.TermWeightTransformer" scope="prototype" />
+    <bean name="transformer:term-weight" class="de.clubspot.mediator.processing.transformation.TermWeightTransformer" scope="prototype" />
 
     <bean name="serializer:json" class="org.apache.cocoon.optional.pipeline.components.sax.json.JsonSerializer" scope="prototype" />
+
 </beans>

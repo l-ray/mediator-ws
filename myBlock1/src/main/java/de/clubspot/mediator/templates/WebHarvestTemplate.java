@@ -163,9 +163,9 @@ public class WebHarvestTemplate implements SourceTemplate {
 			.append("\n<name>").append(this.getName()).append("</name>")
 			.append("\n<icon>").append(this.getIcon()).append("</icon>")
 			.append("\n</source>]]>\n")
-			.append(this.getPattern())
+            .append(this.getPattern())
 			.append("\n</var-def>\n");
-
+            System.out.println(message.toString());
 		return message.toString();
 	}
 

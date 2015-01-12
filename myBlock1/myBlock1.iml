@@ -18,16 +18,13 @@
     <facet type="Spring" name="Spring">
       <configuration>
         <fileset id="fileset" name="Spring Application Context" removed="false">
-          <file>file://$MODULE_DIR$/src/main/resources/META-INF/cocoon/spring/database-connection.xml</file>
           <file>file://$MODULE_DIR$/src/main/resources/META-INF/cocoon/spring/block-servlet-service.xml</file>
-          <file>file://$MODULE_DIR$/src/main/resources/META-INF/cocoon/spring/demo-application-context.xml</file>
           <file>file://$MODULE_DIR$/src/main/resources/META-INF/cocoon/spring/cocoon-database-context.xml</file>
           <file>file://$MODULE_DIR$/src/main/resources/META-INF/cocoon/spring/cocoon-databases-context.xml</file>
-          <file>file://$MODULE_DIR$/src/main/resources/META-INF/cocoon/spring/block-application-context.xml</file>
           <file>file://$MODULE_DIR$/src/main/resources/META-INF/cocoon/spring/cocoon-sample-sitemap-components.xml</file>
           <file>file://$MODULE_DIR$/src/main/resources/META-INF/cocoon/spring/cocoon-sample-servlet-service.xml</file>
           <file>file://$MODULE_DIR$/src/main/resources/META-INF/cocoon/spring/cocoon-sample-servlet-service.xml</file>
-          <file>file://$MODULE_DIR$/src/main/resources/META-INF/cocoon/spring/cocoon-sample-sitemap-components-optional.xml</file>
+          <file>file://$MODULE_DIR$/src/main/resources/META-INF/cocoon/spring/cocoon-sample-controller.xml</file>
         </fileset>
       </configuration>
     </facet>
@@ -58,6 +55,7 @@
       <sourceFolder url="file://$MODULE_DIR$/src/main/java" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/src/main/resources" type="java-resource" />
       <sourceFolder url="file://$MODULE_DIR$/src/test/java" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/src/test/resources" type="java-test-resource" />
       <excludeFolder url="file://$MODULE_DIR$/myBlock1/target" />
       <excludeFolder url="file://$MODULE_DIR$/target" />
     </content>
