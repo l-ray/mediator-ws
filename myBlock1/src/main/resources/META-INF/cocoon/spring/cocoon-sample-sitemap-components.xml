@@ -27,6 +27,8 @@
   
     <bean name="transformer:term-weight" class="de.clubspot.mediator.processing.transformation.TermWeightTransformer" scope="prototype" />
 
+    <bean name="transformer:regional-format" class="de.clubspot.mediator.processing.transformation.RegionalFormatsTransformer" scope="prototype" />
+
     <bean name="serializer:json" class="org.apache.cocoon.optional.pipeline.components.sax.json.JsonSerializer" scope="prototype" />
 
 </beans>
