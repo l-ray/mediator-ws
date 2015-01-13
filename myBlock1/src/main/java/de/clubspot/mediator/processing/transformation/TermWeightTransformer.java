@@ -13,6 +13,8 @@ import java.util.StringTokenizer;
 import org.apache.cocoon.sax.SAXConsumer;
 import org.apache.cocoon.sax.AbstractSAXTransformer;
 import org.apache.commons.dbcp.BasicDataSource;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.xml.sax.Attributes;
 import org.xml.sax.SAXException;
@@ -20,6 +22,9 @@ import org.xml.sax.helpers.AttributesImpl;
 
 public class TermWeightTransformer extends AbstractSAXTransformer implements SAXConsumer{
 
+    private static final Logger LOG =
+            LoggerFactory.getLogger(TermWeightTransformer.class.getName());
+	
 	// contains the concatenated text
 	String locationContent = "";
 	
@@ -35,17 +40,17 @@ public class TermWeightTransformer extends AbstractSAXTransformer implements SAX
 
      @Override
      public void setup(Map<String, Object> parameter) {
-         System.out.println("IN TERM_WEIGHT Setup");
+         LOG.trace("IN TERM_WEIGHT Setup");
          // this.datasource = (BasicDataSource) this.context
          //        .getBean("ds:"+parameter.get(USE_CONNECTION));
-         System.out.println("Out TERM_WEIGHT Setup");
+         LOG.trace("Out TERM_WEIGHT Setup");
      }
 
 	@Override
     public void startElement(String namespaceURI, String localName,
 			String qName, Attributes attributes) throws SAXException {
 
-		System.out.println("IN startElement");
+		LOG.trace("IN startElement");
 		// start a root element paragraph
 		super.startElement(namespaceURI, localName, qName, attributes);
 		if (localName.equals("location")) {
@@ -57,13 +62,13 @@ public class TermWeightTransformer extends AbstractSAXTransformer implements SAX
 		if (localName.equals("results")) {
 			this.setInsideArticleTag(true);
 		}
-        System.out.println("OUT startElement");
+        LOG.trace("OUT startElement");
 	}
 
     @Override
     public void endElement(String namespaceURI, String localName, String qName)
 			throws SAXException {
-        System.out.println("IN endElement");
+        LOG.trace("IN endElement");
 		if (localName.equals("location")) {
 			this.setInsideLocationTag(false);
 		}
@@ -79,7 +84,7 @@ public class TermWeightTransformer extends AbstractSAXTransformer implements SAX
                 try {
                     addTokenizedContent(namespaceURI, locationContent);
                 } catch (NullPointerException e) {
-                    System.out.println("NPE when adding tokenized Content");
+                    LOG.trace("NPE when adding tokenized Content");
                 }
                 super.endElement(namespaceURI, "weight", "weight");
 
@@ -88,13 +93,13 @@ public class TermWeightTransformer extends AbstractSAXTransformer implements SAX
 		}
 		
 		super.endElement(namespaceURI, localName, qName);
-        System.out.println("OUT startElement");
+        LOG.trace("OUT startElement");
 	}
 
     @Override
 	public void characters(char[] buffer, int start, int length)
 			throws SAXException {
-        System.out.println("IN characters");
+        LOG.trace("IN characters");
 		// concatenate the content
 
 		StringBuilder contentBuffer = new StringBuilder();
@@ -120,7 +125,7 @@ public class TermWeightTransformer extends AbstractSAXTransformer implements SAX
 		
 		while (tokenizeBySpace.hasMoreElements()) {
 			String element = tokenizeBySpace.nextToken();
-			System.out.println("changing |"+element+"|("+element.length()+") to |"+cleanString(element.replaceAll("\\W+", " "))+"| ");
+			LOG.trace("changing |"+element+"|("+element.length()+") to |"+cleanString(element.replaceAll("\\W+", " "))+"| ");
 			if (element.length() > 2) tokenSet.add(cleanString(element.replaceAll("\\W+", " ")));
 		}
 
@@ -159,7 +164,7 @@ public class TermWeightTransformer extends AbstractSAXTransformer implements SAX
 			
 			String sQuery = "SELECT * FROM term_weight WHERE term IN ("+whereInList+");";
 			
-			System.out.println(sQuery);
+			LOG.trace(sQuery);
 			
 			Statement stmt;
 			ResultSet rs;
@@ -168,12 +173,12 @@ public class TermWeightTransformer extends AbstractSAXTransformer implements SAX
 				stmt = this.datasource.getConnection().createStatement();
 				rs = stmt.executeQuery(sQuery);
 				while (rs.next()) { 
-						System.out.println("Got |"+rs.getString("weight")+"| for |"+rs.getString("term")+"|");
+						LOG.trace("Got |"+rs.getString("weight")+"| for |"+rs.getString("term")+"|");
 						termWithWeight.put(rs.getString("term"),rs.getString("weight"));
 				}
 				
 			} catch (SQLException e) {
-				System.out.println("error getting statement:"+e.getMessage());
+				LOG.trace("error getting statement:"+e.getMessage());
 				e.printStackTrace();
 			}
 		}	

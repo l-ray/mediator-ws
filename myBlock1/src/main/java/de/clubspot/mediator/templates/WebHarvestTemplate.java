@@ -1,6 +1,8 @@
 package de.clubspot.mediator.templates;
 
 import org.apache.cocoon.pipeline.ProcessingException;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -8,6 +10,11 @@ import java.sql.SQLException;
 import java.sql.Statement;
 
 public class WebHarvestTemplate implements SourceTemplate {
+
+    private static final Logger LOG =
+            LoggerFactory.getLogger(WebHarvestTemplate.class.getName());
+
+
 	String sUrl;
 	String sStartUrl;
 	String sName;
@@ -27,7 +34,7 @@ public class WebHarvestTemplate implements SourceTemplate {
 
 	public WebHarvestTemplate(String id, Connection connection) throws ProcessingException {
 		this(connection);
-		System.out.println("ID:"+id);
+		LOG.trace("ID:"+id);
 		this.setId(id);
 		this.loadFromDatabase();
 	}
@@ -125,7 +132,7 @@ public class WebHarvestTemplate implements SourceTemplate {
 					+ " WHERE n.id="
 					+ this.getId();
 
-			//System.out.println(sQuery);
+			//LOG.trace(sQuery);
 			
 			ResultSet rs = stmt.executeQuery(sQuery);
 
@@ -146,14 +153,14 @@ public class WebHarvestTemplate implements SourceTemplate {
 			stmt.close();
 
 		} catch (SQLException e) {
-			System.out.println(sQuery);
+			LOG.trace(sQuery);
 			throw new ProcessingException(e);
 		}
 
 	}
 
 	public String getCompiledPattern() {
-		System.out.println(this.getNameWithoutWhitestripes());
+		LOG.trace(this.getNameWithoutWhitestripes());
 
 		StringBuilder message = new StringBuilder()
             .append(this.getSubPattern() == null ? "":"\n"+this.getSubPattern())
@@ -165,7 +172,7 @@ public class WebHarvestTemplate implements SourceTemplate {
 			.append("\n</source>]]>\n")
             .append(this.getPattern())
 			.append("\n</var-def>\n");
-            System.out.println(message.toString());
+            LOG.trace(message.toString());
 		return message.toString();
 	}
 

@@ -13,6 +13,8 @@ import org.apache.cocoon.pipeline.caching.TimestampCacheKey;
 import org.apache.cocoon.sax.util.XMLUtils;
 import org.apache.cocoon.stringtemplate.StringTemplateGenerator;
 import org.apache.commons.dbcp.BasicDataSource;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.webharvest.Harvest;
 import org.webharvest.HarvestLoadCallback;
@@ -39,6 +41,9 @@ import java.util.TimeZone;
 
 public class PatternCodeGenerator extends StringTemplateGenerator {
 
+    private static final Logger LOG =
+            LoggerFactory.getLogger(PatternCodeGenerator.class.getName());
+
     @Autowired
     private BasicDataSource datasource;
 
@@ -50,9 +55,9 @@ public class PatternCodeGenerator extends StringTemplateGenerator {
 
     @Override
     public void setup(final Map<String, Object> parameter) {
-        System.out.println("IN PATTERNCODE-SETUP");
+        LOG.trace("IN PATTERNCODE-SETUP");
         super.setup(parameter);
-        System.out.println("OUT PATTERNCODE-SETUP");
+        LOG.trace("OUT PATTERNCODE-SETUP");
     }
 
     /**
@@ -64,24 +69,24 @@ public class PatternCodeGenerator extends StringTemplateGenerator {
     public void setConfiguration(final Map<String, ? extends Object> parameter) {
         super.setConfiguration(parameter);
         // this.url = (URL) parameters.get("source");
-        System.out.println("In SetConfiguration with: "+parameter);
+        LOG.trace("In SetConfiguration with: "+parameter);
         patternId = (String) parameter.get("patternId");
-        System.out.println("got first param");
+        LOG.trace("got first param");
         startDate = parseStartDate((String)parameter.get("startDate"));
-        System.out.println("got second param");
+        LOG.trace("got second param");
         if (parameter.get("endDate") != null && parameter.get("endDate") != "")
             endDate = parseEndDate((String)parameter.get("endDate"));
 
-        System.out.println("RETRIEVING datasource:"+this.datasource);
+        LOG.trace("RETRIEVING datasource:"+this.datasource);
         //this.datasource = (BasicDataSource) this.context
         //        .getBean("ds:"+parameter.get(USE_CONNECTION));
-        System.out.println("OUT PATTERNCODE-SETConfiguration");
+        LOG.trace("OUT PATTERNCODE-SETConfiguration");
     }
 
     public void setSource(URL source) {
-        System.out.println("in SETSOURCE");
+        LOG.trace("in SETSOURCE");
         super.setSource(source);
-        System.out.println("out SETSOURCE");
+        LOG.trace("out SETSOURCE");
     }
 
     /**
@@ -91,18 +96,18 @@ public class PatternCodeGenerator extends StringTemplateGenerator {
      */
     @Override
     public CacheKey constructCacheKey() {
-        System.out.println("In ConstructCacheKey");
+        LOG.trace("In ConstructCacheKey");
         CompoundCacheKey cacheKey = new CompoundCacheKey();
 
         cacheKey.addCacheKey(new ParameterCacheKey("contextParameters", this.parameters));
-        System.out.println("out ConstructCacheKey");
+        LOG.trace("out ConstructCacheKey");
         return cacheKey;
     }
 
 
     @Override
     public void execute() {
-        System.out.println("IN PATTERNCODE-EXECUTE");
+        LOG.trace("IN PATTERNCODE-EXECUTE");
         Connection myConnection;
 
         try {
@@ -147,7 +152,7 @@ public class PatternCodeGenerator extends StringTemplateGenerator {
             }
         });
 
-        System.out.println("time elapsed: "
+        LOG.trace("time elapsed: "
                 + (System.currentTimeMillis() - startTime));
 
         return "<results>"
@@ -159,7 +164,7 @@ public class PatternCodeGenerator extends StringTemplateGenerator {
         WebHarvestTemplate template = new WebHarvestTemplate(patternId, myConnection);
 
         UrlDateWrapper urlWrapper = new UrlDateWrapper(startDate);
-        System.out.println("DateFormat" + template.getDateFormat());
+        LOG.trace("DateFormat" + template.getDateFormat());
         SimpleDateFormat df = new SimpleDateFormat(template.getDateFormat(), new java.util.Locale("de", "DE"));
 
 
@@ -174,12 +179,12 @@ public class PatternCodeGenerator extends StringTemplateGenerator {
 
     public Date parseStartDate(String startDate) {
         try {
-            System.out.println("parsing date "+startDate);
+            LOG.trace("parsing date "+startDate);
             SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");
             df.setTimeZone(TimeZone.getDefault());
             return df.parse(startDate);
         } catch (ParseException e) {
-            System.out.println(e.getMessage());
+            LOG.trace(e.getMessage());
             return null;
         }
     }
