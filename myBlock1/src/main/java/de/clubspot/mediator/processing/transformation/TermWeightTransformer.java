@@ -80,13 +80,13 @@ public class TermWeightTransformer extends AbstractSAXTransformer implements SAX
 		if (localName.equals("results")) {
 			this.setInsideArticleTag(false);
             if (!locationContent.isEmpty()) {
-                super.startElement(namespaceURI, "weight", "weight", new AttributesImpl());
+                super.startElement(namespaceURI, "weights", "weights", new AttributesImpl());
                 try {
                     addTokenizedContent(namespaceURI, locationContent);
                 } catch (NullPointerException e) {
                     LOG.trace("NPE when adding tokenized Content");
                 }
-                super.endElement(namespaceURI, "weight", "weight");
+                super.endElement(namespaceURI, "weights", "weights");
 
                 locationContent = "";
             }
@@ -125,7 +125,7 @@ public class TermWeightTransformer extends AbstractSAXTransformer implements SAX
 		
 		while (tokenizeBySpace.hasMoreElements()) {
 			String element = tokenizeBySpace.nextToken();
-			LOG.trace("changing |"+element+"|("+element.length()+") to |"+cleanString(element.replaceAll("\\W+", " "))+"| ");
+			LOG.trace("changing |" + element + "|(" + element.length() + ") to |" + cleanString(element.replaceAll("\\W+", " ")) + "| ");
 			if (element.length() > 2) tokenSet.add(cleanString(element.replaceAll("\\W+", " ")));
 		}
 
@@ -133,13 +133,17 @@ public class TermWeightTransformer extends AbstractSAXTransformer implements SAX
 		
 		for (String key:weightedTerms.keySet()) {
 			
-			AttributesImpl myAttribute = new AttributesImpl();
-			myAttribute.addAttribute(namespace, "term", "term", "String", key);
-			myAttribute.addAttribute(namespace, "weight", "weight", "String", weightedTerms.get(key));
-			
-			super.startElement(namespace, "weight-term","weight-term",myAttribute);
-			// super.characters(element.toCharArray(), 0, element.length());
-			super.endElement(namespace, "weight-term", "weight-term");
+			super.startElement(namespace, "weight-term","weight-term",new AttributesImpl());
+
+            super.startElement(namespace, "term","term",new AttributesImpl());
+            super.characters(key.toCharArray(), 0, key.length());
+            super.endElement(namespace, "term", "term");
+
+            super.startElement(namespace, "weight", "weight", new AttributesImpl());
+			super.characters(weightedTerms.get(key).toCharArray(), 0, weightedTerms.get(key).length());
+            super.endElement(namespace, "weight", "weight");
+
+            super.endElement(namespace, "weight-term", "weight-term");
 		}
 	}
 	
@@ -172,12 +176,12 @@ public class TermWeightTransformer extends AbstractSAXTransformer implements SAX
 			try {
 				stmt = this.datasource.getConnection().createStatement();
 				rs = stmt.executeQuery(sQuery);
-				while (rs.next()) { 
-						LOG.trace("Got |"+rs.getString("weight")+"| for |"+rs.getString("term")+"|");
+                while (rs.next()) {
+                    LOG.trace("Got |"+rs.getString("weight")+"| for |"+rs.getString("term")+"|");
 						termWithWeight.put(rs.getString("term"),rs.getString("weight"));
-				}
-				
-			} catch (SQLException e) {
+                }
+
+            } catch (SQLException e) {
 				LOG.trace("error getting statement:"+e.getMessage());
 				e.printStackTrace();
 			}

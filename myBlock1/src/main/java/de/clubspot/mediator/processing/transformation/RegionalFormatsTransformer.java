@@ -26,13 +26,13 @@ public class RegionalFormatsTransformer extends AbstractSAXTransformer implement
 			String qName, Attributes attributes) throws SAXException {
 
         LOG.trace("IN startElement");
-
+        super.startElement(namespaceURI, localName, qName, attributes);
         LOG.trace("OUT startElement");
 	}
 
     @Override
     public void endElement(String namespaceURI, String localName, String qName)
-			throws SAXException {
+            throws SAXException {
         LOG.trace("IN endElement");
 
 		super.endElement(namespaceURI, localName, qName);
@@ -41,10 +41,11 @@ public class RegionalFormatsTransformer extends AbstractSAXTransformer implement
 
     @Override
 	public void characters(char[] buffer, int start, int length)
-			throws SAXException {
+            throws SAXException {
         LOG.trace("IN characters");
-		// remove
-        super.characters(String.valueOf(buffer).trim().toCharArray(), start, length);
+        String newTerm = new String(buffer,start, length).trim();
+		// remove whitespaces
+        super.characters(newTerm.toCharArray(), 0, newTerm.length());
         LOG.trace("OUT characters");
 	}
 
