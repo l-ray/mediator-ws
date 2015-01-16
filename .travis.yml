@@ -1,5 +1,5 @@
 language: java
-before_script:
+before_install:
   - psql -c 'create database travis_ci_test;' -U postgres
   - psql -c "alter user postgres WITH PASSWORD 'test';" -U postgres
 
