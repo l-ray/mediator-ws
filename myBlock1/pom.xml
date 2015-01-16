@@ -48,8 +48,9 @@
 
     <properties>
         <maven.skip.db.migration>false</maven.skip.db.migration>
-        <maven.db.migration.regex>^postgres://([0-9a-zA-Z]+):?([0-9a-zA-Z]*)@([0-9a-zA-Z\-\.]+:[0-9]{2,6}/[0-9a-zA-Z_]+)$</maven.db.migration.regex>
+        <maven.db.migration.regex>^postgres://([0-9a-zA-Z]+):?([0-9a-zA-Z]*)@([0-9a-zA-Z\-\.]+:?[0-9]{0,6}/[0-9a-zA-Z_]+)$</maven.db.migration.regex>
         <maven.cocoon.plugin.phase>none</maven.cocoon.plugin.phase>
+        <maven.db.url.suffix>?ssl=true&amp;sslfactory=org.postgresql.ssl.NonValidatingFactory</maven.db.url.suffix>
     </properties>
     <dependencies>
         <dependency>
@@ -264,7 +265,7 @@
                             <name>dbUrl</name>
                             <value>${env.DATABASE_URL}</value>
                             <regex>${maven.db.migration.regex}</regex>
-                            <replacement>jdbc:postgresql://$3?ssl=true&amp;sslfactory=org.postgresql.ssl.NonValidatingFactory</replacement>
+                            <replacement>jdbc:postgresql://$3${maven.db.url.suffix}</replacement>
                             <failIfNoMatch>true</failIfNoMatch>
                         </configuration>
                     </execution>

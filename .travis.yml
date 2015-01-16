@@ -1,4 +1,7 @@
 language: java
 before_script:
   - psql -c 'create database travis_ci_test;' -U postgres
-env: DATABASE_URL=postgres://postgres@localhost:5432/travis_ci_test
+  - psql -c "alter user postgres WITH PASSWORD 'test';" -U postgres
+
+
+env: DATABASE_URL=postgres://postgres:test@localhost/travis_ci_test
