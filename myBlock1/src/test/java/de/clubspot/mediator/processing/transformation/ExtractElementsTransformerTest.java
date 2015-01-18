@@ -8,6 +8,8 @@ import org.apache.cocoon.sax.component.XMLSerializer;
 import org.custommonkey.xmlunit.Diff;
 import org.custommonkey.xmlunit.ElementNameAndTextQualifier;
 import org.custommonkey.xmlunit.XMLUnit;
+import org.custommonkey.xmlunit.examples.MultiLevelElementNameAndTextQualifier;
+import org.custommonkey.xmlunit.examples.RecursiveElementNameAndTextQualifier;
 import org.junit.After;
 import org.junit.BeforeClass;
 import org.junit.Test;
@@ -155,7 +157,7 @@ public class ExtractElementsTransformerTest {
 
         final ByteArrayOutputStream baos = transformThroughPipeline(SOURCE_XML);
         final Diff diff = new Diff(EXPECTED_RESULT_XML, new String(baos.toByteArray()));
-        diff.overrideElementQualifier(new ElementNameAndTextQualifier());
+        diff.overrideElementQualifier(new MultiLevelElementNameAndTextQualifier(2));
         assertTrue("Transformation did not work like expected:" + diff + ":"+new String(baos.toByteArray()),
                 diff.identical());
     }
