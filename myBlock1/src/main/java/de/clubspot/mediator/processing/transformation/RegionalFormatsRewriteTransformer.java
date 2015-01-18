@@ -9,10 +9,10 @@ import org.xml.sax.SAXException;
 
 import java.util.Map;
 
-public class RegionalFormatsTransformer extends AbstractSAXTransformer implements SAXConsumer{
+public class RegionalFormatsRewriteTransformer extends AbstractSAXTransformer implements SAXConsumer{
 
     private static final Logger LOG =
-            LoggerFactory.getLogger(RegionalFormatsTransformer.class.getName());
+            LoggerFactory.getLogger(RegionalFormatsRewriteTransformer.class.getName());
 
      @Override
      public void setup(Map<String, Object> parameter) {
