@@ -34,7 +34,7 @@
                 </map:generate>
                 <map:transform type="regional-format"/>
                 <map:transform type="term-weight"/>
-                <map:transform type="extract-elements"/>
+                <map:transform type="extract-element"/>
                 <map:serialize type="json"/>
             </map:match>
         </map:pipeline>
@@ -48,7 +48,7 @@
                 </map:generate>
                 <map:transform type="regional-format"/>
                 <map:transform type="term-weight"/>
-                <map:transform type="extract-elements"/>
+                <map:transform type="extract-element"/>
                 <map:serialize type="xml"/>
             </map:match>
         </map:pipeline>
