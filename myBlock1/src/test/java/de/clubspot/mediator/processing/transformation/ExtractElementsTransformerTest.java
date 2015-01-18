@@ -6,10 +6,7 @@ import org.apache.cocoon.sax.SAXPipelineComponent;
 import org.apache.cocoon.sax.component.XMLGenerator;
 import org.apache.cocoon.sax.component.XMLSerializer;
 import org.custommonkey.xmlunit.Diff;
-import org.custommonkey.xmlunit.ElementNameAndTextQualifier;
 import org.custommonkey.xmlunit.XMLUnit;
-import org.custommonkey.xmlunit.examples.MultiLevelElementNameAndTextQualifier;
-import org.custommonkey.xmlunit.examples.RecursiveElementNameAndTextQualifier;
 import org.junit.After;
 import org.junit.BeforeClass;
 import org.junit.Test;
@@ -59,7 +56,6 @@ public class ExtractElementsTransformerTest {
 
         final ByteArrayOutputStream baos = transformThroughPipeline(SOURCE_XML);
         final Diff diff = new Diff(EXPECTED_RESULT_XML, new String(baos.toByteArray()));
-        diff.overrideElementQualifier(new ElementNameAndTextQualifier());
         assertTrue("Transformation did not work like expected:" + diff + ":"+new String(baos.toByteArray()),
                 diff.identical());
     }
@@ -69,10 +65,10 @@ public class ExtractElementsTransformerTest {
             throws Exception {
 
         String SOURCE_XML =
-                "<results><article><pictures>http://picture.de/picture.jpg</pictures></article></results>";
+                "<results><article><picture>http://picture.de/picture.jpg</picture></article></results>";
 
         String EXPECTED_RESULT_XML =
-                "<results><article><pictures>0</pictures><id>0</id></article>"
+                "<results><article><picture>0</picture><id>0</id></article>"
                         +"<pictures><id>0</id><result>0</result><url>http://picture.de/picture.jpg</url></pictures>"
                         +"</results>";
 
@@ -80,7 +76,6 @@ public class ExtractElementsTransformerTest {
         final ByteArrayOutputStream baos = transformThroughPipeline(SOURCE_XML);
 
         final Diff diff = new Diff(EXPECTED_RESULT_XML, new String(baos.toByteArray()));
-        diff.overrideElementQualifier(new ElementNameAndTextQualifier());
         assertTrue("Transformation did not work like expected:" + diff + ":"+new String(baos.toByteArray()),
                 diff.identical());
     }
@@ -90,10 +85,10 @@ public class ExtractElementsTransformerTest {
             throws Exception {
 
         String SOURCE_XML =
-                "<results><article><id>myOwnId</id><pictures>http://picture.de/picture.jpg</pictures></article></results>";
+                "<results><article><id>myOwnId</id><picture>http://picture.de/picture.jpg</picture></article></results>";
 
         String EXPECTED_RESULT_XML =
-                "<results><article><id>myOwnId</id><pictures>0</pictures></article>"
+                "<results><article><id>myOwnId</id><picture>0</picture></article>"
                         +"<pictures><id>0</id><result>myOwnId</result><url>http://picture.de/picture.jpg</url></pictures>"
                         +"</results>";
 
@@ -101,7 +96,6 @@ public class ExtractElementsTransformerTest {
         final ByteArrayOutputStream baos = transformThroughPipeline(SOURCE_XML);
 
         final Diff diff = new Diff(EXPECTED_RESULT_XML, new String(baos.toByteArray()));
-        diff.overrideElementQualifier(new ElementNameAndTextQualifier());
         assertTrue("Transformation did not work like expected:" + diff + ":"+new String(baos.toByteArray()),
                 diff.identical());
     }
@@ -113,12 +107,12 @@ public class ExtractElementsTransformerTest {
 
         String SOURCE_XML =
                 "<results><article>"+
-                        "<pictures>http://picture.de/picture.jpg</pictures>"+
-                        "<pictures>http://picture.de/picture2.jpg</pictures>"+
+                        "<picture>http://picture.de/picture.jpg</picture>"+
+                        "<picture>http://picture.de/picture2.jpg</picture>"+
                         "</article></results>";
 
         String EXPECTED_RESULT_XML =
-                "<results><article><pictures>0</pictures><pictures>1</pictures><id>0</id></article>"
+                "<results><article><picture>0</picture><picture>1</picture><id>0</id></article>"
                         +"<pictures><id>0</id><result>0</result><url>http://picture.de/picture.jpg</url></pictures>"
                         +"<pictures><id>1</id><result>0</result><url>http://picture.de/picture2.jpg</url></pictures>"
                         +"</results>";
@@ -126,7 +120,6 @@ public class ExtractElementsTransformerTest {
 
         final ByteArrayOutputStream baos = transformThroughPipeline(SOURCE_XML);
         final Diff diff = new Diff(EXPECTED_RESULT_XML, new String(baos.toByteArray()));
-        diff.overrideElementQualifier(new ElementNameAndTextQualifier());
         assertTrue("Transformation did not work like expected:" + diff + ":"+new String(baos.toByteArray()),
                 diff.identical());
     }
@@ -137,17 +130,17 @@ public class ExtractElementsTransformerTest {
 
         String SOURCE_XML =
                 "<results><article>"+
-                        "<pictures>http://picture.de/1.jpg</pictures>"+
-                        "<pictures>http://picture.de/2.jpg</pictures>"+
+                        "<picture>http://picture.de/1.jpg</picture>"+
+                        "<picture>http://picture.de/2.jpg</picture>"+
                         "</article>"+
                         "<article>"+
-                        "<pictures>http://picture.de/3.jpg</pictures>"+
-                        "<pictures>http://picture.de/4.jpg</pictures>"+
+                        "<picture>http://picture.de/3.jpg</picture>"+
+                        "<picture>http://picture.de/4.jpg</picture>"+
                         "</article></results>";
 
         String EXPECTED_RESULT_XML =
-                "<results><article><pictures>0</pictures><pictures>1</pictures><id>0</id></article>"
-                        +"<article><pictures>2</pictures><pictures>3</pictures><id>1</id></article>"
+                "<results><article><picture>0</picture><picture>1</picture><id>0</id></article>"
+                        +"<article><picture>2</picture><picture>3</picture><id>1</id></article>"
                         +"<pictures><id>0</id><result>0</result><url>http://picture.de/1.jpg</url></pictures>"
                         +"<pictures><id>1</id><result>0</result><url>http://picture.de/2.jpg</url></pictures>"
                         +"<pictures><id>2</id><result>1</result><url>http://picture.de/3.jpg</url></pictures>"
@@ -157,7 +150,57 @@ public class ExtractElementsTransformerTest {
 
         final ByteArrayOutputStream baos = transformThroughPipeline(SOURCE_XML);
         final Diff diff = new Diff(EXPECTED_RESULT_XML, new String(baos.toByteArray()));
-        diff.overrideElementQualifier(new MultiLevelElementNameAndTextQualifier(2));
+        assertTrue("Transformation did not work like expected:" + diff + ":"+new String(baos.toByteArray()),
+                diff.identical());
+    }
+
+    @Test
+    public void testStrippingWhitespaces()
+            throws Exception {
+
+        String SOURCE_XML =
+                "<?xml version=\"1.0\" encoding=\"UTF-8\"?><results><source><link>http://www.l-ray.de/fileadmin/</link><name>dummyData l-ray</name><icon>http://www.l-ray.de/fileadmin/template/css/images/ico_cached.gif</icon></source>" +
+                        "<article>" +
+                        "<title>test titel 1</title><subtitle>die subtitle die</subtitle>" +
+                        "<price>5 Euro</price><picture>\nhttp://www.l-ray.de/fileadmin/\n" +
+                        "anonym.jpg\n</picture>" +
+                        "<date>Freitag, 30. Januar</date><location>dummyLocation</location>" +
+                        "<sourcelink>http://www.l-ray.de/fileadmin/</sourcelink>" +
+                        "</article>" +
+                        "<article>" +
+                        "<title>weiterer test titel (2)</title><subtitle>dummy subtitle</subtitle>" +
+                        "<price>2.50 Euro</price>" +
+                        "<picture>\nhttp://www.l-ray.de/fileadmin/\ntemplate/css/images/logo.gif\n</picture>" +
+                        "<date>Freitag, 30. Januar</date><location>dummyLocation</location>" +
+                        "<sourcelink>http://www.l-ray.de/fileadmin/</sourcelink>" +
+                        "</article>" +
+                        "</results>\n";
+
+        String EXPECTED_RESULT_XML =
+                "<results><source><link>http://www.l-ray.de/fileadmin/</link><name>dummyData l-ray</name><icon>http://www.l-ray.de/fileadmin/template/css/images/ico_cached.gif</icon></source>" +
+                        "<article>" +
+                        "<title>test titel 1</title><subtitle>die subtitle die</subtitle>" +
+                        "<price>5 Euro</price>" +
+                        "<picture>0</picture>" +
+                        "<date>Freitag, 30. Januar</date><location>dummyLocation</location>" +
+                        "<sourcelink>http://www.l-ray.de/fileadmin/</sourcelink>" +
+                        "<id>0</id>" +
+                        "</article>" +
+                        "<article>" +
+                        "<title>weiterer test titel (2)</title><subtitle>dummy subtitle</subtitle>" +
+                        "<price>2.50 Euro</price>" +
+                        "<picture>1</picture>" +
+                        "<date>Freitag, 30. Januar</date><location>dummyLocation</location>" +
+                        "<sourcelink>http://www.l-ray.de/fileadmin/</sourcelink>" +
+                        "<id>1</id>" +
+                        "</article>" +
+                        "<pictures><id>0</id><result>0</result><url>http://www.l-ray.de/fileadmin/\nanonym.jpg</url></pictures>"+
+                        "<pictures><id>1</id><result>1</result><url>http://www.l-ray.de/fileadmin/\ntemplate/css/images/logo.gif</url></pictures>"+
+                        "</results>\n";
+
+
+        final ByteArrayOutputStream baos = transformThroughPipeline(SOURCE_XML);
+        final Diff diff = new Diff(EXPECTED_RESULT_XML, new String(baos.toByteArray()));
         assertTrue("Transformation did not work like expected:" + diff + ":"+new String(baos.toByteArray()),
                 diff.identical());
     }

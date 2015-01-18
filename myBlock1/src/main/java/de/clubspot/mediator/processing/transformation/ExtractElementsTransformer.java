@@ -8,15 +8,15 @@ import org.xml.sax.Attributes;
 import org.xml.sax.SAXException;
 import org.xml.sax.helpers.AttributesImpl;
 
-import java.util.AbstractMap;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 
 public class ExtractElementsTransformer extends AbstractSAXTransformer implements SAXConsumer{
 
     private static final Logger LOG =
             LoggerFactory.getLogger(ExtractElementsTransformer.class.getName());
-    public static final String ELEMENT_TO_BE_EXTRACTED = "pictures";
+    public static final String ELEMENT_TO_BE_EXTRACTED = "picture";
+
+    public static final String NEW_EXTRACTED_ELEMENT_NAME = "pictures";
 
     public static final String TARGET_PARENT = "results";
     public static final String ELEMENT_PARENT = "article";
@@ -44,7 +44,8 @@ public class ExtractElementsTransformer extends AbstractSAXTransformer implement
      @Override
      public void setup(Map<String, Object> parameter) {
          LOG.trace("IN RegionalFormatsTransformer Setup");
-         elementsToBeExcluded = new HashMap<String,Map<String,String>>();
+         // TreeMap, to make the result comparable by unit test
+         elementsToBeExcluded = new TreeMap<String,Map<String,String>>();
          LOG.trace("Out RegionalFormatsTransformer Setup");
      }
 
@@ -107,7 +108,8 @@ public class ExtractElementsTransformer extends AbstractSAXTransformer implement
 
         if (localName.equals(TARGET_PARENT)) {
             for (Map.Entry<String,Map<String,String>> entry : elementsToBeExcluded.entrySet()) {
-                super.startElement(namespaceURI, ELEMENT_TO_BE_EXTRACTED, ELEMENT_TO_BE_EXTRACTED, new AttributesImpl());
+
+                super.startElement(namespaceURI, NEW_EXTRACTED_ELEMENT_NAME, NEW_EXTRACTED_ELEMENT_NAME, new AttributesImpl());
 
                 super.startElement(namespaceURI, EXTRACTED_ELEMENT_ID, EXTRACTED_ELEMENT_ID, new AttributesImpl());
                 super.characters(entry.getKey().toCharArray(), 0, entry.getKey().length());
@@ -121,7 +123,7 @@ public class ExtractElementsTransformer extends AbstractSAXTransformer implement
                     super.endElement(namespaceURI, keyValue.getKey(), keyValue.getKey());
                 }
 
-                super.endElement(namespaceURI, ELEMENT_TO_BE_EXTRACTED, ELEMENT_TO_BE_EXTRACTED);
+                super.endElement(namespaceURI, NEW_EXTRACTED_ELEMENT_NAME, NEW_EXTRACTED_ELEMENT_NAME);
             }
         }
         super.endElement(namespaceURI, localName, qName);
@@ -140,11 +142,15 @@ public class ExtractElementsTransformer extends AbstractSAXTransformer implement
             super.characters(buffer, start, length);
         }
         if (insideElementToBeExtracted) {
-            String idCounterAsString = String.valueOf(elementIdCounter++);
-            Map<String,String> elementData = new HashMap<String,String>();
-            elementsToBeExcluded.put(idCounterAsString, elementData);
-            elementData.put("url", new String(buffer, start, length));
-            super.characters(idCounterAsString.toCharArray(),0, idCounterAsString.length());
+            String bufferString = new String(buffer, start, length).trim();
+
+            if (!bufferString.isEmpty()) {
+                String idCounterAsString = String.valueOf(elementIdCounter++);
+                Map<String, String> elementData = new TreeMap<String, String>();
+                elementsToBeExcluded.put(idCounterAsString, elementData);
+                elementData.put("url", bufferString);
+                super.characters(idCounterAsString.toCharArray(), 0, idCounterAsString.length());
+            }
         }
         LOG.trace("OUT characters");
 	}
