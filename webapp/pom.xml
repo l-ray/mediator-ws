@@ -3,19 +3,21 @@
          xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <modelVersion>4.0.0</modelVersion>
+
     <parent>
-        <groupId>com.mycompany</groupId>
+        <groupId>de.clubspot.mediator</groupId>
         <artifactId>mediator-ws</artifactId>
         <version>1-SNAPSHOT</version>
     </parent>
-    <groupId>com.mycompany</groupId>
-    <artifactId>myCocoonWebApp</artifactId>
+
+    <artifactId>webapp</artifactId>
     <version>1.0-SNAPSHOT</version>
     <packaging>war</packaging>
-    <name>myCocoonWebApp</name>
+    <name>mediator-ws webapp</name>
+
     <dependencies>
         <dependency>
-            <groupId>com.mycompany</groupId>
+            <groupId>de.clubspot.mediator</groupId>
             <artifactId>myBlock1</artifactId>
             <version>1.0.1-SNAPSHOT</version>
         </dependency>

@@ -16,6 +16,6 @@
   limitations under the License.
 -->
 <demo>
-  <module>com.mycompany:myBlock1</module>
+  <module>de.clubspot.mediator:myBlock1</module>
   <spring>#{message}</spring>
 </demo>
