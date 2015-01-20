@@ -165,11 +165,11 @@ public class WebHarvestTemplate implements SourceTemplate {
 		StringBuilder message = new StringBuilder()
             .append(this.getSubPattern() == null ? "":"\n"+this.getSubPattern())
             .append("\n<var-def name=\"result\">\n")
-			.append("\n<![CDATA[<source>")
+			/*.append("\n<![CDATA[<source>")
 			.append("\n<link>").append(this.getUrl()).append("</link>")
 			.append("\n<name>").append(this.getName()).append("</name>")
 			.append("\n<icon>").append(this.getIcon()).append("</icon>")
-			.append("\n</source>]]>\n")
+			.append("\n</source>]]>\n")*/
             .append(this.getPattern())
 			.append("\n</var-def>\n");
             LOG.trace(message.toString());
