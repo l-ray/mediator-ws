@@ -33,6 +33,12 @@
                     <map:parameter name="endDate" value="2015-01-30"/>
                 </map:generate>
                 <map:transform type="regional-format"/>
+                <map:transform type="connection-id">
+                    <map:parameter name="elementLocalName" value="results"/>
+                    <map:parameter name="idElementLocalName" value="connection"/>
+                    <map:parameter name="id" value="{map:patternId}-{map:startDate}"/>
+                </map:transform>
+
                 <map:transform type="term-weight"/>
                 <map:transform type="extract-element"/>
                 <map:serialize type="json"/>
@@ -47,6 +53,11 @@
                     <map:parameter name="endDate" value="2015-01-30"/>
                 </map:generate>
                 <map:transform type="regional-format"/>
+                <map:transform type="connection-id">
+                    <map:parameter name="elementLocalName" value="results"/>
+                    <map:parameter name="idElementLocalName" value="connection"/>
+                    <map:parameter name="id" value="{map:patternId}-{map:startDate}"/>
+                </map:transform>
                 <map:transform type="term-weight"/>
                 <map:transform type="extract-element"/>
                 <map:serialize type="xml"/>

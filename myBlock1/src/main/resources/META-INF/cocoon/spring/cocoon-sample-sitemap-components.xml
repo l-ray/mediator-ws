@@ -31,6 +31,8 @@
 
     <bean name="transformer:extract-element" class="de.clubspot.mediator.processing.transformation.ExtractElementsTransformer" scope="prototype" />
 
+    <bean name="transformer:connection-id" class="de.clubspot.mediator.processing.transformation.AddConnectionIdToElementsTransformer" scope="prototype" />
+
     <bean name="serializer:json" class="org.apache.cocoon.optional.pipeline.components.sax.json.JsonSerializer" scope="prototype" />
 
 </beans>
