@@ -47,7 +47,7 @@ public class AddConnectionIdToElementsTransformerTest {
 
 
     @Test
-    public void testExtractingSingleElementFromArticle()
+    public void testAddingIdToElement()
             throws Exception {
 
         String SOURCE_XML =
@@ -55,8 +55,8 @@ public class AddConnectionIdToElementsTransformerTest {
 
         String EXPECTED_RESULT_XML =
                 "<resultset><result>" +
-                "<connection>testId</connection>" +
                 "<picture>http://picture.de/picture.jpg</picture>" +
+                "<connection>testId</connection>" +
                 "</result></resultset>";
 
 
@@ -66,6 +66,34 @@ public class AddConnectionIdToElementsTransformerTest {
         assertTrue("Transformation did not work like expected:" + diff + ":"+new String(baos.toByteArray()),
                 diff.identical());
     }
+
+    @Test
+    public void testNullCase()
+            throws Exception {
+
+        String SOURCE_XML =
+                "<resultset><whatever><picture>dummy</picture></whatever></resultset>";
+
+        final ByteArrayOutputStream baos = transformThroughPipeline(SOURCE_XML);
+
+        final Diff diff = new Diff(SOURCE_XML, new String(baos.toByteArray()));
+        assertTrue("Transformation did not work like expected:" + diff + ":"+new String(baos.toByteArray()),
+                diff.identical());
+    }
+
+    @Test
+    public void testPreventOverriding() throws Exception {
+
+        String SOURCE_XML =
+                "<resultset><result><connection>someConnection</connection><picture>dummy</picture></result></resultset>";
+
+        final ByteArrayOutputStream baos = transformThroughPipeline(SOURCE_XML);
+
+        final Diff diff = new Diff(SOURCE_XML, new String(baos.toByteArray()));
+        assertTrue("Transformation did not work like expected:" + diff + ":"+new String(baos.toByteArray()),
+                diff.identical());
+    }
+
 
     private ByteArrayOutputStream transformThroughPipeline(String SOURCE_XML) throws Exception {
         final Pipeline<SAXPipelineComponent> pipeline =

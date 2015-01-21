@@ -25,6 +25,10 @@ public class AddConnectionIdToElementsTransformer extends AbstractSAXTransformer
 
     private String id = null;
 
+    private boolean inElementLocalName = false;
+
+    private boolean idAlreadyExists= false;
+
      @Override
      public void setConfiguration(Map<String, ? extends Object> parameter) {
          LOG.trace("IN AddSourceIdToElementsTransformer Setup");
@@ -45,12 +49,35 @@ public class AddConnectionIdToElementsTransformer extends AbstractSAXTransformer
         LOG.trace("IN startElement {0}", localName);
         super.startElement(namespaceURI, localName, qName, attributes);
 
+
+
         if (localName.equals(elementLocalName)) {
-            super.startElement(namespaceURI, idElementLocalName, idElementLocalName, new AttributesImpl());
-            super.characters(id.toCharArray(),0,id.length());
-            super.endElement(namespaceURI, idElementLocalName, idElementLocalName);
+            inElementLocalName = true;
+        }
+
+        if (inElementLocalName && localName.equals(idElementLocalName)) {
+            idAlreadyExists = true;
         }
         LOG.trace("OUT startElement");
 	}
+
+    @Override
+    public void endElement(String namespaceURI, String localName,
+                           String qName) throws SAXException{
+
+        if (localName.equals(elementLocalName)) {
+            inElementLocalName = false;
+
+            if (!idAlreadyExists) {
+                super.startElement(namespaceURI, idElementLocalName, idElementLocalName, new AttributesImpl());
+                super.characters(id.toCharArray(),0,id.length());
+                super.endElement(namespaceURI, idElementLocalName, idElementLocalName);
+            }
+            idAlreadyExists = false;
+        }
+
+        super.endElement(namespaceURI, localName, qName);
+
+    }
 
 }
