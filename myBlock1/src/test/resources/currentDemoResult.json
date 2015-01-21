@@ -1,0 +1,50 @@
+{
+  "results": {
+    "source": {
+      "link": "http://www.l-ray.de/fileadmin/",
+      "name": "dummyData l-ray",
+      "icon": "http://www.l-ray.de/fileadmin/template/css/images/ico_cached.gif"
+    },
+    "article": [
+      {
+        "title": "\ntest titel 1\n",
+        "subtitle": "\ndie subtitle die\n",
+        "price": "\n5 Euro\n",
+        "picture": "http://www.l-ray.de/fileadmin/\nanonym.jpg\n",
+        "date": "Freitag, 30. Januar",
+        "location": "dummyLocation",
+        "sourcelink": "http://www.l-ray.de/fileadmin/"
+      },
+      {
+        "title": "\nweiterer test titel (2)\n",
+        "subtitle": "\ndummy subtitle\n",
+        "price": "\n2.50 Euro\n",
+        "picture": "http://www.l-ray.de/fileadmin/\ntemplate/css/images/logo.gif\n",
+        "date": "Freitag, 30. Januar",
+        "location": "dummyLocation",
+        "sourcelink": "http://www.l-ray.de/fileadmin/"
+      },
+      {
+        "title": "\nalte live mein Titel\n",
+        "subtitle": "\n",
+        "price": "\n",
+        "picture": "http://www.l-ray.de/fileadmin/\n",
+        "date": "Freitag, 30. Januar",
+        "location": "dummyLocation",
+        "sourcelink": "http://www.l-ray.de/fileadmin/"
+      }
+    ],
+    "weight": {
+      "weight-term": [
+        {
+          "@term": "alte",
+          "@weight": "0.10000000000000001"
+        },
+        {
+          "@term": "live",
+          "@weight": "0.01"
+        }
+      ]
+    }
+  }
+}

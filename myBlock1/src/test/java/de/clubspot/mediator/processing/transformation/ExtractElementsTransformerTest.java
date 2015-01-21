@@ -8,6 +8,7 @@ import org.apache.cocoon.sax.component.XMLSerializer;
 import org.custommonkey.xmlunit.Diff;
 import org.custommonkey.xmlunit.XMLUnit;
 import org.junit.After;
+import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import org.slf4j.Logger;
@@ -16,6 +17,8 @@ import org.slf4j.LoggerFactory;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.SAXParserFactory;
 import java.io.ByteArrayOutputStream;
+import java.util.HashMap;
+import java.util.Map;
 
 import static junit.framework.Assert.assertTrue;
 
@@ -23,6 +26,8 @@ public class ExtractElementsTransformerTest {
 
     private static final Logger LOG =
             LoggerFactory.getLogger(RegionalFormatsRewriteTransformerTest.class);
+
+    private Map<String,? extends Object> parameter;
 
     @BeforeClass
     public static void setUp() {
@@ -41,6 +46,21 @@ public class ExtractElementsTransformerTest {
 
         XMLUnit.setControlDocumentBuilderFactory(docBuildFactory);
         XMLUnit.setTestDocumentBuilderFactory(docBuildFactory);
+
+    }
+
+    @Before
+    public void beforeMethod() {
+        parameter = new HashMap<String,String>(){
+            {
+                put("elementToBeExtracted", "picture");
+                put("newExtractedElementName","pictures");
+                put("targetParent","results");
+                put("elementParent","article");
+                put("elementParentId","id");
+                put("extractedElementId","id");
+            }
+        };
     }
 
     @Test
@@ -155,15 +175,15 @@ public class ExtractElementsTransformerTest {
     }
 
     @Test
-    public void testStrippingWhitespaces()
+    public void testExtractingMultipleElementsFromMultipleArticlesWithOtherData()
             throws Exception {
 
         String SOURCE_XML =
                 "<?xml version=\"1.0\" encoding=\"UTF-8\"?><results><source><link>http://www.l-ray.de/fileadmin/</link><name>dummyData l-ray</name><icon>http://www.l-ray.de/fileadmin/template/css/images/ico_cached.gif</icon></source>" +
                         "<article>" +
                         "<title>test titel 1</title><subtitle>die subtitle die</subtitle>" +
-                        "<price>5 Euro</price><picture>\nhttp://www.l-ray.de/fileadmin/\n" +
-                        "anonym.jpg\n</picture>" +
+                        "<price>5 Euro</price><picture>http://www.l-ray.de/fileadmin/\n" +
+                        "anonym.jpg</picture>" +
                         "<date>Freitag, 30. Januar</date><location>dummyLocation</location>" +
                         "<sourcelink>http://www.l-ray.de/fileadmin/</sourcelink>" +
                         "</article>" +
@@ -172,6 +192,13 @@ public class ExtractElementsTransformerTest {
                         "<price>2.50 Euro</price>" +
                         "<picture>\nhttp://www.l-ray.de/fileadmin/\ntemplate/css/images/logo.gif\n</picture>" +
                         "<date>Freitag, 30. Januar</date><location>dummyLocation</location>" +
+                        "<sourcelink>http://www.l-ray.de/fileadmin/</sourcelink>" +
+                        "</article>" +
+                        "<article>" +
+                        "<title>alte live mein Titel</title><subtitle/>" +
+                        "<price/><picture>http://www.l-ray.de/fileadmin/</picture>" +
+                        "<date>Freitag, 30. Januar</date>" +
+                        "<location>dummyLocation</location>" +
                         "<sourcelink>http://www.l-ray.de/fileadmin/</sourcelink>" +
                         "</article>" +
                         "</results>\n";
@@ -194,8 +221,18 @@ public class ExtractElementsTransformerTest {
                         "<sourcelink>http://www.l-ray.de/fileadmin/</sourcelink>" +
                         "<id>1</id>" +
                         "</article>" +
+                        "<article>" +
+                        "<title>alte live mein Titel</title><subtitle/>" +
+                        "<price/>" +
+                        "<picture>2</picture>" +
+                        "<date>Freitag, 30. Januar</date>" +
+                        "<location>dummyLocation</location>" +
+                        "<sourcelink>http://www.l-ray.de/fileadmin/</sourcelink>" +
+                        "<id>2</id>" +
+                        "</article>" +
                         "<pictures><id>0</id><result>0</result><url>http://www.l-ray.de/fileadmin/\nanonym.jpg</url></pictures>"+
                         "<pictures><id>1</id><result>1</result><url>http://www.l-ray.de/fileadmin/\ntemplate/css/images/logo.gif</url></pictures>"+
+                        "<pictures><id>2</id><result>2</result><url>http://www.l-ray.de/fileadmin/</url></pictures>"+
                         "</results>\n";
 
 

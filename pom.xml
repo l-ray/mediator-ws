@@ -9,7 +9,14 @@
   <version>1-SNAPSHOT</version>
   
   <name>Cocoon Getting Stared application [parent]</name>
-  
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.build.resourceEncoding>UTF-8</project.build.resourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+
+    </properties>
+
   <modules>
     <module>myBlock1</module>
     <module>webapp</module>

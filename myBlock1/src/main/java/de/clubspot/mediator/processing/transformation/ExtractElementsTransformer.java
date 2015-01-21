@@ -14,14 +14,15 @@ public class ExtractElementsTransformer extends AbstractSAXTransformer implement
 
     private static final Logger LOG =
             LoggerFactory.getLogger(ExtractElementsTransformer.class.getName());
-    public static final String ELEMENT_TO_BE_EXTRACTED = "picture";
 
-    public static final String NEW_EXTRACTED_ELEMENT_NAME = "pictures";
+    public String elementToBeExtracted = "picture";
 
-    public static final String TARGET_PARENT = "results";
-    public static final String ELEMENT_PARENT = "article";
-    public static final String ELEMENT_PARENT_ID = "id";
-    public static final String EXTRACTED_ELEMENT_ID = "id";
+    public String newExtractedElementName = "pictures";
+
+    public String targetParent = "results";
+    public String elementParent = "article";
+    public String elementParentId = "id";
+    public String extractedElementId = "id";
 
     private Map<String, Map<String,String>> elementsToBeExcluded = null;
 
@@ -49,22 +50,50 @@ public class ExtractElementsTransformer extends AbstractSAXTransformer implement
          LOG.trace("Out RegionalFormatsTransformer Setup");
      }
 
+    @Override
+    public void setConfiguration(Map<String, ? extends Object> parameter) {
+
+        if (parameter.get("elementToBeExtracted") != null) {
+            elementToBeExtracted = (String) parameter.get("elementToBeExtracted");
+        }
+
+        if (parameter.get("newExtractedElementName") != null) {
+            newExtractedElementName = (String) parameter.get("newExtractedElementName");
+        }
+
+        if (parameter.get("targetParent") != null) {
+            targetParent = (String) parameter.get("targetParent");
+        }
+
+        if (parameter.get("elementParent") != null) {
+            elementParent = (String) parameter.get("elementParent");
+        }
+
+        if (parameter.get("elementParentId") != null) {
+            elementParentId = (String) parameter.get("elementParentId");
+        }
+
+        if (parameter.get("extractedElementId") != null) {
+            extractedElementId = (String) parameter.get("extractedElementId");
+        }
+    }
+
 	@Override
     public void startElement(String namespaceURI, String localName,
 			String qName, Attributes attributes) throws SAXException {
 
         LOG.trace("IN startElement {0}", localName);
 
-        if (localName.equals(ELEMENT_PARENT)) {
+        if (localName.equals(elementParent)) {
             inParentElement = true;
         }
 
-        if ( inParentElement && localName.equals(ELEMENT_PARENT_ID)) {
+        if ( inParentElement && localName.equals(elementParentId)) {
             inParentIdTag = true;
         }
 
         if (!insideElementToBeExtracted) {
-            if (localName.equals(ELEMENT_TO_BE_EXTRACTED)) {
+            if (localName.equals(elementToBeExtracted)) {
                 insideElementToBeExtracted = true;
                 parentElementNeedsId = true;
             }
@@ -78,15 +107,15 @@ public class ExtractElementsTransformer extends AbstractSAXTransformer implement
             throws SAXException {
         LOG.trace("IN endElement");
 
-        if (localName.equals(ELEMENT_PARENT)) {
+        if (localName.equals(elementParent)) {
             inParentElement = false;
             inParentIdTag = false;
             if (parentElementNeedsId) {
                 if (currentParentId == null || currentParentId.isEmpty()) {
-                    super.startElement(namespaceURI, ELEMENT_PARENT_ID, ELEMENT_PARENT_ID, new AttributesImpl());
+                    super.startElement(namespaceURI, elementParentId, elementParentId, new AttributesImpl());
                     currentParentId = String.valueOf(parentIdCounter++);
                     super.characters(currentParentId.toCharArray(),0,currentParentId.length());
-                    super.endElement(namespaceURI, ELEMENT_PARENT_ID, ELEMENT_PARENT_ID);
+                    super.endElement(namespaceURI, elementParentId, elementParentId);
                 }
 
                 for (Map.Entry<String,Map<String,String>> elementToBeExcluded: elementsToBeExcluded.entrySet()) {
@@ -101,19 +130,19 @@ public class ExtractElementsTransformer extends AbstractSAXTransformer implement
 
         }
 
-        if (localName.equals(ELEMENT_TO_BE_EXTRACTED)) {
+        if (localName.equals(elementToBeExtracted)) {
             insideElementToBeExtracted = false;
         }
 
 
-        if (localName.equals(TARGET_PARENT)) {
+        if (localName.equals(targetParent)) {
             for (Map.Entry<String,Map<String,String>> entry : elementsToBeExcluded.entrySet()) {
 
-                super.startElement(namespaceURI, NEW_EXTRACTED_ELEMENT_NAME, NEW_EXTRACTED_ELEMENT_NAME, new AttributesImpl());
+                super.startElement(namespaceURI, newExtractedElementName, newExtractedElementName, new AttributesImpl());
 
-                super.startElement(namespaceURI, EXTRACTED_ELEMENT_ID, EXTRACTED_ELEMENT_ID, new AttributesImpl());
+                super.startElement(namespaceURI, extractedElementId, extractedElementId, new AttributesImpl());
                 super.characters(entry.getKey().toCharArray(), 0, entry.getKey().length());
-                super.endElement(namespaceURI, EXTRACTED_ELEMENT_ID, EXTRACTED_ELEMENT_ID);
+                super.endElement(namespaceURI, extractedElementId, extractedElementId);
 
                 for (Map.Entry<String, String> keyValue: entry.getValue().entrySet()) {
                     LOG.trace("Adds |{0}| with |{1}|", new String[]{keyValue.getKey(), keyValue.getValue()});
@@ -123,7 +152,7 @@ public class ExtractElementsTransformer extends AbstractSAXTransformer implement
                     super.endElement(namespaceURI, keyValue.getKey(), keyValue.getKey());
                 }
 
-                super.endElement(namespaceURI, NEW_EXTRACTED_ELEMENT_NAME, NEW_EXTRACTED_ELEMENT_NAME);
+                super.endElement(namespaceURI, newExtractedElementName, newExtractedElementName);
             }
         }
         super.endElement(namespaceURI, localName, qName);
