@@ -26,6 +26,7 @@ import org.apache.cocoon.pipeline.caching.CacheKey;
 import org.apache.cocoon.pipeline.caching.SimpleCacheKey;
 import org.apache.cocoon.pipeline.component.CachingPipelineComponent;
 import org.apache.cocoon.sax.AbstractSAXSerializer;
+import org.codehaus.jettison.mapped.Configuration;
 import org.jdom.input.SAXHandler;
 
 /**
@@ -50,9 +51,12 @@ public class JsonSerializer extends AbstractSAXSerializer implements CachingPipe
 
     @Override
     public void finish() {
+        Configuration configuration = new Configuration();
+        configuration.setDropRootElement(true);
+
         new HierarchicalStreamCopier().copy(
                 new JDomReader(this.saxHandler.getDocument()),
-                new JettisonMappedXmlDriver().createWriter(this.getOutputStream()));
+                new JettisonMappedXmlDriver(configuration).createWriter(this.getOutputStream()));
     }
 
     @Override
