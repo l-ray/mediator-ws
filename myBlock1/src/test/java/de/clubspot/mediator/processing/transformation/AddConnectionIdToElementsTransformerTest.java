@@ -2,7 +2,6 @@ package de.clubspot.mediator.processing.transformation;
 
 import org.apache.cocoon.pipeline.NonCachingPipeline;
 import org.apache.cocoon.pipeline.Pipeline;
-import org.apache.cocoon.sax.SAXConsumer;
 import org.apache.cocoon.sax.SAXPipelineComponent;
 import org.apache.cocoon.sax.component.XMLGenerator;
 import org.apache.cocoon.sax.component.XMLSerializer;
@@ -15,7 +14,6 @@ import org.slf4j.LoggerFactory;
 
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.SAXParserFactory;
-
 import java.io.ByteArrayOutputStream;
 import java.util.HashMap;
 
@@ -56,7 +54,7 @@ public class AddConnectionIdToElementsTransformerTest {
         String EXPECTED_RESULT_XML =
                 "<resultset><result>" +
                 "<picture>http://picture.de/picture.jpg</picture>" +
-                "<connection>testId</connection>" +
+                        "<connection>testId</connection>" +
                 "</result></resultset>";
 
 
