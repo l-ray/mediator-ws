@@ -26,6 +26,13 @@
         </map:pipeline>
 
         <map:pipeline>
+            <map:match pattern="demo/{patternId}/{startDate}/">
+                <map:generate src="currentDemoResult.xml"/>
+                <map:serialize type="json"/>
+            </map:match>
+        </map:pipeline>
+
+        <map:pipeline>
             <map:match pattern="results/{patternId}/{startDate}/">
                 <map:generate type="pattern-code">
                     <map:parameter name="patternId" value="{map:patternId}"/>
@@ -47,6 +54,8 @@
                     <map:parameter name="elementParent" value="results"/>
                     <map:parameter name="elementParentId" value="id"/>
                     <map:parameter name="extractedElementId" value="id"/>
+                    <map:parameter name="extractedElementIdPrefix" value="{map:patternId}-{map:startDate}-"/>
+                    <map:parameter name="elementParentIdPrefix" value="{map:patternId}-{map:startDate}-"/>
                 </map:transform>
                 <map:serialize type="json"/>
             </map:match>
@@ -73,6 +82,8 @@
                     <map:parameter name="elementParent" value="results"/>
                     <map:parameter name="elementParentId" value="id"/>
                     <map:parameter name="extractedElementId" value="id"/>
+                    <map:parameter name="extractedElementIdPrefix" value="{map:patternId}-{map:startDate}-"/>
+                    <map:parameter name="elementParentIdPrefix" value="{map:patternId}-{map:startDate}-"/>
                 </map:transform>
                 <map:serialize type="xml"/>
             </map:match>
