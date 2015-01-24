@@ -243,6 +243,51 @@ public class ExtractElementsTransformerTest {
     }
 
 
+    @Test
+    public void testConfigurationParameter()
+            throws Exception {
+
+        String SOURCE_XML =
+                "<root><parent><element>http://picture.de/picture.jpg</element></parent></root>";
+
+        String EXPECTED_RESULT_XML =
+                "<root><parent><element>eprefix-0</element><uid>pprefix-0</uid></parent>"
+                +"<extract><id>eprefix-0</id><callback>pprefix-0</callback><url>http://picture.de/picture.jpg</url></extract>"
+                +"</root>";
+
+
+        SAXPipelineComponent underTest = new ExtractElementsTransformer();
+        underTest.setConfiguration(new HashMap<String, Object>() {
+            {
+                put(ExtractElementsTransformer.PARAM_ELEMENT_PARENT, "parent");
+                put(ExtractElementsTransformer.PARAM_ELEMENT_PARENT_ID, "uid");
+                put(ExtractElementsTransformer.PARAM_ELEMENT_PARENT_ID_PREFIX, "pprefix-");
+                put(ExtractElementsTransformer.PARAM_ELEMENT_TO_BE_EXTRACTED, "element");
+                put(ExtractElementsTransformer.PARAM_EXTRACTED_ELEMENT_CALLBACK_ELEMENT, "callback");
+                put(ExtractElementsTransformer.PARAM_EXTRACTED_ELEMENT_ID, "id");
+                put(ExtractElementsTransformer.PARAM_EXTRACTED_ELEMENT_ID_PREFIX, "eprefix-");
+                put(ExtractElementsTransformer.PARAM_NEW_EXTRACTED_ELEMENT_NAME, "extract");
+                put(ExtractElementsTransformer.PARAM_TARGET_PARENT, "root");
+            }
+        });
+
+        final Pipeline<SAXPipelineComponent> pipeline =
+                new NonCachingPipeline<SAXPipelineComponent>();
+
+        pipeline.addComponent(new XMLGenerator(SOURCE_XML));
+        pipeline.addComponent(underTest);
+        pipeline.addComponent(new XMLSerializer());
+
+        final ByteArrayOutputStream baos = new ByteArrayOutputStream();
+        pipeline.setup(baos);
+        pipeline.execute();
+
+        final Diff diff = new Diff(EXPECTED_RESULT_XML, new String(baos.toByteArray()));
+        assertTrue("Transformation did not work like expected:" + diff + ":"+new String(baos.toByteArray()),
+                diff.identical());
+
+    }
+
     @After
     public void tearDown() throws Exception {
 

@@ -15,14 +15,29 @@ public class ExtractElementsTransformer extends AbstractSAXTransformer implement
     private static final Logger LOG =
             LoggerFactory.getLogger(ExtractElementsTransformer.class.getName());
 
-    public String elementToBeExtracted = "picture";
+    public static final String PARAM_ELEMENT_TO_BE_EXTRACTED = "elementToBeExtracted";
+    public static final String PARAM_NEW_EXTRACTED_ELEMENT_NAME = "newExtractedElementName";
+    public static final String PARAM_TARGET_PARENT = "targetParent";
+    public static final String PARAM_ELEMENT_PARENT = "elementParent";
+    public static final String PARAM_ELEMENT_PARENT_ID = "elementParentId";
+    public static final String PARAM_ELEMENT_PARENT_ID_PREFIX = "elementParentIdPrefix";
+    public static final String PARAM_EXTRACTED_ELEMENT_ID = "extractedElementId";
+    public static final String PARAM_EXTRACTED_ELEMENT_ID_PREFIX = "extractedElementIdPrefix";
+    public static final String PARAM_EXTRACTED_ELEMENT_CALLBACK_ELEMENT = "extractedElementCallbackElement";
 
-    public String newExtractedElementName = "pictures";
 
-    public String targetParent = "results";
-    public String elementParent = "article";
-    public String elementParentId = "id";
-    public String extractedElementId = "id";
+    private String elementToBeExtracted = "picture";
+
+    private String newExtractedElementName = "pictures";
+
+    private String targetParent = "results";
+    private String elementParent = "article";
+    private String elementParentId = "id";
+    private String elementParentIdPrefix = "";
+    private String extractedElementId = "id";
+    private String extractedElementCallbackElement = "result";
+
+    private String extractedElementIdPrefix = "";
 
     private Map<String, Map<String,String>> elementsToBeExcluded = null;
 
@@ -53,29 +68,42 @@ public class ExtractElementsTransformer extends AbstractSAXTransformer implement
     @Override
     public void setConfiguration(Map<String, ? extends Object> parameter) {
 
-        if (parameter.get("elementToBeExtracted") != null) {
-            elementToBeExtracted = (String) parameter.get("elementToBeExtracted");
+        if (parameter.get(PARAM_ELEMENT_TO_BE_EXTRACTED) != null) {
+            elementToBeExtracted = (String) parameter.get(PARAM_ELEMENT_TO_BE_EXTRACTED);
         }
 
-        if (parameter.get("newExtractedElementName") != null) {
-            newExtractedElementName = (String) parameter.get("newExtractedElementName");
+        if (parameter.get(PARAM_NEW_EXTRACTED_ELEMENT_NAME) != null) {
+            newExtractedElementName = (String) parameter.get(PARAM_NEW_EXTRACTED_ELEMENT_NAME);
         }
 
-        if (parameter.get("targetParent") != null) {
-            targetParent = (String) parameter.get("targetParent");
+        if (parameter.get(PARAM_TARGET_PARENT) != null) {
+            targetParent = (String) parameter.get(PARAM_TARGET_PARENT);
         }
 
-        if (parameter.get("elementParent") != null) {
-            elementParent = (String) parameter.get("elementParent");
+        if (parameter.get(PARAM_ELEMENT_PARENT) != null) {
+            elementParent = (String) parameter.get(PARAM_ELEMENT_PARENT);
         }
 
-        if (parameter.get("elementParentId") != null) {
-            elementParentId = (String) parameter.get("elementParentId");
+        if (parameter.get(PARAM_ELEMENT_PARENT_ID) != null) {
+            elementParentId = (String) parameter.get(PARAM_ELEMENT_PARENT_ID);
         }
 
-        if (parameter.get("extractedElementId") != null) {
-            extractedElementId = (String) parameter.get("extractedElementId");
+        if (parameter.get(PARAM_ELEMENT_PARENT_ID_PREFIX) != null) {
+            elementParentIdPrefix = (String) parameter.get(PARAM_ELEMENT_PARENT_ID_PREFIX);
         }
+
+        if (parameter.get(PARAM_EXTRACTED_ELEMENT_ID) != null) {
+            extractedElementId = (String) parameter.get(PARAM_EXTRACTED_ELEMENT_ID);
+        }
+
+        if (parameter.get(PARAM_EXTRACTED_ELEMENT_ID_PREFIX) != null) {
+            extractedElementIdPrefix = (String) parameter.get(PARAM_EXTRACTED_ELEMENT_ID_PREFIX);
+        }
+
+        if (parameter.get(PARAM_EXTRACTED_ELEMENT_CALLBACK_ELEMENT) != null) {
+            extractedElementCallbackElement = (String) parameter.get(PARAM_EXTRACTED_ELEMENT_CALLBACK_ELEMENT);
+        }
+
     }
 
 	@Override
@@ -113,14 +141,14 @@ public class ExtractElementsTransformer extends AbstractSAXTransformer implement
             if (parentElementNeedsId) {
                 if (currentParentId == null || currentParentId.isEmpty()) {
                     super.startElement(namespaceURI, elementParentId, elementParentId, new AttributesImpl());
-                    currentParentId = String.valueOf(parentIdCounter++);
+                    currentParentId = elementParentIdPrefix + String.valueOf(parentIdCounter++);
                     super.characters(currentParentId.toCharArray(),0,currentParentId.length());
                     super.endElement(namespaceURI, elementParentId, elementParentId);
                 }
 
-                for (Map.Entry<String,Map<String,String>> elementToBeExcluded: elementsToBeExcluded.entrySet()) {
-                    if (!elementToBeExcluded.getValue().containsKey("result")) {
-                        elementToBeExcluded.getValue().put("result", currentParentId);
+                for (Map.Entry<String,Map<String,String>> elementToBeExtracted: elementsToBeExcluded.entrySet()) {
+                    if (!elementToBeExtracted.getValue().containsKey(extractedElementCallbackElement)) {
+                        elementToBeExtracted.getValue().put(extractedElementCallbackElement, currentParentId);
                     }
                 }
             }
@@ -174,7 +202,7 @@ public class ExtractElementsTransformer extends AbstractSAXTransformer implement
             String bufferString = new String(buffer, start, length).trim();
 
             if (!bufferString.isEmpty()) {
-                String idCounterAsString = String.valueOf(elementIdCounter++);
+                String idCounterAsString = extractedElementIdPrefix + String.valueOf(elementIdCounter++);
                 Map<String, String> elementData = new TreeMap<String, String>();
                 elementsToBeExcluded.put(idCounterAsString, elementData);
                 elementData.put("url", bufferString);
