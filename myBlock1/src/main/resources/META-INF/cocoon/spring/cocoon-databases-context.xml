@@ -31,6 +31,7 @@ limitations under the License.
       <property name="url" value="#{ 'jdbc:postgresql://' + @dbUrl.getHost() + ':' + @dbUrl.getPort() + @dbUrl.getPath() }?ssl=true&amp;sslfactory=org.postgresql.ssl.NonValidatingFactory"/>
       <property name="username" value="#{ @dbUrl.getUserInfo().split(':')[0] }"/>
       <property name="password" value="#{ @dbUrl.getUserInfo().split(':')[1] }"/>
+      <property name="maxWait" value="300" />
   </bean>
     
 </beans>
