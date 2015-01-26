@@ -76,7 +76,7 @@
                 </map:transform>
                 <map:transform type="term-weight"/>
                 <map:transform type="extract-element">
-                    <map:parameter name="elementToBeExtracted" value="picture"/>
+                    <map:parameter name="elementToBeExtracted" value="pictures"/>
                     <map:parameter name="newExtractedElementName" value="pictures"/>
                     <map:parameter name="targetParent" value="resultset"/>
                     <map:parameter name="elementParent" value="results"/>
