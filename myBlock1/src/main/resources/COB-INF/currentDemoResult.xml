@@ -1,67 +1,73 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<resultset>
+<resultset xmlns="http://clubspot.de/schema/events">
 	<results>
 		<title>test titel 1</title>
 		<subtitle>die subtitle die</subtitle>
 		<price>5 Euro</price>
-		<picture>0</picture>
-		<date>2015-01-16</date>
+		<pictures>a0</pictures>
+        <pictures>a0</pictures>
+		<start>2015-01-16</start>
 		<location>dummyLocation</location>
-		<sourcelink>http://www.l-ray.de/fileadmin/</sourcelink>
-		<connection>1-2015-01-30</connection>
-		<weights></weights>
-		<id>0</id>
+		<url>http://www.l-ray.de/fileadmin/</url>
+		<connection>1-2014-05-15</connection>
+		<id>a0</id>
 	</results>
 	<results>
 		<title>weiterer test titel (2)</title>
 		<subtitle>dummy subtitle</subtitle>
 		<price>2.50 Euro</price>
-		<picture>1</picture>
-        <date>2015-01-16</date>
+		<pictures>a1</pictures>
+        <start>2015-01-16</start>
 		<location>dummyLocation</location>
 		<sourcelink>http://www.l-ray.de/fileadmin/</sourcelink>
-		<connection>1-2015-01-30</connection>
-		<weights></weights>
-		<id>1</id>
+		<connection>1-2014-05-15</connection>
+		<id>a1</id>
 	</results>
 	<results>
 		<title>alte live mein Titel</title>
-		<subtitle></subtitle>
-		<price></price>
-		<picture>2</picture>
-        <date>2015-01-16</date>
+		<pictures>a2</pictures>
+        <pictures>a2</pictures>
+        <start>2015-01-16</start>
 		<location>dummyLocation</location>
 		<sourcelink>http://www.l-ray.de/fileadmin/</sourcelink>
-		<connection>1-2015-01-30</connection>
+		<connection>1-2014-05-15</connection>
 		<weights>
 			<weight-term>
 				<term>alte</term>
-				<weight>0.10000000000000001</weight>
+				<weight>0.10</weight>
 			</weight-term>
 			<weight-term>
 				<term>live</term>
 				<weight>0.01</weight>
 			</weight-term>
 		</weights>
-		<id>2</id>
+		<id>a2</id>
 	</results>
 	<pictures>
-		<id>0</id>
-		<result>0</result>
-		<url>
-			http://www.l-ray.de/fileadmin/
-		anonym.jpg</url>
+		<id>a0</id>
+		<result>a0</result>
+		<url>http://www.l-ray.de/fileadmin/anonym.jpg</url>
+        <thumbnailUrl>http://www.l-ray.de/fileadmin/anonym.jpg</thumbnailUrl>
+        <name>bla2</name>
+        <description>bluebear</description>
+        <priority>1</priority>
 	</pictures>
 	<pictures>
-		<id>1</id>
-		<result>1</result>
-		<url>
-			http://www.l-ray.de/fileadmin/
-		template/css/images/logo.gif</url>
+		<id>a1</id>
+		<result>a1</result>
+		<url>http://www.l-ray.de/fileadmin/template/css/images/logo.gif</url>
+        <thumbnailUrl>http://www.l-ray.de/fileadmin/anonym.jpg</thumbnailUrl>
+        <name>bla25</name>
+        <description>bluebear</description>
+        <priority>3</priority>
 	</pictures>
 	<pictures>
-		<id>2</id>
-		<result>2</result>
+		<id>a2</id>
+		<result>a2</result>
 		<url>http://www.l-ray.de/fileadmin/</url>
+        <thumbnailUrl>http://www.l-ray.de/fileadmin/anonym.jpg</thumbnailUrl>
+        <name>bla4</name>
+        <description>redhawk</description>
+        <priority>4</priority>
 	</pictures>
 </resultset>

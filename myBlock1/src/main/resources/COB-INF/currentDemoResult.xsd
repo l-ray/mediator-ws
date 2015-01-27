@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://clubspot.de/schema/events">
+  <xs:element name="resultset" type="resultsetType" />
+  <xs:complexType name="weight-termType">
+    <xs:sequence>
+      <xs:element name="term" type="xs:string" />
+      <xs:element name="weight" type="xs:float" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="resultsType">
+    <xs:sequence>
+      <xs:element type="xs:string" name="title"/>
+      <xs:element name="subtitle" type="xs:string" />
+      <xs:element name="price" type="xs:string" />
+      <xs:element type="xs:string" name="pictures" maxOccurs="unbounded" minOccurs="0"/>
+      <xs:element type="xs:date" name="start"/>
+      <xs:element type="xs:string" name="location"/>
+      <xs:element type="xs:anyURI" name="url" minOccurs="0"/>
+      <xs:element type="xs:anyURI" name="sourcelink" minOccurs="0"/>
+      <xs:element type="xs:string" name="connection"/>
+      <xs:element type="weightsType" name="weights" minOccurs="0"/>
+      <xs:element type="xs:string" name="id"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="picturesType">
+    <xs:sequence>
+      <xs:element type="xs:string" name="id"/>
+      <xs:element type="xs:string" name="result"/>
+      <xs:element type="xs:anyURI" name="url"/>
+      <xs:element type="xs:anyURI" name="thumbnailUrl"/>
+      <xs:element type="xs:string" name="name"/>
+      <xs:element type="xs:string" name="description" />
+      <xs:element type="xs:byte" name="priority"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="resultsetType">
+    <xs:sequence>
+      <xs:element type="resultsType" name="results" maxOccurs="unbounded" minOccurs="0"/>
+      <xs:element type="picturesType" name="pictures" maxOccurs="unbounded" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="weightsType">
+    <xs:sequence>
+      <xs:element type="weight-termType" name="weight-term" maxOccurs="unbounded" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>
