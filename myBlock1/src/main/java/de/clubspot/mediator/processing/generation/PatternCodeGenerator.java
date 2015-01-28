@@ -43,6 +43,10 @@ public class PatternCodeGenerator extends StringTemplateGenerator {
 
     private static final Logger LOG =
             LoggerFactory.getLogger(PatternCodeGenerator.class.getName());
+    public static final String PARAM_END_DATE = "endDate";
+    public static final String DATE_FORMAT = "yyyy-MM-dd";
+    public static final String PARAM_START_DATE = "startDate";
+    public static final String PARAM_PATTERN_ID = "patternId";
 
     @Autowired
     private BasicDataSource datasource;
@@ -68,18 +72,16 @@ public class PatternCodeGenerator extends StringTemplateGenerator {
     @Override
     public void setConfiguration(final Map<String, ? extends Object> parameter) {
         super.setConfiguration(parameter);
-        // this.url = (URL) parameters.get("source");
-        LOG.trace("In SetConfiguration with: "+parameter);
-        patternId = (String) parameter.get("patternId");
-        LOG.trace("got first param");
-        startDate = parseStartDate((String)parameter.get("startDate"));
-        LOG.trace("got second param");
-        if (parameter.get("endDate") != null && parameter.get("endDate") != "")
-            endDate = parseEndDate((String)parameter.get("endDate"));
 
-        LOG.trace("RETRIEVING datasource:"+this.datasource);
-        //this.datasource = (BasicDataSource) this.context
-        //        .getBean("ds:"+parameter.get(USE_CONNECTION));
+        LOG.trace("In SetConfiguration with: "+parameter);
+
+        patternId = (String) parameter.get(PARAM_PATTERN_ID);
+
+        startDate = parseDate((String) parameter.get(PARAM_START_DATE));
+
+        if (parameter.get(PARAM_END_DATE) != null)
+            endDate = parseDate((String) parameter.get(PARAM_END_DATE));
+
         LOG.trace("OUT PATTERNCODE-SETConfiguration");
     }
 
@@ -116,9 +118,11 @@ public class PatternCodeGenerator extends StringTemplateGenerator {
             String harvestPattern = loadAndCompleteHarvestTemplate(myConnection);
 
             String myXMLAnswer = retrieveAndProcessSource(harvestPattern);
+
             XMLUtils.createXMLReader(this.getSAXConsumer()).parse(convertToInputSource(myXMLAnswer));
+
         } catch (Exception e) {
-            throw new ProcessingException("Exception occured ", e);
+            throw new ProcessingException("Exception occurred ", e);
         }
     }
 
@@ -177,23 +181,11 @@ public class PatternCodeGenerator extends StringTemplateGenerator {
                 .append("\n</config>").toString();
     }
 
-    public Date parseStartDate(String startDate) {
+    public Date parseDate(String startOrEndDate) {
         try {
-            LOG.trace("parsing date "+startDate);
-            SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");
+            SimpleDateFormat df = new SimpleDateFormat(DATE_FORMAT);
             df.setTimeZone(TimeZone.getDefault());
-            return df.parse(startDate);
-        } catch (ParseException e) {
-            LOG.trace(e.getMessage());
-            return null;
-        }
-    }
-
-    public Date parseEndDate(String endDate) {
-        try {
-            SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");
-            df.setTimeZone(TimeZone.getDefault());
-            return df.parse(endDate);
+            return df.parse(startOrEndDate);
         } catch (ParseException e) {
             //e.printStackTrace();
             return null;
