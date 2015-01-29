@@ -21,9 +21,12 @@ package org.apache.cocoon.optional.pipeline.components.sax.json;
 import com.thoughtworks.xstream.io.copy.HierarchicalStreamCopier;
 import com.thoughtworks.xstream.io.json.JettisonMappedXmlDriver;
 import com.thoughtworks.xstream.io.xml.JDomReader;
+
+import java.util.HashMap;
 import java.util.Map;
 import org.apache.cocoon.pipeline.caching.CacheKey;
-import org.apache.cocoon.pipeline.caching.SimpleCacheKey;
+import org.apache.cocoon.pipeline.caching.ExpiresCacheKey;
+import org.apache.cocoon.pipeline.caching.ParameterCacheKey;
 import org.apache.cocoon.pipeline.component.CachingPipelineComponent;
 import org.apache.cocoon.sax.AbstractSAXSerializer;
 import org.codehaus.jettison.mapped.Configuration;
@@ -37,6 +40,17 @@ public class JsonSerializer extends AbstractSAXSerializer implements CachingPipe
     private static final String JSON_UTF_8 = "application/json;charset=utf-8";
 
     private SAXHandler saxHandler;
+
+    private String patternId;
+
+    private String startDateAsString;
+
+    @Override
+    public void setConfiguration(Map<String, ? extends Object> configuration) {
+        super.setConfiguration(configuration);
+        this.patternId = (String) configuration.get("patternId");
+        this.startDateAsString = (String) configuration.get("startDate");
+    }
 
     @Override
     public String getContentType() {
@@ -61,6 +75,17 @@ public class JsonSerializer extends AbstractSAXSerializer implements CachingPipe
 
     @Override
     public CacheKey constructCacheKey() {
-        return new SimpleCacheKey();
+
+        return new ExpiresCacheKey(
+                new ParameterCacheKey(
+                     new HashMap<String, String>(){
+                         {
+                             put("patternId", patternId);
+                             put("startDate", startDateAsString);
+                         }
+                     }
+                ),
+                Integer.toString(3600)
+        );
     }
 }
