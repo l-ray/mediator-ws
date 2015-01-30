@@ -10,6 +10,7 @@ import org.apache.cocoon.sax.component.XMLGenerator;
 import org.junit.Test;
 
 import java.io.ByteArrayOutputStream;
+import java.io.OutputStream;
 import java.util.HashMap;
 
 import static org.junit.Assert.assertEquals;
@@ -52,6 +53,14 @@ public class JsonSerializerTest {
         final CacheKey simpleCachekey = new SimpleCacheKey();
         final Cache simpleCache = new SimpleCache();
 
+        doPipelineTransformation(SOURCE_XML, underTest, simpleCachekey, simpleCache);
+
+        ByteArrayOutputStream baos = doPipelineTransformation(FAKED_XML, underTest, simpleCachekey, simpleCache);
+
+        assertEquals("second result is a cached result",EXPECTED_RESULT, new String(baos.toByteArray()));
+    }
+
+    private ByteArrayOutputStream doPipelineTransformation(final String SOURCE_XML, SAXPipelineComponent underTest, final CacheKey simpleCachekey, Cache simpleCache) throws Exception {
         CachingPipeline<SAXPipelineComponent> pipeline =
                 new CachingPipeline<SAXPipelineComponent>();
         pipeline.setCache(simpleCache);
@@ -65,20 +74,6 @@ public class JsonSerializerTest {
         ByteArrayOutputStream baos = new ByteArrayOutputStream();
         pipeline.setup(baos);
         pipeline.execute();
-
-        pipeline = new CachingPipeline<SAXPipelineComponent>();
-        pipeline.setCache(simpleCache);
-        pipeline.addComponent(new XMLGenerator(FAKED_XML) {
-            public CacheKey constructCacheKey() {
-                return simpleCachekey;
-            }
-        });
-        pipeline.addComponent(underTest);
-
-        baos = new ByteArrayOutputStream();
-        pipeline.setup(baos);
-        pipeline.execute();
-
-        assertEquals("second result is a cached result",EXPECTED_RESULT, new String(baos.toByteArray()));
+        return baos;
     }
 }
