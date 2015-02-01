@@ -6,10 +6,7 @@ import de.clubspot.mediator.criteria.UrlDateWrapper;
 import de.clubspot.mediator.templates.WebHarvestTemplate;
 import org.apache.cocoon.pipeline.ProcessingException;
 import org.apache.cocoon.pipeline.SetupException;
-import org.apache.cocoon.pipeline.caching.CacheKey;
-import org.apache.cocoon.pipeline.caching.CompoundCacheKey;
-import org.apache.cocoon.pipeline.caching.ParameterCacheKey;
-import org.apache.cocoon.pipeline.caching.TimestampCacheKey;
+import org.apache.cocoon.pipeline.caching.*;
 import org.apache.cocoon.sax.util.XMLUtils;
 import org.apache.cocoon.stringtemplate.StringTemplateGenerator;
 import org.apache.commons.dbcp.BasicDataSource;
@@ -34,10 +31,7 @@ import java.net.URL;
 import java.sql.Connection;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.List;
-import java.util.Map;
-import java.util.TimeZone;
+import java.util.*;
 
 public class PatternCodeGenerator extends StringTemplateGenerator {
 
@@ -47,6 +41,7 @@ public class PatternCodeGenerator extends StringTemplateGenerator {
     public static final String DATE_FORMAT = "yyyy-MM-dd";
     public static final String PARAM_START_DATE = "startDate";
     public static final String PARAM_PATTERN_ID = "patternId";
+    public static final int EXPIRING_TIME = 3600;
 
     @Autowired
     private BasicDataSource datasource;
@@ -99,9 +94,16 @@ public class PatternCodeGenerator extends StringTemplateGenerator {
     @Override
     public CacheKey constructCacheKey() {
         LOG.trace("In ConstructCacheKey");
-        CompoundCacheKey cacheKey = new CompoundCacheKey();
+        CacheKey cacheKey = new ExpiresCacheKey(
+                new ParameterCacheKey(
+                        new HashMap<String, String>() {{
+                            put(PARAM_PATTERN_ID, patternId);
+                            put(PARAM_START_DATE, startDate.toString());
+                        }}
+                ),
+                Integer.toString(EXPIRING_TIME)
+        );
 
-        cacheKey.addCacheKey(new ParameterCacheKey("contextParameters", this.parameters));
         LOG.trace("out ConstructCacheKey");
         return cacheKey;
     }

@@ -57,7 +57,10 @@
                     <map:parameter name="extractedElementIdPrefix" value="{map:patternId}-{map:startDate}-"/>
                     <map:parameter name="elementParentIdPrefix" value="{map:patternId}-{map:startDate}-"/>
                 </map:transform>
-                <map:serialize type="json"/>
+                <map:serialize type="json">
+                    <map:parameter name="patternId" value="{map:patternId}"/>
+                    <map:parameter name="startDate" value="{map:startDate}"/>
+                </map:serialize>
             </map:match>
         </map:pipeline>
 

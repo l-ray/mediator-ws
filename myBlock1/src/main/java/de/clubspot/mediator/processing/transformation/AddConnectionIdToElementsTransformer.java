@@ -1,5 +1,10 @@
 package de.clubspot.mediator.processing.transformation;
 
+import org.apache.cocoon.pipeline.caching.CacheKey;
+import org.apache.cocoon.pipeline.caching.ExpiresCacheKey;
+import org.apache.cocoon.pipeline.caching.ParameterCacheKey;
+import org.apache.cocoon.pipeline.caching.SimpleCacheKey;
+import org.apache.cocoon.pipeline.component.CachingPipelineComponent;
 import org.apache.cocoon.sax.AbstractSAXTransformer;
 import org.apache.cocoon.sax.SAXConsumer;
 import org.slf4j.Logger;
@@ -8,9 +13,10 @@ import org.xml.sax.Attributes;
 import org.xml.sax.SAXException;
 import org.xml.sax.helpers.AttributesImpl;
 
+import java.util.HashMap;
 import java.util.Map;
 
-public class AddConnectionIdToElementsTransformer extends AbstractSAXTransformer implements SAXConsumer{
+public class AddConnectionIdToElementsTransformer extends AbstractSAXTransformer implements SAXConsumer, CachingPipelineComponent {
 
     private static final Logger LOG =
             LoggerFactory.getLogger(AddConnectionIdToElementsTransformer.class.getName());
@@ -80,4 +86,17 @@ public class AddConnectionIdToElementsTransformer extends AbstractSAXTransformer
 
     }
 
+    @Override
+    public CacheKey constructCacheKey() {
+        return new ExpiresCacheKey(
+                new ParameterCacheKey(
+                    new HashMap<String, String>() {
+                        {
+                            put(PARAM_ID,id);
+                        }
+                    }
+                ),
+                "3600"
+        );
+    }
 }
