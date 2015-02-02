@@ -1,7 +1,10 @@
 package de.clubspot.mediator.processing.transformation;
 
+import org.apache.cocoon.pipeline.CachingPipeline;
 import org.apache.cocoon.pipeline.NonCachingPipeline;
 import org.apache.cocoon.pipeline.Pipeline;
+import org.apache.cocoon.pipeline.caching.Cache;
+import org.apache.cocoon.pipeline.caching.CacheKey;
 import org.apache.cocoon.sax.SAXPipelineComponent;
 import org.apache.cocoon.sax.component.XMLGenerator;
 import org.apache.cocoon.sax.component.XMLSerializer;
@@ -44,6 +47,29 @@ public abstract class AbstractTransformerTest {
         pipeline.addComponent(new XMLSerializer());
 
         final ByteArrayOutputStream baos = new ByteArrayOutputStream();
+        pipeline.setup(baos);
+        pipeline.execute();
+        return baos;
+    }
+
+    protected ByteArrayOutputStream transformCachedThroughPipeline(final String SOURCE_XML, SAXPipelineComponent underTest, final CacheKey simpleCachekey, Cache simpleCache) throws Exception {
+        CachingPipeline<SAXPipelineComponent> pipeline =
+                new CachingPipeline<SAXPipelineComponent>();
+        pipeline.setCache(simpleCache);
+        pipeline.addComponent(new XMLGenerator(SOURCE_XML){
+            public CacheKey constructCacheKey() {
+                return simpleCachekey;
+            }
+        });
+        pipeline.addComponent(underTest);
+
+        pipeline.addComponent(new XMLSerializer(){
+            public CacheKey constructCacheKey() {
+                return simpleCachekey;
+            }
+        });
+
+        ByteArrayOutputStream baos = new ByteArrayOutputStream();
         pipeline.setup(baos);
         pipeline.execute();
         return baos;
