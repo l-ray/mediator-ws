@@ -1,5 +1,9 @@
 package de.clubspot.mediator.processing.transformation;
 
+import org.apache.cocoon.pipeline.caching.Cache;
+import org.apache.cocoon.pipeline.caching.CacheKey;
+import org.apache.cocoon.pipeline.caching.SimpleCache;
+import org.apache.cocoon.pipeline.caching.SimpleCacheKey;
 import org.apache.cocoon.sax.SAXPipelineComponent;
 import org.custommonkey.xmlunit.Diff;
 import org.junit.After;
@@ -27,7 +31,7 @@ public class ExtractElementsTransformerTest extends AbstractTransformerTest {
     }
 
     @Test
-    public void testExtractingNoElementFromArticle()
+    public void canExtractNoElementFromArticle()
             throws Exception {
 
         String SOURCE_XML =
@@ -44,7 +48,7 @@ public class ExtractElementsTransformerTest extends AbstractTransformerTest {
     }
 
     @Test
-    public void testExtractingSingleElementFromArticle()
+    public void canExtractSingleElementFromArticle()
             throws Exception {
 
         String SOURCE_XML =
@@ -64,7 +68,7 @@ public class ExtractElementsTransformerTest extends AbstractTransformerTest {
     }
 
     @Test
-    public void testExtractingElementFromArticleHoldingGivenId()
+    public void canExtractElementFromArticleHoldingGivenId()
             throws Exception {
 
         String SOURCE_XML =
@@ -85,7 +89,7 @@ public class ExtractElementsTransformerTest extends AbstractTransformerTest {
 
 
     @Test
-    public void testExtractingMultipleElementsFromArticle()
+    public void canExtractMultipleElementsFromArticle()
             throws Exception {
 
         String SOURCE_XML =
@@ -108,7 +112,7 @@ public class ExtractElementsTransformerTest extends AbstractTransformerTest {
     }
 
     @Test
-    public void testExtractingMultipleElementsFromMultipleArticles()
+    public void canExtractMultipleElementsFromMultipleArticles()
             throws Exception {
 
         String SOURCE_XML =
@@ -138,7 +142,7 @@ public class ExtractElementsTransformerTest extends AbstractTransformerTest {
     }
 
     @Test
-    public void testExtractingMultipleElementsFromMultipleArticlesWithOtherData()
+    public void canExtractMultipleElementsFromMultipleArticlesWithOtherData()
             throws Exception {
 
         String SOURCE_XML =
@@ -240,6 +244,62 @@ public class ExtractElementsTransformerTest extends AbstractTransformerTest {
                 diff.identical());
 
     }
+
+    @Test
+    public void doesCacheSameOutput() throws Exception {
+
+        String SOURCE_XML =
+                "<resultset><result>cacheMe</result></resultset>";
+
+        String SHOULD_NEVER_APPEAR = "<resultset><result /></resultset>";
+
+        String EXPECTED_RESULT_XML =
+                "<resultset><result>cacheMe</result></resultset>";
+
+        final CacheKey simpleCachekey = new SimpleCacheKey();
+        final Cache simpleCache = new SimpleCache();
+
+        underTest.setConfiguration(new HashMap<String, Object>() {
+            { put(ExtractElementsTransformer.PARAM_CACHE_ID, "id1"); }
+        });
+
+        transformCachedThroughPipeline(SOURCE_XML, underTest, simpleCachekey, simpleCache);
+
+        final ByteArrayOutputStream baos = transformCachedThroughPipeline(SHOULD_NEVER_APPEAR, underTest, simpleCachekey, simpleCache);
+
+        final Diff diff = new Diff(EXPECTED_RESULT_XML, new String(baos.toByteArray()));
+        assertTrue("Transformation did not work like expected:" + diff + ":"+new String(baos.toByteArray()),
+                diff.identical());
+    }
+
+    @Test
+    public void doesNotCacheDifferentOutput() throws Exception {
+
+        String SOURCE_XML =
+                "<resultset><result>cacheOn</result></resultset>";
+
+        String SHOULD_APPEAR = "<resultset><result>cacheOff</result></resultset>";
+
+        final CacheKey simpleCachekey = new SimpleCacheKey();
+        final Cache simpleCache = new SimpleCache();
+
+        underTest.setConfiguration(new HashMap<String, Object>() {
+            { put(ExtractElementsTransformer.PARAM_CACHE_ID, "id1");}
+        });
+
+        transformCachedThroughPipeline(SOURCE_XML, underTest, simpleCachekey, simpleCache);
+
+        underTest.setConfiguration(new HashMap<String, Object>() {
+            { put(ExtractElementsTransformer.PARAM_CACHE_ID, "id2");}
+        });
+
+        final ByteArrayOutputStream baos = transformCachedThroughPipeline(SHOULD_APPEAR, underTest, simpleCachekey, simpleCache);
+
+        final Diff diff = new Diff(SHOULD_APPEAR, new String(baos.toByteArray()));
+        assertTrue("Transformation did not work like expected:" + diff + ":"+new String(baos.toByteArray()),
+                diff.identical());
+    }
+
 
     @After
     public void tearDown() throws Exception {

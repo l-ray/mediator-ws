@@ -29,6 +29,8 @@ public class ExtractElementsTransformer extends AbstractSAXTransformer implement
     public static final String PARAM_EXTRACTED_ELEMENT_ID_PREFIX = "extractedElementIdPrefix";
     public static final String PARAM_EXTRACTED_ELEMENT_CALLBACK_ELEMENT = "extractedElementCallbackElement";
 
+    public static final String PARAM_CACHE_ID = "cache-id";
+
 
     private String elementToBeExtracted = "picture";
 
@@ -59,7 +61,7 @@ public class ExtractElementsTransformer extends AbstractSAXTransformer implement
 
     private boolean parentElementNeedsId = false;
 
-
+    private String cacheId;
 
      @Override
      public void setup(Map<String, Object> parameter) {
@@ -107,6 +109,11 @@ public class ExtractElementsTransformer extends AbstractSAXTransformer implement
         if (parameter.get(PARAM_EXTRACTED_ELEMENT_CALLBACK_ELEMENT) != null) {
             extractedElementCallbackElement = (String) parameter.get(PARAM_EXTRACTED_ELEMENT_CALLBACK_ELEMENT);
         }
+
+        if (parameter.get(PARAM_CACHE_ID) != null) {
+            cacheId = (String) parameter.get(PARAM_CACHE_ID);
+        }
+
 
     }
 
@@ -223,7 +230,7 @@ public class ExtractElementsTransformer extends AbstractSAXTransformer implement
                 new ParameterCacheKey(
                         new HashMap<String, String>() {
                             {
-                                put(PARAM_ELEMENT_PARENT_ID_PREFIX,elementParentIdPrefix);
+                                put(PARAM_CACHE_ID,cacheId);
                             }
                         }
                 ),
