@@ -46,7 +46,7 @@
                     <map:parameter name="id" value="{map:patternId}-{map:startDate}"/>
                 </map:transform>
 
-                <map:transform type="term-weight"/>
+                <!-- map:transform type="term-weight"/ -->
                 <map:transform type="extract-element">
                     <map:parameter name="elementToBeExtracted" value="picture"/>
                     <map:parameter name="newExtractedElementName" value="pictures"/>
@@ -77,7 +77,7 @@
                     <map:parameter name="idElementLocalName" value="connection"/>
                     <map:parameter name="id" value="{map:patternId}-{map:startDate}"/>
                 </map:transform>
-                <map:transform type="term-weight"/>
+                <!-- map:transform type="term-weight"/ -->
                 <map:transform type="extract-element">
                     <map:parameter name="elementToBeExtracted" value="pictures"/>
                     <map:parameter name="newExtractedElementName" value="pictures"/>
