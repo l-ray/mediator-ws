@@ -229,9 +229,7 @@ public class ExtractElementsTransformer extends AbstractSAXTransformer implement
         return new ExpiresCacheKey(
                 new ParameterCacheKey(
                         new HashMap<String, String>() {
-                            {
-                                put(PARAM_CACHE_ID,cacheId);
-                            }
+                            { put(PARAM_CACHE_ID,cacheId); }
                         }
                 ),
                 "3600"
