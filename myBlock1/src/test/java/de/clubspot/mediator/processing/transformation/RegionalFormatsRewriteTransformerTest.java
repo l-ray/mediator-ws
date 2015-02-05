@@ -39,6 +39,20 @@ public class RegionalFormatsRewriteTransformerTest extends AbstractTransformerTe
                 diff.identical());
     }
 
+    @Test
+    public void doesCorrectDateRewrite()
+            throws Exception {
+
+
+        final ByteArrayOutputStream baos = transformThroughPipeline("<start>Dienstag, 23.Dezember 2015</start>", underTest);
+        final String actualDocument = new String(baos.toByteArray(), "UTF-8");
+
+        final Diff diff = new Diff("<start>2015-12-23</start>", actualDocument);
+
+        assertTrue("LinkRewrite transformation didn't work as expected " + diff,
+                diff.identical());
+    }
+
     @After
     public void tearDown() throws Exception {
 
