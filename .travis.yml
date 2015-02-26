@@ -5,3 +5,6 @@ before_install:
 
 
 env: DATABASE_URL=postgres://postgres:test@localhost/travis_ci_test
+
+notifications:
+  irc: "chat.freenode.net#l-ray"
