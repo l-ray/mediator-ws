@@ -9,6 +9,7 @@ import org.xml.sax.SAXException;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.Locale;
 import java.util.Map;
@@ -18,10 +19,10 @@ public class RegionalFormatsRewriteTransformer extends AbstractSAXTransformer im
     private static final Logger LOG =
             LoggerFactory.getLogger(RegionalFormatsRewriteTransformer.class.getName());
     public static final String DATE_OUTPUT_FORMAT = "yyyy-MM-dd";
-    public static final String DEFAULT_INPUT_FORMAT = "EEEE, dd.MMMM yyyy";
+    public static final String[] DEFAULT_INPUT_FORMAT = {"EEEE, dd.MMMM yyyy","EEEE, dd.MMMM"};
     public static final String PARAM_DATE_PATTERN = "date-pattern";
 
-    SimpleDateFormat inputFormat = null;
+    //SimpleDateFormat inputFormat = null;
     SimpleDateFormat outputFormat = null;
 
 
@@ -32,7 +33,7 @@ public class RegionalFormatsRewriteTransformer extends AbstractSAXTransformer im
      @Override
      public void setup(Map<String, Object> parameter) {
          LOG.trace("IN RegionalFormatsTransformer Setup");
-         inputFormat = new SimpleDateFormat(DEFAULT_INPUT_FORMAT, Locale.GERMAN);
+         //inputFormat = new SimpleDateFormat(DEFAULT_INPUT_FORMAT, Locale.GERMAN);
          outputFormat = new SimpleDateFormat(DATE_OUTPUT_FORMAT,Locale.GERMAN);
          LOG.trace("Out RegionalFormatsTransformer Setup");
      }
@@ -88,13 +89,27 @@ public class RegionalFormatsRewriteTransformer extends AbstractSAXTransformer im
 	}
 
     private String normalizedDate(String unnormalizedDate) {
-        SimpleDateFormat inputFormat = new SimpleDateFormat(DEFAULT_INPUT_FORMAT, Locale.GERMAN);
+        SimpleDateFormat inputFormat;
         SimpleDateFormat outputFormat = new SimpleDateFormat(DATE_OUTPUT_FORMAT,Locale.GERMAN);
         Date parsedDate = null;
-        try {
-            parsedDate = inputFormat.parse(unnormalizedDate);
-        } catch (ParseException e) {
-            e.printStackTrace();
+
+        for (String inputPattern: DEFAULT_INPUT_FORMAT) {
+            try {
+                inputFormat = new SimpleDateFormat(inputPattern, Locale.GERMAN);
+                parsedDate = inputFormat.parse(unnormalizedDate);
+                Calendar cal = Calendar.getInstance();
+                cal.setTime(parsedDate);
+                if (cal.get(Calendar.YEAR) == 1970) {
+                    cal.set(Calendar.YEAR, Calendar.getInstance().get(Calendar.YEAR));
+                    parsedDate = cal.getTime();
+                }
+            } catch (ParseException e) {
+		// bad idea, never expect something with an try-catch-block
+                // e.printStackTrace();
+            }
+            if (parsedDate != null) {
+                break;
+            }
         }
 
         return parsedDate != null ? outputFormat.format(parsedDate):unnormalizedDate;
