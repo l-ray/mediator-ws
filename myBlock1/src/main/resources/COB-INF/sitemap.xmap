@@ -40,6 +40,9 @@
                     <map:parameter name="endDate" value="2015-01-30"/>
                 </map:generate>
                 <map:transform type="regional-format"/>
+                <map:transform type="regex-rewrite">
+                        <map:parameter name="onElements" value="pictures" />
+                </map:transform>
                 <map:transform type="connection-id">
                     <map:parameter name="elementLocalName" value="results"/>
                     <map:parameter name="idElementLocalName" value="connection"/>

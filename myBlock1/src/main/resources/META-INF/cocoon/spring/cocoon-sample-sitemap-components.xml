@@ -33,6 +33,8 @@
 
     <bean name="transformer:connection-id" class="de.clubspot.mediator.processing.transformation.AddConnectionIdToElementsTransformer" scope="prototype" />
 
+    <bean name="transformer:regex-rewrite" class="de.clubspot.mediator.processing.transformation.RegexRewriteTransformer" scope="prototype" />
+
     <bean name="serializer:json" class="org.apache.cocoon.optional.pipeline.components.sax.json.JsonSerializer" scope="prototype" />
 
 </beans>
