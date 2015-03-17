@@ -19,7 +19,7 @@ public class RegionalFormatsRewriteTransformer extends AbstractSAXTransformer im
     private static final Logger LOG =
             LoggerFactory.getLogger(RegionalFormatsRewriteTransformer.class.getName());
     public static final String DATE_OUTPUT_FORMAT = "yyyy-MM-dd";
-    public static final String[] DEFAULT_INPUT_FORMAT = {"EEEE, dd.MMMM yyyy","EEEE, dd.MMMM"};
+    public static final String[] DEFAULT_INPUT_FORMAT = {"EEEE, dd.MMMM yyyy","EEEE, dd. MMMM"};
     public static final String PARAM_DATE_PATTERN = "date-pattern";
 
     //SimpleDateFormat inputFormat = null;
@@ -104,7 +104,7 @@ public class RegionalFormatsRewriteTransformer extends AbstractSAXTransformer im
                     parsedDate = cal.getTime();
                 }
             } catch (ParseException e) {
-		// bad idea, never expect something with an try-catch-block
+		        // bad idea, never expect something with an try-catch-block
                 // e.printStackTrace();
             }
             if (parsedDate != null) {
