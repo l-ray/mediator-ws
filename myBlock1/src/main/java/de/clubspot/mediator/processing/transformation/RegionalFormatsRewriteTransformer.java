@@ -19,8 +19,9 @@ public class RegionalFormatsRewriteTransformer extends AbstractSAXTransformer im
     private static final Logger LOG =
             LoggerFactory.getLogger(RegionalFormatsRewriteTransformer.class.getName());
     public static final String DATE_OUTPUT_FORMAT = "yyyy-MM-dd";
-    public static final String[] DEFAULT_INPUT_FORMAT = {"EEEE, dd.MMMM yyyy","EEEE, dd. MMMM"};
+    public static final String[] DEFAULT_INPUT_FORMAT = {"EEEE, dd.MMMM yyyy","EEEE, dd. MMMM","dd.MM.yy","EEEE, dd MMMM","EEEE, dd MMMM \n\nh:mm a"};
     public static final String PARAM_DATE_PATTERN = "date-pattern";
+    public static final Locale[] SUPPORTED_LOCALES = {Locale.GERMAN, Locale.ENGLISH};
 
     //SimpleDateFormat inputFormat = null;
     SimpleDateFormat outputFormat = null;
@@ -33,7 +34,6 @@ public class RegionalFormatsRewriteTransformer extends AbstractSAXTransformer im
      @Override
      public void setup(Map<String, Object> parameter) {
          LOG.trace("IN RegionalFormatsTransformer Setup");
-         //inputFormat = new SimpleDateFormat(DEFAULT_INPUT_FORMAT, Locale.GERMAN);
          outputFormat = new SimpleDateFormat(DATE_OUTPUT_FORMAT,Locale.GERMAN);
          LOG.trace("Out RegionalFormatsTransformer Setup");
      }
@@ -93,22 +93,24 @@ public class RegionalFormatsRewriteTransformer extends AbstractSAXTransformer im
         SimpleDateFormat outputFormat = new SimpleDateFormat(DATE_OUTPUT_FORMAT,Locale.GERMAN);
         Date parsedDate = null;
 
-        for (String inputPattern: DEFAULT_INPUT_FORMAT) {
-            try {
-                inputFormat = new SimpleDateFormat(inputPattern, Locale.GERMAN);
-                parsedDate = inputFormat.parse(unnormalizedDate);
-                Calendar cal = Calendar.getInstance();
-                cal.setTime(parsedDate);
-                if (cal.get(Calendar.YEAR) == 1970) {
-                    cal.set(Calendar.YEAR, Calendar.getInstance().get(Calendar.YEAR));
-                    parsedDate = cal.getTime();
+        for (Locale locale : SUPPORTED_LOCALES){
+            for (String inputPattern : DEFAULT_INPUT_FORMAT) {
+                try {
+                    inputFormat = new SimpleDateFormat(inputPattern, locale);
+                    parsedDate = inputFormat.parse(unnormalizedDate);
+                    Calendar cal = Calendar.getInstance();
+                    cal.setTime(parsedDate);
+                    if (cal.get(Calendar.YEAR) == 1970) {
+                        cal.set(Calendar.YEAR, Calendar.getInstance().get(Calendar.YEAR));
+                        parsedDate = cal.getTime();
+                    }
+                } catch (ParseException e) {
+                    // bad idea, never expect something with an try-catch-block
+                    // e.printStackTrace();
                 }
-            } catch (ParseException e) {
-		        // bad idea, never expect something with an try-catch-block
-                // e.printStackTrace();
-            }
-            if (parsedDate != null) {
-                break;
+                if (parsedDate != null) {
+                    break;
+                }
             }
         }
 

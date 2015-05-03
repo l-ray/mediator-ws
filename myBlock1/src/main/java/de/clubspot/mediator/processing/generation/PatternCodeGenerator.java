@@ -5,8 +5,9 @@ import com.google.inject.Injector;
 import de.clubspot.mediator.criteria.UrlDateWrapper;
 import de.clubspot.mediator.templates.WebHarvestTemplate;
 import org.apache.cocoon.pipeline.ProcessingException;
-import org.apache.cocoon.pipeline.SetupException;
-import org.apache.cocoon.pipeline.caching.*;
+import org.apache.cocoon.pipeline.caching.CacheKey;
+import org.apache.cocoon.pipeline.caching.ExpiresCacheKey;
+import org.apache.cocoon.pipeline.caching.ParameterCacheKey;
 import org.apache.cocoon.sax.util.XMLUtils;
 import org.apache.cocoon.stringtemplate.StringTemplateGenerator;
 import org.apache.commons.dbcp.BasicDataSource;
@@ -171,16 +172,26 @@ public class PatternCodeGenerator extends StringTemplateGenerator {
 
         UrlDateWrapper urlWrapper = new UrlDateWrapper(startDate);
         LOG.trace("DateFormat" + template.getDateFormat());
-        SimpleDateFormat df = new SimpleDateFormat(template.getDateFormat(), new java.util.Locale("de", "DE"));
+        SimpleDateFormat df = getDateFormat(template);
 
+        System.out.println("Searching for date: "+df.format(this.startDate));
 
-        return new StringBuffer("<config xmlns=\"http://web-harvest.sourceforge.net/schema/1.0/config\" charset=\"UTF-8\">")
-                .append("\n<var-def name=\"baseUrl\"><![CDATA[" + urlWrapper.getUrl(template.getUrl()) + "]]></var-def>")
-                .append("\n<var-def name=\"startUrl\"><![CDATA[" + urlWrapper.getUrl(template.getStartUrl()) + "]]></var-def>")
-                .append("\n<var-def name=\"startDate\">" + df.format(this.startDate) + "</var-def>")
-                .append((this.endDate != null) ? "\n<var-def name=\"endDate\">" + df.format(this.endDate) + "</var-def>" : "")
-                .append(template.getCompiledPattern())
-                .append("\n</config>").toString();
+        return "<config xmlns=\"http://web-harvest.sourceforge.net/schema/1.0/config\" charset=\"UTF-8\">"
+                + "\n<var-def name=\"baseUrl\"><![CDATA[" + urlWrapper.getUrl(template.getUrl()) + "]]></var-def>"
+                + "\n<var-def name=\"startUrl\"><![CDATA[" + urlWrapper.getUrl(template.getStartUrl()) + "]]></var-def>"
+                + "\n<var-def name=\"startDate\"><![CDATA[" + df.format(this.startDate) + "]]></var-def>"
+                + ((this.endDate != null) ? "\n<var-def name=\"endDate\"><![CDATA[" + df.format(this.endDate) + "]]></var-def>" : "")
+                + template.getCompiledPattern() + "\n</config>";
+    }
+
+    private SimpleDateFormat getDateFormat(WebHarvestTemplate template) {
+        return new SimpleDateFormat(
+                template.getDateFormat(),
+                new Locale(
+                    template.getCountryCode().split("_")[1],
+                    template.getCountryCode().split("_")[0]
+                )
+        );
     }
 
     public Date parseDate(String startOrEndDate) {

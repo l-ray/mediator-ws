@@ -65,6 +65,32 @@ public class RegionalFormatsRewriteTransformerTest extends AbstractTransformerTe
                 diff.identical());
     }
 
+    @Test
+    public void doesCorrectDateWithoutWorkingday()
+            throws Exception {
+
+        final ByteArrayOutputStream baos = transformThroughPipeline("<start>16.5.15</start>", underTest);
+        final String actualDocument = new String(baos.toByteArray(), "UTF-8");
+
+        final Diff diff = new Diff("<start>2015-05-16</start>", actualDocument);
+
+        assertTrue("LinkRewrite transformation didn't work as expected " + diff,
+                diff.identical());
+    }
+
+    @Test
+    public void doesRecognizeEnglishWorkingDays()
+            throws Exception {
+
+        final ByteArrayOutputStream baos = transformThroughPipeline("<start>Tuesday, 5 May</start>", underTest);
+        final String actualDocument = new String(baos.toByteArray(), "UTF-8");
+
+        final Diff diff = new Diff("<start>2015-05-05</start>", actualDocument);
+
+        assertTrue("LinkRewrite transformation didn't work as expected " + diff,
+                diff.identical());
+    }
+
     @After
     public void tearDown() throws Exception {
 
