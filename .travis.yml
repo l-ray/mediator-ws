@@ -3,8 +3,11 @@ before_install:
   - psql -c 'create database travis_ci_test;' -U postgres
   - psql -c "alter user postgres WITH PASSWORD 'test';" -U postgres
 
-
 env: DATABASE_URL=postgres://postgres:test@localhost/travis_ci_test
+
+install:
+  - mvn install -DskipTests=true -Dmaven.javadoc.skip=true -Dmaven.db.url.suffix="" -B -V
+  - mvn test  -Dmaven.db.url.suffix="" -B
 
 notifications:
   irc: "chat.freenode.net#l-ray"
