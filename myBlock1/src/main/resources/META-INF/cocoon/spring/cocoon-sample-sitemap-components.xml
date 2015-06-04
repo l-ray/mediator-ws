@@ -24,6 +24,8 @@
     <!-- bean name="action:error-throwing" class="org.apache.cocoon.sample.action.ErrorThrowingAction" scope="prototype" / -->
   
     <bean name="generator:pattern-code" class="de.clubspot.mediator.processing.generation.PatternCodeGenerator" scope="prototype" />
+
+    <bean name="generator:source-info" class="de.clubspot.mediator.processing.generation.SourceInfoGenerator" scope="prototype" />
   
     <bean name="transformer:term-weight" class="de.clubspot.mediator.processing.transformation.TermWeightTransformer" scope="prototype" />
 

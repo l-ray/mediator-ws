@@ -39,6 +39,10 @@ public class JsonSerializer extends AbstractSAXSerializer implements CachingPipe
 
     private static final String JSON_UTF_8 = "application/json;charset=utf-8";
 
+    private static final String DROP_ROOT_ELEMENT = "dropRoot";
+
+    private boolean dropRoot = true;
+
     private SAXHandler saxHandler;
 
     private String patternId;
@@ -50,6 +54,9 @@ public class JsonSerializer extends AbstractSAXSerializer implements CachingPipe
         super.setConfiguration(configuration);
         this.patternId = (String) configuration.get("patternId");
         this.startDateAsString = (String) configuration.get("startDate");
+        if (configuration.get(DROP_ROOT_ELEMENT) != null){
+            this.dropRoot = Boolean.parseBoolean((String)configuration.get(DROP_ROOT_ELEMENT));
+        }
     }
 
     @Override
@@ -66,14 +73,14 @@ public class JsonSerializer extends AbstractSAXSerializer implements CachingPipe
     @Override
     public void finish() {
         Configuration configuration = new Configuration();
-        configuration.setDropRootElement(true);
+        configuration.setDropRootElement(dropRoot);
 
         new HierarchicalStreamCopier().copy(
                 new JDomReader(this.saxHandler.getDocument()),
                 new JettisonMappedXmlDriver(configuration).createWriter(this.getOutputStream()));
     }
 
-    @Override
+    // @Override
     public CacheKey constructCacheKey() {
 
         return new ExpiresCacheKey(

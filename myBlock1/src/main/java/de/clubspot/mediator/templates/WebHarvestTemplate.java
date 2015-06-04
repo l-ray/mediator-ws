@@ -140,7 +140,8 @@ public class WebHarvestTemplate implements SourceTemplate {
 
 			//System.out.printf("%s, %s %n", rs.getString(1), rs.getString(2));
 
-			this.setName(rs.getString("name"));
+            this.setId(rs.getString("id"));
+            this.setName(rs.getString("name"));
 			this.setUrl(rs.getString("url"));
 			this.setStartUrl(rs.getString("starturl"));
 			this.setPattern(rs.getString("pattern"));
@@ -175,5 +176,15 @@ public class WebHarvestTemplate implements SourceTemplate {
             LOG.trace(message.toString());
 		return message.toString();
 	}
+
+	public String toXML() {
+        StringBuilder message = new StringBuilder()
+			.append("<source>")
+            .append("<id>").append(this.getId()).append("</id>")
+            .append("<name>").append(this.getName()).append("</name>")
+			.append("<icon>").append(this.getIcon()).append("</icon>")
+			.append("</source>");
+        return message.toString();
+    }
 
 }

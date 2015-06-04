@@ -1,13 +1,15 @@
 package de.clubspot.mediator.templates;
 
 public interface SourceTemplate {
-	public String getUrl();
-	public String getStartUrl();	
-	public String getName();
-	public String getNameWithoutWhitestripes();
-	public String getPattern();
-	public String getCompiledPattern();
-	public String getIcon();
-	public String getId();
-	public String getDateFormat();
+	String getUrl();
+	String getStartUrl();
+	String getName();
+	String getNameWithoutWhitestripes();
+	String getPattern();
+	String getCompiledPattern();
+	String getIcon();
+	String getId();
+	String getDateFormat();
+
+    String toXML();
 }
