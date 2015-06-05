@@ -3,14 +3,10 @@ package de.clubspot.mediator.processing;
 import de.clubspot.mediator.templates.SourceTemplate;
 import de.clubspot.mediator.templates.WebHarvestTemplate;
 import org.custommonkey.xmlunit.Diff;
-import org.custommonkey.xmlunit.XMLUnit;
 import org.junit.Before;
-import org.junit.BeforeClass;
 import org.junit.Test;
 import org.mockito.Mockito;
 
-import javax.xml.parsers.DocumentBuilderFactory;
-import javax.xml.parsers.SAXParserFactory;
 import java.sql.Connection;
 
 import static junit.framework.Assert.assertTrue;
@@ -39,6 +35,14 @@ public class SourceTemplateTest {
                 "<icon>"+dummyIconString+"</icon>" +
                 "</source>";
 
+        String EXPECTED_RESULT_PLURAL_XML =
+                "<sources>" +
+                "<id>"+dummyId+"</id>" +
+                "<name>"+dummyNameString+"</name>" +
+                "<icon>"+dummyIconString+"</icon>" +
+                "</sources>";
+
+
         ((WebHarvestTemplate)_underTest).setIcon(dummyIconString);
 
         ((WebHarvestTemplate)_underTest).setName(dummyNameString);
@@ -47,8 +51,16 @@ public class SourceTemplateTest {
 
         String result =_underTest.toXML();
 
-        final Diff diff = new Diff(EXPECTED_RESULT_XML, result);
-        assertTrue("Transformation did not work like expected:" + diff + ":"+result+" versus "+EXPECTED_RESULT_XML,
-                diff.identical());
+        final Diff singleDiff = new Diff(EXPECTED_RESULT_XML, result);
+        assertTrue("Transformation did not work like expected:" + singleDiff + ":" + result + " versus " + EXPECTED_RESULT_XML,
+                singleDiff.identical());
+
+        result =_underTest.toXML("sources");
+
+        final Diff pluralDiff = new Diff(EXPECTED_RESULT_PLURAL_XML, result);
+        assertTrue("Transformation did not work like expected:" + pluralDiff + ":" + result + " versus " + EXPECTED_RESULT_PLURAL_XML,
+                pluralDiff.identical());
+
+
     }
 }

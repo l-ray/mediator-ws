@@ -64,7 +64,9 @@ public class SourceInfoGenerator extends StringTemplateGenerator {
 
         LOG.trace("In SetConfiguration with: "+parameter);
 
-        patternId = (String) parameter.get(PARAM_PATTERN_ID);
+        if (parameter.get(PARAM_PATTERN_ID) != null) {
+            patternId = (String) parameter.get(PARAM_PATTERN_ID);
+        }
 
         LOG.trace("OUT SourceInfo-SETConfiguration");
     }
@@ -105,9 +107,28 @@ public class SourceInfoGenerator extends StringTemplateGenerator {
         try {
             myConnection = this.datasource.getConnection();
 
-            WebHarvestTemplate template = new WebHarvestTemplate(patternId, myConnection);
+            if (patternId != null) {
+                WebHarvestTemplate template = new WebHarvestTemplate(patternId, myConnection);
 
-            XMLUtils.createXMLReader(this.getSAXConsumer()).parse(convertToInputSource(template.toXML()));
+                XMLUtils.createXMLReader(this.getSAXConsumer()).parse(convertToInputSource(template.toXML()));
+            } else {
+
+                StringBuffer result = new StringBuffer("<sources>");
+
+                for (int i=0; i<=2; i++) {
+                    WebHarvestTemplate template = new WebHarvestTemplate(
+                            Integer.toString(i),
+                            myConnection
+                    );
+
+                    result.append(template.toXML("sources"));
+                }
+
+                result.append("</sources>");
+
+                XMLUtils.createXMLReader(this.getSAXConsumer()).parse(convertToInputSource(result.toString()));
+
+            }
 
         } catch (Exception e) {
             throw new ProcessingException("Exception occurred ", e);

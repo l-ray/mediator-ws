@@ -45,6 +45,15 @@
         </map:pipeline>
 
         <map:pipeline>
+            <map:match pattern="sources/">
+                <map:generate type="source-info" />
+                <map:serialize type="json">
+                    <map:parameter name="dropRoot" value="true"/>
+                </map:serialize>
+            </map:match>
+        </map:pipeline>
+
+        <map:pipeline>
             <map:match pattern="results/{patternId}/{startDate}/">
                 <map:generate type="pattern-code">
                     <map:parameter name="patternId" value="{map:patternId}"/>

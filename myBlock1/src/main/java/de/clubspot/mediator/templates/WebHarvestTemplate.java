@@ -178,12 +178,16 @@ public class WebHarvestTemplate implements SourceTemplate {
 	}
 
 	public String toXML() {
+        return this.toXML("source");
+    }
+
+    public String toXML(String parentNode) {
         StringBuilder message = new StringBuilder()
-			.append("<source>")
-            .append("<id>").append(this.getId()).append("</id>")
-            .append("<name>").append(this.getName()).append("</name>")
-			.append("<icon>").append(this.getIcon()).append("</icon>")
-			.append("</source>");
+                .append("<"+parentNode+">")
+                .append("<id>").append(this.getId()).append("</id>")
+                .append("<name>").append(this.getName()).append("</name>")
+                .append("<icon>").append(this.getIcon()).append("</icon>")
+                .append("</"+parentNode+">");
         return message.toString();
     }
 

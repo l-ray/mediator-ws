@@ -12,4 +12,5 @@ public interface SourceTemplate {
 	String getDateFormat();
 
     String toXML();
+    String toXML(String nestingElement);
 }

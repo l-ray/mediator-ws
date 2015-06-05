@@ -13,8 +13,6 @@ public interface SourceAdapter {
 	
 	public void setSource(URL sourceURL);
 	
-	//public boolean execute();
-	
 	public String getResult();
 	
 }
