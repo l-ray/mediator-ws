@@ -45,7 +45,7 @@
         </map:pipeline>
 
         <map:pipeline>
-            <map:match pattern="sources/">
+            <map:match pattern="sources">
                 <map:generate type="source-info" />
                 <map:serialize type="json">
                     <map:parameter name="dropRoot" value="true"/>
