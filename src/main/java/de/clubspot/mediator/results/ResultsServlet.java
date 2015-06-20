@@ -7,12 +7,11 @@ import de.clubspot.mediator.processing.transformation.ExtractElementsTransformer
 import de.clubspot.mediator.processing.transformation.RegexRewriteTransformer;
 import de.clubspot.mediator.processing.transformation.RegionalFormatsRewriteTransformer;
 import org.apache.cocoon.optional.pipeline.components.sax.json.JsonSerializer;
-import org.apache.cocoon.pipeline.NonCachingPipeline;
+import org.apache.cocoon.pipeline.CachingPipeline;
 import org.apache.cocoon.pipeline.Pipeline;
+import org.apache.cocoon.pipeline.caching.SimpleCache;
 import org.apache.cocoon.sax.AbstractSAXProducer;
 import org.apache.cocoon.sax.SAXPipelineComponent;
-import org.apache.cocoon.sax.component.XMLGenerator;
-import org.apache.cocoon.sax.component.XMLSerializer;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -20,10 +19,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.sql.Connection;
 import java.util.HashMap;
 
-@WebServlet(value="/results/*",name="ResultsServlet")
+@WebServlet(value = "/results/*", name = "ResultsServlet")
 public class ResultsServlet extends HttpServlet {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -32,7 +30,7 @@ public class ResultsServlet extends HttpServlet {
         final String patternId = parameter[1];
         final String startDate = parameter[2];
 
-        System.out.println(patternId+" - "+startDate);
+        System.out.println(patternId + " - " + startDate);
 
         try {
 
@@ -46,43 +44,43 @@ public class ResultsServlet extends HttpServlet {
 
                 JsonSerializer serializer = new JsonSerializer();
                 serializer.setConfiguration(new HashMap<String, Object>() {{
-                    put(JsonSerializer.DROP_ROOT_ELEMENT, "false");
+                    put(JsonSerializer.DROP_ROOT_ELEMENT, "true");
                     put(JsonSerializer.PATTERN_ID_ELEMENT, patternId);
                     put(JsonSerializer.START_DATE_ELEMENT, startDate);
                 }});
 
-                Pipeline<SAXPipelineComponent> pipeline = new NonCachingPipeline<>();
+                CachingPipeline<SAXPipelineComponent> pipeline = new CachingPipeline<>();
+                pipeline.setCache(new SimpleCache());
 
                 pipeline.addComponent(generator);
                 pipeline.addComponent(new RegionalFormatsRewriteTransformer());
 
                 SAXPipelineComponent regexRewrite = new RegexRewriteTransformer();
-                regexRewrite.setConfiguration(new HashMap<String,Object>(){{
-                    put("onElements", "pictures");
+                regexRewrite.setConfiguration(new HashMap<String, Object>() {{
+                    put(RegexRewriteTransformer.PARAM_ELEMENT_LIST, "pictures");
                 }});
 
                 pipeline.addComponent(regexRewrite);
 
                 SAXPipelineComponent connectionId = new AddConnectionIdToElementsTransformer();
-                regexRewrite.setConfiguration(new HashMap<String,Object>(){{
-                    put("elementLocalName", "results");
-                    put("idElementLocalName", "connection");
-                    put("id", patternId+"-"+startDate);
-
+                connectionId.setConfiguration(new HashMap<String, Object>() {{
+                    put(AddConnectionIdToElementsTransformer.PARAM_ELEMENT_LOCAL_NAME, "results");
+                    put(AddConnectionIdToElementsTransformer.PARAM_ID_ELEMENT_LOCAL_NAME, "connection");
+                    put(AddConnectionIdToElementsTransformer.PARAM_ID, patternId + "-" + startDate);
                 }});
 
                 pipeline.addComponent(connectionId);
 
                 SAXPipelineComponent extractElement = new ExtractElementsTransformer();
-                regexRewrite.setConfiguration(new HashMap<String,Object>(){{
-                    put("elementToBeExtracted", "pictures");
-                    put("newExtractedElementName", "pictures");
-                    put("targetParent", "resultset");
-                    put("elementParent", "results");
-                    put("elementParentId", "id");
-                    put("extractedElementId", "id");
-                    put("extractedElementIdPrefix", patternId+"-"+startDate+"-");
-                    put("elementParentIdPrefix", patternId+"-"+startDate+"-");
+                extractElement.setConfiguration(new HashMap<String, Object>() {{
+                    put(ExtractElementsTransformer.PARAM_ELEMENT_TO_BE_EXTRACTED, "pictures");
+                    put(ExtractElementsTransformer.PARAM_NEW_EXTRACTED_ELEMENT_NAME, "pictures");
+                    put(ExtractElementsTransformer.PARAM_TARGET_PARENT, "resultset");
+                    put(ExtractElementsTransformer.PARAM_ELEMENT_PARENT, "results");
+                    put(ExtractElementsTransformer.PARAM_ELEMENT_PARENT_ID, "id");
+                    put(ExtractElementsTransformer.PARAM_EXTRACTED_ELEMENT_ID, "id");
+                    put(ExtractElementsTransformer.PARAM_EXTRACTED_ELEMENT_ID_PREFIX, patternId + "-" + startDate + "-");
+                    put(ExtractElementsTransformer.PARAM_ELEMENT_PARENT_ID_PREFIX, patternId + "-" + startDate + "-");
 
                 }});
                 pipeline.addComponent(extractElement);
