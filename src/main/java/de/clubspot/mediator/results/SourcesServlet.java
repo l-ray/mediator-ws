@@ -16,7 +16,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.HashMap;
 
-@WebServlet(value = "/api/sources/*", name = "SourcesServlet")
+@WebServlet(value = "/sources/*", name = "SourcesServlet")
 public class SourcesServlet extends HttpServlet {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
