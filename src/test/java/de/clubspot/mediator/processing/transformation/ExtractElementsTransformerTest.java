@@ -58,7 +58,7 @@ public class ExtractElementsTransformerTest extends AbstractTransformerTest {
                 "<results><article><id>0</id></article></results>";
 
         underTest.setConfiguration(new HashMap<String, Object>(){{
-                    put(ExtractElementsTransformer.PARAM_FORCE_NEW_PARENT_ID, "true");
+                    put(ExtractElementsTransformer.PARAM_FORCE_NEW_PARENT_ID, Boolean.TRUE);
         }});
 
         final ByteArrayOutputStream baos = transformThroughPipeline(SOURCE_XML, underTest);
