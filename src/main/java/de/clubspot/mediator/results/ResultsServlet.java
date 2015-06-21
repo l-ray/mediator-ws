@@ -81,7 +81,7 @@ public class ResultsServlet extends HttpServlet {
                     put(ExtractElementsTransformer.PARAM_EXTRACTED_ELEMENT_ID, "id");
                     put(ExtractElementsTransformer.PARAM_EXTRACTED_ELEMENT_ID_PREFIX, patternId + "-" + startDate + "-");
                     put(ExtractElementsTransformer.PARAM_ELEMENT_PARENT_ID_PREFIX, patternId + "-" + startDate + "-");
-
+                    put(ExtractElementsTransformer.PARAM_FORCE_NEW_PARENT_ID, Boolean.TRUE);
                 }});
                 pipeline.addComponent(extractElement);
 

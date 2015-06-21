@@ -31,6 +31,7 @@ public class ExtractElementsTransformer extends AbstractSAXTransformer implement
 
     public static final String PARAM_CACHE_ID = "cache-id";
 
+    public static final String PARAM_FORCE_NEW_PARENT_ID = "forceNewParentId";
 
     private String elementToBeExtracted = "picture";
 
@@ -44,6 +45,8 @@ public class ExtractElementsTransformer extends AbstractSAXTransformer implement
     private String extractedElementCallbackElement = "result";
 
     private String extractedElementIdPrefix = "";
+
+    private boolean forceNewParentId = false;
 
     private Map<String, Map<String,String>> elementsToBeExcluded = null;
 
@@ -114,7 +117,9 @@ public class ExtractElementsTransformer extends AbstractSAXTransformer implement
             cacheId = (String) parameter.get(PARAM_CACHE_ID);
         }
 
-
+        if (parameter.get(PARAM_FORCE_NEW_PARENT_ID) != null) {
+            forceNewParentId = (Boolean) parameter.get(PARAM_FORCE_NEW_PARENT_ID);
+        }
     }
 
 	@Override
@@ -125,6 +130,8 @@ public class ExtractElementsTransformer extends AbstractSAXTransformer implement
 
         if (localName.equals(elementParent)) {
             inParentElement = true;
+            // in case of forced ID, already set it to true
+            parentElementNeedsId = forceNewParentId;
         }
 
         if ( inParentElement && localName.equals(elementParentId)) {

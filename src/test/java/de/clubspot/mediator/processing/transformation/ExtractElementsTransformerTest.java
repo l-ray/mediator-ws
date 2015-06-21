@@ -48,6 +48,26 @@ public class ExtractElementsTransformerTest extends AbstractTransformerTest {
     }
 
     @Test
+    public void canForceNewIdOnArticle()
+            throws Exception {
+
+        String SOURCE_XML =
+                "<results><article></article></results>";
+
+        String EXPECTED_RESULT_XML =
+                "<results><article><id>0</id></article></results>";
+
+        underTest.setConfiguration(new HashMap<String, Object>(){{
+                    put(ExtractElementsTransformer.PARAM_FORCE_NEW_PARENT_ID, "true");
+        }});
+
+        final ByteArrayOutputStream baos = transformThroughPipeline(SOURCE_XML, underTest);
+        final Diff diff = new Diff(EXPECTED_RESULT_XML, new String(baos.toByteArray()));
+        assertTrue("Transformation did not work like expected:" + diff + ":"+new String(baos.toByteArray()),
+                diff.identical());
+    }
+
+    @Test
     public void canExtractSingleElementFromArticle()
             throws Exception {
 
