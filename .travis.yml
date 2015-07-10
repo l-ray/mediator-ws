@@ -1,13 +1,18 @@
 language: java
 before_install:
-  - psql -c 'create database travis_ci_test;' -U postgres
-  - psql -c "alter user postgres WITH PASSWORD 'test';" -U postgres
-
+- psql -c 'create database travis_ci_test;' -U postgres
+- psql -c "alter user postgres WITH PASSWORD 'test';" -U postgres
 env: DATABASE_URL=postgres://postgres:test@localhost/travis_ci_test
-
 install:
-  - mvn install -DskipTests=true -Dmaven.javadoc.skip=true -Dmaven.db.url.suffix="" -B -V
-  - mvn test  -Dmaven.db.url.suffix="" -B
-
+- mvn install -DskipTests=true -Dmaven.javadoc.skip=true -Dmaven.db.url.suffix=""
+  -B -V
+- mvn test  -Dmaven.db.url.suffix="" -B
 notifications:
-  irc: "chat.freenode.net#l-ray"
+  irc: chat.freenode.net#l-ray
+deploy:
+  provider: heroku
+  api_key:
+    secure: YOTpcQhwrKM8ihsCTM6YuslO6+WH9co2z0lEA/sDebb9IRAjfD3PLR1tmuGDQ7hV5rzQxw89INILnwCDh8VpvvfolsSkLNB1exJM2Og1PIwI5Ovy8f8VFdlk5laXfhi0vFeK8d24n5lSUrDYnRtoPjNL2PdI3yfLD7wl1Xl0FJw=
+  app: young-bastion-2389
+  on:
+    repo: l-ray/mediator-ws
