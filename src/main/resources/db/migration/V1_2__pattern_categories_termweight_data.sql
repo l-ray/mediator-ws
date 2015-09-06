@@ -88,9 +88,18 @@ INSERT INTO pattern (id, type, name, url, starturl, icon, pattern, subpattern, d
 				</xpath>
 			</list>
 			<body>
-				<xpath expression="/div/a/@href">
-					<var name="linkTags" />
-				</xpath>
+				<empty>
+            <var-def name="day"><xpath expression="//div[@class=''day'']/text()"><var name="linkTags" /></xpath></var-def>
+            <var-def name="month"><xpath expression="//div[@class=''month'']/text()"><var name="linkTags" /></xpath></var-def>
+            <var-def name="eventDate"><template>${day.toString()} ${month.toString()}</template></var-def>
+          </empty>
+          <case>
+            <if condition="${eventDate.toString().equals(startDate.toString())}">
+                <xpath expression="/div/a/@href">
+                    <var name="linkTags" />
+                </xpath>
+            </if>
+         </case>
 			</body>
 		</loop>
 	</list>
@@ -113,7 +122,6 @@ INSERT INTO pattern (id, type, name, url, starturl, icon, pattern, subpattern, d
 				<html-to-xml advancedxmlescape="0" treatdeprtagsascontent="1" unicodechars="0" treatunknowntagsascontent="0" allowhtmlinsideattributes="1">
 						<http url="${pageUrl}" />
 				</html-to-xml> </var-def>
-
 		</empty>
 		<template>
 			<![CDATA[<title>]]><xpath expression="normalize-space(data(//div[@id=''contentsingle'']//article/header/div/div/h1[@class=''event_title'']))">
@@ -128,10 +136,10 @@ INSERT INTO pattern (id, type, name, url, starturl, icon, pattern, subpattern, d
 			<![CDATA[<description>]]><xpath expression="normalize-space(data(//div[@id=''contentsingle'']//article/section))">
 					<var name="siteSnippet"/>
 				</xpath><![CDATA[</description>]]>
-			<![CDATA[<pictures>]]><xpath expression="normalize-space(data(//div[@id=''contentsingle'']/div/img))"><var name="siteSnippet" /></xpath><![CDATA[</pictures>]]>
+			<![CDATA[<pictures>]]><xpath expression="normalize-space(data(//div[@id=''contentsingle'']/div/img/@src))"><var name="siteSnippet" /></xpath><![CDATA[</pictures>]]>
 		</template>
 	</return>
-</function>','dd.MM.yy', 'EN_us', 0, 0);
+</function>','dd MMM', 'EN_us', 0, 0);
 
 INSERT INTO user_rules (id, rule_type, rule_input, priority_change) VALUES
   (1, 0, '/Berlin/i',          0),
