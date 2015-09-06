@@ -76,7 +76,62 @@ INSERT INTO pattern (id, type, name, url, starturl, icon, pattern, subpattern, d
         let $picture :=  data($doc//table[@id="maintable"]/tbody/tr[1]/td[2]/div[@id="wrapper"]/div[1]/div[2]/div/div[@id="post"]/div//img/@src)                        return                                <results>                                                     					<location>{data($location)}</location>                                    <title>{data($title)}</title>{                                    for $x in $picture		return <pictures>{data($x)}</pictures>                                    }<url>{data($url)}</url>
         <start>{data($startDate)}</start>
         </results>                    ]]></xq-expression>			</xquery>				</body>			</loop>', null, 'dd.MM.yy','DE_de', 0, 0),
-  ( 5, 'webharvest', 'banq',             'http://www.banq.de/',               'termine.php?date={startTimestamp}', 'http://www.banq.de/ico/favicon.ico', e'<loop item="item" filter="unique"><list><xpath expression=\'//div[attribute::id="mwtext"]//tr/td[attribute::id="cptable1"]/div[attribute::id="cptable2"]/span/text()\'><html-to-xml>					<http url="${baseUrl}${startUrl}" />				</html-to-xml>		</xpath>		</list>		<body>			<var-def name="newItem">			<call name="Banq_-_Details"><call-param name="title"><var name="item" /></call-param><call-param name="url"><template>${sys.escapeXml(baseUrl.toString()+startUrl.toString())}</template></call-param>	        	<call-param name="document">		        	<html-to-xml>		<http url="${baseUrl}${startUrl}" />					</html-to-xml>       	</call-param>	</call></var-def>				</body>	</loop>', '<function name="Banq_-_Details"><return><xquery><xq-param name="doc"><var name="document" />       </xq-param>            <xq-param name="title" type="string"><var name="title" />            </xq-param>            <xq-param name="url" type="string"><var name="url" />            </xq-param>            <xq-expression><![CDATA[			                declare variable $doc as node() external;declare variable $title as xs:string external;declare variable $url as xs:string external;			                				                for $b in $doc//div[attribute::id="mwtext"],				                	$t in $b//tr/td[attribute::id="cptable1"]/div[attribute::id="cptable2"]/span/child::text(),                					                	$c in $t//ancestor::tr/preceding-sibling::tr/td[attribute::id="cptable"]/table//h3/child::text()where $t=$title return 									<results><title>{$t}</title><url>{$url}</url><date>{data($t//ancestor::tr/preceding-sibling::tr/td[attribute::id="cptable"]/table//h3)}</date>			                            <location>{data($t//ancestor::tr/following-sibling::tr/td[attribute::id="cptable"]/a)}</location>			                            <category>{data($c/ancestor::td/following-sibling::td/span[attribute::class="kategorie"])}</category>			                            <link>{data($c/ancestor::td/following-sibling::td/span/a/@href)}</link>		                            </results>			            ]]></xq-expression>        </xquery>    </return></function><function name="Banq-PictureLinks"><return>    <xpath expression="//div/img">        <html-to-xml allowhtmlinsideattributes="true">            <http url="${pictureLink}" />        </html-to-xml>    </xpath></return></function><function name="Banq-PictureLinks"><return>    <xpath expression="//div/img">        <html-to-xml allowhtmlinsideattributes="true">            <http url="${pictureLink}" />        </html-to-xml>    </xpath></return></function>','dd.MM.yy', 'DE_de', 0, 0);
+  ( 5, 'webharvest', 'banq',             'http://www.banq.de/',               'termine.php?date={startTimestamp}', 'http://www.banq.de/ico/favicon.ico', e'<loop item="item" filter="unique"><list><xpath expression=\'//div[attribute::id="mwtext"]//tr/td[attribute::id="cptable1"]/div[attribute::id="cptable2"]/span/text()\'><html-to-xml>					<http url="${baseUrl}${startUrl}" />				</html-to-xml>		</xpath>		</list>		<body>			<var-def name="newItem">			<call name="Banq_-_Details"><call-param name="title"><var name="item" /></call-param><call-param name="url"><template>${sys.escapeXml(baseUrl.toString()+startUrl.toString())}</template></call-param>	        	<call-param name="document">		        	<html-to-xml>		<http url="${baseUrl}${startUrl}" />					</html-to-xml>       	</call-param>	</call></var-def>				</body>	</loop>', '<function name="Banq_-_Details"><return><xquery><xq-param name="doc"><var name="document" />       </xq-param>            <xq-param name="title" type="string"><var name="title" />            </xq-param>            <xq-param name="url" type="string"><var name="url" />            </xq-param>            <xq-expression><![CDATA[			                declare variable $doc as node() external;declare variable $title as xs:string external;declare variable $url as xs:string external;			                				                for $b in $doc//div[attribute::id="mwtext"],				                	$t in $b//tr/td[attribute::id="cptable1"]/div[attribute::id="cptable2"]/span/child::text(),                					                	$c in $t//ancestor::tr/preceding-sibling::tr/td[attribute::id="cptable"]/table//h3/child::text()where $t=$title return 									<results><title>{$t}</title><url>{$url}</url><date>{data($t//ancestor::tr/preceding-sibling::tr/td[attribute::id="cptable"]/table//h3)}</date>			                            <location>{data($t//ancestor::tr/following-sibling::tr/td[attribute::id="cptable"]/a)}</location>			                            <category>{data($c/ancestor::td/following-sibling::td/span[attribute::class="kategorie"])}</category>			                            <link>{data($c/ancestor::td/following-sibling::td/span/a/@href)}</link>		                            </results>			            ]]></xq-expression>        </xquery>    </return></function><function name="Banq-PictureLinks"><return>    <xpath expression="//div/img">        <html-to-xml allowhtmlinsideattributes="true">            <http url="${pictureLink}" />        </html-to-xml>    </xpath></return></function><function name="Banq-PictureLinks"><return>    <xpath expression="//div/img">        <html-to-xml allowhtmlinsideattributes="true">            <http url="${pictureLink}" />        </html-to-xml>    </xpath></return></function>','dd.MM.yy', 'DE_de', 0, 0),
+  ( 4, 'webharvest', 'workmans club','http://theworkmansclub.com/',               'events/', 'http://theworkmansclub.com/wp-content/themes/workmans/library/images/marker.png', e'<loop item="articleUrl" index="i">
+	<list>
+		<loop item="linkTags" filter="unique">
+			<list>
+				<xpath expression="//div[@class=''date_list'']/div">
+					<html-to-xml treatdeprtagsascontent="1"   treatunknowntagsascontent="1">
+						<http url="${baseUrl}${startUrl}"></http>
+					</html-to-xml>
+				</xpath>
+			</list>
+			<body>
+				<xpath expression="/div/a/@href">
+					<var name="linkTags" />
+				</xpath>
+			</body>
+		</loop>
+	</list>
+	<body>
+		<template>
+			<![CDATA[<results>]]>
+				<call name="wmc01">
+					<call-param name="pageUrl"><template>${articleUrl}</template></call-param>
+				</call>
+				<![CDATA[<location>The Workmans Club</location>]]>
+				<![CDATA[<url>]]>${articleUrl}<![CDATA[</url>]]>
+			<![CDATA[</results>]]>
+		</template>
+	</body>
+</loop>', '<function name="wmc01">
+	<return>
+		<template><![CDATA[<sourcelink>${sys.escapeXml(pageUrl.toString())}</sourcelink>]]></template>
+		<empty>
+			<var-def name="siteSnippet">
+				<html-to-xml advancedxmlescape="0" treatdeprtagsascontent="1" unicodechars="0" treatunknowntagsascontent="0" allowhtmlinsideattributes="1">
+						<http url="${pageUrl}" />
+				</html-to-xml> </var-def>
+
+		</empty>
+		<template>
+			<![CDATA[<title>]]><xpath expression="normalize-space(data(//div[@id=''contentsingle'']//article/header/div/div/h1[@class=''event_title'']))">
+					<var name="siteSnippet"/>
+				</xpath><![CDATA[</title>]]>
+			<![CDATA[<start>]]><xpath expression="normalize-space(data(//div[@id=''contentsingle'']//article/header/div[2]/div/div[1]/div[@class=''eventdate'']/span))">
+					<var name="siteSnippet"/>
+				</xpath><![CDATA[</start>]]>
+			<![CDATA[<price>]]><xpath expression="normalize-space(data(//div[@id=''contentsingle'']//article/header/div[2]/div/div[1]/div[@class=''ticket_price_single'']/span[1]))">
+					<var name="siteSnippet"/>
+				</xpath><![CDATA[</price>]]>
+			<![CDATA[<description>]]><xpath expression="normalize-space(data(//div[@id=''contentsingle'']//article/section))">
+					<var name="siteSnippet"/>
+				</xpath><![CDATA[</description>]]>
+			<![CDATA[<pictures>]]><xpath expression="normalize-space(data(//div[@id=''contentsingle'']/div/img))"><var name="siteSnippet" /></xpath><![CDATA[</pictures>]]>
+		</template>
+	</return>
+</function>','dd.MM.yy', 'EN_us', 0, 0);
 
 INSERT INTO user_rules (id, rule_type, rule_input, priority_change) VALUES
   (1, 0, '/Berlin/i',          0),

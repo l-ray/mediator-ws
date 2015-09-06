@@ -25,6 +25,8 @@ public class SourceInfoGenerator extends StringTemplateGenerator {
     public static final int EXPIRING_TIME = 3600;
     public static final String DB_CONNECTION = "dbConnection";
 
+    private static final int[] SOURCE_IDS_TO_USE = new int[]{0,1,2,4};
+
     private Connection dbConnection;
 
     private String patternId = null;
@@ -100,9 +102,9 @@ public class SourceInfoGenerator extends StringTemplateGenerator {
                 System.out.println("Generating sources overview");
                 StringBuffer result = new StringBuffer("<sources>");
 
-                for (int i=0; i<=2; i++) {
+                for (int i=0; i<SOURCE_IDS_TO_USE.length; i++) {
                     WebHarvestTemplate template = new WebHarvestTemplate(
-                            Integer.toString(i),
+                            Integer.toString(SOURCE_IDS_TO_USE[i]),
                             myConnection
                     );
 

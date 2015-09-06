@@ -8,7 +8,6 @@ import de.clubspot.mediator.processing.transformation.RegexRewriteTransformer;
 import de.clubspot.mediator.processing.transformation.RegionalFormatsRewriteTransformer;
 import org.apache.cocoon.optional.pipeline.components.sax.json.JsonSerializer;
 import org.apache.cocoon.pipeline.CachingPipeline;
-import org.apache.cocoon.pipeline.Pipeline;
 import org.apache.cocoon.pipeline.caching.SimpleCache;
 import org.apache.cocoon.sax.AbstractSAXProducer;
 import org.apache.cocoon.sax.SAXPipelineComponent;
