@@ -209,7 +209,7 @@ INSERT INTO pattern (id, type, name, url, starturl, icon, pattern, subpattern, d
                         <![CDATA[<pictures>]]><xpath expression="normalize-space(data(//*[@id=''main-content-inner'']//section/div[@class=''inner-box'']/div/a[@rel=''prettyPhoto'']/img/@src))"><var name="siteSnippet" /></xpath><![CDATA[</pictures>]]>
                 </template>
         </return>
-</function>','dd-MM-YYYY', 'EN_us', 0, 0);
+</function>','YYYY-MM-dd', 'EN_us', 0, 0);
 
 
 INSERT INTO user_rules (id, rule_type, rule_input, priority_change) VALUES
