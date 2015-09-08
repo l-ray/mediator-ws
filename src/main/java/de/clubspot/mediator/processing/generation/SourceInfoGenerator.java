@@ -25,7 +25,7 @@ public class SourceInfoGenerator extends StringTemplateGenerator {
     public static final int EXPIRING_TIME = 3600;
     public static final String DB_CONNECTION = "dbConnection";
 
-    private static final int[] SOURCE_IDS_TO_USE = new int[]{0,1,2,4};
+    private static final int[] SOURCE_IDS_TO_USE = new int[]{0,1,2,4,6};
 
     private Connection dbConnection;
 
