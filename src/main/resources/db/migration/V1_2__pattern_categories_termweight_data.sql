@@ -173,8 +173,7 @@ INSERT INTO pattern (id, type, name, url, starturl, icon, pattern, subpattern, d
 <call name="upcoming01">
 <call-param name="pageUrl"><template>${articleUrl}</template></call-param>
 </call>
-<![CDATA[<start></start>]]>
-
+<![CDATA[<start>]]>${startDate}<![CDATA[</start>]]>
 <![CDATA[<url>]]>${articleUrl}<![CDATA[</url>]]>
 <![CDATA[</results>]]>
 </template>
@@ -202,10 +201,13 @@ INSERT INTO pattern (id, type, name, url, starturl, icon, pattern, subpattern, d
                                 </xpath>
                         <![CDATA[</location>]]>
                         <![CDATA[<price>]]>
-                                <xpath expression="normalize-space(data(//*[@id=''main-content-inner'']/div/div[1]/section[1]/div/div/p[4]))">
-                                        <var name="siteSnippet"/>
-                                </xpath>
-                        <![CDATA[</price>]]>
+                          <regexp replace="true" >
+                            <regexp-pattern>^Tickets:(.*)</regexp-pattern>
+                            <regexp-source><xpath expression="normalize-space(data(//*[@id=''main-content-inner'']/div/div[1]/section[1]/div/div/p[4]))">
+                                <var name="siteSnippet"/>
+                            </xpath></regexp-source>
+                            <regexp-result><template>${_1}</template></regexp-result>
+                          </regexp>                        <![CDATA[</price>]]>
                         <![CDATA[<pictures>]]><xpath expression="normalize-space(data(//*[@id=''main-content-inner'']//section/div[@class=''inner-box'']/div/a[@rel=''prettyPhoto'']/img/@src))"><var name="siteSnippet" /></xpath><![CDATA[</pictures>]]>
                 </template>
         </return>
