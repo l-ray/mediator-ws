@@ -12,16 +12,17 @@ CREATE TABLE pattern (
   dateformat VARCHAR DEFAULT 'dd.mm.yy',
   deleted    INT  NOT NULL  DEFAULT '0',
   hidden     INT  NOT NULL  DEFAULT '0',
-  countrycode VARCHAR NOT NULL DEFAULT 'DE_de',
+  countrycode VARCHAR NOT NULL DEFAULT 'EN_us',
   PRIMARY KEY (id)
 );
 
 DROP TABLE IF EXISTS term_weight;
 CREATE TABLE term_weight (
+  countrycode VARCHAR NOT NULL DEFAULT 'EN_us',
   term varchar DEFAULT NULL,
   weight float NOT NULL DEFAULT '0',
   deleted int DEFAULT '0',
-  PRIMARY KEY (term)
+  PRIMARY KEY (term, countrycode)
 );
 
 DROP TABLE IF EXISTS categories;
