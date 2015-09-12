@@ -54,10 +54,8 @@ public class PatternCodeGenerator extends StringTemplateGenerator {
 
     @Override
     public void setup(final Map<String, Object> parameter) {
-        LOG.trace("IN PATTERNCODE-SETUP");
         this.dbConnection = (Connection) parameter.get(DB_CONNECTION);
         super.setup(parameter);
-        LOG.trace("OUT PATTERNCODE-SETUP");
     }
 
     /**
@@ -69,8 +67,6 @@ public class PatternCodeGenerator extends StringTemplateGenerator {
     public void setConfiguration(final Map<String, ? extends Object> parameter) {
         super.setConfiguration(parameter);
 
-        LOG.trace("In SetConfiguration with: "+parameter);
-
         patternId = (String) parameter.get(PARAM_PATTERN_ID);
 
         startDate = parseDate((String) parameter.get(PARAM_START_DATE));
@@ -78,13 +74,10 @@ public class PatternCodeGenerator extends StringTemplateGenerator {
         if (parameter.get(PARAM_END_DATE) != null)
             endDate = parseDate((String) parameter.get(PARAM_END_DATE));
 
-        LOG.trace("OUT PATTERNCODE-SETConfiguration");
     }
 
     public void setSource(URL source) {
-        LOG.trace("in SETSOURCE");
         super.setSource(source);
-        LOG.trace("out SETSOURCE");
     }
 
     /**
@@ -112,7 +105,6 @@ public class PatternCodeGenerator extends StringTemplateGenerator {
 
     @Override
     public void execute() {
-        LOG.trace("IN PATTERNCODE-EXECUTE");
         Connection myConnection;
 
         try {
@@ -168,10 +160,13 @@ public class PatternCodeGenerator extends StringTemplateGenerator {
     }
 
     private String loadAndCompleteHarvestTemplate(Connection myConnection) throws ProcessingException {
+
         WebHarvestTemplate template = new WebHarvestTemplate(patternId, myConnection);
 
         UrlDateWrapper urlWrapper = new UrlDateWrapper(startDate);
+
         LOG.trace("DateFormat" + template.getDateFormat());
+
         SimpleDateFormat df = getDateFormat(template);
 
         System.out.println("Searching for date: "+df.format(this.startDate));
