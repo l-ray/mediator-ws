@@ -37,7 +37,6 @@ public class AddConnectionIdToElementsTransformer extends AbstractSAXTransformer
 
      @Override
      public void setConfiguration(Map<String, ? extends Object> parameter) {
-         LOG.trace("IN AddSourceIdToElementsTransformer Setup");
 
          elementLocalName = (String) parameter.get(PARAM_ELEMENT_LOCAL_NAME);
 
@@ -45,17 +44,13 @@ public class AddConnectionIdToElementsTransformer extends AbstractSAXTransformer
 
          id = (String) parameter.get(PARAM_ID);
 
-         LOG.trace("Out AddSourceIdToElementsTransformer Setup");
      }
 
 	@Override
     public void startElement(String namespaceURI, String localName,
 			String qName, Attributes attributes) throws SAXException {
 
-        LOG.trace("IN startElement {0}", localName);
         super.startElement(namespaceURI, localName, qName, attributes);
-
-
 
         if (localName.equals(elementLocalName)) {
             inElementLocalName = true;
@@ -64,7 +59,6 @@ public class AddConnectionIdToElementsTransformer extends AbstractSAXTransformer
         if (inElementLocalName && localName.equals(idElementLocalName)) {
             idAlreadyExists = true;
         }
-        LOG.trace("OUT startElement");
 	}
 
     @Override

@@ -55,45 +55,30 @@ public class RegexRewriteTransformer extends AbstractSAXTransformer implements S
         }
     }
 
-
-     @Override
-     public void setup(Map<String, Object> parameter) {
-         LOG.trace("IN RegexRewriteTransformer Setup");
-         // add stuff
-         LOG.trace("Out RegexRewriteTransformer Setup");
-     }
-
 	@Override
     public void startElement(String namespaceURI, String localName,
 			String qName, Attributes attributes) throws SAXException {
 
-		LOG.trace("IN startElement");
 		// start a root element paragraph
 		super.startElement(namespaceURI, localName, qName, attributes);
 		if (elementsHoldingReplaceableContent.contains(localName)) {
 			this.setInsideTagToReplaceRegex(true);
 		}
-        LOG.trace("OUT startElement");
 	}
 
     @Override
     public void endElement(String namespaceURI, String localName, String qName)
 			throws SAXException {
-        LOG.trace("IN endElement");
 		if (elementsHoldingReplaceableContent.contains(localName)) {
 			this.setInsideTagToReplaceRegex(false);
 		}
-
 		super.endElement(namespaceURI, localName, qName);
-        LOG.trace("OUT startElement");
 	}
 
     @Override
 	public void characters(char[] buffer, int start, int length)
 			throws SAXException {
-        LOG.trace("IN characters");
 		// concatenate the content
-
 		String contentBuffer = new String(buffer, start, length);
 
 		if (isInsideTagToReplaceRegex()) {
@@ -124,6 +109,4 @@ public class RegexRewriteTransformer extends AbstractSAXTransformer implements S
                 "3600"
         );
     }
-
-
 }

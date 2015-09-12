@@ -68,10 +68,9 @@ public class ExtractElementsTransformer extends AbstractSAXTransformer implement
 
      @Override
      public void setup(Map<String, Object> parameter) {
-         LOG.trace("IN RegionalFormatsTransformer Setup");
+
          // TreeMap, to make the result comparable by unit test
-         elementsToBeExcluded = new TreeMap<String,Map<String,String>>();
-         LOG.trace("Out RegionalFormatsTransformer Setup");
+         elementsToBeExcluded = new TreeMap<>();
      }
 
     @Override
@@ -126,8 +125,6 @@ public class ExtractElementsTransformer extends AbstractSAXTransformer implement
     public void startElement(String namespaceURI, String localName,
 			String qName, Attributes attributes) throws SAXException {
 
-        LOG.trace("IN startElement {0}", localName);
-
         if (localName.equals(elementParent)) {
             inParentElement = true;
             // in case of forced ID, already set it to true
@@ -145,13 +142,11 @@ public class ExtractElementsTransformer extends AbstractSAXTransformer implement
             }
             super.startElement(namespaceURI, localName, qName, attributes);
         }
-        LOG.trace("OUT startElement");
 	}
 
     @Override
     public void endElement(String namespaceURI, String localName, String qName)
             throws SAXException {
-        LOG.trace("IN endElement");
 
         if (localName.equals(elementParent)) {
             inParentElement = false;
@@ -191,7 +186,7 @@ public class ExtractElementsTransformer extends AbstractSAXTransformer implement
                 super.endElement(namespaceURI, extractedElementId, extractedElementId);
 
                 for (Map.Entry<String, String> keyValue: entry.getValue().entrySet()) {
-                    LOG.trace("Adds |{0}| with |{1}|", new String[]{keyValue.getKey(), keyValue.getValue()});
+                    LOG.trace(String.format("Adds |%s}| with |%s|", keyValue.getKey(), keyValue.getValue()));
 
                     super.startElement(namespaceURI, keyValue.getKey(), keyValue.getKey(), new AttributesImpl());
                     super.characters(keyValue.getValue().toCharArray(), 0, keyValue.getValue().length());
@@ -202,14 +197,11 @@ public class ExtractElementsTransformer extends AbstractSAXTransformer implement
             }
         }
         super.endElement(namespaceURI, localName, qName);
-
-        LOG.trace("OUT startElement");
-	}
+    }
 
     @Override
 	public void characters(char[] buffer, int start, int length)
             throws SAXException {
-        LOG.trace("IN characters");
         if (!insideElementToBeExtracted) {
             if (inParentIdTag) {
                 currentParentId = new String(buffer, start, length);
@@ -227,7 +219,6 @@ public class ExtractElementsTransformer extends AbstractSAXTransformer implement
                 super.characters(idCounterAsString.toCharArray(), 0, idCounterAsString.length());
             }
         }
-        LOG.trace("OUT characters");
 	}
 
     @Override
