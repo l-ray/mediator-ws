@@ -1,23 +1,6 @@
-INSERT INTO categories ( id, term, category, hidden, deleted) VALUES
-  (1,'ska','ska',0,0),
-  (2,'metal','metal',0,0),
-  (3,'rock','rock',0,0);
-
-INSERT INTO term_weight (term, weight, deleted) VALUES
-  ('club'    , 0.1,  0),
-  ('bar'     , 0.1,  0),
-  ('lounge'  , 0.1,  0),
-  ('e.v.'    , 0.1,  0),
-  ('Gelände' , 0.2,  0),
-  ('alter'   , 0.1,  0),
-  ('alte'    , 0.1,  0),
-  ('altes'   , 0.1,  0),
-  ('dresden' , 0.05, 0),
-  ('live'    , 0.01, 0);
-
 INSERT INTO pattern (id, type, name, url, starturl, icon, pattern, subpattern, dateformat, countrycode, deleted, hidden) VALUES
   ( 0, 'webharvest', 'dummyData l-ray',  'http://www.l-ray.de/fileadmin/',      'demodata.html',     'http://www.l-ray.de/fileadmin/template/css/images/ico_cached.gif', E'<loop item="event" index="i"><list><xpath expression=\'//div[@class="event"]\'><html-to-xml treatdeprtagsascontent="1" treatunknowntagsascontent="1"><http url="${baseUrl}${startUrl}" /></html-to-xml></xpath></list><body><empty><var-def name="test"><xpath expression=\'//div[@class="name"]/text()\'><var name="event"/></xpath></var-def></empty><template><![CDATA[<results>]]><![CDATA[<title>]]><xpath expression=\'//div[@class="name"]/text()\'><var name="event"/></xpath><![CDATA[</title>]]><![CDATA[<subtitle>]]><xpath expression=\'//div[@class="subtitle"]/text()\'><var name="event"/></xpath><![CDATA[</subtitle>]]><![CDATA[<price>]]><xpath expression=\'//span[@class="price"]/text()\'><var name="event"/></xpath><![CDATA[</price>]]><![CDATA[<pictures>]]>${baseUrl}<xpath expression=\'//img/@src\'><var name="event"/></xpath><![CDATA[</pictures>]]><![CDATA[<start>]]>${startDate}<![CDATA[</start>]]><![CDATA[<location>]]>dummyLocation<![CDATA[</location>]]><![CDATA[<url>]]>${baseUrl}<![CDATA[</url>]]><![CDATA[</results>]]></template></body></loop>', null, 'EEEE, dd. MMMM', 'DE_de', 0, 0),
-   ( 2, 'webharvest', 'salsa.ie',    'http://salsa.ie/listings/','ByCounty/leinster/dublin/',          'http://salsa.ie/favicon.ico', E'<loop item="event" index="i">
+  ( 2, 'webharvest', 'salsa.ie',    'http://salsa.ie/listings/','ByCounty/leinster/dublin/',          'http://salsa.ie/favicon.ico', E'<loop item="event" index="i">
     <list>
         <xpath expression="//table[@class=\'events-table\']/tbody/tr">
             <html-to-xml treatdeprtagsascontent="1" treatunknowntagsascontent="1">
@@ -211,18 +194,73 @@ INSERT INTO pattern (id, type, name, url, starturl, icon, pattern, subpattern, d
                         <![CDATA[<pictures>]]><xpath expression="normalize-space(data(//*[@id=''main-content-inner'']//section/div[@class=''inner-box'']/div/a[@rel=''prettyPhoto'']/img/@src))"><var name="siteSnippet" /></xpath><![CDATA[</pictures>]]>
                 </template>
         </return>
+</function>','YYYY-MM-dd', 'EN_us', 0, 0),
+  ( 7, 'webharvest', 'Resident Advisor Dublin','http://www.residentadvisor.net', '/events.aspx?ai=43&v=day&mn=${startMonth}&yr=${startYear}&dy=${startDay}', 'http://www.dublinconcerts.ie/content/themes/dublin/images/ico.png', e'<loop item="articleUrl" index="i">
+        <list>
+                <loop item="linkTags" filter="unique">
+                        <list>
+                                <xpath expression="//*[@itemtype=''http://data-vocabulary.org/Event'']">
+                                        <html-to-xml treatdeprtagsascontent="1"   treatunknowntagsascontent="0">
+                                                <http url="${baseUrl}${startUrl}"></http>
+                                        </html-to-xml>
+                                </xpath>
+
+                        </list>
+                        <body>
+                                <empty>
+			                        <var-def name="eventDate">
+			                        	<xpath expression="substring(data(//*[@itemprop=''startDate'']/@datetime),0,11)">
+			                                        <var name="linkTags" />
+			                        </xpath></var-def>
+                                </empty>
+
+								<xpath expression="//*[@itemprop=''url'']/@href">
+                                    <var name="linkTags" />
+                            	</xpath>
+
+                        </body>
+                </loop>
+        </list>
+        <body>
+                <template>
+                        <![CDATA[<results>]]>
+                                <call name="ra01">
+                                        <call-param name="pageUrl"><template>${baseUrl}${articleUrl}</template></call-param>
+                                </call>
+								<![CDATA[<start>]]>${eventDate}<![CDATA[</start>]]>
+
+                                <![CDATA[<url>]]>${articleUrl}<![CDATA[</url>]]>
+                        <![CDATA[</results>]]>
+                </template>
+        </body>
+</loop>', '<function name="ra01">
+        <return>
+                <template><![CDATA[<sourcelink>${sys.escapeXml(pageUrl.toString())}</sourcelink>]]></template>
+                <empty>
+                        <var-def name="siteSnippet">
+                                <html-to-xml advancedxmlescape="0" treatdeprtagsascontent="1" unicodechars="0" treatunknowntagsascontent="0" allowhtmlinsideattributes="1">
+                                                <http url="${pageUrl}" />
+                                </html-to-xml> </var-def>
+
+                </empty>
+                <template>
+                        <![CDATA[<title>]]>
+                                <xpath expression="normalize-space(data(//header[@id=''header'']//div[@id=''sectionHead'']/h1))">
+                                        <var name="siteSnippet"/>
+                                </xpath>
+                        <![CDATA[</title>]]>
+                        <![CDATA[<location>]]>
+                                <xpath expression="normalize-space(data(//aside[@id=''detail'']/ul/li[2]))">
+                                        <var name="siteSnippet"/>
+                                </xpath>
+                        <![CDATA[</location>]]>
+                        <![CDATA[<price>]]>
+                                <xpath expression="normalize-space(data(//aside[@id=''detail'']/ul/li[3]))">
+                                        <var name="siteSnippet"/>
+                                </xpath>
+                        <![CDATA[</price>]]>
+                        <![CDATA[<pictures>]]><xpath expression="data(//*[@id=''event-item'']//div[@class=''flyer'']/a/img/@src)"><var name="siteSnippet" /></xpath><![CDATA[</pictures>]]>
+                        <![CDATA[<description>]]><xpath expression="normalize-space(data(string-join(//*[@id=''event-item'']/div[@class=''left'']/p/text(),'' '')))"><var name="siteSnippet" /></xpath><![CDATA[</description>]]>
+                </template>
+        </return>
 </function>','YYYY-MM-dd', 'EN_us', 0, 0);
-
-
-INSERT INTO user_rules (id, rule_type, rule_input, priority_change) VALUES
-  (1, 0, '/Berlin/i',          0),
-  (2, 0, '/Leipzig/i',         0),
-  (3, 0, '/Mei.en/i',          0),
-  (4, 1, 'theater',            0),
-  (5, 1, 'radiosendung',       0),
-  (6, 1, 'film',               -1000),
-  (8, 0, '/G.rlitz/i',         0),
-  (15, 2, '/zebra disco/',  0),
-  (14, 2, '/D.beln/',       0),
-  (16, 2, '/zebra/',        0),
-  (19, 2, '/afterwork.purobeach/', 0);
