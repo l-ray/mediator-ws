@@ -195,7 +195,7 @@ INSERT INTO pattern (id, type, name, url, starturl, icon, pattern, subpattern, d
                 </template>
         </return>
 </function>','YYYY-MM-dd', 'EN_us', 0, 0),
-  ( 7, 'webharvest', 'Resident Advisor Dublin','http://www.residentadvisor.net', '/events.aspx?ai=43&v=day&mn={startMonth}&yr={startYear}&dy={startDay}', 'http://www.dublinconcerts.ie/content/themes/dublin/images/ico.png', e'<loop item="articleUrl" index="i">
+  ( 7, 'webharvest', 'Resident Advisor Dublin','http://www.residentadvisor.net', '/events.aspx?ai=43&v=day&mn={startMonth}&yr={startYear}&dy={startDay}', 'http://www.residentadvisor.net/favicon.ico', e'<loop item="articleUrl" index="i">
         <list>
                 <loop item="linkTags" filter="unique">
                         <list>
