@@ -167,7 +167,7 @@ INSERT INTO pattern (id, type, name, url, starturl, icon, pattern, subpattern, d
                 <template><![CDATA[<sourcelink>${sys.escapeXml(pageUrl.toString())}</sourcelink>]]></template>
                 <empty>
                         <var-def name="siteSnippet">
-                                <html-to-xml advancedxmlescape="0" treatdeprtagsascontent="1" unicodechars="0" treatunknowntagsascontent="0" allowhtmlinsideattributes="1">
+                                <html-to-xml specialentities="0" advancedxmlescape="1" treatdeprtagsascontent="1" unicodechars="0" treatunknowntagsascontent="0" prunetags="script,style">
                                                 <http url="${pageUrl}" />
                                 </html-to-xml> </var-def>
 
@@ -195,7 +195,7 @@ INSERT INTO pattern (id, type, name, url, starturl, icon, pattern, subpattern, d
                 </template>
         </return>
 </function>','YYYY-MM-dd', 'EN_us', 0, 0),
-  ( 7, 'webharvest', 'Resident Advisor Dublin','http://www.residentadvisor.net', '/events.aspx?ai=43&v=day&mn=${startMonth}&yr=${startYear}&dy=${startDay}', 'http://www.dublinconcerts.ie/content/themes/dublin/images/ico.png', e'<loop item="articleUrl" index="i">
+  ( 7, 'webharvest', 'Resident Advisor Dublin','http://www.residentadvisor.net', '/events.aspx?ai=43&v=day&mn={startMonth}&yr={startYear}&dy={startDay}', 'http://www.dublinconcerts.ie/content/themes/dublin/images/ico.png', e'<loop item="articleUrl" index="i">
         <list>
                 <loop item="linkTags" filter="unique">
                         <list>
@@ -238,21 +238,33 @@ INSERT INTO pattern (id, type, name, url, starturl, icon, pattern, subpattern, d
                 <template><![CDATA[<sourcelink>${sys.escapeXml(pageUrl.toString())}</sourcelink>]]></template>
                 <empty>
                         <var-def name="siteSnippet">
-                                <html-to-xml advancedxmlescape="0" treatdeprtagsascontent="1" unicodechars="0" treatunknowntagsascontent="0" allowhtmlinsideattributes="1">
+                                <html-to-xml advancedxmlescape="0" specialentities="false" treatdeprtagsascontent="1" unicodechars="0" treatunknowntagsascontent="0" allowhtmlinsideattributes="0" >
                                                 <http url="${pageUrl}" />
                                 </html-to-xml> </var-def>
 
                 </empty>
                 <template>
                         <![CDATA[<title>]]>
-                                <xpath expression="normalize-space(data(//header[@id=''header'']//div[@id=''sectionHead'']/h1))">
+                          <regexp replace="1">
+                              <regexp-pattern>&amp; </regexp-pattern>
+                              <regexp-source>
+                                <xpath expression="normalize-space(data(//header[@id=''header'']//div[@id=''sectionHead'']/h1/text()))">
                                         <var name="siteSnippet"/>
                                 </xpath>
+                              </regexp-source>
+                              <regexp-result><template>&amp;amp; </template></regexp-result>
+                          </regexp>
                         <![CDATA[</title>]]>
                         <![CDATA[<location>]]>
+                          <regexp replace="1">
+                              <regexp-pattern>&amp; </regexp-pattern>
+                              <regexp-source>
                                 <xpath expression="normalize-space(data(//aside[@id=''detail'']/ul/li[2]))">
                                         <var name="siteSnippet"/>
                                 </xpath>
+                              </regexp-source>
+                              <regexp-result><template>&amp;amp; </template></regexp-result>
+                          </regexp>
                         <![CDATA[</location>]]>
                         <![CDATA[<price>]]>
                                 <xpath expression="normalize-space(data(//aside[@id=''detail'']/ul/li[3]))">
@@ -260,7 +272,15 @@ INSERT INTO pattern (id, type, name, url, starturl, icon, pattern, subpattern, d
                                 </xpath>
                         <![CDATA[</price>]]>
                         <![CDATA[<pictures>]]><xpath expression="data(//*[@id=''event-item'']//div[@class=''flyer'']/a/img/@src)"><var name="siteSnippet" /></xpath><![CDATA[</pictures>]]>
-                        <![CDATA[<description>]]><xpath expression="normalize-space(data(string-join(//*[@id=''event-item'']/div[@class=''left'']/p/text(),'' '')))"><var name="siteSnippet" /></xpath><![CDATA[</description>]]>
+                        <![CDATA[<description>]]>
+                          <regexp replace="1">
+                              <regexp-pattern>&amp; </regexp-pattern>
+                              <regexp-source>
+                                <xpath expression="normalize-space(data(string-join(//*[@id=''event-item'']/div[@class=''left'']/p/text(),'' '')))"><var name="siteSnippet" /></xpath>
+                              </regexp-source>
+                              <regexp-result><template>&amp;amp; </template></regexp-result>
+                          </regexp>
+                        <![CDATA[</description>]]>
                 </template>
         </return>
 </function>','YYYY-MM-dd', 'EN_us', 0, 0);
