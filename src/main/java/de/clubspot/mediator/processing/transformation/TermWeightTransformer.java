@@ -4,12 +4,7 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Iterator;
-import java.util.Map;
-import java.util.Set;
-import java.util.StringTokenizer;
+import java.util.*;
 
 import org.apache.cocoon.sax.SAXConsumer;
 import org.apache.cocoon.sax.AbstractSAXTransformer;
@@ -23,26 +18,68 @@ public class TermWeightTransformer extends AbstractSAXTransformer implements SAX
 
 	private static final Logger LOG =
             LoggerFactory.getLogger(TermWeightTransformer.class.getName());
+
 	public static final String DB_CONNECTION = "dbConnection";
+
+	public static final String PARAM_PARENT_ELEMENT = "parentElement";
+
+	public static final String PARAM_INDEX_ELEMENTS = "elementsToIndex";
+
+	Set<String> indexingElements = new HashSet<>();
+	Map<String,Boolean> insideIndexingElement = null;
+	String parentElement = "results";
+
+	final String weightTermElement = "weight-term";
+	final String termElement = "term";
+	final String weightElement = "weight";
+	final String weightsElement = "weights";
 
 	// contains the concatenated text
 	String locationContent = "";
 	
-	boolean insideLocationTag = false;
-	
-	boolean insideTitleTag = false;
-	
-	boolean insideArticleTag = false;
+	boolean insideParentTag = false;
 
     private Connection dbConnection;
 
-
-     @Override
+	@Override
      public void setup(Map<String, Object> parameter) {
          LOG.trace("IN TERM_WEIGHT Setup");
+ 		 if (insideIndexingElement == null) {
+			insideIndexingElement =new HashMap<>();
+		 }
          this.dbConnection = (Connection) parameter.get(DB_CONNECTION);
          LOG.trace("Out TERM_WEIGHT Setup");
      }
+
+	@Override
+	public void setConfiguration(Map<String, ? extends Object> configuration) {
+
+		if (insideIndexingElement == null) {
+			insideIndexingElement =new HashMap<>();
+		} else {
+			insideIndexingElement.clear();
+		}
+
+		if (configuration.containsKey(PARAM_PARENT_ELEMENT)) {
+			this.parentElement = (String) configuration.get(PARAM_PARENT_ELEMENT);
+		}
+
+		if (configuration.containsKey(PARAM_INDEX_ELEMENTS)) {
+			this.indexingElements = new HashSet<>();
+			this.indexingElements.addAll(
+					getElementsAsList((String)configuration.get(PARAM_INDEX_ELEMENTS))
+			);
+		}
+
+		for (String element:indexingElements) {
+			insideIndexingElement.put(element,false);
+		}
+
+	}
+
+	private List<String> getElementsAsList(String configuration) {
+		return Arrays.asList(configuration.split(","));
+	}
 
 	@Override
     public void startElement(String namespaceURI, String localName,
@@ -51,14 +88,13 @@ public class TermWeightTransformer extends AbstractSAXTransformer implements SAX
 		LOG.trace("IN startElement");
 		// start a root element paragraph
 		super.startElement(namespaceURI, localName, qName, attributes);
-		if (localName.equals("location")) {
-			this.setInsideLocationTag(true);
+
+		if (indexingElements.contains(localName)) {
+			this.insideIndexingElement.put(localName, true);
 		}
-		if (localName.equals("title")) {
-			this.setInsideTitleTag(true);
-		}
-		if (localName.equals("results")) {
-			this.setInsideArticleTag(true);
+
+		if (localName.equals(parentElement)) {
+			this.setInsideParentTag(true);
 		}
         LOG.trace("OUT startElement");
 	}
@@ -67,24 +103,21 @@ public class TermWeightTransformer extends AbstractSAXTransformer implements SAX
     public void endElement(String namespaceURI, String localName, String qName)
 			throws SAXException {
         LOG.trace("IN endElement");
-		if (localName.equals("location")) {
-			this.setInsideLocationTag(false);
+		if (indexingElements.contains(localName)) {
+			this.insideIndexingElement.put(localName,false);
 		}
 
-		if (localName.equals("title")) {
-			this.setInsideTitleTag(false);
-		}
-
-		if (localName.equals("results")) {
-			this.setInsideArticleTag(false);
+		if (localName.equals(parentElement)) {
+			this.setInsideParentTag(false);
             if (!locationContent.isEmpty()) {
-                super.startElement(namespaceURI, "weights", "weights", new AttributesImpl());
+
+				super.startElement(namespaceURI, weightsElement, weightsElement, new AttributesImpl());
                 try {
                     addTokenizedContent(namespaceURI, locationContent);
                 } catch (NullPointerException e) {
                     LOG.trace("NPE when adding tokenized Content");
                 }
-                super.endElement(namespaceURI, "weights", "weights");
+                super.endElement(namespaceURI, weightsElement, weightsElement);
 
                 locationContent = "";
             }
@@ -103,7 +136,7 @@ public class TermWeightTransformer extends AbstractSAXTransformer implements SAX
 		StringBuilder contentBuffer = new StringBuilder();
 		contentBuffer.append(buffer, start, length);
 
-		if (isInsideLocationTag() || isInsideTitleTag()) {
+		if (this.insideIndexingElement.containsValue(Boolean.TRUE)) {
 			locationContent += " ";
 			locationContent += contentBuffer.toString();
 		}
@@ -130,18 +163,18 @@ public class TermWeightTransformer extends AbstractSAXTransformer implements SAX
 		Map<String,String> weightedTerms = getWeightForToken(tokenSet);
 		
 		for (String key:weightedTerms.keySet()) {
-			
-			super.startElement(namespace, "weight-term","weight-term",new AttributesImpl());
 
-            super.startElement(namespace, "term","term",new AttributesImpl());
+			super.startElement(namespace, weightTermElement, weightTermElement,new AttributesImpl());
+
+			super.startElement(namespace, termElement, termElement,new AttributesImpl());
             super.characters(key.toCharArray(), 0, key.length());
-            super.endElement(namespace, "term", "term");
+            super.endElement(namespace, termElement, termElement);
 
-            super.startElement(namespace, "weight", "weight", new AttributesImpl());
+			super.startElement(namespace, weightElement, weightElement, new AttributesImpl());
 			super.characters(weightedTerms.get(key).toCharArray(), 0, weightedTerms.get(key).length());
-            super.endElement(namespace, "weight", "weight");
+            super.endElement(namespace, weightElement, weightElement);
 
-            super.endElement(namespace, "weight-term", "weight-term");
+            super.endElement(namespace, weightTermElement, weightTermElement);
 		}
 	}
 	
@@ -154,14 +187,14 @@ public class TermWeightTransformer extends AbstractSAXTransformer implements SAX
 	public Map<String,String> getWeightForToken(Set<String> terms) {
 		
 		Iterator<String> termIterator = terms.iterator();
-		Map<String,String> termWithWeight = new HashMap<String,String>();
+		Map<String,String> termWithWeight = new HashMap<>();
 		
 		if (termIterator.hasNext()) {
-			StringBuffer whereInList = new StringBuffer("'"+termIterator.next()+"'");
+			StringBuilder whereInList = new StringBuilder("'"+termIterator.next()+"'");
 			
 			while (termIterator.hasNext()) {
 				String nextTerm = termIterator.next();
-				whereInList.append(",'"+nextTerm+"'");
+				whereInList.append(",'").append(nextTerm).append("'");
 			}
 			
 			String sQuery = "SELECT * FROM term_weight WHERE term IN ("+whereInList+");";
@@ -175,8 +208,11 @@ public class TermWeightTransformer extends AbstractSAXTransformer implements SAX
 				stmt = this.dbConnection.createStatement();
 				rs = stmt.executeQuery(sQuery);
                 while (rs.next()) {
-                    LOG.trace("Got |"+rs.getString("weight")+"| for |"+rs.getString("term")+"|");
-						termWithWeight.put(rs.getString("term"),rs.getString("weight"));
+                    String key = rs.getString("term");
+					String value = rs.getString("weight");
+					LOG.trace("Got |"+value+"| for |"+key+"|");
+
+					termWithWeight.put(key,value);
                 }
 
             } catch (SQLException e) {
@@ -195,29 +231,9 @@ public class TermWeightTransformer extends AbstractSAXTransformer implements SAX
 		term = term.trim();
 		return term.toLowerCase();
 	}
-	
-	public boolean isInsideLocationTag() {
-		return insideLocationTag;
-	}
 
-	public void setInsideLocationTag(boolean insideLocationTag) {
-		this.insideLocationTag = insideLocationTag;
-	}
-
-	public boolean isInsideArticleTag() {
-		return insideArticleTag;
-	}
-
-	public void setInsideArticleTag(boolean insideArticleTag) {
-		this.insideArticleTag = insideArticleTag;
-	}
-
-	public boolean isInsideTitleTag() {
-		return insideTitleTag;
-	}
-
-	public void setInsideTitleTag(boolean insideTitleTag) {
-		this.insideTitleTag = insideTitleTag;
+	public void setInsideParentTag(boolean insideParentTag) {
+		this.insideParentTag = insideParentTag;
 	}
 
 }

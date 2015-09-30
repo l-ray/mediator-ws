@@ -12,13 +12,13 @@ CREATE TABLE pattern (
   dateformat VARCHAR DEFAULT 'dd.mm.yy',
   deleted    INT  NOT NULL  DEFAULT '0',
   hidden     INT  NOT NULL  DEFAULT '0',
-  countrycode VARCHAR NOT NULL DEFAULT 'EN_us',
+  countrycode VARCHAR NOT NULL DEFAULT 'en_US',
   PRIMARY KEY (id)
 );
 
 DROP TABLE IF EXISTS term_weight;
 CREATE TABLE term_weight (
-  countrycode VARCHAR NOT NULL DEFAULT 'EN_us',
+  countrycode VARCHAR NOT NULL DEFAULT 'en_US',
   term varchar DEFAULT NULL,
   weight float NOT NULL DEFAULT '0',
   deleted int DEFAULT '0',

@@ -14,12 +14,15 @@ import org.junit.BeforeClass;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.SAXParserFactory;
 import java.io.ByteArrayOutputStream;
-import java.util.HashMap;
+import java.util.Map;
 
 /**
  * Created by lray on 26.01.15.
  */
 public abstract class AbstractTransformerTest {
+
+    protected Map<String,Object> pipelineSetup = null;
+
     @BeforeClass
     public static void setUp() {
         XMLUnit.setIgnoreWhitespace(false);
@@ -47,7 +50,7 @@ public abstract class AbstractTransformerTest {
         pipeline.addComponent(new XMLSerializer());
 
         final ByteArrayOutputStream baos = new ByteArrayOutputStream();
-        pipeline.setup(baos);
+        pipeline.setup(baos,pipelineSetup);
         pipeline.execute();
         return baos;
     }
@@ -70,7 +73,7 @@ public abstract class AbstractTransformerTest {
         });
 
         ByteArrayOutputStream baos = new ByteArrayOutputStream();
-        pipeline.setup(baos);
+        pipeline.setup(baos,pipelineSetup);
         pipeline.execute();
         return baos;
     }
