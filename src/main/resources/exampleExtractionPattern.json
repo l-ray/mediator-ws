@@ -1,0 +1,32 @@
+grouping
+    url
+    eventlist
+
+        xpath
+        condition
+
+        regex
+        event
+            title
+              xpath
+              regex
+            grouping
+              url
+              location
+                  xpath
+                  regex
+              name
+                  xpath
+                  regex
+              pictures
+                  xpath
+                      normalize-space
+                      substring
+
+                  regex
+                    pattern
+                    source
+                    result
+              price
+                  xpath
+                  regex
