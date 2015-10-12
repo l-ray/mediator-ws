@@ -1,5 +1,9 @@
 package de.clubspot.mediator.processing.transformation;
 
+import org.apache.cocoon.pipeline.caching.Cache;
+import org.apache.cocoon.pipeline.caching.CacheKey;
+import org.apache.cocoon.pipeline.caching.SimpleCache;
+import org.apache.cocoon.pipeline.caching.SimpleCacheKey;
 import org.apache.cocoon.sax.SAXPipelineComponent;
 import org.custommonkey.xmlunit.Diff;
 import org.junit.After;
@@ -9,6 +13,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.io.ByteArrayOutputStream;
+import java.util.HashMap;
 
 import static junit.framework.Assert.assertTrue;
 
@@ -88,6 +93,33 @@ public class RegionalFormatsRewriteTransformerTest extends AbstractTransformerTe
         final Diff diff = new Diff("<start>2015-05-05</start>", actualDocument);
 
         assertTrue("LinkRewrite transformation didn't work as expected " + diff,
+                diff.identical());
+    }
+
+    @Test
+    public void doesCacheSameOutput() throws Exception {
+
+        String SOURCE_XML =
+                "<resultset><result>cacheMe</result></resultset>";
+
+        String SHOULD_NEVER_APPEAR = "<resultset><result /></resultset>";
+
+        String EXPECTED_RESULT_XML =
+                "<resultset><result>cacheMe</result></resultset>";
+
+        final CacheKey simpleCachekey = new SimpleCacheKey();
+        final Cache simpleCache = new SimpleCache();
+
+        underTest.setConfiguration(new HashMap<String, Object>() {
+            { put(ExtractElementsTransformer.PARAM_CACHE_ID, "id1"); }
+        });
+
+        transformCachedThroughPipeline(SOURCE_XML, underTest, simpleCachekey, simpleCache);
+
+        final ByteArrayOutputStream baos = transformCachedThroughPipeline(SHOULD_NEVER_APPEAR, underTest, simpleCachekey, simpleCache);
+
+        final Diff diff = new Diff(EXPECTED_RESULT_XML, new String(baos.toByteArray()));
+        assertTrue("Transformation did not work like expected:" + diff + ":"+new String(baos.toByteArray()),
                 diff.identical());
     }
 

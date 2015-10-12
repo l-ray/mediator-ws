@@ -57,12 +57,6 @@ public class SourceInfoGenerator extends StringTemplateGenerator {
         LOG.trace("OUT SourceInfo-SETConfiguration with patternId ");
     }
 
-    public void setSource(URL source) {
-        LOG.trace("in SETSOURCE");
-        super.setSource(source);
-        LOG.trace("out SETSOURCE");
-    }
-
     /**
      * {@inheritDoc}
      *

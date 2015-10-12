@@ -76,10 +76,6 @@ public class PatternCodeGenerator extends StringTemplateGenerator {
 
     }
 
-    public void setSource(URL source) {
-        super.setSource(source);
-    }
-
     /**
      * {@inheritDoc}
      *

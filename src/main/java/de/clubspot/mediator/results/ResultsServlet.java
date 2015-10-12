@@ -1,5 +1,6 @@
 package de.clubspot.mediator.results;
 
+import de.clubspot.mediator.processing.caching.PipelineCacheListener;
 import de.clubspot.mediator.processing.generation.PatternCodeGenerator;
 import de.clubspot.mediator.processing.generation.SourceInfoGenerator;
 import de.clubspot.mediator.processing.transformation.AddConnectionIdToElementsTransformer;
@@ -8,9 +9,11 @@ import de.clubspot.mediator.processing.transformation.RegexRewriteTransformer;
 import de.clubspot.mediator.processing.transformation.RegionalFormatsRewriteTransformer;
 import org.apache.cocoon.optional.pipeline.components.sax.json.JsonSerializer;
 import org.apache.cocoon.pipeline.CachingPipeline;
-import org.apache.cocoon.pipeline.caching.SimpleCache;
+import org.apache.cocoon.pipeline.caching.Cache;
 import org.apache.cocoon.sax.AbstractSAXProducer;
 import org.apache.cocoon.sax.SAXPipelineComponent;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -18,10 +21,14 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.sql.Connection;
 import java.util.HashMap;
 
 @WebServlet(value = "/api/results/*", name = "ResultsServlet")
 public class ResultsServlet extends HttpServlet {
+
+    private static final Logger LOG =
+            LoggerFactory.getLogger(ResultsServlet.class.getName());
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
@@ -29,7 +36,10 @@ public class ResultsServlet extends HttpServlet {
         final String patternId = parameter[1];
         final String startDate = parameter[2];
 
-        System.out.println(patternId + " - " + startDate);
+        final Connection dbConnection = (Connection) getServletContext().getAttribute("DBConnection");
+        final Cache cache = (Cache) getServletContext().getAttribute(PipelineCacheListener.PIPELINE_CACHE_ATTRIBUTE);
+
+        LOG.debug(patternId + " - " + startDate);
 
         try {
 
@@ -49,7 +59,7 @@ public class ResultsServlet extends HttpServlet {
                 }});
 
                 CachingPipeline<SAXPipelineComponent> pipeline = new CachingPipeline<>();
-                pipeline.setCache(new SimpleCache());
+                pipeline.setCache(cache);
 
                 pipeline.addComponent(generator);
                 pipeline.addComponent(new RegionalFormatsRewriteTransformer());
@@ -88,7 +98,7 @@ public class ResultsServlet extends HttpServlet {
 
                 pipeline.setup(response.getOutputStream(), new HashMap<String, Object>() {
                     {
-                        put(SourceInfoGenerator.DB_CONNECTION, getServletContext().getAttribute("DBConnection"));
+                        put(SourceInfoGenerator.DB_CONNECTION, dbConnection);
                     }
                 });
 

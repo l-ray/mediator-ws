@@ -1,7 +1,5 @@
-package de.clubspot.mediator.processing;
+package de.clubspot.mediator.templates;
 
-import de.clubspot.mediator.templates.SourceTemplate;
-import de.clubspot.mediator.templates.WebHarvestTemplate;
 import org.custommonkey.xmlunit.Diff;
 import org.junit.Before;
 import org.junit.Test;
