@@ -5,16 +5,22 @@ import org.apache.cocoon.pipeline.NonCachingPipeline;
 import org.apache.cocoon.pipeline.Pipeline;
 import org.apache.cocoon.pipeline.caching.Cache;
 import org.apache.cocoon.pipeline.caching.CacheKey;
+import org.apache.cocoon.pipeline.caching.SimpleCache;
+import org.apache.cocoon.pipeline.caching.SimpleCacheKey;
 import org.apache.cocoon.sax.SAXPipelineComponent;
 import org.apache.cocoon.sax.component.XMLGenerator;
 import org.apache.cocoon.sax.component.XMLSerializer;
+import org.custommonkey.xmlunit.Diff;
 import org.custommonkey.xmlunit.XMLUnit;
 import org.junit.BeforeClass;
 
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.SAXParserFactory;
 import java.io.ByteArrayOutputStream;
+import java.util.HashMap;
 import java.util.Map;
+
+import static junit.framework.Assert.assertTrue;
 
 /**
  * Created by lray on 26.01.15.
@@ -76,5 +82,57 @@ public abstract class AbstractTransformerTest {
         pipeline.setup(baos,pipelineSetup);
         pipeline.execute();
         return baos;
+    }
+
+    protected void doesCacheSameOutputInternal(final SAXPipelineComponent underTest, final String cacheIdParameter) throws Exception {
+        String SOURCE_XML =
+                "<resultset><result>cacheMe</result></resultset>";
+
+        String SHOULD_NEVER_APPEAR = "<resultset><result /></resultset>";
+
+        String EXPECTED_RESULT_XML =
+                "<resultset><result>cacheMe</result></resultset>";
+
+        final CacheKey simpleCachekey = new SimpleCacheKey();
+        final Cache simpleCache = new SimpleCache();
+
+        underTest.setConfiguration(new HashMap<String, Object>() {
+            { put(cacheIdParameter, "id1"); }
+        });
+
+        transformCachedThroughPipeline(SOURCE_XML, underTest, simpleCachekey, simpleCache);
+
+        final ByteArrayOutputStream baos = transformCachedThroughPipeline(SHOULD_NEVER_APPEAR, underTest, simpleCachekey, simpleCache);
+
+        final Diff diff = new Diff(EXPECTED_RESULT_XML, new String(baos.toByteArray()));
+        assertTrue("Transformation did not work like expected:" + diff + ":"+new String(baos.toByteArray()),
+                diff.identical());
+    }
+
+    protected void doesNotCacheDifferentOutputInternal(final SAXPipelineComponent underTest, final String cacheIdParameter) throws Exception {
+
+        String SOURCE_XML =
+                "<resultset><result>cacheOn</result></resultset>";
+
+        String SHOULD_APPEAR = "<resultset><result>cacheOff</result></resultset>";
+
+        final CacheKey simpleCachekey = new SimpleCacheKey();
+        final Cache simpleCache = new SimpleCache();
+
+        underTest.setConfiguration(new HashMap<String, Object>() {
+            { put(cacheIdParameter, "id1");}
+        });
+
+        transformCachedThroughPipeline(SOURCE_XML, underTest, simpleCachekey, simpleCache);
+
+        underTest.setConfiguration(new HashMap<String, Object>() {
+            { put(cacheIdParameter, "id2");}
+        });
+
+        final ByteArrayOutputStream baos = transformCachedThroughPipeline(SHOULD_APPEAR, underTest, simpleCachekey, simpleCache);
+
+        final Diff diff = new Diff(SHOULD_APPEAR, new String(baos.toByteArray()));
+        assertTrue("Transformation did not work like expected:" + diff + ":"+new String(baos.toByteArray()),
+                diff.identical());
     }
 }

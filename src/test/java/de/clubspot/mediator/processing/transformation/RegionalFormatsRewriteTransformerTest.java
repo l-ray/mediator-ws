@@ -98,29 +98,12 @@ public class RegionalFormatsRewriteTransformerTest extends AbstractTransformerTe
 
     @Test
     public void doesCacheSameOutput() throws Exception {
+        doesCacheSameOutputInternal(underTest, RegionalFormatsRewriteTransformer.PARAM_CACHE_ID);
+    }
 
-        String SOURCE_XML =
-                "<resultset><result>cacheMe</result></resultset>";
-
-        String SHOULD_NEVER_APPEAR = "<resultset><result /></resultset>";
-
-        String EXPECTED_RESULT_XML =
-                "<resultset><result>cacheMe</result></resultset>";
-
-        final CacheKey simpleCachekey = new SimpleCacheKey();
-        final Cache simpleCache = new SimpleCache();
-
-        underTest.setConfiguration(new HashMap<String, Object>() {
-            { put(ExtractElementsTransformer.PARAM_CACHE_ID, "id1"); }
-        });
-
-        transformCachedThroughPipeline(SOURCE_XML, underTest, simpleCachekey, simpleCache);
-
-        final ByteArrayOutputStream baos = transformCachedThroughPipeline(SHOULD_NEVER_APPEAR, underTest, simpleCachekey, simpleCache);
-
-        final Diff diff = new Diff(EXPECTED_RESULT_XML, new String(baos.toByteArray()));
-        assertTrue("Transformation did not work like expected:" + diff + ":"+new String(baos.toByteArray()),
-                diff.identical());
+    @Test
+    public void doesNotCacheDifferentOutput() throws Exception {
+        doesNotCacheDifferentOutputInternal(underTest, RegionalFormatsRewriteTransformer.PARAM_CACHE_ID);
     }
 
     @After
