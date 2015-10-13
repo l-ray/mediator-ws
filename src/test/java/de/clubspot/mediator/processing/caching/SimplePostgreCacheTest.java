@@ -20,9 +20,6 @@ import java.sql.SQLException;
 import static org.mockito.Mockito.*;
 import static org.mockito.Mockito.when;
 
-/**
- * Created by lray on 11.10.15.
- */
 @RunWith(MockitoJUnitRunner.class)
 public class SimplePostgreCacheTest {
 
@@ -52,13 +49,6 @@ public class SimplePostgreCacheTest {
 
         PreparedStatement statement = mockPreparedStatement(testContent);
 
-        /*PreparedStatement statement = mock(PreparedStatement.class);
-        ResultSet resultSet = mock(ResultSet.class);
-
-        when(statement.executeQuery()).thenReturn(resultSet);
-        when(_mockedDb.prepareStatement(anyString())).thenReturn(statement);
-        when(resultSet.getBytes(anyString())).thenReturn(testContent.getBytes());*/
-
         CacheKey key = new SimpleCacheKey();
         CacheValue value = new CompleteCacheValue(testContent.getBytes(),key);
 
@@ -72,6 +62,17 @@ public class SimplePostgreCacheTest {
     }
 
     @Test
+    public void testRetrieveForEmpty() throws Exception {
+        String testContent = "test§*äüö !\"";
+
+        mockPreparedStatement(testContent,0);
+
+        CacheKey key = new SimpleCacheKey();
+
+        Assert.assertNull(_underTest.retrieve(key));
+    }
+
+    @Test
     public void testStoreForInsert() throws Exception {
 
         String testContent = "test§*äüö !\"";
@@ -79,14 +80,6 @@ public class SimplePostgreCacheTest {
         final boolean asUpdate = false;
 
         PreparedStatement statement = mockPreparedStatement(testContent, asUpdate);
-
-        /* PreparedStatement statement = mock(PreparedStatement.class);
-        ResultSet resultSet = mock(ResultSet.class);
-        when(resultSet.getInt(anyString())).thenReturn(0);
-
-        when(statement.executeQuery()).thenReturn(resultSet);
-        when(_mockedDb.prepareStatement(anyString())).thenReturn(statement);
-        when(resultSet.getBytes(anyString())).thenReturn(testContent.getBytes());*/
 
         CacheKey key = new SimpleCacheKey();
         CacheValue value = new CompleteCacheValue(testContent.getBytes(),key);
@@ -112,14 +105,6 @@ public class SimplePostgreCacheTest {
         String testContent = "test§*äüö !\"";
 
         PreparedStatement statement = mockPreparedStatement(testContent);
-
-        /*PreparedStatement statement = mock(PreparedStatement.class);
-        ResultSet resultSet = mock(ResultSet.class);
-        when(resultSet.getInt(anyString())).thenReturn(1);
-
-        when(statement.executeQuery()).thenReturn(resultSet);
-        when(_mockedDb.prepareStatement(anyString())).thenReturn(statement);
-        when(resultSet.getBytes(anyString())).thenReturn(testContent.getBytes());*/
 
         CacheKey key = new SimpleCacheKey();
         CacheValue value = new CompleteCacheValue(testContent.getBytes(),key);
@@ -222,18 +207,36 @@ public class SimplePostgreCacheTest {
     }
 
     private PreparedStatement mockPreparedStatement(String mockedResultsetString) throws SQLException  {
-        return mockPreparedStatement(mockedResultsetString, true);
+        return mockPreparedStatement(mockedResultsetString, 1, true);
     }
 
-    private PreparedStatement mockPreparedStatement(String mockedResultsetString, boolean asInsert) throws SQLException {
+    private PreparedStatement mockPreparedStatement(String mockedResultsetString, int resultCount) throws SQLException  {
+        return mockPreparedStatement(mockedResultsetString, resultCount, true);
+    }
+
+    private PreparedStatement mockPreparedStatement(String mockedResultsetString, boolean asUpdate) throws SQLException  {
+        return mockPreparedStatement(mockedResultsetString, 1, asUpdate);
+    }
+
+    private PreparedStatement mockPreparedStatement(String mockedResultsetString, int resultCount, boolean asInsert) throws SQLException {
         PreparedStatement statement = mock(PreparedStatement.class);
+
         ResultSet resultSet = mock(ResultSet.class);
+
+        if (resultCount == 0 ) {
+            when(resultSet.next()).thenReturn(false);
+        }
+
+        if (resultCount == 1 ) {
+            when(resultSet.next()).thenReturn(true).thenReturn(false);
+        }
+
         when(resultSet.getInt(anyString())).thenReturn(asInsert ? 1 : 0 );
+        when(resultSet.getBytes(anyString())).thenReturn(mockedResultsetString.getBytes());
 
         when(statement.executeQuery()).thenReturn(resultSet);
         when(_mockedDb.prepareStatement(anyString())).thenReturn(statement);
 
-        when(resultSet.getBytes(anyString())).thenReturn(mockedResultsetString.getBytes());
 
         return statement;
     }

@@ -163,20 +163,21 @@ public class SimplePostgreCache extends AbstractCache {
 
     private CacheValue retrieveFromDatabase(CacheKey key) {
 
-        CacheValue value;
+        CacheValue value = null;
 
         try {
 
             PreparedStatement ps = prepareStatement(SELECT_VALUE_FROM_CACHE_WHERE_HASH_CODE);
-
             ps.setInt(1, key.hashCode());
-            ResultSet rs = ps.executeQuery();
-            rs.next();
 
-            value = new CompleteCacheValue(
-                    rs.getBytes("value"),
-                    key
-            );
+            ResultSet rs = ps.executeQuery();
+
+            if (rs.next()) {
+                value = new CompleteCacheValue(
+                        rs.getBytes("value"),
+                        key
+                );
+            }
 
             ps.close();
 
