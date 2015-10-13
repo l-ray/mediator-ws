@@ -1,5 +1,6 @@
 package de.clubspot.mediator.results;
 
+import de.clubspot.database.DatabaseConnectionListener;
 import de.clubspot.mediator.processing.caching.PipelineCacheListener;
 import de.clubspot.mediator.processing.generation.PatternCodeGenerator;
 import de.clubspot.mediator.processing.generation.SourceInfoGenerator;
@@ -36,7 +37,7 @@ public class ResultsServlet extends HttpServlet {
         final String patternId = parameter[1];
         final String startDate = parameter[2];
 
-        final Connection dbConnection = (Connection) getServletContext().getAttribute("DBConnection");
+        final Connection dbConnection = (Connection) getServletContext().getAttribute(DatabaseConnectionListener.DB_CONNECTION_ATTRIBUTE);
         final Cache cache = (Cache) getServletContext().getAttribute(PipelineCacheListener.PIPELINE_CACHE_ATTRIBUTE);
 
         LOG.debug(patternId + " - " + startDate);
@@ -44,58 +45,19 @@ public class ResultsServlet extends HttpServlet {
         try {
 
             try {
-                AbstractSAXProducer generator = new PatternCodeGenerator();
-                generator.setConfiguration(new HashMap<String, Object>() {{
-                    put(PatternCodeGenerator.PARAM_PATTERN_ID, patternId);
-                    put(PatternCodeGenerator.PARAM_START_DATE, startDate);
-                    put(PatternCodeGenerator.PARAM_END_DATE, "2015-01-30");
-                }});
 
-                JsonSerializer serializer = new JsonSerializer();
-                serializer.setConfiguration(new HashMap<String, Object>() {{
-                    put(JsonSerializer.DROP_ROOT_ELEMENT, "true");
-                    put(JsonSerializer.PATTERN_ID_ELEMENT, patternId);
-                    put(JsonSerializer.START_DATE_ELEMENT, startDate);
-                }});
+                JsonSerializer serializer = instantiateSerializer(patternId, startDate);
 
                 CachingPipeline<SAXPipelineComponent> pipeline = new CachingPipeline<>();
+
                 pipeline.setCache(cache);
 
-                pipeline.addComponent(generator);
-                pipeline.addComponent(new RegionalFormatsRewriteTransformer());
-
-                SAXPipelineComponent regexRewrite = new RegexRewriteTransformer();
-                regexRewrite.setConfiguration(new HashMap<String, Object>() {{
-                    put(RegexRewriteTransformer.PARAM_ELEMENT_LIST, "pictures");
-                }});
-
-                pipeline.addComponent(regexRewrite);
-
-                SAXPipelineComponent connectionId = new AddConnectionIdToElementsTransformer();
-                connectionId.setConfiguration(new HashMap<String, Object>() {{
-                    put(AddConnectionIdToElementsTransformer.PARAM_ELEMENT_LOCAL_NAME, "results");
-                    put(AddConnectionIdToElementsTransformer.PARAM_ID_ELEMENT_LOCAL_NAME, "connection");
-                    put(AddConnectionIdToElementsTransformer.PARAM_ID, patternId + "-" + startDate);
-                }});
-
-                pipeline.addComponent(connectionId);
-
-                SAXPipelineComponent extractElement = new ExtractElementsTransformer();
-                extractElement.setConfiguration(new HashMap<String, Object>() {{
-                    put(ExtractElementsTransformer.PARAM_ELEMENT_TO_BE_EXTRACTED, "pictures");
-                    put(ExtractElementsTransformer.PARAM_NEW_EXTRACTED_ELEMENT_NAME, "pictures");
-                    put(ExtractElementsTransformer.PARAM_TARGET_PARENT, "resultset");
-                    put(ExtractElementsTransformer.PARAM_ELEMENT_PARENT, "results");
-                    put(ExtractElementsTransformer.PARAM_ELEMENT_PARENT_ID, "id");
-                    put(ExtractElementsTransformer.PARAM_EXTRACTED_ELEMENT_ID, "id");
-                    put(ExtractElementsTransformer.PARAM_EXTRACTED_ELEMENT_ID_PREFIX, patternId + "-" + startDate + "-");
-                    put(ExtractElementsTransformer.PARAM_ELEMENT_PARENT_ID_PREFIX, patternId + "-" + startDate + "-");
-                    put(ExtractElementsTransformer.PARAM_FORCE_NEW_PARENT_ID, Boolean.TRUE);
-                }});
-                pipeline.addComponent(extractElement);
-
+                pipeline.addComponent(instantiateGenerator(patternId, startDate));
+                pipeline.addComponent(instantiateRegionalFormatsRewrite(patternId, startDate));
+                pipeline.addComponent(instantiateRegexRewriteTransformer(patternId, startDate));
+                pipeline.addComponent(instantiateConnectionIdToElementTransformer(patternId, startDate));
+                pipeline.addComponent(instantiateExtractElementTransformer(patternId, startDate));
                 pipeline.addComponent(serializer);
-
                 pipeline.setup(response.getOutputStream(), new HashMap<String, Object>() {
                     {
                         put(SourceInfoGenerator.DB_CONNECTION, dbConnection);
@@ -112,5 +74,68 @@ public class ResultsServlet extends HttpServlet {
             e.printStackTrace();
         }
 
+    }
+
+    private SAXPipelineComponent instantiateExtractElementTransformer(final String patternId, final String startDate) {
+        SAXPipelineComponent extractElement = new ExtractElementsTransformer();
+        extractElement.setConfiguration(new HashMap<String, Object>() {{
+            put(ExtractElementsTransformer.PARAM_ELEMENT_TO_BE_EXTRACTED, "pictures");
+            put(ExtractElementsTransformer.PARAM_NEW_EXTRACTED_ELEMENT_NAME, "pictures");
+            put(ExtractElementsTransformer.PARAM_TARGET_PARENT, "resultset");
+            put(ExtractElementsTransformer.PARAM_ELEMENT_PARENT, "results");
+            put(ExtractElementsTransformer.PARAM_ELEMENT_PARENT_ID, "id");
+            put(ExtractElementsTransformer.PARAM_EXTRACTED_ELEMENT_ID, "id");
+            put(ExtractElementsTransformer.PARAM_EXTRACTED_ELEMENT_ID_PREFIX, patternId + "-" + startDate + "-");
+            put(ExtractElementsTransformer.PARAM_ELEMENT_PARENT_ID_PREFIX, patternId + "-" + startDate + "-");
+            put(ExtractElementsTransformer.PARAM_FORCE_NEW_PARENT_ID, Boolean.TRUE);
+        }});
+        return extractElement;
+    }
+
+    private SAXPipelineComponent instantiateConnectionIdToElementTransformer(final String patternId, final String startDate) {
+        SAXPipelineComponent connectionId = new AddConnectionIdToElementsTransformer();
+        connectionId.setConfiguration(new HashMap<String, Object>() {{
+            put(AddConnectionIdToElementsTransformer.PARAM_ELEMENT_LOCAL_NAME, "results");
+            put(AddConnectionIdToElementsTransformer.PARAM_ID_ELEMENT_LOCAL_NAME, "connection");
+            put(AddConnectionIdToElementsTransformer.PARAM_ID, patternId + "-" + startDate);
+        }});
+        return connectionId;
+    }
+
+    private SAXPipelineComponent instantiateRegexRewriteTransformer(final String patternId, final String startDate) {
+        SAXPipelineComponent regexRewrite = new RegexRewriteTransformer();
+        regexRewrite.setConfiguration(new HashMap<String, Object>() {{
+            put(RegexRewriteTransformer.PARAM_ELEMENT_LIST, "pictures");
+            put(RegexRewriteTransformer.PARAM_CACHE_ID, patternId + "-" + startDate);
+        }});
+        return regexRewrite;
+    }
+
+    private SAXPipelineComponent instantiateRegionalFormatsRewrite(final String patternId, final String startDate) {
+        SAXPipelineComponent regionalFormatsRewrite = new RegionalFormatsRewriteTransformer();
+        regionalFormatsRewrite.setConfiguration(new HashMap<String, Object>() {{
+            put(RegexRewriteTransformer.PARAM_CACHE_ID, patternId + "-" + startDate);
+        }});
+        return regionalFormatsRewrite;
+    }
+
+    private JsonSerializer instantiateSerializer(final String patternId, final String startDate) {
+        JsonSerializer serializer = new JsonSerializer();
+        serializer.setConfiguration(new HashMap<String, Object>() {{
+            put(JsonSerializer.DROP_ROOT_ELEMENT, "true");
+            put(JsonSerializer.PATTERN_ID_ELEMENT, patternId);
+            put(JsonSerializer.START_DATE_ELEMENT, startDate);
+        }});
+        return serializer;
+    }
+
+    private AbstractSAXProducer instantiateGenerator(final String patternId, final String startDate) {
+        AbstractSAXProducer generator = new PatternCodeGenerator();
+        generator.setConfiguration(new HashMap<String, Object>() {{
+            put(PatternCodeGenerator.PARAM_PATTERN_ID, patternId);
+            put(PatternCodeGenerator.PARAM_START_DATE, startDate);
+            put(PatternCodeGenerator.PARAM_END_DATE, "2015-01-30");
+        }});
+        return generator;
     }
 }
