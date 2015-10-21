@@ -273,7 +273,7 @@ INSERT INTO pattern (id, type, name, url, starturl, icon, pattern, subpattern, d
                         <![CDATA[</price>]]>
                         <![CDATA[<pictures>]]>
                         <empty><var-def name="picture"><xpath expression="data(//*[@id=''event-item'']//div[@class=''flyer'']/a/img/@src)"><var name="siteSnippet" /></xpath></var-def></empty>
-                        <template>${baseUrl}${picture}</template>
+                        <template>${picture}</template>
                         <![CDATA[</pictures>]]>
                         <![CDATA[<description>]]>
                           <regexp replace="1">

@@ -46,17 +46,17 @@ public class ResultsServlet extends HttpServlet {
 
             try {
 
-                JsonSerializer serializer = instantiateSerializer(patternId, startDate);
+                JsonSerializer serializer = doSerializer(patternId, startDate);
 
                 CachingPipeline<SAXPipelineComponent> pipeline = new CachingPipeline<>();
 
                 pipeline.setCache(cache);
 
-                pipeline.addComponent(instantiateGenerator(patternId, startDate));
-                pipeline.addComponent(instantiateRegionalFormatsRewrite(patternId, startDate));
-                pipeline.addComponent(instantiateRegexRewriteTransformer(patternId, startDate));
-                pipeline.addComponent(instantiateConnectionIdToElementTransformer(patternId, startDate));
-                pipeline.addComponent(instantiateExtractElementTransformer(patternId, startDate));
+                pipeline.addComponent(doGenerator(patternId, startDate));
+                pipeline.addComponent(doRegionalFormatsAdjustment(patternId, startDate));
+                pipeline.addComponent(doRemoveNewLineFromElementContent(patternId, startDate));
+                pipeline.addComponent(doConvertConnectionIdToElement(patternId, startDate));
+                pipeline.addComponent(doExtractPicturesFromResultToBaseLevel(patternId, startDate));
                 pipeline.addComponent(serializer);
                 pipeline.setup(response.getOutputStream(), new HashMap<String, Object>() {
                     {
@@ -76,7 +76,7 @@ public class ResultsServlet extends HttpServlet {
 
     }
 
-    private SAXPipelineComponent instantiateExtractElementTransformer(final String patternId, final String startDate) {
+    private SAXPipelineComponent doExtractPicturesFromResultToBaseLevel(final String patternId, final String startDate) {
         SAXPipelineComponent extractElement = new ExtractElementsTransformer();
         extractElement.setConfiguration(new HashMap<String, Object>() {{
             put(ExtractElementsTransformer.PARAM_ELEMENT_TO_BE_EXTRACTED, "pictures");
@@ -92,7 +92,7 @@ public class ResultsServlet extends HttpServlet {
         return extractElement;
     }
 
-    private SAXPipelineComponent instantiateConnectionIdToElementTransformer(final String patternId, final String startDate) {
+    private SAXPipelineComponent doConvertConnectionIdToElement(final String patternId, final String startDate) {
         SAXPipelineComponent connectionId = new AddConnectionIdToElementsTransformer();
         connectionId.setConfiguration(new HashMap<String, Object>() {{
             put(AddConnectionIdToElementsTransformer.PARAM_ELEMENT_LOCAL_NAME, "results");
@@ -102,7 +102,7 @@ public class ResultsServlet extends HttpServlet {
         return connectionId;
     }
 
-    private SAXPipelineComponent instantiateRegexRewriteTransformer(final String patternId, final String startDate) {
+    private SAXPipelineComponent doRemoveNewLineFromElementContent(final String patternId, final String startDate) {
         SAXPipelineComponent regexRewrite = new RegexRewriteTransformer();
         regexRewrite.setConfiguration(new HashMap<String, Object>() {{
             put(RegexRewriteTransformer.PARAM_ELEMENT_LIST, "pictures");
@@ -111,7 +111,7 @@ public class ResultsServlet extends HttpServlet {
         return regexRewrite;
     }
 
-    private SAXPipelineComponent instantiateRegionalFormatsRewrite(final String patternId, final String startDate) {
+    private SAXPipelineComponent doRegionalFormatsAdjustment(final String patternId, final String startDate) {
         SAXPipelineComponent regionalFormatsRewrite = new RegionalFormatsRewriteTransformer();
         regionalFormatsRewrite.setConfiguration(new HashMap<String, Object>() {{
             put(RegexRewriteTransformer.PARAM_CACHE_ID, patternId + "-" + startDate);
@@ -119,7 +119,7 @@ public class ResultsServlet extends HttpServlet {
         return regionalFormatsRewrite;
     }
 
-    private JsonSerializer instantiateSerializer(final String patternId, final String startDate) {
+    private JsonSerializer doSerializer(final String patternId, final String startDate) {
         JsonSerializer serializer = new JsonSerializer();
         serializer.setConfiguration(new HashMap<String, Object>() {{
             put(JsonSerializer.DROP_ROOT_ELEMENT, "true");
@@ -129,7 +129,7 @@ public class ResultsServlet extends HttpServlet {
         return serializer;
     }
 
-    private AbstractSAXProducer instantiateGenerator(final String patternId, final String startDate) {
+    private AbstractSAXProducer doGenerator(final String patternId, final String startDate) {
         AbstractSAXProducer generator = new PatternCodeGenerator();
         generator.setConfiguration(new HashMap<String, Object>() {{
             put(PatternCodeGenerator.PARAM_PATTERN_ID, patternId);

@@ -4,15 +4,13 @@ import org.apache.cocoon.pipeline.ProcessingException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
 
 public class WebHarvestTemplate implements SourceTemplate {
 
-    private static final Logger LOG =
+	private static final Logger LOG =
             LoggerFactory.getLogger(WebHarvestTemplate.class.getName());
+	public static final String SELECT_PATTERN_BY_ID = "SELECT name, id, url, starturl, pattern, subpattern, icon, dateformat, countrycode FROM pattern AS n WHERE n.id= ?";
 
 
 	String sUrl;
@@ -119,22 +117,18 @@ public class WebHarvestTemplate implements SourceTemplate {
 
 		Connection instance = this.connection;
 
-		Statement stmt;
+		PreparedStatement stmt;
 
 		String sQuery = null;
 
 		try {
 
-			stmt = instance.createStatement();
-
-			sQuery = "SELECT name, id, url, starturl, pattern, subpattern, icon, dateformat, countrycode"
-					+ " FROM pattern AS n"
-					+ " WHERE n.id="
-					+ this.getId();
+			stmt = instance.prepareStatement(SELECT_PATTERN_BY_ID);
+			stmt.setString(1, this.getId());
 
 			//LOG.trace(sQuery);
 			
-			ResultSet rs = stmt.executeQuery(sQuery);
+			ResultSet rs = stmt.executeQuery();
 
 			rs.next();
 
@@ -154,7 +148,7 @@ public class WebHarvestTemplate implements SourceTemplate {
 			stmt.close();
 
 		} catch (SQLException e) {
-			LOG.trace(sQuery);
+			LOG.trace(SELECT_PATTERN_BY_ID + " for id " + this.getId());
 			throw new ProcessingException(e);
 		}
 
@@ -183,11 +177,11 @@ public class WebHarvestTemplate implements SourceTemplate {
 
     public String toXML(String parentNode) {
         StringBuilder message = new StringBuilder()
-                .append("<"+parentNode+">")
+                .append("<").append(parentNode).append(">")
                 .append("<id>").append(this.getId()).append("</id>")
                 .append("<name>").append(this.getName()).append("</name>")
                 .append("<icon>").append(this.getIcon()).append("</icon>")
-                .append("</"+parentNode+">");
+				.append("</").append(parentNode).append(">");
         return message.toString();
     }
 
