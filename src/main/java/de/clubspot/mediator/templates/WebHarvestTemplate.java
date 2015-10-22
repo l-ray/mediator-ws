@@ -10,7 +10,7 @@ public class WebHarvestTemplate implements SourceTemplate {
 
 	private static final Logger LOG =
             LoggerFactory.getLogger(WebHarvestTemplate.class.getName());
-	public static final String SELECT_PATTERN_BY_ID = "SELECT name, id, url, starturl, pattern, subpattern, icon, dateformat, countrycode FROM pattern AS n WHERE n.id= ?";
+	public static final String SELECT_PATTERN_BY_ID = "SELECT name, id, url, starturl, pattern, subpattern, icon, dateformat, countrycode FROM pattern AS n WHERE n.id=?";
 
 
 	String sUrl;
@@ -32,7 +32,7 @@ public class WebHarvestTemplate implements SourceTemplate {
 
 	public WebHarvestTemplate(String id, Connection connection) throws ProcessingException {
 		this(connection);
-		LOG.trace("ID:"+id);
+		LOG.trace("Loading source data from database for ID:{}",id);
 		this.setId(id);
 		this.loadFromDatabase();
 	}
@@ -119,20 +119,16 @@ public class WebHarvestTemplate implements SourceTemplate {
 
 		PreparedStatement stmt;
 
-		String sQuery = null;
-
 		try {
 
 			stmt = instance.prepareStatement(SELECT_PATTERN_BY_ID);
-			stmt.setString(1, this.getId());
+			stmt.setInt(1, Integer.parseInt(this.getId()));
 
 			//LOG.trace(sQuery);
 			
 			ResultSet rs = stmt.executeQuery();
 
 			rs.next();
-
-			//System.out.printf("%s, %s %n", rs.getString(1), rs.getString(2));
 
             this.setId(rs.getString("id"));
             this.setName(rs.getString("name"));
@@ -148,7 +144,7 @@ public class WebHarvestTemplate implements SourceTemplate {
 			stmt.close();
 
 		} catch (SQLException e) {
-			LOG.trace(SELECT_PATTERN_BY_ID + " for id " + this.getId());
+			LOG.error("{} on SQL: {} for id {}",e.getMessage(),SELECT_PATTERN_BY_ID,this.getId());
 			throw new ProcessingException(e);
 		}
 
@@ -160,11 +156,6 @@ public class WebHarvestTemplate implements SourceTemplate {
 		StringBuilder message = new StringBuilder()
             .append(this.getSubPattern() == null ? "":"\n"+this.getSubPattern())
             .append("\n<var-def name=\"result\">\n")
-			/*.append("\n<![CDATA[<source>")
-			.append("\n<link>").append(this.getUrl()).append("</link>")
-			.append("\n<name>").append(this.getName()).append("</name>")
-			.append("\n<icon>").append(this.getIcon()).append("</icon>")
-			.append("\n</source>]]>\n")*/
             .append(this.getPattern())
 			.append("\n</var-def>\n");
             LOG.trace(message.toString());
