@@ -25,11 +25,15 @@ public class DatabaseConnectionListener implements ServletContextListener {
 
         try {
             URI uri = new URI(System.getenv("DATABASE_URL"));
+            Boolean noSSL = Boolean.parseBoolean(System.getProperty("mediator.skip.ssl"));
 
             //initialize DB Connection
-            String dbURL = "jdbc:postgresql://" + uri.getHost() + ':' + uri.getPort() + uri.getPath() + "?ssl=true&sslfactory=org.postgresql.ssl.NonValidatingFactory";
+            String dbURL = "jdbc:postgresql://" + uri.getHost() + ':' + uri.getPort() + uri.getPath() + (noSSL?"":"?ssl=true&sslfactory=org.postgresql.ssl.NonValidatingFactory");
             String user = uri.getUserInfo().split(":")[0];
-            String pwd = uri.getUserInfo().split(":")[1];
+            String pwd = null;
+            if (uri.getUserInfo().split(":").length > 1) {
+                pwd = uri.getUserInfo().split(":")[1];
+            }
 
             LOG.trace("dburl:" + dbURL);
             LOG.trace("user:" + user);
