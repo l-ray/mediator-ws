@@ -23,6 +23,7 @@ public class SourceTemplateTest {
     public void doesSourceInfoAsXml() throws Exception {
 
         String dummyNameString = "pattern-name";
+        String dummyUrlString = "http://t.de";
         String dummyIconString = "http://t.de/favicon.ico";
         String dummyId = "01";
 
@@ -30,6 +31,7 @@ public class SourceTemplateTest {
                 "<source>" +
                 "<id>"+dummyId+"</id>" +
                 "<name>"+dummyNameString+"</name>" +
+                "<url>"+dummyUrlString+"</url>" +
                 "<icon>"+dummyIconString+"</icon>" +
                 "</source>";
 
@@ -37,6 +39,7 @@ public class SourceTemplateTest {
                 "<sources>" +
                 "<id>"+dummyId+"</id>" +
                 "<name>"+dummyNameString+"</name>" +
+                "<url>"+dummyUrlString+"</url>" +
                 "<icon>"+dummyIconString+"</icon>" +
                 "</sources>";
 
@@ -44,6 +47,8 @@ public class SourceTemplateTest {
         ((WebHarvestTemplate)_underTest).setIcon(dummyIconString);
 
         ((WebHarvestTemplate)_underTest).setName(dummyNameString);
+
+        ((WebHarvestTemplate)_underTest).setUrl(dummyUrlString);
 
         ((WebHarvestTemplate)_underTest).setId(dummyId);
 

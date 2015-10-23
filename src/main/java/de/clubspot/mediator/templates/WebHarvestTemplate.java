@@ -170,7 +170,8 @@ public class WebHarvestTemplate implements SourceTemplate {
         StringBuilder message = new StringBuilder()
                 .append("<").append(parentNode).append(">")
                 .append("<id>").append(this.getId()).append("</id>")
-                .append("<name>").append(this.getName()).append("</name>")
+				.append("<name>").append(this.getName()).append("</name>")
+				.append("<url>").append(this.getUrl()).append("</url>")
                 .append("<icon>").append(this.getIcon()).append("</icon>")
 				.append("</").append(parentNode).append(">");
         return message.toString();
