@@ -150,9 +150,11 @@ public class PatternCodeGenerator extends StringTemplateGenerator {
         LOG.trace("time elapsed: "
                 + (System.currentTimeMillis() - startTime));
 
-        return "<resultset>"
-                + (scraperContext.getVar("result")).toString()
-                + "</resultset>";
+        String scraperResult = (scraperContext.getVar("result")).toString();
+
+        LOG.trace(scraperResult);
+
+        return String.format("<resultset>%s</resultset>",scraperResult);
     }
 
     private String loadAndCompleteHarvestTemplate(Connection myConnection) throws ProcessingException {
