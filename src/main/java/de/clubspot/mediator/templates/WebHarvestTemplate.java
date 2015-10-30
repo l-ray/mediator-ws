@@ -4,15 +4,13 @@ import org.apache.cocoon.pipeline.ProcessingException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
 
 public class WebHarvestTemplate implements SourceTemplate {
 
-    private static final Logger LOG =
+	private static final Logger LOG =
             LoggerFactory.getLogger(WebHarvestTemplate.class.getName());
+	public static final String SELECT_PATTERN_BY_ID = "SELECT name, id, url, starturl, pattern, subpattern, icon, dateformat, countrycode FROM pattern AS n WHERE n.id=?";
 
 
 	String sUrl;
@@ -34,7 +32,7 @@ public class WebHarvestTemplate implements SourceTemplate {
 
 	public WebHarvestTemplate(String id, Connection connection) throws ProcessingException {
 		this(connection);
-		LOG.trace("ID:"+id);
+		LOG.trace("Loading source data from database for ID:{}",id);
 		this.setId(id);
 		this.loadFromDatabase();
 	}
@@ -119,26 +117,18 @@ public class WebHarvestTemplate implements SourceTemplate {
 
 		Connection instance = this.connection;
 
-		Statement stmt;
-
-		String sQuery = null;
+		PreparedStatement stmt;
 
 		try {
 
-			stmt = instance.createStatement();
-
-			sQuery = "SELECT name, id, url, starturl, pattern, subpattern, icon, dateformat, countrycode"
-					+ " FROM pattern AS n"
-					+ " WHERE n.id="
-					+ this.getId();
+			stmt = instance.prepareStatement(SELECT_PATTERN_BY_ID);
+			stmt.setInt(1, Integer.parseInt(this.getId()));
 
 			//LOG.trace(sQuery);
 			
-			ResultSet rs = stmt.executeQuery(sQuery);
+			ResultSet rs = stmt.executeQuery();
 
 			rs.next();
-
-			//System.out.printf("%s, %s %n", rs.getString(1), rs.getString(2));
 
             this.setId(rs.getString("id"));
             this.setName(rs.getString("name"));
@@ -154,7 +144,7 @@ public class WebHarvestTemplate implements SourceTemplate {
 			stmt.close();
 
 		} catch (SQLException e) {
-			LOG.trace(sQuery);
+			LOG.error("{} on SQL: {} for id {}",e.getMessage(),SELECT_PATTERN_BY_ID,this.getId());
 			throw new ProcessingException(e);
 		}
 
@@ -166,11 +156,6 @@ public class WebHarvestTemplate implements SourceTemplate {
 		StringBuilder message = new StringBuilder()
             .append(this.getSubPattern() == null ? "":"\n"+this.getSubPattern())
             .append("\n<var-def name=\"result\">\n")
-			/*.append("\n<![CDATA[<source>")
-			.append("\n<link>").append(this.getUrl()).append("</link>")
-			.append("\n<name>").append(this.getName()).append("</name>")
-			.append("\n<icon>").append(this.getIcon()).append("</icon>")
-			.append("\n</source>]]>\n")*/
             .append(this.getPattern())
 			.append("\n</var-def>\n");
             LOG.trace(message.toString());
@@ -183,11 +168,12 @@ public class WebHarvestTemplate implements SourceTemplate {
 
     public String toXML(String parentNode) {
         StringBuilder message = new StringBuilder()
-                .append("<"+parentNode+">")
+                .append("<").append(parentNode).append(">")
                 .append("<id>").append(this.getId()).append("</id>")
-                .append("<name>").append(this.getName()).append("</name>")
+				.append("<name>").append(this.getName()).append("</name>")
+				.append("<url>").append(this.getUrl()).append("</url>")
                 .append("<icon>").append(this.getIcon()).append("</icon>")
-                .append("</"+parentNode+">");
+				.append("</").append(parentNode).append(">");
         return message.toString();
     }
 

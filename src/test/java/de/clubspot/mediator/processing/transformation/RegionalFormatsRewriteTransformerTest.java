@@ -1,5 +1,9 @@
 package de.clubspot.mediator.processing.transformation;
 
+import org.apache.cocoon.pipeline.caching.Cache;
+import org.apache.cocoon.pipeline.caching.CacheKey;
+import org.apache.cocoon.pipeline.caching.SimpleCache;
+import org.apache.cocoon.pipeline.caching.SimpleCacheKey;
 import org.apache.cocoon.sax.SAXPipelineComponent;
 import org.custommonkey.xmlunit.Diff;
 import org.junit.After;
@@ -9,6 +13,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.io.ByteArrayOutputStream;
+import java.util.HashMap;
 
 import static junit.framework.Assert.assertTrue;
 
@@ -89,6 +94,16 @@ public class RegionalFormatsRewriteTransformerTest extends AbstractTransformerTe
 
         assertTrue("LinkRewrite transformation didn't work as expected " + diff,
                 diff.identical());
+    }
+
+    @Test
+    public void doesCacheSameOutput() throws Exception {
+        doesCacheSameOutputInternal(underTest, RegionalFormatsRewriteTransformer.PARAM_CACHE_ID);
+    }
+
+    @Test
+    public void doesNotCacheDifferentOutput() throws Exception {
+        doesNotCacheDifferentOutputInternal(underTest, RegionalFormatsRewriteTransformer.PARAM_CACHE_ID);
     }
 
     @After

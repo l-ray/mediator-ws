@@ -1,5 +1,9 @@
 package de.clubspot.mediator.processing.transformation;
 
+import org.apache.cocoon.pipeline.caching.CacheKey;
+import org.apache.cocoon.pipeline.caching.ExpiresCacheKey;
+import org.apache.cocoon.pipeline.caching.ParameterCacheKey;
+import org.apache.cocoon.pipeline.component.CachingPipelineComponent;
 import org.apache.cocoon.sax.AbstractSAXTransformer;
 import org.apache.cocoon.sax.SAXConsumer;
 import org.slf4j.Logger;
@@ -9,19 +13,18 @@ import org.xml.sax.SAXException;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.Calendar;
-import java.util.Date;
-import java.util.Locale;
-import java.util.Map;
+import java.util.*;
 
-public class RegionalFormatsRewriteTransformer extends AbstractSAXTransformer implements SAXConsumer{
+public class RegionalFormatsRewriteTransformer extends AbstractSAXTransformer implements SAXConsumer, CachingPipelineComponent{
 
     private static final Logger LOG =
             LoggerFactory.getLogger(RegionalFormatsRewriteTransformer.class.getName());
+
     public static final String DATE_OUTPUT_FORMAT = "yyyy-MM-dd";
     public static final String[] DEFAULT_INPUT_FORMAT = {"EEEE, dd.MMMM yyyy","EEEE, dd. MMMM","dd.MM.yy","EEEE, dd MMMM","EEEE, dd MMMM \n\nh:mm a"};
     public static final String PARAM_DATE_PATTERN = "date-pattern";
     public static final Locale[] SUPPORTED_LOCALES = {Locale.GERMAN, Locale.ENGLISH};
+    public static final String PARAM_CACHE_ID = "cache-id";
 
     //SimpleDateFormat inputFormat = null;
     SimpleDateFormat outputFormat = null;
@@ -30,6 +33,8 @@ public class RegionalFormatsRewriteTransformer extends AbstractSAXTransformer im
     private boolean inStartDate = false;
 
     public String startDateElement = "start";
+
+    private String cacheId;
 
      @Override
      public void setup(Map<String, Object> parameter) {
@@ -42,6 +47,10 @@ public class RegionalFormatsRewriteTransformer extends AbstractSAXTransformer im
             outputFormat = new SimpleDateFormat(
                     (String) configuration.get(PARAM_DATE_PATTERN)
             );
+        }
+
+        if (configuration.get(PARAM_CACHE_ID) != null) {
+            cacheId = (String) configuration.get(PARAM_CACHE_ID);
         }
     }
 
@@ -106,6 +115,19 @@ public class RegionalFormatsRewriteTransformer extends AbstractSAXTransformer im
         }
 
         return parsedDate != null ? outputFormat.format(parsedDate):unnormalizedDate;
+    }
+
+    @Override
+    public CacheKey constructCacheKey() {
+
+        return new ExpiresCacheKey(
+                new ParameterCacheKey(
+                        new HashMap<String, String>() {
+                            { put(PARAM_CACHE_ID,cacheId); }
+                        }
+                ),
+                "3600"
+        );
     }
 
 }

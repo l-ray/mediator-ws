@@ -267,59 +267,13 @@ public class ExtractElementsTransformerTest extends AbstractTransformerTest {
 
     @Test
     public void doesCacheSameOutput() throws Exception {
-
-        String SOURCE_XML =
-                "<resultset><result>cacheMe</result></resultset>";
-
-        String SHOULD_NEVER_APPEAR = "<resultset><result /></resultset>";
-
-        String EXPECTED_RESULT_XML =
-                "<resultset><result>cacheMe</result></resultset>";
-
-        final CacheKey simpleCachekey = new SimpleCacheKey();
-        final Cache simpleCache = new SimpleCache();
-
-        underTest.setConfiguration(new HashMap<String, Object>() {
-            { put(ExtractElementsTransformer.PARAM_CACHE_ID, "id1"); }
-        });
-
-        transformCachedThroughPipeline(SOURCE_XML, underTest, simpleCachekey, simpleCache);
-
-        final ByteArrayOutputStream baos = transformCachedThroughPipeline(SHOULD_NEVER_APPEAR, underTest, simpleCachekey, simpleCache);
-
-        final Diff diff = new Diff(EXPECTED_RESULT_XML, new String(baos.toByteArray()));
-        assertTrue("Transformation did not work like expected:" + diff + ":"+new String(baos.toByteArray()),
-                diff.identical());
+        doesCacheSameOutputInternal(underTest, ExtractElementsTransformer.PARAM_CACHE_ID);
     }
 
     @Test
     public void doesNotCacheDifferentOutput() throws Exception {
-
-        String SOURCE_XML =
-                "<resultset><result>cacheOn</result></resultset>";
-
-        String SHOULD_APPEAR = "<resultset><result>cacheOff</result></resultset>";
-
-        final CacheKey simpleCachekey = new SimpleCacheKey();
-        final Cache simpleCache = new SimpleCache();
-
-        underTest.setConfiguration(new HashMap<String, Object>() {
-            { put(ExtractElementsTransformer.PARAM_CACHE_ID, "id1");}
-        });
-
-        transformCachedThroughPipeline(SOURCE_XML, underTest, simpleCachekey, simpleCache);
-
-        underTest.setConfiguration(new HashMap<String, Object>() {
-            { put(ExtractElementsTransformer.PARAM_CACHE_ID, "id2");}
-        });
-
-        final ByteArrayOutputStream baos = transformCachedThroughPipeline(SHOULD_APPEAR, underTest, simpleCachekey, simpleCache);
-
-        final Diff diff = new Diff(SHOULD_APPEAR, new String(baos.toByteArray()));
-        assertTrue("Transformation did not work like expected:" + diff + ":"+new String(baos.toByteArray()),
-                diff.identical());
+        doesNotCacheDifferentOutputInternal(underTest, ExtractElementsTransformer.PARAM_CACHE_ID);
     }
-
 
     @After
     public void tearDown() throws Exception {

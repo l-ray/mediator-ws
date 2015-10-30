@@ -25,7 +25,7 @@ public class SourceInfoGenerator extends StringTemplateGenerator {
     public static final int EXPIRING_TIME = 3600;
     public static final String DB_CONNECTION = "dbConnection";
 
-    private static final int[] SOURCE_IDS_TO_USE = new int[]{0,1,2,4,6,7};
+    private static final int[] SOURCE_IDS_TO_USE = new int[]{0,2,4,6,7};
 
     private Connection dbConnection;
 
@@ -57,12 +57,6 @@ public class SourceInfoGenerator extends StringTemplateGenerator {
         LOG.trace("OUT SourceInfo-SETConfiguration with patternId ");
     }
 
-    public void setSource(URL source) {
-        LOG.trace("in SETSOURCE");
-        super.setSource(source);
-        LOG.trace("out SETSOURCE");
-    }
-
     /**
      * {@inheritDoc}
      *
@@ -87,22 +81,23 @@ public class SourceInfoGenerator extends StringTemplateGenerator {
 
     @Override
     public void execute() {
-        LOG.trace("IN PATTERNCODE-EXECUTE with patternId"+patternId);
+        LOG.trace("IN PATTERNCODE-EXECUTE with patternId {}",patternId);
         Connection myConnection;
 
         try {
             myConnection = this.dbConnection;
 
             if (this.patternId != null) {
-                System.out.println("Collecting source Id "+this.patternId);
+                LOG.debug("Collecting source Id {}",this.patternId);
                 WebHarvestTemplate template = new WebHarvestTemplate(this.patternId, myConnection);
 
                 XMLUtils.createXMLReader(this.getSAXConsumer()).parse(convertToInputSource(template.toXML()));
             } else {
-                System.out.println("Generating sources overview");
-                StringBuffer result = new StringBuffer("<sources>");
+                LOG.debug("Generating sources overview");
+                StringBuilder result = new StringBuilder("<sources>");
 
                 for (int i=0; i<SOURCE_IDS_TO_USE.length; i++) {
+                    LOG.trace("Working on source {}",SOURCE_IDS_TO_USE[i]);
                     WebHarvestTemplate template = new WebHarvestTemplate(
                             Integer.toString(SOURCE_IDS_TO_USE[i]),
                             myConnection

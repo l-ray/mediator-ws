@@ -58,55 +58,12 @@ public class RegexRewriteTransformerTest extends AbstractTransformerTest {
     @Test
     public void doesNoteReplaceWhitespacesInArbitraryTextNodes()
             throws Exception {
-
-        underTest.setConfiguration(new HashMap<String, Object>() {
-            {
-                put(RegexRewriteTransformer.PARAM_REGEX, "\n");
-                put(RegexRewriteTransformer.PARAM_REPLACEMENT, "");
-                put(RegexRewriteTransformer.PARAM_ELEMENT_LIST, "easy");
-            }
-        });
-
-        final ByteArrayOutputStream baos = transformThroughPipeline(
-                "<test><untouched>keep\nthe\ngap</untouched><easy>xml\nis\neasy</easy></test>",
-                underTest
-        );
-        final String actualDocument = new String(baos.toByteArray(), "UTF-8");
-
-        final Diff diff = new Diff(
-                "<test><untouched>keep\nthe\ngap</untouched><easy>xmliseasy</easy></test>",
-                actualDocument
-        );
-
-        assertTrue("LinkRewrite transformation didn't work as expected " + diff,
-                diff.identical());
+        doesNotCacheDifferentOutputInternal(underTest, RegexRewriteTransformer.PARAM_CACHE_ID);
     }
 
     @Test
     public void doesCacheSameOutput() throws Exception {
-
-        String SOURCE_XML =
-                "<resultset><result>cacheMe</result></resultset>";
-
-        String SHOULD_NEVER_APPEAR = "<resultset><result /></resultset>";
-
-        String EXPECTED_RESULT_XML =
-                "<resultset><result>cacheMe</result></resultset>";
-
-        final CacheKey simpleCachekey = new SimpleCacheKey();
-        final Cache simpleCache = new SimpleCache();
-
-        underTest.setConfiguration(new HashMap<String, Object>() {
-            { put(ExtractElementsTransformer.PARAM_CACHE_ID, "id1"); }
-        });
-
-        transformCachedThroughPipeline(SOURCE_XML, underTest, simpleCachekey, simpleCache);
-
-        final ByteArrayOutputStream baos = transformCachedThroughPipeline(SHOULD_NEVER_APPEAR, underTest, simpleCachekey, simpleCache);
-
-        final Diff diff = new Diff(EXPECTED_RESULT_XML, new String(baos.toByteArray()));
-        assertTrue("Transformation did not work like expected:" + diff + ":"+new String(baos.toByteArray()),
-                diff.identical());
+        doesCacheSameOutputInternal(underTest, RegexRewriteTransformer.PARAM_CACHE_ID);
     }
 
     @After

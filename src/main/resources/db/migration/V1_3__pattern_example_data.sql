@@ -174,9 +174,15 @@ INSERT INTO pattern (id, type, name, url, starturl, icon, pattern, subpattern, d
                 </empty>
                 <template>
                         <![CDATA[<title>]]>
-                                <xpath expression="normalize-space(data(//*[@id=''main-content-inner'']/div/div[1]/section[1]/div/div/p[1]/a))">
-                                        <var name="siteSnippet"/>
-                                </xpath>
+                            <regexp replace="true" >
+                                <regexp-pattern>Who:(.*)</regexp-pattern>
+                                <regexp-source>
+                                               <xpath expression="normalize-space(data(//*[@id=''main-content-inner'']/div/div[1]/section[1]/div/div/p[1]))">
+                                                        <var name="siteSnippet"/>
+                                                </xpath>
+                                </regexp-source>
+                                <regexp-result><![CDATA[$1]]></regexp-result>
+                            </regexp>
                         <![CDATA[</title>]]>
                         <![CDATA[<location>]]>
                                 <xpath expression="normalize-space(data(//*[@id=''main-content-inner'']/div/div[1]/section[1]/div/div/p[3]/a[1]))">
@@ -185,12 +191,13 @@ INSERT INTO pattern (id, type, name, url, starturl, icon, pattern, subpattern, d
                         <![CDATA[</location>]]>
                         <![CDATA[<price>]]>
                           <regexp replace="true" >
-                            <regexp-pattern>^Tickets:(.*)</regexp-pattern>
+                            <regexp-pattern>^(How much|Tickets):(.*)</regexp-pattern>
                             <regexp-source><xpath expression="normalize-space(data(//*[@id=''main-content-inner'']/div/div[1]/section[1]/div/div/p[4]))">
                                 <var name="siteSnippet"/>
                             </xpath></regexp-source>
-                            <regexp-result><template>${_1}</template></regexp-result>
-                          </regexp>                        <![CDATA[</price>]]>
+                            <regexp-result><![CDATA[$2]]></regexp-result>
+                          </regexp>
+                        <![CDATA[</price>]]>
                         <![CDATA[<pictures>]]><xpath expression="normalize-space(data(//*[@id=''main-content-inner'']//section/div[@class=''inner-box'']/div/a[@rel=''prettyPhoto'']/img/@src))"><var name="siteSnippet" /></xpath><![CDATA[</pictures>]]>
                 </template>
         </return>
@@ -271,10 +278,16 @@ INSERT INTO pattern (id, type, name, url, starturl, icon, pattern, subpattern, d
                                         <var name="siteSnippet"/>
                                 </xpath>
                         <![CDATA[</price>]]>
-                        <![CDATA[<pictures>]]>
-                        <empty><var-def name="picture"><xpath expression="data(//*[@id=''event-item'']//div[@class=''flyer'']/a/img/@src)"><var name="siteSnippet" /></xpath></var-def></empty>
-                        <template>${baseUrl}${picture}</template>
-                        <![CDATA[</pictures>]]>
+                        <loop item="picture">
+                          <list>
+                            <xpath expression="data(//*[@id=''event-item'']//div[@class=''flyer'']/a/img/@src)"><var name="siteSnippet" /></xpath>
+                          </list>
+                          <body>
+                            <![CDATA[<pictures>]]>
+                              <template>${picture}</template>
+                            <![CDATA[</pictures>]]>
+                          </body>
+                        </loop>
                         <![CDATA[<description>]]>
                           <regexp replace="1">
                               <regexp-pattern>&amp; </regexp-pattern>
