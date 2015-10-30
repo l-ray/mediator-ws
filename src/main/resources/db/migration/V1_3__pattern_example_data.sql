@@ -174,16 +174,14 @@ INSERT INTO pattern (id, type, name, url, starturl, icon, pattern, subpattern, d
                 </empty>
                 <template>
                         <![CDATA[<title>]]>
-                            <regexp>
+                            <regexp replace="true" >
                                 <regexp-pattern>Who:(.*)</regexp-pattern>
                                 <regexp-source>
                                                <xpath expression="normalize-space(data(//*[@id=''main-content-inner'']/div/div[1]/section[1]/div/div/p[1]))">
                                                         <var name="siteSnippet"/>
                                                 </xpath>
                                 </regexp-source>
-                                <regexp-result>
-                                    <template>${_1}</template>
-                                </regexp-result>
+                                <regexp-result><![CDATA[$1]]></regexp-result>
                             </regexp>
                         <![CDATA[</title>]]>
                         <![CDATA[<location>]]>
@@ -197,8 +195,9 @@ INSERT INTO pattern (id, type, name, url, starturl, icon, pattern, subpattern, d
                             <regexp-source><xpath expression="normalize-space(data(//*[@id=''main-content-inner'']/div/div[1]/section[1]/div/div/p[4]))">
                                 <var name="siteSnippet"/>
                             </xpath></regexp-source>
-                            <regexp-result><template>${_2}</template></regexp-result>
-                          </regexp>                        <![CDATA[</price>]]>
+                            <regexp-result><![CDATA[$2]]></regexp-result>
+                          </regexp>
+                        <![CDATA[</price>]]>
                         <![CDATA[<pictures>]]><xpath expression="normalize-space(data(//*[@id=''main-content-inner'']//section/div[@class=''inner-box'']/div/a[@rel=''prettyPhoto'']/img/@src))"><var name="siteSnippet" /></xpath><![CDATA[</pictures>]]>
                 </template>
         </return>
