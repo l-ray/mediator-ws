@@ -165,14 +165,18 @@ public class PatternCodeGenerator extends StringTemplateGenerator {
 
         SimpleDateFormat df = getDateFormat(template);
 
-        System.out.println("Searching for date: "+df.format(this.startDate));
+        LOG.trace("Searching for date: " + df.format(this.startDate));
 
-        return "<config xmlns=\"http://web-harvest.sourceforge.net/schema/1.0/config\" charset=\"UTF-8\">"
+        String harvestPattern = "<config xmlns=\"http://web-harvest.sourceforge.net/schema/1.0/config\" charset=\"UTF-8\">"
                 + "\n<var-def name=\"baseUrl\"><![CDATA[" + urlWrapper.getUrl(template.getUrl()) + "]]></var-def>"
                 + "\n<var-def name=\"startUrl\"><![CDATA[" + urlWrapper.getUrl(template.getStartUrl()) + "]]></var-def>"
                 + "\n<var-def name=\"startDate\"><![CDATA[" + df.format(this.startDate) + "]]></var-def>"
                 + ((this.endDate != null) ? "\n<var-def name=\"endDate\"><![CDATA[" + df.format(this.endDate) + "]]></var-def>" : "")
                 + template.getCompiledPattern() + "\n</config>";
+
+        LOG.trace(harvestPattern);
+
+        return harvestPattern;
     }
 
     private SimpleDateFormat getDateFormat(WebHarvestTemplate template) {

@@ -174,9 +174,17 @@ INSERT INTO pattern (id, type, name, url, starturl, icon, pattern, subpattern, d
                 </empty>
                 <template>
                         <![CDATA[<title>]]>
-                                <xpath expression="normalize-space(data(//*[@id=''main-content-inner'']/div/div[1]/section[1]/div/div/p[1]/a))">
-                                        <var name="siteSnippet"/>
-                                </xpath>
+                            <regexp>
+                                <regexp-pattern>Who:(.*)</regexp-pattern>
+                                <regexp-source>
+                                               <xpath expression="normalize-space(data(//*[@id=''main-content-inner'']/div/div[1]/section[1]/div/div/p[1]))">
+                                                        <var name="siteSnippet"/>
+                                                </xpath>
+                                </regexp-source>
+                                <regexp-result>
+                                    <template>${_1}</template>
+                                </regexp-result>
+                            </regexp>
                         <![CDATA[</title>]]>
                         <![CDATA[<location>]]>
                                 <xpath expression="normalize-space(data(//*[@id=''main-content-inner'']/div/div[1]/section[1]/div/div/p[3]/a[1]))">
@@ -185,11 +193,11 @@ INSERT INTO pattern (id, type, name, url, starturl, icon, pattern, subpattern, d
                         <![CDATA[</location>]]>
                         <![CDATA[<price>]]>
                           <regexp replace="true" >
-                            <regexp-pattern>^Tickets:(.*)</regexp-pattern>
+                            <regexp-pattern>^(How much|Tickets):(.*)</regexp-pattern>
                             <regexp-source><xpath expression="normalize-space(data(//*[@id=''main-content-inner'']/div/div[1]/section[1]/div/div/p[4]))">
                                 <var name="siteSnippet"/>
                             </xpath></regexp-source>
-                            <regexp-result><template>${_1}</template></regexp-result>
+                            <regexp-result><template>${_2}</template></regexp-result>
                           </regexp>                        <![CDATA[</price>]]>
                         <![CDATA[<pictures>]]><xpath expression="normalize-space(data(//*[@id=''main-content-inner'']//section/div[@class=''inner-box'']/div/a[@rel=''prettyPhoto'']/img/@src))"><var name="siteSnippet" /></xpath><![CDATA[</pictures>]]>
                 </template>
