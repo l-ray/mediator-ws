@@ -252,31 +252,49 @@ INSERT INTO pattern (id, type, name, url, starturl, icon, pattern, subpattern, d
                 </empty>
                 <template>
                         <![CDATA[<title>]]>
-                          <regexp replace="1">
-                              <regexp-pattern>&amp; </regexp-pattern>
-                              <regexp-source>
-                                <xpath expression="normalize-space(data(//header[@id=''header'']//div[@id=''sectionHead'']/h1/text()))">
-                                        <var name="siteSnippet"/>
-                                </xpath>
-                              </regexp-source>
-                              <regexp-result><template>&amp;amp; </template></regexp-result>
-                          </regexp>
+                        <regexp replace="1">
+                            <regexp-pattern>^(.*)at.*</regexp-pattern>
+                            <regexp-source>
+                                <regexp replace="1">
+                                    <regexp-pattern>&amp; </regexp-pattern>
+                                    <regexp-source>
+                                      <xpath expression="normalize-space(data(//header[@id=''header'']//div[@id=''sectionHead'']/h1/text()))">
+                                              <var name="siteSnippet"/>
+                                      </xpath>
+                                    </regexp-source>
+                                    <regexp-result><template>&amp;amp; </template></regexp-result>
+                                </regexp>
+                            </regexp-source>
+                            <regexp-result><![CDATA[$1]]></regexp-result>
+                        </regexp>
                         <![CDATA[</title>]]>
                         <![CDATA[<location>]]>
                           <regexp replace="1">
-                              <regexp-pattern>&amp; </regexp-pattern>
-                              <regexp-source>
-                                <xpath expression="normalize-space(data(//aside[@id=''detail'']/ul/li[2]))">
-                                        <var name="siteSnippet"/>
-                                </xpath>
-                              </regexp-source>
-                              <regexp-result><template>&amp;amp; </template></regexp-result>
+                            <regexp-pattern>^.*at(.*)</regexp-pattern>
+                            <regexp-source>
+                                <regexp replace="1">
+                                    <regexp-pattern>&amp; </regexp-pattern>
+                                    <regexp-source>
+                                      <xpath expression="normalize-space(data(//header[@id=''header'']//div[@id=''sectionHead'']/h1/text()))">
+                                              <var name="siteSnippet"/>
+                                      </xpath>
+                                    </regexp-source>
+                                    <regexp-result><template>&amp;amp; </template></regexp-result>
+                                </regexp>
+                            </regexp-source>
+                            <regexp-result><![CDATA[$1]]></regexp-result>
                           </regexp>
                         <![CDATA[</location>]]>
                         <![CDATA[<price>]]>
+                          <regexp replace="true" >
+                            <regexp-pattern>^Cost /(.*)</regexp-pattern>
+                            <regexp-source>
                                 <xpath expression="normalize-space(data(//aside[@id=''detail'']/ul/li[3]))">
-                                        <var name="siteSnippet"/>
+                                    <var name="siteSnippet"/>
                                 </xpath>
+                            </regexp-source>
+                            <regexp-result><![CDATA[$1]]></regexp-result>
+                          </regexp>
                         <![CDATA[</price>]]>
                         <loop item="picture">
                           <list>
