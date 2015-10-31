@@ -1,0 +1,44 @@
+<loop item="event" index="i">
+    <list>
+        <xpath expression=\'//div[@class="event"]\'>
+            <html-to-xml treatdeprtagsascontent="1" treatunknowntagsascontent="1">
+                <http url="${baseUrl}${startUrl}"/>
+            </html-to-xml>
+        </xpath>
+    </list>
+    <body>
+        <empty>
+            <var-def name="test"><xpath expression=\'//div[@class="name"]/text()\'>
+                <var name="event"/>
+            </xpath>
+        </var-def>
+        </empty>
+        <template>
+            <![CDATA[<results>]]>
+            <![CDATA[<title>]]>
+                <xpath expression=\'//div[@class="name"]/text()\'>
+                    <var name="event"/>
+                </xpath>
+            <![CDATA[</title>]]>
+            <![CDATA[<subtitle>]]>
+                <xpath expression=\'//div[@class="subtitle"]/text()\'>
+                    <var name="event"/>
+                </xpath>
+            <![CDATA[</subtitle>]]>
+            <![CDATA[<price>]]>
+                <xpath expression=\'//span[@class="price"]/text()\'>
+                    <var name="event"/>
+                </xpath>
+            <![CDATA[</price>]]>
+            <![CDATA[<pictures>]]>${baseUrl}
+                <xpath expression=\'//img/@src\'>
+                    <var name="event"/>
+                </xpath>
+            <![CDATA[</pictures>]]>
+            <![CDATA[<start>]]>${startDate}<![CDATA[</start>]]>
+            <![CDATA[<location>]]>dummyLocation<![CDATA[</location>]]>
+            <![CDATA[<url>]]>${baseUrl}<![CDATA[</url>]]>
+            <![CDATA[</results>]]>
+        </template>
+    </body>
+</loop>
