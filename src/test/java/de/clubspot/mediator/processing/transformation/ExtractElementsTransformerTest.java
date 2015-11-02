@@ -20,7 +20,7 @@ import static junit.framework.Assert.assertTrue;
 public class ExtractElementsTransformerTest extends AbstractTransformerTest {
 
     private static final Logger LOG =
-            LoggerFactory.getLogger(RegionalFormatsRewriteTransformerTest.class);
+            LoggerFactory.getLogger(ExtractElementsTransformerTest.class);
 
     private SAXPipelineComponent underTest;
 
