@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<?xml-stylesheet type="text/xsl" href="./transform.xsl" ?>
+    <eventlist baseUrl="baseurl" startUrl="starturl" xpath="-eventlistXpath-" condition="-eventlist-condition-" regex="-eventlist-regex-">
+        <event>
+            <title>
+                <regex pattern="-regex-pattern-" result="-regex-result-">
+                    <xpath>-title-xpath-</xpath>
+                </regex>
+            </title>
+            <grouping url="-grouping-url-">
+              <location>
+                  <regex pattern="-regex-pattern-" result="-regex-result-">
+                      <xpath>-xpath-url-</xpath>
+                  </regex>
+              </location>
+              <name>
+                  <regex pattern="-regex-pattern-" result="-regex-result-">
+                      <xpath>-xpath-url-</xpath>
+                  </regex>
+              </name>
+              <pictures>
+                  <regex pattern="-regex-pattern-" result="-regex-result-">
+                      <xpath>-xpath-url-</xpath>
+                  </regex>
+              </pictures>
+              <price>
+                  <regex pattern="-regex-pattern-" result="-regex-result-">
+                      <xpath>-xpath-url-</xpath>
+                  </regex>
+              </price>
+              <link>
+                  <regex pattern="-regex-pattern-" result="-regex-result-">
+                      <xpath>-xpath-url-</xpath>
+                  </regex>
+              </link>
+            </grouping>
+        </event>
+    </eventlist>
