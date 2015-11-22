@@ -19,7 +19,7 @@ import static junit.framework.Assert.assertTrue;
 public class AddConnectionIdToElementsTransformerTest extends AbstractTransformerTest {
 
     private static final Logger LOG =
-            LoggerFactory.getLogger(RegionalFormatsRewriteTransformerTest.class);
+            LoggerFactory.getLogger(AddConnectionIdToElementsTransformerTest.class);
 
 
     private SAXPipelineComponent underTest;
@@ -119,7 +119,7 @@ public class AddConnectionIdToElementsTransformerTest extends AbstractTransforme
         String SOURCE_XML =
                 "<resultset><result><picture>http://picture.de/picture.jpg</picture></result></resultset>";
 
-        String SHOULD_APPEAR = "<resultset><whatever><picture>dummy</picture></whatever></resultset>";;
+        String SHOULD_APPEAR = "<resultset><whatever><picture>dummy</picture></whatever></resultset>";
 
         final CacheKey simpleCachekey = new SimpleCacheKey();
         final Cache simpleCache = new SimpleCache();
