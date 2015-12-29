@@ -41,6 +41,8 @@ public class PatternCodeGenerator extends StringTemplateGenerator {
     public static final String DATE_FORMAT = "yyyy-MM-dd";
     public static final String PARAM_START_DATE = "startDate";
     public static final String PARAM_PATTERN_ID = "patternId";
+    public static final String PARAM_MAX_RESULTS = "maxResults";
+
     public static final int EXPIRING_TIME = 3600;
     public static final String DB_CONNECTION = "dbConnection";
 
@@ -51,6 +53,8 @@ public class PatternCodeGenerator extends StringTemplateGenerator {
     private Date startDate = null;
 
     private Date endDate = null;
+
+    private Integer maxResult = -1;
 
     @Override
     public void setup(final Map<String, Object> parameter) {
@@ -74,6 +78,10 @@ public class PatternCodeGenerator extends StringTemplateGenerator {
         if (parameter.get(PARAM_END_DATE) != null)
             endDate = parseDate((String) parameter.get(PARAM_END_DATE));
 
+        if (parameter.get(PARAM_MAX_RESULTS) != null)
+            maxResult = (Integer) parameter.get(PARAM_MAX_RESULTS);
+
+
     }
 
     /**
@@ -89,6 +97,8 @@ public class PatternCodeGenerator extends StringTemplateGenerator {
                         new HashMap<String, String>() {{
                             put(PARAM_PATTERN_ID, patternId);
                             put(PARAM_START_DATE, startDate.toString());
+                            put(PARAM_MAX_RESULTS, maxResult.toString());
+
                         }}
                 ),
                 Integer.toString(EXPIRING_TIME)
@@ -173,6 +183,7 @@ public class PatternCodeGenerator extends StringTemplateGenerator {
                 + "\n<var-def name=\"baseUrl\"><![CDATA[" + urlWrapper.getUrl(template.getUrl()) + "]]></var-def>"
                 + "\n<var-def name=\"startUrl\"><![CDATA[" + urlWrapper.getUrl(template.getStartUrl()) + "]]></var-def>"
                 + "\n<var-def name=\"startDate\"><![CDATA[" + df.format(this.startDate) + "]]></var-def>"
+                + "\n<var-def name=\"maxResult\"><![CDATA[" + this.maxResult + "]]></var-def>"
                 + ((this.endDate != null) ? "\n<var-def name=\"endDate\"><![CDATA[" + df.format(this.endDate) + "]]></var-def>" : "")
                 + template.getCompiledPattern() + "\n</config>";
 
