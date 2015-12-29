@@ -22,15 +22,12 @@ import java.util.Map;
 
 import static junit.framework.Assert.assertTrue;
 
-/**
- * Created by lray on 26.01.15.
- */
 public abstract class AbstractTransformerTest {
 
     protected Map<String,Object> pipelineSetup = null;
 
     @BeforeClass
-    public static void setUp() {
+    public static void setUp() throws Exception {
         XMLUnit.setIgnoreWhitespace(false);
         XMLUnit.setIgnoreComments(true);
         XMLUnit.setIgnoreAttributeOrder(true);
