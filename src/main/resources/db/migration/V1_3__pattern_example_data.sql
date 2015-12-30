@@ -107,9 +107,17 @@ INSERT INTO pattern (id, type, name, url, starturl, icon, pattern, subpattern, d
 				</html-to-xml> </var-def>
 		</empty>
 		<template>
-			<![CDATA[<title>]]><xpath expression="normalize-space(data(//div[@id=''contentsingle'']//article/header/div/div/h1[@class=''event_title'']))">
-					<var name="siteSnippet"/>
-				</xpath><![CDATA[</title>]]>
+			<![CDATA[<title>]]>
+			  <regexp replace="1">
+          <regexp-pattern>&amp;</regexp-pattern>
+          <regexp-source>
+            <xpath expression="normalize-space(data(//div[@id=''contentsingle'']//article/header/div/div/h1[@class=''event_title'']))">
+					    <var name="siteSnippet"/>
+				    </xpath>
+          </regexp-source>
+          <regexp-result><template>&amp;amp;</template></regexp-result>
+        </regexp>
+			<![CDATA[</title>]]>
 			<![CDATA[<start>]]><xpath expression="normalize-space(data(//div[@id=''contentsingle'']//article/header/div[2]/div/div[1]/div[@class=''eventdate'']/span))">
 					<var name="siteSnippet"/>
 				</xpath><![CDATA[</start>]]>
@@ -174,20 +182,32 @@ INSERT INTO pattern (id, type, name, url, starturl, icon, pattern, subpattern, d
                 </empty>
                 <template>
                         <![CDATA[<title>]]>
-                            <regexp replace="true" >
-                                <regexp-pattern>Who:(.*)</regexp-pattern>
+                              <regexp replace="1">
+                                <regexp-pattern>&amp;</regexp-pattern>
                                 <regexp-source>
-                                               <xpath expression="normalize-space(data(//*[@id=''main-content-inner'']/div/div[1]/section[1]/div/div/p[1]))">
-                                                        <var name="siteSnippet"/>
-                                                </xpath>
-                                </regexp-source>
-                                <regexp-result><![CDATA[$1]]></regexp-result>
-                            </regexp>
+                                 <regexp replace="true" >
+                                    <regexp-pattern>Who:(.*)</regexp-pattern>
+                                    <regexp-source>
+                                                   <xpath expression="normalize-space(data(//*[@id=''main-content-inner'']/div/div[1]/section[1]/div/div/p[1]))">
+                                                            <var name="siteSnippet"/>
+                                                    </xpath>
+                                    </regexp-source>
+                                    <regexp-result><![CDATA[$1]]></regexp-result>
+                                </regexp>
+                               </regexp-source>
+                                <regexp-result><template>&amp;amp;</template></regexp-result>
+                              </regexp>
                         <![CDATA[</title>]]>
                         <![CDATA[<location>]]>
-                                <xpath expression="normalize-space(data(//*[@id=''main-content-inner'']/div/div[1]/section[1]/div/div/p[3]/a[1]))">
-                                        <var name="siteSnippet"/>
-                                </xpath>
+                                <regexp replace="true" >
+                                    <regexp-pattern>Where:(.*)</regexp-pattern>
+                                    <regexp-source>
+                                      <xpath expression="normalize-space(data(//*[@id=''main-content-inner'']/div/div[1]/section[1]/div/div/p[3]/a[1]))">
+                                          <var name="siteSnippet"/>
+                                      </xpath>
+                                    </regexp-source>
+                                    <regexp-result><![CDATA[$1]]></regexp-result>
+                                </regexp>
                         <![CDATA[</location>]]>
                         <![CDATA[<price>]]>
                           <regexp replace="true" >
@@ -252,19 +272,19 @@ INSERT INTO pattern (id, type, name, url, starturl, icon, pattern, subpattern, d
                 </empty>
                 <template>
                         <![CDATA[<title>]]>
-                        <regexp replace="1">
+                          <regexp replace="1">
                             <regexp-pattern>^(.*)at.*</regexp-pattern>
                             <regexp-source>
-                                <regexp replace="1">
-                                    <regexp-pattern>&amp; </regexp-pattern>
-                                    <regexp-source>
-                                      <xpath expression="normalize-space(data(//header[@id=''header'']//div[@id=''sectionHead'']/h1/text()))">
-                                              <var name="siteSnippet"/>
-                                      </xpath>
-                                    </regexp-source>
-                                    <regexp-result><template>&amp;amp; </template></regexp-result>
-                                </regexp>
-                            </regexp-source>
+                              <regexp replace="1">
+                                  <regexp-pattern>&amp; </regexp-pattern>
+                                  <regexp-source>
+                                    <xpath expression="normalize-space(data(//header[@id=''header'']//div[@id=''sectionHead'']/h1/text()))">
+                                            <var name="siteSnippet"/>
+                                    </xpath>
+                                  </regexp-source>
+                                  <regexp-result><template>&amp;amp; </template></regexp-result>
+                              </regexp>
+                          </regexp-source>
                             <regexp-result><![CDATA[$1]]></regexp-result>
                         </regexp>
                         <![CDATA[</title>]]>

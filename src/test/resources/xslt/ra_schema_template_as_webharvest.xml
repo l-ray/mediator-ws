@@ -1,39 +1,143 @@
-<?xml version="1.0" encoding="UTF-8"?><config xmlns="http://web-harvest.sourceforge.net/schema/1.0/config" charset="UTF-8"><var-def name="baseUrl">http://www.residentadvisor.net</var-def><var-def name="startDate">2015-10-30</var-def><var-def name="endDate">2015-01-30</var-def><function name="subpage01"><return><template>&lt;sourcelink&gt;${sys.escapeXml(pageUrl.toString())}&lt;/sourcelink&gt;</template><empty><var-def name="siteSnippet"><html-to-xml advancedxmlescape="0" specialentities="false" treatdeprtagsascontent="1" unicodechars="0" treatunknowntagsascontent="0" allowhtmlinsideattributes="0"><http url="${pageUrl}"/></html-to-xml></var-def></empty>
-    <template>
-        &lt;description&gt;
-        <xpath expression="normalize-space(data(string-join(//*[@id='event-item']/div[@class='left']/p/text(),' ')))"><var name="siteSnippet"/></xpath>
-        &lt;/description&gt;
-    </template>
-    <template>
-        &lt;location&gt;
-        <xpath expression="normalize-space(data(//aside[@id='detail']/ul/li[2]))"><var name="siteSnippet"/></xpath>
-        &lt;/location&gt;
-    </template>
-    <loop item="pic" index="j"><list>
-        <xpath expression="data(//*[@id='event-item']//div[@class='flyer']/a/img/@src)"><var name="siteSnippet"/></xpath>
-    </list><body><template>
-        &lt;pictures&gt;<var name="pic"/>&lt;/pictures&gt;
-    </template></body></loop>
-    <template>
-        &lt;price&gt;
-        <xpath expression="normalize-space(data(//aside[@id='detail']/ul/li[3]))"><var name="siteSnippet"/></xpath>
-        &lt;/price&gt;
-    </template>
-</return></function>
-    <loop item="article" index="i"><list><xpath expression="//*[@itemtype='http://data-vocabulary.org/Event']"><html-to-xml treatdeprtagsascontent="1" treatunknowntagsascontent="0"><http url="http://www.residentadvisor.net/events.aspx?ai=43&amp;v=day&amp;mn=12&amp;yr=2015&amp;dy=30"/></html-to-xml></xpath></list><body>
-        <template>
-            &lt;results&gt;</template>
-        <template>&lt;title&gt;
-
-            <xpath expression="normalize-space(data(//header[@id='header']//div[@id='sectionHead']/h1/text()))"><var name="article"/></xpath>
-
-            &lt;/title&gt;</template>
-        <template>
-            &lt;start&gt;
-            <xpath expression="substring(data(//*[@itemprop='startDate']/@datetime),0,11)"><var name="article"/></xpath>
-            &lt;/start&gt;
-        </template>
-        <call name="subpage01"><call-param name="pageUrl"><empty><var-def name="articleUrl"><xpath expression="//*[@itemprop='url']/@href"><var name="article"/></xpath></var-def></empty><template>${baseUrl}${articleUrl}</template></call-param></call>
-        <template>&lt;/results&gt;</template>
-    </body></loop>
+<?xml version="1.0" encoding="UTF-8"?>
+<config xmlns="http://web-harvest.sourceforge.net/schema/1.0/config" charset="UTF-8">
+    <var-def name="baseUrl">http://www.residentadvisor.net</var-def>
+    <var-def name="startDate">2015-10-30</var-def>
+    <var-def name="endDate">2015-01-30</var-def>
+    <function name="subpage01">
+        <return>
+            <template>&lt;sourcelink&gt;${sys.escapeXml(pageUrl.toString())}&lt;/sourcelink&gt;</template>
+            <empty>
+                <var-def name="siteSnippet-1">
+                    <html-to-xml advancedxmlescape="0" specialentities="false" treatdeprtagsascontent="1"
+                                 unicodechars="0" treatunknowntagsascontent="0" allowhtmlinsideattributes="0">
+                        <http url="${pageUrl}"/>
+                    </html-to-xml>
+                </var-def>
+            </empty>
+            <template>
+                &lt;description&gt;
+                <regexp replace="1">
+                    <regexp-pattern>&amp; </regexp-pattern>
+                    <regexp-source>
+                        <xpath expression="normalize-space(data(string-join(//*[@id='event-item']/div[@class='left']/p/text(),' ')))">
+                            <var name="siteSnippet-1"/>
+                        </xpath>
+                    </regexp-source>
+                    <regexp-result>
+                        <template>&amp;amp;</template>
+                    </regexp-result>
+                </regexp>
+                &lt;/description&gt;
+            </template>
+            <loop item="pic" index="j">
+                <list>
+                    <regexp replace="1">
+                        <regexp-pattern>&amp; </regexp-pattern>
+                        <regexp-source>
+                            <xpath expression="data(//*[@id='event-item']//div[@class='flyer']/a/img/@src)">
+                                <var name="siteSnippet-1"/>
+                            </xpath>
+                        </regexp-source>
+                        <regexp-result>
+                            <template>&amp;amp;</template>
+                        </regexp-result>
+                    </regexp>
+                </list>
+                <body>
+                    <template>
+                        &lt;pictures&gt;<var name="pic"/>&lt;/pictures&gt;
+                    </template>
+                </body>
+            </loop>
+            <template>
+                &lt;price&gt;
+                <regexp replace="1">
+                    <regexp-pattern>&amp; </regexp-pattern>
+                    <regexp-source>
+                        <xpath expression="normalize-space(data(//aside[@id='detail']/ul/li[3]))">
+                            <var name="siteSnippet-1"/>
+                        </xpath>
+                    </regexp-source>
+                    <regexp-result>
+                        <template>&amp;amp;</template>
+                    </regexp-result>
+                </regexp>
+                &lt;/price&gt;
+            </template>
+        </return>
+    </function>
+    <loop item="article-1" index="i">
+        <list>
+            <xpath expression="//*[@itemtype='http://data-vocabulary.org/Event']">
+                <html-to-xml treatdeprtagsascontent="1" treatunknowntagsascontent="0">
+                    <http url="http://www.residentadvisor.net/events.aspx?ai=43&amp;v=day&amp;mn=12&amp;yr=2015&amp;dy=30"/>
+                </html-to-xml>
+            </xpath>
+        </list>
+        <body>
+            <template>
+                &lt;results&gt;</template>
+            <template>&lt;title&gt;
+                <regexp replace="1">
+                    <regexp-pattern>&amp; </regexp-pattern>
+                    <regexp-source>
+                        <regexp replace="true">
+                            <regexp-pattern>^(.*)at.*</regexp-pattern>
+                            <regexp-source>
+                                <xpath expression="normalize-space(data(//h1[@itemprop='summary']))">
+                                    <var name="article-1"/>
+                                </xpath>
+                            </regexp-source>
+                            <regexp-result>$1</regexp-result>
+                        </regexp>
+                    </regexp-source>
+                    <regexp-result>
+                        <template>&amp;amp;</template>
+                    </regexp-result>
+                </regexp>
+                &lt;/title&gt;
+            </template>
+            <template>
+                &lt;location&gt;
+                <regexp replace="1">
+                    <regexp-pattern>&amp; </regexp-pattern>
+                    <regexp-source>
+                        <regexp replace="true">
+                            <regexp-pattern>^.*at(.*)</regexp-pattern>
+                            <regexp-source>
+                                <xpath expression="normalize-space(data(//h1[@itemprop='summary']))">
+                                    <var name="article-1"/>
+                                </xpath>
+                            </regexp-source>
+                            <regexp-result>$1</regexp-result>
+                        </regexp>
+                    </regexp-source>
+                    <regexp-result>
+                        <template>&amp;amp;</template>
+                    </regexp-result>
+                </regexp>
+                &lt;/location&gt;
+            </template>
+            <template>
+                &lt;start&gt;
+                <xpath expression="substring(data(//*[@itemprop='startDate']/@datetime),0,11)">
+                    <var name="article-1"/>
+                </xpath>
+                &lt;/start&gt;
+            </template>
+            <call name="subpage01">
+                <call-param name="pageUrl">
+                    <empty>
+                        <var-def name="articleUrl">
+                            <xpath expression="//*[@itemprop='url']/@href">
+                                <var name="article-1"/>
+                            </xpath>
+                        </var-def>
+                    </empty>
+                    <template>http://www.residentadvisor.net${articleUrl}</template>
+                </call-param>
+            </call>
+            <template>&lt;/results&gt;</template>
+        </body>
+    </loop>
 </config>

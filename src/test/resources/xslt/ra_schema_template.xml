@@ -10,8 +10,15 @@
             regex="-eventlist-regex-">
         <event>
             <title>
-                <xpath>normalize-space(data(//header[@id='header']//div[@id='sectionHead']/h1/text()))</xpath>
+                <regex pattern="^(.*)at.*" result="$1">
+                    <xpath>normalize-space(data(//h1[@itemprop='summary']))</xpath>
+                </regex>
             </title>
+            <location>
+                <regex pattern="^.*at(.*)" result="$1">
+                    <xpath>normalize-space(data(//h1[@itemprop='summary']))</xpath>
+                </regex>
+            </location>
             <start>
                 <xpath>substring(data(//*[@itemprop='startDate']/@datetime),0,11)</xpath>
             </start>
@@ -19,9 +26,6 @@
                 <description>
                     <xpath>normalize-space(data(string-join(//*[@id='event-item']/div[@class='left']/p/text(),' ')))</xpath>
                 </description>
-                <location>
-                    <xpath>normalize-space(data(//aside[@id='detail']/ul/li[2]))</xpath>
-                </location>
                 <pictures>
                     <xpath>data(//*[@id='event-item']//div[@class='flyer']/a/img/@src)</xpath>
                 </pictures>

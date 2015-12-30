@@ -12,17 +12,10 @@
     </xsl:template>
 
     <xsl:template match="pattern">
-
-            <var-def name="baseUrl">
-                <xsl:value-of select="@baseUrl"/>
-            </var-def>
-            <!-- var-def name="startUrl">
-                <xsl:value-of select="@startUrl" />
-            </var-def -->
             <var-def name="startDate"><![CDATA[2015-10-30]]></var-def>
             <var-def name="endDate"><![CDATA[2015-01-30]]></var-def>
             <xsl:for-each select="//grouping">
-                <xsl:variable name="forVariable" select="concat('siteSnippet-',generate-id())" />
+                <xsl:variable name="forVariable">siteSnippet-<xsl:number/></xsl:variable>
                 <function name="subpage01">
                     <return>
                         <template><![CDATA[<sourcelink>${sys.escapeXml(pageUrl.toString())}</sourcelink>]]></template>
@@ -52,7 +45,7 @@
     </xsl:template>
 
     <xsl:template match="eventlist">
-        <xsl:variable name="loopVariable" select="concat('article-',generate-id())" />
+        <xsl:variable name="loopVariable">article-<xsl:number/></xsl:variable>
         <loop item="article" index="i">
             <xsl:attribute name="item">
                 <xsl:value-of select="$loopVariable" />
@@ -98,7 +91,7 @@
                     </var-def>
                 </empty>
                 <!-- TODO: Replace with baseUrl from document -->
-                <template>${baseUrl}${articleUrl}</template>
+                <template><xsl:value-of select="ancestor::pattern[1]/@baseUrl" />${articleUrl}</template>
             </call-param>
         </call>
     </xsl:template>
@@ -107,26 +100,26 @@
         <xsl:param name="xmlSource" />
         <template>
             <![CDATA[<results>]]></template><xsl:apply-templates>
-            <xsl:with-param name="xmlSource" select="$xmlSource" />
-            </xsl:apply-templates><template><![CDATA[</results>]]></template>
+                    <xsl:with-param name="xmlSource" select="$xmlSource" />
+                </xsl:apply-templates><template><![CDATA[</results>]]></template>
     </xsl:template>
 
     <xsl:template match="title">
         <xsl:param name="xmlSource" />
-        <template><![CDATA[<title>]]><!--/template -->
-                <xsl:apply-templates>
-                    <xsl:with-param name="xmlSource" select="$xmlSource" />
-                </xsl:apply-templates>
-        <!-- template --><![CDATA[</title>]]></template>
+        <template><![CDATA[<title>]]>
+            <xsl:call-template name="cleanAmpersand">
+                <xsl:with-param name="xmlSource" select="$xmlSource" />
+            </xsl:call-template>
+        <![CDATA[</title>]]></template>
     </xsl:template>
 
     <xsl:template match="location">
         <xsl:param name="xmlSource" />
         <template>
             <![CDATA[<location>]]>
-            <xsl:apply-templates>
+            <xsl:call-template name="cleanAmpersand">
                 <xsl:with-param name="xmlSource" select="$xmlSource" />
-            </xsl:apply-templates>
+            </xsl:call-template>
             <![CDATA[</location>]]>
         </template>
     </xsl:template>
@@ -135,9 +128,9 @@
         <xsl:param name="xmlSource" />
         <template>
             <![CDATA[<price>]]>
-                <xsl:apply-templates>
+                <xsl:call-template name="cleanAmpersand">
                     <xsl:with-param name="xmlSource" select="$xmlSource" />
-                </xsl:apply-templates>
+                </xsl:call-template>
             <![CDATA[</price>]]>
         </template>
     </xsl:template>
@@ -146,9 +139,9 @@
         <xsl:param name="xmlSource" />
         <loop item="pic" index="j">
             <list>
-                <xsl:apply-templates>
+                <xsl:call-template name="cleanAmpersand">
                     <xsl:with-param name="xmlSource" select="$xmlSource" />
-                </xsl:apply-templates>
+                </xsl:call-template>
             </list>
             <body>
             <template>
@@ -162,8 +155,8 @@
         <xsl:param name="xmlSource" />
         <template>
             <![CDATA[<start>]]><xsl:apply-templates>
-                <xsl:with-param name="xmlSource" select="$xmlSource" />
-            </xsl:apply-templates><![CDATA[</start>]]>
+            <xsl:with-param name="xmlSource" select="$xmlSource" />
+        </xsl:apply-templates><![CDATA[</start>]]>
         </template>
     </xsl:template>
 
@@ -177,9 +170,13 @@
     </xsl:template>
 
     <xsl:template match="regex">
+        <xsl:param name="xmlSource" />
         <regexp replace="true" >
             <regexp-pattern><xsl:value-of select="@pattern"/></regexp-pattern>
-            <regexp-source><xsl:apply-templates /></regexp-source>
+            <regexp-source><xsl:apply-templates>
+                <xsl:with-param name="xmlSource" select="$xmlSource" />
+            </xsl:apply-templates>
+            </regexp-source>
             <regexp-result><xsl:value-of select="@result"/></regexp-result>
         </regexp>
     </xsl:template>
@@ -187,30 +184,28 @@
     <xsl:template match="description">
         <xsl:param name="xmlSource" />
         <template>
-            <![CDATA[<description>]]><xsl:apply-templates>
-            <xsl:with-param name="xmlSource" select="$xmlSource" />
-        </xsl:apply-templates>
+            <![CDATA[<description>]]><xsl:call-template name="cleanAmpersand">
+                <xsl:with-param name="xmlSource" select="$xmlSource" />
+            </xsl:call-template>
             <![CDATA[</description>]]>
         </template>
     </xsl:template>
 
     <xsl:template match="eventlist//grouping//xpath" priority="5">
         <xsl:param name="xmlSource" />
-        <xsl:call-template name="genericxpathresolve">
+        <xsl:call-template name="genericXPathResolve">
             <xsl:with-param name="xmlSource" select="$xmlSource" />
-            <!-- xsl:with-param name="xmlSource">siteSnippet</xsl:with-param -->
         </xsl:call-template>
     </xsl:template>
 
-
     <xsl:template match="eventlist//xpath" priority="4">
         <xsl:param name="xmlSource" />
-        <xsl:call-template name="genericxpathresolve">
+        <xsl:call-template name="genericXPathResolve">
             <xsl:with-param name="xmlSource" select="$xmlSource" />
         </xsl:call-template>    
     </xsl:template>
     
-    <xsl:template name="genericxpathresolve">
+    <xsl:template name="genericXPathResolve">
         <xsl:param name="xmlSource" />
         <xpath>
             <xsl:attribute name="expression">
@@ -221,8 +216,20 @@
                     <xsl:value-of select="$xmlSource" />
                 </xsl:attribute>
             </var>
-            <!-- xsl:value-of select="concat(concat('${',ancestor::loop[1]/@item),'}')"/ -->
         </xpath>
+    </xsl:template>
+
+    <xsl:template name="cleanAmpersand">
+        <xsl:param name="xmlSource" />
+        <regexp replace="1">
+            <regexp-pattern>&amp; </regexp-pattern>
+            <regexp-source>
+                <xsl:apply-templates>
+                    <xsl:with-param name="xmlSource" select="$xmlSource" />
+                </xsl:apply-templates>
+            </regexp-source>
+            <regexp-result><template>&amp;amp; </template></regexp-result>
+        </regexp>
     </xsl:template>
 
 </xsl:stylesheet>
