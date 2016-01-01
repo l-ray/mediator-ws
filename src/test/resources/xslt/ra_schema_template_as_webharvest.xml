@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <config xmlns="http://web-harvest.sourceforge.net/schema/1.0/config" charset="UTF-8">
-    <var-def name="baseUrl">http://www.residentadvisor.net</var-def>
     <var-def name="startDate">2015-10-30</var-def>
     <var-def name="endDate">2015-01-30</var-def>
     <function name="subpage01">
@@ -34,7 +33,7 @@
                     <regexp replace="1">
                         <regexp-pattern>&amp; </regexp-pattern>
                         <regexp-source>
-                            <xpath expression="data(//*[@id='event-item']//div[@class='flyer']/a/img/@src)">
+                            <xpath expression="//*[@id='event-item']//div[@class='flyer']/a/img/@src">
                                 <var name="siteSnippet-1"/>
                             </xpath>
                         </regexp-source>
@@ -70,7 +69,7 @@
         <list>
             <xpath expression="//*[@itemtype='http://data-vocabulary.org/Event']">
                 <html-to-xml treatdeprtagsascontent="1" treatunknowntagsascontent="0">
-                    <http url="http://www.residentadvisor.net/events.aspx?ai=43&amp;v=day&amp;mn=12&amp;yr=2015&amp;dy=30"/>
+                    <http url="http://www.residentadvisor.net/events.aspx?ai=43&amp;v=day&amp;mn=12&amp;yr=2015&amp;dy=31"/>
                 </html-to-xml>
             </xpath>
         </list>
@@ -120,7 +119,7 @@
             </template>
             <template>
                 &lt;start&gt;
-                <xpath expression="substring(data(//*[@itemprop='startDate']/@datetime),0,11)">
+                <xpath expression="normalize-space(data(substring(data(//*[@itemprop='startDate']/@datetime),0,11)))">
                     <var name="article-1"/>
                 </xpath>
                 &lt;/start&gt;
@@ -134,7 +133,14 @@
                             </xpath>
                         </var-def>
                     </empty>
-                    <template>http://www.residentadvisor.net${articleUrl}</template>
+                    <case>
+                        <if condition="${articleUrl.toString().indexOf(&#34;http&#34;) != 0}">
+                            <template>http://www.residentadvisor.net${articleUrl}</template>
+                        </if>
+                        <else>
+                            <template>${articleUrl}</template>
+                        </else>
+                    </case>
                 </call-param>
             </call>
             <template>&lt;/results&gt;</template>

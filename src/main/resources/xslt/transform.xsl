@@ -91,7 +91,17 @@
                     </var-def>
                 </empty>
                 <!-- TODO: Replace with baseUrl from document -->
-                <template><xsl:value-of select="ancestor::pattern[1]/@baseUrl" />${articleUrl}</template>
+                <case>
+                    <if>
+                        <xsl:attribute name="condition">
+                            <xsl:text><![CDATA[${articleUrl.toString().indexOf("http") != 0}]]></xsl:text>
+                        </xsl:attribute>
+                        <template><xsl:value-of select="ancestor::pattern[1]/@baseUrl" />${articleUrl}</template>
+                    </if>
+                    <else>
+                        <template>${articleUrl}</template>
+                    </else>
+                </case>
             </call-param>
         </call>
     </xsl:template>
@@ -141,6 +151,7 @@
             <list>
                 <xsl:call-template name="cleanAmpersand">
                     <xsl:with-param name="xmlSource" select="$xmlSource" />
+                    <xsl:with-param name="skipAdjustment">true</xsl:with-param>
                 </xsl:call-template>
             </list>
             <body>
@@ -193,23 +204,31 @@
 
     <xsl:template match="eventlist//grouping//xpath" priority="5">
         <xsl:param name="xmlSource" />
+        <xsl:param name="skipAdjustment">false</xsl:param>
         <xsl:call-template name="genericXPathResolve">
             <xsl:with-param name="xmlSource" select="$xmlSource" />
+            <xsl:with-param name="skipAdjustment" select="$skipAdjustment" />
         </xsl:call-template>
     </xsl:template>
 
     <xsl:template match="eventlist//xpath" priority="4">
         <xsl:param name="xmlSource" />
+        <xsl:param name="skipAdjustment">false</xsl:param>
         <xsl:call-template name="genericXPathResolve">
             <xsl:with-param name="xmlSource" select="$xmlSource" />
+            <xsl:with-param name="skipAdjustment" select="$skipAdjustment" />
         </xsl:call-template>    
     </xsl:template>
     
     <xsl:template name="genericXPathResolve">
         <xsl:param name="xmlSource" />
+        <xsl:param name="skipAdjustment">false</xsl:param>
         <xpath>
             <xsl:attribute name="expression">
-                <xsl:value-of select="."/>
+                <xsl:choose>
+                    <xsl:when test="not($skipAdjustment = 'false')"><xsl:value-of select="."/></xsl:when>
+                    <xsl:otherwise>normalize-space(data(<xsl:value-of select="."/>))</xsl:otherwise>
+                </xsl:choose>
             </xsl:attribute>
             <var>
                 <xsl:attribute name="name">
@@ -221,11 +240,13 @@
 
     <xsl:template name="cleanAmpersand">
         <xsl:param name="xmlSource" />
+        <xsl:param name="skipAdjustment">false</xsl:param>
         <regexp replace="1">
             <regexp-pattern>&amp; </regexp-pattern>
             <regexp-source>
                 <xsl:apply-templates>
                     <xsl:with-param name="xmlSource" select="$xmlSource" />
+                    <xsl:with-param name="skipAdjustment" select="$skipAdjustment" />
                 </xsl:apply-templates>
             </regexp-source>
             <regexp-result><template>&amp;amp; </template></regexp-result>

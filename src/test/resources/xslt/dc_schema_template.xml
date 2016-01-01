@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<?xml-stylesheet type="text/xsl" href="./transform.xsl" ?>
+<!-- TODO: Find a way to encode ampersands -->
+<pattern
+        baseUrl="http://www.dublinconcerts.ie"
+        startUrl="/upcoming-gigs/">
+    <eventlist
+            xpath="//*[@itemtype='http://data-vocabulary.org/Event']"
+            conditionXPath="substring(data(//*[@itemprop='startDate']/@datetime),0,11)"
+            conditionCompareTo="startDate.toString()">
+        <event>
+            <start>${startDate}</start>
+            <url><xpath>//*[@itemprop='url']/@href</xpath></url>
+            <grouping url="//*[@itemprop='url']/@href">
+                <title>
+                    <regex pattern="Who:(.*)" result="$1">
+                        <xpath>normalize-space(data(//*[@id='main-content-inner']/div/div[1]/section[1]/div/div/p[1]))</xpath>
+                    </regex>
+                </title>
+                <location>
+                    <regex pattern="Where:(.*)" result="$1">
+                        <xpath>normalize-space(data(//*[@id='main-content-inner']/div/div[1]/section[1]/div/div/p[3]/a[1]))</xpath>
+                    </regex>
+                </location>
+                <price>
+                    <regex pattern="^(How much|Tickets):(.*)" result="$2">
+                        <xpath>normalize-space(data(//*[@id='main-content-inner']/div/div[1]/section[1]/div/div/p[4]))</xpath>
+                    </regex>
+                </price>
+                <pictures>
+                    <xpath>normalize-space(data(//*[@id='main-content-inner']//section/div[@class='inner-box']/div/a[@rel='prettyPhoto']/img/@src))</xpath>
+                </pictures>
+            </grouping>
+        </event>
+    </eventlist>
+</pattern>

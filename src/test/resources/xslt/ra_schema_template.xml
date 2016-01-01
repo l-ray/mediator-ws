@@ -3,7 +3,7 @@
 <!-- TODO: Find a way to encode ampersands -->
 <pattern
         baseUrl="http://www.residentadvisor.net"
-        startUrl="/events.aspx?ai=43&amp;v=day&amp;mn=12&amp;yr=2015&amp;dy=30">
+        startUrl="/events.aspx?ai=43&amp;v=day&amp;mn=12&amp;yr=2015&amp;dy=31">
     <eventlist
             xpath="//*[@itemtype='http://data-vocabulary.org/Event']"
             condition="-eventlist-condition-"
@@ -11,12 +11,12 @@
         <event>
             <title>
                 <regex pattern="^(.*)at.*" result="$1">
-                    <xpath>normalize-space(data(//h1[@itemprop='summary']))</xpath>
+                    <xpath>//h1[@itemprop='summary']</xpath>
                 </regex>
             </title>
             <location>
                 <regex pattern="^.*at(.*)" result="$1">
-                    <xpath>normalize-space(data(//h1[@itemprop='summary']))</xpath>
+                    <xpath>//h1[@itemprop='summary']</xpath>
                 </regex>
             </location>
             <start>
@@ -24,13 +24,13 @@
             </start>
             <grouping url="//*[@itemprop='url']/@href">
                 <description>
-                    <xpath>normalize-space(data(string-join(//*[@id='event-item']/div[@class='left']/p/text(),' ')))</xpath>
+                    <xpath>string-join(//*[@id='event-item']/div[@class='left']/p/text(),' ')</xpath>
                 </description>
                 <pictures>
-                    <xpath>data(//*[@id='event-item']//div[@class='flyer']/a/img/@src)</xpath>
+                    <xpath>//*[@id='event-item']//div[@class='flyer']/a/img/@src</xpath>
                 </pictures>
                 <price>
-                    <xpath>normalize-space(data(//aside[@id='detail']/ul/li[3]))</xpath>
+                    <xpath>//aside[@id='detail']/ul/li[3]</xpath>
                 </price>
             </grouping>
         </event>
