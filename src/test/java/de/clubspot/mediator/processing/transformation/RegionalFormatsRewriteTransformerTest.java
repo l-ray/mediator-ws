@@ -11,8 +11,11 @@ import org.junit.Before;
 import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import sun.util.calendar.Gregorian;
 
 import java.io.ByteArrayOutputStream;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.HashMap;
 
 import static junit.framework.Assert.assertTrue;
@@ -25,9 +28,12 @@ public class RegionalFormatsRewriteTransformerTest extends AbstractTransformerTe
 
     public SAXPipelineComponent underTest;
 
+    public String currentYear;
+
     @Before
     public void beforeMethod() {
         underTest = new RegionalFormatsRewriteTransformer();
+        currentYear = Integer.toString(Calendar.getInstance().get(Calendar.YEAR));
     }
 
     @Test
@@ -64,7 +70,7 @@ public class RegionalFormatsRewriteTransformerTest extends AbstractTransformerTe
         final ByteArrayOutputStream baos = transformThroughPipeline("<start>Freitag, 16. Mai</start>", underTest);
         final String actualDocument = new String(baos.toByteArray(), "UTF-8");
 
-        final Diff diff = new Diff("<start>2015-05-16</start>", actualDocument);
+        final Diff diff = new Diff("<start>"+currentYear+"-05-16</start>", actualDocument);
 
         assertTrue("LinkRewrite transformation didn't work as expected " + diff,
                 diff.identical());
@@ -90,7 +96,7 @@ public class RegionalFormatsRewriteTransformerTest extends AbstractTransformerTe
         final ByteArrayOutputStream baos = transformThroughPipeline("<start>Tuesday, 5 May</start>", underTest);
         final String actualDocument = new String(baos.toByteArray(), "UTF-8");
 
-        final Diff diff = new Diff("<start>2015-05-05</start>", actualDocument);
+        final Diff diff = new Diff("<start>"+currentYear+"-05-05</start>", actualDocument);
 
         assertTrue("LinkRewrite transformation didn't work as expected " + diff,
                 diff.identical());
