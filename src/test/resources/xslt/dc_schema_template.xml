@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <?xml-stylesheet type="text/xsl" href="./transform.xsl" ?>
-<!-- TODO: Find a way to encode ampersands -->
+
 <pattern
         baseUrl="http://www.dublinconcerts.ie"
         startUrl="/upcoming-gigs/">
@@ -10,7 +10,7 @@
             conditionCompareTo="startDate.toString()">
         <event>
             <start>${startDate}</start>
-            <url><xpath>//*[@itemprop='url']/@href</xpath></url>
+            <sourcelink><xpath>//*[@itemprop='url']/@href</xpath></sourcelink>
             <grouping url="//*[@itemprop='url']/@href">
                 <title>
                     <regex pattern="Who:(.*)" result="$1">
