@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?><config xmlns="http://web-harvest.sourceforge.net/schema/1.0/config" charset="UTF-8"><var-def name="startDate">2015-10-30</var-def><var-def name="endDate">2015-01-30</var-def><function name="subpage01"><return><template>&lt;sourcelink&gt;${sys.escapeXml(pageUrl.toString())}&lt;/sourcelink&gt;</template><empty><var-def name="siteSnippet-1"><html-to-xml advancedxmlescape="0" specialentities="false" treatdeprtagsascontent="1" unicodechars="0" treatunknowntagsascontent="0" allowhtmlinsideattributes="0"><http url="${pageUrl}"/></html-to-xml></var-def></empty>
+    <template>&lt;title&gt;
+        <regexp replace="1"><regexp-pattern>&amp; </regexp-pattern><regexp-source>
+            <xpath expression="normalize-space(data(//div[@id='contentsingle']//article/header/div/div/h1[@class='event_title']))"><var name="siteSnippet-1"/></xpath>
+        </regexp-source><regexp-result><template>&amp;amp; </template></regexp-result></regexp>
+        &lt;/title&gt;</template>
+    <template>
+        &lt;description&gt;<regexp replace="1"><regexp-pattern>&amp; </regexp-pattern><regexp-source>
+        <xpath expression="normalize-space(data(//div[@id='contentsingle']//article/section))"><var name="siteSnippet-1"/></xpath>
+    </regexp-source><regexp-result><template>&amp;amp; </template></regexp-result></regexp>
+        &lt;/description&gt;
+    </template>
+    <template>
+        &lt;start&gt;
+        <xpath expression="normalize-space(data(//div[@id='contentsingle']//article/header/div[2]/div/div[1]/div[@class='eventdate']/span))"><var name="siteSnippet-1"/></xpath>
+        &lt;/start&gt;
+    </template>
+    <template>
+        &lt;price&gt;
+        <regexp replace="1"><regexp-pattern>&amp; </regexp-pattern><regexp-source>
+            <xpath expression="normalize-space(data(//div[@id='contentsingle']//article/header/div[2]/div/div[1]/div[@class='ticket_price_single']/span[1]))"><var name="siteSnippet-1"/></xpath>
+        </regexp-source><regexp-result><template>&amp;amp; </template></regexp-result></regexp>
+        &lt;/price&gt;
+    </template>
+    <loop item="pic" index="j"><list><regexp replace="1"><regexp-pattern>&amp; </regexp-pattern><regexp-source>
+        <xpath expression="//div[@id='contentsingle']/div/img/@src"><var name="siteSnippet-1"/></xpath>
+    </regexp-source><regexp-result><template>&amp;amp; </template></regexp-result></regexp></list><body><template>
+        &lt;pictures&gt;<var name="pic"/>&lt;/pictures&gt;
+    </template></body></loop>
+</return></function>
+    <loop item="article-1" index="i"><list><loop item="linkTags" filter="unique"><list><xpath expression="//div[@class='date_list']/div"><html-to-xml treatdeprtagsascontent="1" treatunknowntagsascontent="0"><http url="http://theworkmansclub.com/events/"/></html-to-xml></xpath></list><body><empty><var-def name="eventDate"><xpath expression="concat(//div[@class='day']/text(),' ',//div[@class='month']/text())"><var name="linkTags"/></xpath></var-def><var-def name="comparisonDate"><template>${startDate}</template></var-def></empty><case><if condition="${eventDate.toString().equals(comparisonDate.toString())}"><var name="linkTags"/></if></case></body></loop></list><body>
+        <template>
+            &lt;results&gt;</template>
+        <xpath expression="normalize-space(data(//*[@itemprop='url']/@href))"><var name="article-1"/></xpath>
+        <template>
+            &lt;location&gt;
+            <regexp replace="1"><regexp-pattern>&amp; </regexp-pattern><regexp-source>The Workmans Club</regexp-source><regexp-result><template>&amp;amp; </template></regexp-result></regexp>
+            &lt;/location&gt;
+        </template>
+        <call name="subpage01"><call-param name="pageUrl"><empty><var-def name="articleUrl"><xpath expression="/div/a/@href"><var name="article-1"/></xpath></var-def></empty><case><if condition="${articleUrl.toString().indexOf(&#34;http&#34;) != 0}"><template>http://theworkmansclub.com${articleUrl}</template></if><else><template>${articleUrl}</template></else></case></call-param></call>
+        <template>&lt;/results&gt;</template>
+    </body></loop>
+</config>

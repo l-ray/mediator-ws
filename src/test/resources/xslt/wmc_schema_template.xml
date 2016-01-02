@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<?xml-stylesheet type="text/xsl" href="./transform.xsl" ?>
+<pattern
+        baseUrl="http://theworkmansclub.com"
+        startUrl="/events/">
+    <eventlist
+            xpath="//div[@class='date_list']/div"
+            conditionXPath="concat(//div[@class='day']/text(),' ',//div[@class='month']/text())"
+            conditionCompareTo="startDate">
+        <event>
+            <sourcelink><xpath>//*[@itemprop='url']/@href</xpath></sourcelink>
+            <location>The Workmans Club</location>
+            <grouping url="/div/a/@href">
+                <title>
+                    <xpath>//div[@id='contentsingle']//article/header/div/div/h1[@class='event_title']</xpath>
+                </title>
+                <description>
+                    <xpath>//div[@id='contentsingle']//article/section</xpath>
+                </description>
+                <start>
+                    <xpath>//div[@id='contentsingle']//article/header/div[2]/div/div[1]/div[@class='eventdate']/span</xpath>
+                </start>
+                <price>
+                    <xpath>//div[@id='contentsingle']//article/header/div[2]/div/div[1]/div[@class='ticket_price_single']/span[1]</xpath>
+                </price>
+                <pictures>
+                    <xpath>//div[@id='contentsingle']/div/img/@src</xpath>
+                </pictures>
+            </grouping>
+        </event>
+    </eventlist>
+</pattern>

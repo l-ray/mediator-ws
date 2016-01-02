@@ -51,18 +51,62 @@
                 <xsl:value-of select="$loopVariable" />
             </xsl:attribute>
             <list>
-                <xpath>
-                    <xsl:attribute name="expression">
-                        <xsl:value-of select="@xpath" />
-                    </xsl:attribute>
-                    <html-to-xml treatdeprtagsascontent="1" treatunknowntagsascontent="0">
-                        <http>
-                            <xsl:attribute name="url">
-                                <xsl:value-of select="ancestor::pattern[1]/@baseUrl" /><xsl:value-of select="ancestor::pattern[1]/@startUrl" />
+                <xsl:choose>
+                    <xsl:when test="string-length(@conditionXPath)>0">
+                        <loop item="linkTags" filter="unique">
+                            <list>
+                                <xpath>
+                                    <xsl:attribute name="expression">
+                                        <xsl:value-of select="@xpath" />
+                                    </xsl:attribute>
+                                    <html-to-xml treatdeprtagsascontent="1" treatunknowntagsascontent="0">
+                                        <http>
+                                            <xsl:attribute name="url">
+                                                <xsl:value-of select="ancestor::pattern[1]/@baseUrl" /><xsl:value-of select="ancestor::pattern[1]/@startUrl" />
+                                            </xsl:attribute>
+                                        </http>
+                                    </html-to-xml>
+                                </xpath>
+                            </list>
+                            <body>
+                                <empty>
+                                    <var-def name="eventDate">
+                                         <xpath>
+                                             <xsl:attribute name="expression">
+                                                 <xsl:value-of select="@conditionXPath" />
+                                             </xsl:attribute>
+                                             <var name="linkTags" />
+                                         </xpath>
+                                    </var-def>
+                                    <var-def name="comparisonDate">
+                                        <template>${<xsl:value-of select="@conditionCompareTo" />}</template>
+                                    </var-def>
+                                </empty>
+                                <case>
+                                    <if>
+                                        <xsl:attribute name="condition"><xsl:text>${eventDate.toString().equals(comparisonDate.toString())}</xsl:text></xsl:attribute>
+                                        <var name="linkTags" />
+                                    </if>
+                                </case>
+                            </body>
+                        </loop>
+                    </xsl:when>
+                    <xsl:otherwise>
+                        <xpath>
+                            <xsl:attribute name="expression">
+                                <xsl:value-of select="@xpath" />
                             </xsl:attribute>
-                        </http>
-                    </html-to-xml>
-                </xpath>
+                            <html-to-xml treatdeprtagsascontent="1" treatunknowntagsascontent="0">
+                                <http>
+                                    <xsl:attribute name="url">
+                                        <xsl:value-of select="ancestor::pattern[1]/@baseUrl" /><xsl:value-of select="ancestor::pattern[1]/@startUrl" />
+                                    </xsl:attribute>
+                                </http>
+                            </html-to-xml>
+                        </xpath>
+                    </xsl:otherwise>
+                </xsl:choose>
+
             </list>
             <body>
                 <xsl:apply-templates>

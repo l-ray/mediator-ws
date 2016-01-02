@@ -1,7 +1,6 @@
 package xslt;
 
 import de.clubspot.mediator.processing.transformation.AbstractTransformerTest;
-import de.clubspot.mediator.processing.transformation.AddConnectionIdToElementsTransformer;
 import de.clubspot.mediator.processing.transformation.RegionalFormatsRewriteTransformerTest;
 import org.apache.cocoon.sax.SAXPipelineComponent;
 import org.apache.cocoon.sax.component.XSLTTransformer;
@@ -48,6 +47,27 @@ public class PatternCodeXSLTransformationTest extends AbstractTransformerTest {
 
         String SOURCE_XML = readFile("src/test/resources/xslt/ra_schema_template.xml");
         String EXPECTED_RESULT_XML = readFile("src/test/resources/xslt/ra_schema_template_as_webharvest.xml");
+
+        XMLUnit.setIgnoreWhitespace(true);
+
+        final ByteArrayOutputStream baos = transformThroughPipeline(SOURCE_XML, underTest);
+
+        System.out.println(new String(baos.toByteArray()));
+
+        final Diff diff = new Diff(
+                EXPECTED_RESULT_XML,
+                new String(baos.toByteArray())
+        );
+        assertTrue("Transformation did not work like expected:" + diff + ":"+new String(baos.toByteArray()),
+                diff.identical());
+    }
+
+    @Test
+    public void testTransformingXMLWithDatePreSelection()
+            throws Exception {
+
+        String SOURCE_XML = readFile("src/test/resources/xslt/wmc_schema_template.xml");
+        String EXPECTED_RESULT_XML = readFile("src/test/resources/xslt/wmc_schema_template_as_webharvest.xml");
 
         XMLUnit.setIgnoreWhitespace(true);
 
