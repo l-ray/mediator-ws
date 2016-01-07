@@ -84,7 +84,7 @@
                                 </empty>
                                 <case>
                                     <if>
-                                        <xsl:attribute name="condition"><xsl:text>${eventDate.toString().equals(comparisonDate.toString())}</xsl:text></xsl:attribute>
+                                        <xsl:attribute name="condition"><xsl:text>${eventDate.toString().indexOf(comparisonDate.toString()) != -1}</xsl:text></xsl:attribute>
                                         <var name="linkTags" />
                                     </if>
                                 </case>

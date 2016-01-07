@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<?xml-stylesheet type="text/xsl" href="./transform.xsl" ?>
+
+<pattern
+        baseUrl="http://salsa.ie/listings/"
+        startUrl="ByCounty/leinster/dublin/">
+    <eventlist
+            xpath="//table[@class='events-table']/tbody/tr"
+            conditionXPath="//td[2]/text()"
+            conditionCompareTo="startDate">
+        <event>
+            <start>
+                <regex pattern="^([0-9]{1,2}:[0-9]{2} [ap]m).*" result="${_1}">
+                    <xpath>//td[2]/text()</xpath>
+                </regex>
+            </start>
+
+            <sourcelink><xpath>//td[1]/a/@href</xpath></sourcelink>
+            <title>
+                    <xpath>//td[1]/a/text()</xpath>
+            </title>
+            <location>
+                    <xpath>//td[1]/i/text()</xpath>
+            </location>
+            <pictures>
+                <xpath>//img/@src</xpath>
+            </pictures>
+        </event>
+    </eventlist>
+</pattern>
